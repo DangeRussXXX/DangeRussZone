@@ -1,0 +1,312 @@
+
+
+/* ------------------ NAVIGATION-TABS ------------------ */
+nav {
+    background: #222;
+    padding: 10px 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav a.active,
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ------------------ FIRE HEADER WITH LIGHTNING ------------------ */
+/* ================================
+Flying image styling 
+================================ */
+
+.flying-object {
+  position: absolute;
+  width: 500px;
+  height: auto;
+  top: 2%;
+  left: 10%;
+  z-index: 5;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+  animation: flyAcross 15s linear infinite;
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(25vw) rotate(30deg);
+  }
+  50% {
+    transform: translateX(50vw) rotate(-30deg);
+  }
+  75% {
+    transform: translateX(75vw) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100vw) rotate(0deg);
+  }
+}
+
+.welcome-text {
+  position: absolute;
+  top: 50%;  /* Adjust vertical positioning as needed */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Exact center alignment */
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0; /* Start with hidden text */
+  z-index: 10; /* Ensure text appears above the flying object */
+  transition: opacity 0.3s ease;
+  animation: fadeInOut 15s linear infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0; /* Start hidden */
+  }
+  25% {
+    opacity: 1; /* Fade in as object approaches */
+  }
+  50% {
+    opacity: 1; /* Keep visible while the object is near */
+  }
+  75% {
+    opacity: 0; /* Fade out as object moves away */
+  }
+  100% {
+    opacity: 0; /* End hidden */
+  }
+}
+
+
+
+/* ------------------  LIGHTNING ------------------ */
+header {
+  text-align: center;
+  position: relative;
+  padding: 60px 20px;
+  background: url('images/lightning.png') center/cover no-repeat;
+
+}
+
+/* ------------------ FIRE HEADER ------------------ */
+.fire-text {
+  font-size: 64px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #ff6600, 0 0 20px #ffff00;
+  animation: flicker 1s infinite alternate;
+  position: relative;
+  z-index: 1; /* ensures text stays above lightning flashes */
+}
+
+@keyframes flicker {
+  0%,100% { text-shadow: 0 0 5px #ff0000,0 0 10px #ff6600,0 0 20px #ffff00; }
+  25% { text-shadow: 0 0 8px #ff3300,0 0 15px #ff9900,0 0 25px #ffff33; }
+  50% { text-shadow: 0 0 4px #ff0000,0 0 8px #ff6600,0 0 15px #ffff00; }
+  75% { text-shadow: 0 0 10px #ff3300,0 0 18px #ff9933,0 0 28px #ffff66; }
+}
+
+
+
+/* ------------------ CONTAINER & COLUMNS ------------------ */
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.column.video-column { flex: 2; }
+
+.column.third-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.third-column-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ------------------ SCARY COLUMN ------------------ */
+.scary-column {
+  text-align: center;
+  color: #ff6666;
+  font-family: 'Creepster', cursive;
+  background: url('images/Column1Swamp.png') center/cover no-repeat;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.scary-column::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('images/stars.png') repeat;
+  opacity: 0.5;
+  animation: moveStars 60s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.scary-header, .scary-text {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes flickerScary {
+  0%,100% { opacity: 1; text-shadow: 0 0 5px #ff0000,0 0 15px #660000,0 0 30px black; }
+  50% { opacity: 0.8; text-shadow: 0 0 10px #ff3300,0 0 20px #660000,0 0 40px black; }
+}
+
+.scary-header { animation: flickerScary 1.5s infinite alternate; font-size: 48px; }
+.scary-text { animation: flickerScary 2s infinite alternate; font-size: 18px; }
+
+@keyframes moveStars {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* ------------------ COLUMN 2 ------------------ */
+.video-column {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+/* Feature video container */
+.video-wrapper {
+  width: 100%;
+  height: 150%;   /* adjust if needed */
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background: black;
+  z-index: 2;
+}
+
+/* Actual main video */
+#featureVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Sound buttons above everything */
+#soundControls {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* ------------------ BUTTONS ------------------ */
+.button-column { display: flex; flex-direction: column; gap: 25px; align-items: center; width: 100%; }
+
+.danger-button {
+  display: inline-block;
+  padding: 18px 40px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #660000 10px, #660000 20px);
+  border: 3px solid #ff0000;
+  border-radius: 10px;
+  box-shadow: 0 0 15px red, 0 0 40px #ff0000;
+  transition: 0.2s ease-in-out;
+  animation: pulse 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pulse { 0%{ transform:scale(1); box-shadow:0 0 20px red; } 100%{ transform:scale(1.07); box-shadow:0 0 35px red; } }
+.danger-button:hover { transform: scale(1.1); box-shadow: 0 0 30px #ff3300,0 0 60px #ff0000; }
+
+.game-button {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(135deg, #ffcc33, #ff66cc);
+  border: 3px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px #ff99cc;
+  transition: all 0.2s ease;
+}
+
+.game-button:hover { transform: translateY(-3px) scale(1.05); box-shadow:0 10px #ff99cc; background: linear-gradient(135deg, #ffeb66, #ff99ff); }
+.game-button:active { transform: translateY(2px); box-shadow:0 4px #ff99cc; }
+
+.mystery-button {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #eee;
+  text-decoration: none;
+  background: linear-gradient(135deg, #1a1a1a, #3a0a4f);
+  border: 2px solid #6b1aff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(107,26,255,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.mystery-button::before {
+  content:'';
+  position:absolute;
+  top:-50%; left:-50%;
+  width:200%; height:200%;
+  background: radial-gradient(circle, rgba(107,26,255,0.2) 0%, transparent 70%);
+  animation: glowMove 3s infinite linear;
+  pointer-events: none;
+}
+
+.mystery-button:hover { transform: scale(1.05); box-shadow:0 0 30px rgba(107,26,255,0.9); color:#fff; }
+.mystery-button:active { transform: scale(0.98); box-shadow:0 0 15px rgba(107,26,255,0.6); }

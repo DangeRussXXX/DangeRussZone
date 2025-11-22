@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spooky Page - Video Crop with Sound</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Video wrapper stays above fireworks */
+    .video-wrapper {
+      width: 100%;
+      height: 150%; /* adjust as needed */
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+      z-index: 2;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about\about.html">About</a></li> 
+    <li><a href="gallery/gallery.html">Gallery</a></li> 
+    <li><a href="contact\contact.html">Contact</a></li> 
+  </ul>
+</nav>
+
+<!-- Fire Header -->
+<header>
+  <h1 class="fire-text">🔥 Welcome to the Danger Zone 🔥</h1>
+</header>
+
+<!-- FLYING IMAGE -->
+<img src="images/HomeFlyingObject.png" alt="Spaceship" class="flying-object">
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- COLUMN 1 -->
+  <div class="column first-column scary-column">
+      <img src="images/Column1.png" alt="Image 1" class="floating-image">
+    <h2 class="scary-header">Enter At Your Own Risk</h2>
+    <p class="scary-text">This webpage is where I do my testing...you have been WARNED!</p>
+      <div class="danger-zone">
+        <h2 class="danger-header">⚠️ ENTER OPTION 1 ⚠️</h2>
+        <a href="infected/infected.html" class="danger-button">ENTER NOW</a>
+      </div>
+  </div>
+
+  <!-- COLUMN 2: YouTube Live Embed -->
+  <div class="column video-column" style="position:relative; overflow:hidden;">
+<a href="https://www.youtube.com/@annmarie4754" 
+   target="_blank" 
+   class="game-button">
+  Visit My YouTube Channel 🎥
+</a>
+
+    <!-- Main YouTube Live Video -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/live_stream?channel=UC4Nb0pxe0_RH0iBadgSna2Q&autoplay=1"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+        <!-- Main YouTube Live Video -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/live_stream?channel=UC4Nb0pxe0_RH0iBadgSna2Q&autoplay=1"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- COLUMN 3 -->
+  <div class="column third-column">
+    <div class="third-column-content">
+      <div class="button-column">
+
+        <div class="button-section">
+          <h2>Button 2:</h2>
+          <a href="coin/coin.html" class="game-button">Enter Now 😄</a>
+        </div>
+
+        <div class="button-section">
+          <h2>Option 3:</h2>
+          <a href="mystery/mystery.html" class="mystery-button">Enter the Unknown</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div> <!-- END CONTAINER -->
+
+<!-- Footer -->
+<footer style="
+  background: #f9f9fb;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #555;
+  border-top: 1px solid #e6e6e6;
+">
+  <h2 style="margin: 0 0 10px; font-size: 1.4rem; color: #333;">
+    Thanks for visiting 💛
+  </h2>
+
+  <p style="margin: 0 0 20px; font-size: 0.95rem;">
+    Crafted with care and a bit of magic ✨
+  </p>
+
+  <div style="margin-bottom: 20px;">
+    <a href="#" style="margin: 0 10px; color: #777; text-decoration: none;">Home</a>
+    <a href="#" style="margin: 0 10px; color: #777; text-decoration: none;">About</a>
+    <a href="#" style="margin: 0 10px; color: #777; text-decoration: none;">Contact</a>
+  </div>
+
+  <small style="color: #aaa;">
+    © 2025 YourSiteName — All rights reserved.
+  </small>
+</footer>
+
+</body>
+</html>

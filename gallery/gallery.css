@@ -1,0 +1,51 @@
+
+
+/* ------------------ NAVIGATION-TABS ------------------ */
+nav {
+    background: #222;
+    padding: 10px 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #ff6600; /* or any color you prefer */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ------------------ Grid------------------ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 3 equal columns */
+  gap: 15px; /* space between images */
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* optional: rounded corners */
+  object-fit: cover;
+}
