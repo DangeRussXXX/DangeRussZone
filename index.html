@@ -117,30 +117,58 @@
 
 
 <!-- COLUMN 3 -->
-<div class="column third-column">
-  <div class="third-column-content">
 
-    <!-- YouTube Channel Link BUTTON -->
-    <a href="https://www.youtube.com/@DangerussZone" 
-       target="_blank" 
-       class="game-button">
-      Visit My YouTube Channel 🎥
-    </a>
+  <!-- YouTube Channel Button -->
+<div style="text-align:center; margin-top:20px;">
+  <a href="https://www.youtube.com/channel/UC_8Kg4SqDyJxKCM56mNM2NTw" 
+     target="_blank"
+     style="display:inline-block; padding:12px 20px; background:#cc0000; color:white; font-size:20px; border-radius:6px; text-decoration:none;">
+    Visit Our YouTube Channel
+  </a>
+</div>
 
-<!-- YouTube Video Embed TOP -->
-<h1>Crawdads</h1>
+
+
+<!-- FEATURE VIDEO CONTROL BUTTONS -->
+<div style="text-align:center; margin:25px 0;">
+  <button onclick="playFeatureVideo()" 
+          style="padding:10px 20px; margin-right:10px; font-size:18px;">
+    ▶ START Feature Video
+  </button>
+
+  <button onclick="stopFeatureVideo()"
+          style="padding:10px 20px; font-size:18px;">
+    ⏹ STOP Feature Video
+  </button>
+</div>
+
+
+
+<!-- FEATURE VIDEO (this is the one controlled by the buttons) -->
+<h1 style="text-align:center;">Feature Video</h1>
 <div class="video-wrapper">
-  <iframe 
-    src="https://www.youtube.com/embed/jfXxIkeOE8U" 
-    title="Crawdads in Aquarium" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  <iframe id="featureVideo"
+    src="https://www.youtube.com/embed/jfXxIkeOE8U"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
 </div>
 
-<!-- Main YouTube Live Video BOTTOM -->
-<h1>Live Stream</h1>
+
+
+<!-- EXTRA VIDEOS BELOW THE FEATURE VIDEO -->
+<h1>Crawdads Video</h1>
+<div class="video-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/jfXxIkeOE8U" 
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<h1>Livestream</h1>
 <div class="video-wrapper">
   <iframe
     src="https://www.youtube.com/embed/live_stream?channel=UC_8Kg4SqDyJxKCM56mNM2NTw"
@@ -150,29 +178,28 @@
   </iframe>
 </div>
 
-<!-- 360 Video -->
-<h1>Check Out This 360 Camera Video</h1>
+<h1>360 Camera Video</h1>
 <div class="video-wrapper">
   <iframe 
     src="https://www.youtube.com/embed/dvsuKU37Sec"
-    title="360 Camera"
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
 </div>
 
-<!-- Responsive Wrapper CSS (required) -->
+
+
+<!-- RESPONSIVE VIDEO CSS -->
 <style>
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1248px;  /* optional, your preferred width */
+  max-width: 1248px;
   margin: 20px auto;
-  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-bottom: 56.25%; /* 16:9 */
   height: 0;
 }
-
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -181,6 +208,22 @@
   height: 100%;
 }
 </style>
+
+
+
+<!-- FEATURE VIDEO BUTTON LOGIC -->
+<script>
+function playFeatureVideo() {
+  const iframe = document.getElementById("featureVideo");
+  iframe.src = "https://www.youtube.com/embed/jfXxIkeOE8U?autoplay=1";
+}
+
+function stopFeatureVideo() {
+  const iframe = document.getElementById("featureVideo");
+  iframe.src = "";
+}
+</script>
+
 
 
 
