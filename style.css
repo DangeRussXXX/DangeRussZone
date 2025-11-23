@@ -11,7 +11,7 @@ nav {
 .scrolling-message {
     position: absolute;
     bottom: 0;
-    left: -100%;  /* Start completely off the left side of the screen */
+    left: 0%;  /* Start completely off the left side of the screen */
     width: 25%;  /* Ensure it takes up the entire width of the screen */
     background: #ff6600;
     color: white;
@@ -19,7 +19,7 @@ nav {
     padding: 10px 0;
     font-size: 1.2rem;
     font-weight: bold;
-    animation: scrollMessage 1s linear infinite;  /* Speed up the animation */
+    animation: scrollMessage 5s linear infinite;  /* Speed up the animation */
 }
 
 .scrolling-message a {
