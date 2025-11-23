@@ -1,9 +1,9 @@
-
-
 /* ------------------ NAVIGATION-TABS ------------------ */
 nav {
     background: #222;
     padding: 10px 0;
+    position: relative;
+    overflow: hidden; /* Makes sure the scrolling message hides when it leaves the container */
 }
 
 nav ul {
@@ -26,20 +26,19 @@ nav a {
 
 nav a.active {
   font-weight: bold;
-  color: #ff6600; /* or any color you prefer */
+  color: #ff6600;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-
 /* ------------------ SCROLLING MESSAGE ------------------ */
 .scrolling-message {
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 100%;  /* Start from off the screen */
+    width: 100%;  /* Ensure it takes up the entire width of the nav */
     background: #ff6600;
     color: white;
     text-align: center;
@@ -61,12 +60,14 @@ nav a:hover {
 /* Scrolling Animation */
 @keyframes scrollMessage {
     0% {
-        transform: translateX(100%);
+        transform: translateX(100%); /* Start off screen to the right */
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* Move to off screen to the left */
     }
 }
+
+
 
 /* ------------------ FIRE HEADER WITH LIGHTNING ------------------ */
 
