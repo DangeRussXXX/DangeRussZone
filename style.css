@@ -19,7 +19,7 @@ nav {
     font-size: 1.2rem;
     font-weight: bold;
     animation: scrollMessage 15s linear infinite;  /* Speed up the animation */
-    top: 80%;  /* Adjust to avoid cutting off at the top */
+    top: %;  /* Adjust to avoid cutting off at the top */
     z-index: 9999; /* Ensure it stays on top of other content */
 }
 
