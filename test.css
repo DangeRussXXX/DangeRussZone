@@ -43,7 +43,7 @@ header {
   position: absolute;
   width: 500px;
   height: auto;
-  top: 0%; /* Adjust this for vertical position */
+  top: 85%; /* Adjust this for vertical position */
   left: 0;
   z-index: 5;
   pointer-events: none;
