@@ -162,7 +162,6 @@ header {
   0% { background-position: 0 0; }
   100% { background-position: 1000px 1000px; }
 }
-
 /* ------------------ BUTTONS ------------------ */
 .button-column { display: flex; flex-direction: column; gap: 25px; align-items: center; width: 100%; }
 
@@ -182,7 +181,7 @@ header {
 }
 
 @keyframes pulse { 0%{ transform:scale(1); box-shadow:0 0 20px red; } 100%{ transform:scale(1.07); box-shadow:0 0 35px red; } }
-.danger-button:hover { transform: scale(1.1); box-shadow: 0 0 30px #ff3300, 0 0 60px #ff0000; }
+.danger-button:hover { transform: scale(1.1); box-shadow: 0 0 30px #ff3300,0 0 60px #ff0000; }
 
 .game-button {
   display: inline-block;
@@ -201,12 +200,60 @@ header {
 .game-button:hover { transform: translateY(-3px) scale(1.05); box-shadow:0 10px #ff99cc; background: linear-gradient(135deg, #ffeb66, #ff99ff); }
 .game-button:active { transform: translateY(2px); box-shadow:0 4px #ff99cc; }
 
+.mystery-button {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #eee;
+  text-decoration: none;
+  background: linear-gradient(135deg, #1a1a1a, #3a0a4f);
+  border: 2px solid #6b1aff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(107,26,255,0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.mystery-button::before {
+  content:'';
+  position:absolute;
+  top:-50%; left:-50%;
+  width:200%; height:200%;
+  background: radial-gradient(circle, rgba(107,26,255,0.2) 0%, transparent 70%);
+  animation: glowMove 3s infinite linear;
+  pointer-events: none;
+}
+
+.mystery-button:hover { transform: scale(1.05); box-shadow:0 0 30px rgba(107,26,255,0.9); color:#fff; }
+.mystery-button:active { transform: scale(0.98); box-shadow:0 0 15px rgba(107,26,255,0.6); }
+
+/* ------------------ YOUTUBE ------------------ */
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 20px 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
 /* ------------------ FOOTER ------------------ */
 footer {
   padding: 40px 20px;
   text-align: center;
   color: #fff;
-  background: #111;
+  background: #111; /* optional background color */
   font-family: Arial, sans-serif;
 }
 
@@ -219,14 +266,15 @@ footer small {
   margin: 20px 0;
 }
 
+/* Small footer buttons */
 .footer-button {
   display: inline-block;
-  padding: 6px 12px;
-  font-size: 14px;
+  padding: 6px 12px;       /* smaller padding for small buttons */
+  font-size: 14px;         /* smaller font size */
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  background: #ff6600;
+  background: #ff6600;     /* button color */
   border: 1px solid #fff;
   border-radius: 6px;
   margin: 0 5px;
@@ -238,6 +286,7 @@ footer small {
   transform: scale(1.05);
 }
 
+/* Optional: make footer buttons stack on small screens */
 @media (max-width: 480px) {
   .footer-buttons {
     display: flex;
