@@ -54,12 +54,12 @@ Flying image styling
   position: absolute;
   width: 500px;
   height: auto;
-  top: 2%;
+  top: -88px;
   left: 10%;
   z-index: 5;
   pointer-events: none;
   transition: transform 0.3s ease;
-  animation: flyAcross 7.5s linear infinite;
+  animation: flyAcross 10s linear infinite;
 }
 
 @keyframes flyAcross {
