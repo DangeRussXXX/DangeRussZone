@@ -48,10 +48,10 @@ Flying image styling
 
 .flying-object {
   position: bottom;
-  width: 375px;
+  width: 500px;
   height: auto;
   top: 96;           /* starting at the top of the header */
-  left: 100;          /* start from left edge */
+  left: 500;          /* start from left edge */
   z-index: 50;
   pointer-events: none;
   transition: transform 0.3s ease;
