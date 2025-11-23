@@ -10,7 +10,7 @@ nav {
 .scrolling-message {
     position: absolute;
     bottom: 0;
-    left: -100%;  /* Start completely off the left side of the screen */
+    left: 0%;  /* Start completely off the left side of the screen */
     width: 100%;  /* Ensure it takes up the entire width of the screen */
     background: #ff6600;
     color: white;
