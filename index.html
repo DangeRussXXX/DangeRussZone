@@ -138,18 +138,21 @@
 
 
 
-<!-- EXTRA VIDEOS BELOW THE FEATURE VIDEO -->
-<h1>Crawdads Video</h1>
+
+<!-- YouTube Video Embed TOP -->
+<h1>Crawdads</h1>
 <div class="video-wrapper">
   <iframe 
     src="https://www.youtube.com/embed/jfXxIkeOE8U" 
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    title="Crawdads in Aquarium" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen>
   </iframe>
 </div>
 
-<h1>Livestream</h1>
+<!-- Main YouTube Live Video BOTTOM -->
+<h1>Live Stream</h1>
 <div class="video-wrapper">
   <iframe
     src="https://www.youtube.com/embed/live_stream?channel=UC_8Kg4SqDyJxKCM56mNM2NTw"
@@ -159,28 +162,29 @@
   </iframe>
 </div>
 
-<h1>360 Camera Video</h1>
+<!-- 360 Video -->
+<h1>Check Out This 360 Camera Video</h1>
 <div class="video-wrapper">
   <iframe 
     src="https://www.youtube.com/embed/dvsuKU37Sec"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    title="360 Camera"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen>
   </iframe>
 </div>
 
-
-
-<!-- RESPONSIVE VIDEO CSS -->
+<!-- Responsive Wrapper CSS (required) -->
 <style>
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1248px;
+  max-width: 1248px;  /* optional, your preferred width */
   margin: 20px auto;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
 }
+
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -189,26 +193,6 @@
   height: 100%;
 }
 </style>
-
-
-
-<!-- FEATURE VIDEO BUTTON LOGIC -->
-<script>
-function playFeatureVideo() {
-  const iframe = document.getElementById("featureVideo");
-  iframe.src = "https://www.youtube.com/embed/jfXxIkeOE8U?autoplay=1";
-}
-
-function stopFeatureVideo() {
-  const iframe = document.getElementById("featureVideo");
-  iframe.src = "";
-}
-</script>
-
-
-
-
-
 
 
 
