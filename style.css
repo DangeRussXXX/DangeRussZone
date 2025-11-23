@@ -10,14 +10,14 @@ nav {
     position: absolute;
     bottom: 0;
     left: 0%;  /* Start from off the screen */
-    width: 50%;  /* Ensure it takes up the entire width of the nav */
+    width: 25%;  /* Ensure it takes up the entire width of the nav */
     background: #ff6600;
     color: white;
     text-align: center;
     padding: 10px 0;
     font-size: 1.2rem;
     font-weight: bold;
-    animation: scrollMessage 15s linear infinite;
+    animation: scrollMessage 55s linear infinite;
 }
 
 .scrolling-message a {
