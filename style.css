@@ -19,7 +19,7 @@ nav {
     padding: 10px 0;
     font-size: 1.2rem;
     font-weight: bold;
-    animation: scrollMessage 5s linear infinite;  /* Speed up the animation */
+    animation: scrollMessage 1s linear infinite;  /* Speed up the animation */
 }
 
 .scrolling-message a {
