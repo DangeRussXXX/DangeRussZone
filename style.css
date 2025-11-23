@@ -314,7 +314,28 @@ Flying image styling
   width: 100%;
   height: 100%;
 }
+
+
+
 /* ------------------ FOOTER ------------------ */
+footer {
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+  background: #111; /* optional background color */
+  font-family: Arial, sans-serif;
+}
+
+footer small {
+  display: block;
+  margin-top: 10px;
+}
+
+.footer-buttons {
+  margin: 20px 0;
+}
+
+/* Small footer buttons */
 .footer-button {
   display: inline-block;
   padding: 6px 12px;       /* smaller padding for small buttons */
@@ -334,3 +355,12 @@ Flying image styling
   transform: scale(1.05);
 }
 
+/* Optional: make footer buttons stack on small screens */
+@media (max-width: 480px) {
+  .footer-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
