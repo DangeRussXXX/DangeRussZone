@@ -2,15 +2,15 @@
 .scrolling-message {
     position: absolute;
     bottom: 0;
-    left: 0%;  /* Start from completely off the left side of the screen */
-    width: 0%;  /* Ensure it takes up the entire width of the screen */
+    left: -100%;  /* Start from completely off the left side of the screen */
+    width: 100%;  /* Ensure it takes up the entire width of the screen */
     background: #ff6600;
     color: white;
     text-align: center;
     padding: 15px 0;  /* Increase padding for more space */
     font-size: 50rem; /* Increase font size for better visibility */
     font-weight: bold;
-    animation: scrollMessage 15s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;  /* Slow down animation */
+    animation: scrollMessage 10s linear infinite;  /* Scroll continuously with a fixed speed */
     top: 80%;  /* Adjust to avoid cutting off at the top */
     z-index: 9999; /* Ensure it stays on top of other content */
     text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff9900; /* Glowing text */
@@ -34,23 +34,12 @@
 @keyframes scrollMessage {
     0% {
         transform: translateX(-100%); /* Start off the screen to the left */
-        opacity: 0; /* Start with no opacity */
-    }
-    25% {
-        opacity: 1; /* Fade in the message */
-    }
-    50% {
-        transform: translateX(0); /* In the center, fully visible */
-        opacity: 1; /* Ensure it's fully visible */
-    }
-    75% {
-        opacity: 1; /* Keep it visible */
     }
     100% {
         transform: translateX(100%); /* Move off the screen to the right */
-        opacity: 0; /* Fade out the message */
     }
 }
+
 
 /* ------------------ NAVIGATION-TABS ------------------ */
 nav {
