@@ -1,5 +1,64 @@
 
+/* ------------------ NAVIGATION-TABS ------------------ */
+nav {
+    background: #222;
+    padding: 10px 0;
+}
 
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #ff6600; /* or any color you prefer */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------ FIRE HEADER WITH LIGHTNING ------------------ */
+header {
+  text-align: center;
+  position: relative;
+  padding: 60px 20px;
+  background: url('index/images/lightning.png') center/cover no-repeat;
+}
+
+.flying-object {
+  position: absolute;
+  width: 500px;
+  height: auto;
+  top: 10%; /* Adjust this for vertical position */
+  left: 0;
+  z-index: 5;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+  animation: flyAcross 7.5s linear infinite;
+}
+
+@keyframes flyAcross {
+  0% { transform: translate(0, -50px) rotate(15deg); }
+  25% { transform: translate(25vw, -50px) rotate(0deg); }
+  50% { transform: translate(50vw, -50px) rotate(10deg); }
+  75% { transform: translate(75vw, -50px) rotate(15deg); }
+  100% { transform: translate(100vw, -50px) rotate(15deg); }
+}
 /* ------------------ FIRE-TEXT ------------------ */
 .fire-text {
   font-size: 64px;
