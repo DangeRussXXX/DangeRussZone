@@ -51,8 +51,8 @@ Flying image styling
   width: 375px;
   height: auto;
   top: 0;           /* starting at the top of the header */
-  left: -100;          /* start from left edge */
-  z-index: 5;
+  left: 0;          /* start from left edge */
+  z-index: 50;
   pointer-events: none;
   transition: transform 0.3s ease;
   animation: flyAcross 7.5s linear infinite;
