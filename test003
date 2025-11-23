@@ -1,4 +1,4 @@
-
+WORKS
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,46 +7,6 @@
   <title>DangeRussZone</title>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Inline styles for the sound buttons */
-    #soundControls {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      position: relative;
-      z-index: 3;
-    }
-
-    #soundOnBtn, #soundOffBtn {
-      padding: 12px 24px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      background: black;
-      color: white;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      margin: 20px 0;
-      border-radius: 10px;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
 </head>
 
 <body>
@@ -54,7 +14,7 @@
 <!-- Navigation -->
 <nav>
   <ul>
-    <li><a href="test.html">TESTING</a></li> 
+    <li><a href="infected/infected.html">FreeStuff</a></li> 
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about/about.html">About</a></li> 
     <li><a href="gallery/gallery.html">Gallery</a></li> 
@@ -62,41 +22,33 @@
   </ul>
 </nav>
 
-
+<!-- HEADER-START -->
 <header>
   <h1 class="fire-text">🔥 DangeRuss Zone 🔥</h1>
-
   <img src="index/images/HomeFlyingObject.png" alt="Spaceship" class="flying-object">
 
 
 <!-- MAIN CONTAINER -->
 <div class="container">
-
   <!-- COLUMN 1 -->
   <div class="column first-column scary-column">
-    <img src="images/column1.png" alt="Image 1" class="floating-image">
+    <img src="index/images/column1.png" alt="Image 1" class="floating-image">
 
     <h2 class="scary-header">Enter At Your Own Risk</h2>
     <p class="scary-text">This webpage is where I do my testing...you have been WARNED!</p>
 
     <div class="danger-zone">
-      <h2 class="danger-header">⚠️ ENTER OPTION 1 ⚠️</h2>
-      <a href="infected/infected.html" class="danger-button">ENTER NOW</a>
+      <h2 class="danger-header"></h2>
+      <a href="test.html" class="danger-button">⚠️ENTER NOW⚠️</a>
     </div>
   </div>
 
-
-
   <!-- COLUMN 2 -->
-  <div class="column video-column" style="position:relative; overflow:hidden;">
-
-    
-        <!-- YouTube Channel Link BUTTON -->
-    <a href="https://www.youtube.com/@DangerussZone" 
-       target="_blank" 
-       class="game-button">
-      Visit My YouTube Channel 🎥
-    </a>
+  <div class="column video-column">
+    <div id="soundControls">
+      <button id="soundOnBtn">🔊 Sound On</button>
+      <button id="soundOffBtn">🔇 Sound Off</button>
+    </div>
 
     <!-- Feature Video -->
     <div class="video-wrapper">
@@ -105,100 +57,88 @@
         Your browser does not support the video tag.
       </video>
     </div>
-
-    <!-- Sound Controls -->
-    <div id="soundControls">
-      <button id="soundOnBtn">🔊 Sound On</button>
-      <button id="soundOffBtn">🔇 Sound Off</button>
-    </div>
-
-    <!-- YOUTUBE-VIDEO-1 -->
-    <h1>First</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/jfXxIkeOE8U"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-2 -->
-    <h1>Second</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-3 -->
-    <h1>Third</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-
-
-  <!-- COLUMN 3 (fixed class) -->
-  <div class="column">
-        <!-- YOUTUBE-LIVESTREAM -->
-    <h1>Live Stream</h1>
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/live_stream?channel=UC_8Kg4SqDyJxKCM56mNM2NTw"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <!-- YOUTUBE-VIDEO-1 -->
-    <h1>First</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/jfXxIkeOE8U"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-2 -->
-    <h1>Second</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-3 -->
-    <h1>Third</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-
     
-    <div class="button-column">
-      <div class="button-section">
-        <h2>Button 2:</h2>
-        <a href="coin/coin.html" class="game-button">Enter Now 😄</a>
-      </div>
+    <!-- YouTube Channel Link BUTTON -->
+    <a href="https://www.youtube.com/@DangerussZone" target="_blank" class="game-button">
+      Visit My YouTube Channel 🎥
+    </a>
 
-      <div class="button-section">
-        <h2>Option 3:</h2>
-        <a href="mystery/mystery.html" class="mystery-button">Enter the Unknown</a>
+    <!-- YouTube Videos in 3-column layout -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="flex:1 1 calc(33% - 10px);">
+        <h3>First</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/jfXxIkeOE8U" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div style="flex:1 1 calc(33% - 10px);">
+        <h3>Second</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dvsuKU37Sec" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div style="flex:1 1 calc(33% - 10px);">
+        <h3>Third</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dvsuKU37Sec" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
+  </div>
 
-  </div> <!-- END COLUMN 3 -->
+  <!-- COLUMN-LINKS-&-BUTTONS -->
+  <!-- MAIN-BUTTONS -->
+  <div class="column">
+    <div class="button-column">
+      <!-- BUTTON-1:-ABOUT -->
+      <div class="button-section">
+        <h2></h2>
+        <a href="about/about.html" class="game-button">Enter Now 😄</a>
+      </div>
+      <!-- BUTTON-2:-GALLERY -->
+      <div class="button-section">
+        <h2></h2>
+        <a href="gallery/gallery.html" class="mystery-button">Gallery</a>
+      </div>
+      <!-- BUTTON-3:-GAMES -->
+      <div class="button-section">
+        <h2></h2>
+        <a href="games/games.html" class="mystery-button">Play Games</a>
+      </div>
+      <!-- BUTTON-4:-FREE-STUFF -->
+      <div class="button-section">
+        <h2></h2>
+        <a href="infected/infected.html" class="mystery-button">FREE STUFF</a>
+      </div>
+      <!-- BUTTON-99:-CONTACT -->
+      <div class="button-section">
+        <h2></h2>
+        <a href="contact/contact.html" class="mystery-button">Contact</a>
+      </div>
 
-</div> <!-- END CONTAINER -->
+      <div>
+        <!-- FOOTER-MINI-BUTTONS -->
+        <div class="footer-buttons">
+          <!-- PayPal -->
+          <a href="https://paypal.me/risrow" target="_blank" class="footer-button">
+            <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                 alt="PayPal" style="width:16px; vertical-align:middle; margin-right:4px;">
+            PayPal
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- FOOTER -->
+<footer>
+  <h2>Thanks for visiting ✌️💛</h2>
+  <p>Crafted with fun and a bit of magic ✨</p>
+  <small>© 2025 💥DangeRussProductions💥 — All rights reserved.</small>
+</footer>
 
-
-<!-- SOUND LOGIC -->
+<!-- SOUND SCRIPT -->
 <script>
   const video = document.getElementById('featureVideo');
   const soundOnBtn = document.getElementById('soundOnBtn');
@@ -213,24 +153,9 @@
     video.muted = true;
   });
 </script>
-
-
-
-<!-- FOOTER -->
-<footer style="padding: 40px 20px; text-align: center; color: #fff;">
-  <h2>Thanks for visiting ✌️💛</h2>
-  <p>Crafted with fun and a bit of magic ✨</p>
-
-  <div style="margin-bottom: 20px;">
-    <a href="#" style="color: #fff; margin: 0 10px;">PayPal</a>
-    <a href="#" style="color: #fff; margin: 0 10px;">Zelle</a>
-    <a href="#" style="color: #fff; margin: 0 10px;">Cash App</a>
-  </div>
-
-  <small>© 2025 💥DangeRussProductions💥 — All rights reserved.</small>
-</footer>
-
+  
 </header>
-
+<!-- HEADER-END -->
 </body>
+  
 </html>
