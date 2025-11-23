@@ -51,7 +51,7 @@ Flying image styling
   width: 375px;
   height: auto;
   top: 0;           /* starting at the top of the header */
-  left: -25;          /* start from left edge */
+  left: -100;          /* start from left edge */
   z-index: 5;
   pointer-events: none;
   transition: transform 0.3s ease;
