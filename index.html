@@ -5,83 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DangeRussZone</title>
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="test.css">
 </head>
 
-  <header>
 <body>
 
 <!-- Navigation -->
-
-<!--<nav>
+<nav>
   <ul>
-    <li><a href="infected/infected.html"></a></li> 
-    <li><a href="index.html"></a></li>
-    <li><a href="about/about.html"></a></li> 
-    <li><a href="gallery/gallery.html"></a></li> 
-    <li><a href="contact/contact.html"></a></li> 
+    <li><a href="infected/infected.html">FreeStuff</a></li> 
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about/about.html">About</a></li> 
+    <li><a href="gallery/gallery.html">Gallery</a></li> 
+    <li><a href="contact/contact.html">Contact</a></li> 
   </ul>
-</nav>-->
+</nav>
 
+<!-- HEADER-START -->
+<header>
   <h1 class="fire-text">🔥 DangeRuss Zone 🔥</h1>
   <img src="index/images/HomeFlyingObject.png" alt="Spaceship" class="flying-object">
+</header>
+<!-- HEADER-END -->
 
 <!-- MAIN CONTAINER -->
 <div class="container">
+  <!-- COLUMN 1 -->
+  <div class="column first-column scary-column">
+    <img src="index/images/column1.png" alt="Image 1" class="floating-image">
 
-<!-- COLUMN 1 -->
-<div class="column first-column scary-column">
-  <img src="index/images/column1.png" alt="Image 1" class="floating-image">
+    <h2 class="scary-header">Enter At Your Own Risk</h2>
+    <p class="scary-text">This webpage is where I do my testing...you have been WARNED!</p>
 
-  <h2 class="scary-header">Enter At Your Own Risk</h2>
-  <p class="scary-text">This webpage is where I do my testing...you have been WARNED!</p>
-
-  <div class="danger-zone">
-    <h2 class="danger-header"></h2>
-    <a href="test.html" class="danger-button">⚠️ENTER NOW⚠️</a>
+    <div class="danger-zone">
+      <h2 class="danger-header"></h2>
+      <a href="test.html" class="danger-button">⚠️ENTER NOW⚠️</a>
+    </div>
   </div>
-</div>
 
-<!-- COLUMN 2 -->
-  <style>
-    /* Inline styles for the sound buttons */
-    #soundControls {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      position: relative;
-      z-index: 3;
-    }
-    #soundOnBtn, #soundOffBtn {
-      padding: 12px 24px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      background: black;
-      color: white;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      margin: 20px 0;
-      border-radius: 10px;
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-  <div class="column video-column" style="position:relative; overflow:hidden;">
-
-    <!-- SOUND-CONTROLS -->
+  <!-- COLUMN 2 -->
+  <div class="column video-column">
     <div id="soundControls">
       <button id="soundOnBtn">🔊 Sound On</button>
       <button id="soundOffBtn">🔇 Sound Off</button>
@@ -96,9 +59,7 @@
     </div>
     
     <!-- YouTube Channel Link BUTTON -->
-    <a href="https://www.youtube.com/@DangerussZone" 
-       target="_blank" 
-       class="game-button">
+    <a href="https://www.youtube.com/@DangerussZone" target="_blank" class="game-button">
       Visit My YouTube Channel 🎥
     </a>
 
@@ -125,8 +86,8 @@
     </div>
   </div>
 
-<!-- COLUMN-LINKS-&-BUTTONS -->
-<!-- MAIN-BUTTONS -->
+  <!-- COLUMN-LINKS-&-BUTTONS -->
+  <!-- MAIN-BUTTONS -->
   <div class="column">
     <div class="button-column">
       <!-- BUTTON-1:-ABOUT -->
@@ -140,39 +101,35 @@
         <a href="gallery/gallery.html" class="mystery-button">Gallery</a>
       </div>
       <!-- BUTTON-3:-GAMES -->
-            <div class="button-section">
+      <div class="button-section">
         <h2></h2>
         <a href="games/games.html" class="mystery-button">Play Games</a>
       </div>
       <!-- BUTTON-4:-FREE-STUFF -->
-            <div class="button-section">
+      <div class="button-section">
         <h2></h2>
         <a href="infected/infected.html" class="mystery-button">FREE STUFF</a>
       </div>
       <!-- BUTTON-99:-CONTACT -->
-            <div class="button-section">
+      <div class="button-section">
         <h2></h2>
         <a href="contact/contact.html" class="mystery-button">Contact</a>
       </div>
 
-        <div>
-<!-- FOOTER-MINI-BUTTONS -->
-<div class="footer-buttons">
-  <!-- PayPal -->
- <!-- PayPal -->
-<a href="https://paypal.me/risrow" target="_blank" class="footer-button">
-  <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
-       alt="PayPal" style="width:16px; vertical-align:middle; margin-right:4px;">
-  PayPal
-</a>
-
-</div>
-  </div>
+      <div>
+        <!-- FOOTER-MINI-BUTTONS -->
+        <div class="footer-buttons">
+          <!-- PayPal -->
+          <a href="https://paypal.me/risrow" target="_blank" class="footer-button">
+            <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                 alt="PayPal" style="width:16px; vertical-align:middle; margin-right:4px;">
+            PayPal
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-  
-<!-- END CONTAINER -->
 
 <!-- FOOTER -->
 <footer>
@@ -196,7 +153,6 @@
     video.muted = true;
   });
 </script>
-<!-- HEADER-END -->
-</header>
+
 </body>
 </html>
