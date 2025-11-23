@@ -53,7 +53,7 @@
 <!-- Navigation -->
 <nav>
   <ul>
-    <li><a href="test.html">TESTING</a></li> 
+    <li><a href="infected/infected.html">FreeStuff</a></li> 
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about/about.html">About</a></li> 
     <li><a href="gallery/gallery.html">Gallery</a></li> 
@@ -71,18 +71,18 @@
 <!-- MAIN CONTAINER -->
 <div class="container">
 
-  <!-- COLUMN 1 -->
-  <div class="column first-column scary-column">
-    <img src="images/column1.png" alt="Image 1" class="floating-image">
+<!-- COLUMN 1 -->
+<div class="column first-column scary-column">
+  <img src="index/images/column1.png" alt="Image 1" class="floating-image">
 
-    <h2 class="scary-header">Enter At Your Own Risk</h2>
-    <p class="scary-text">This webpage is where I do my testing...you have been WARNED!</p>
+  <h2 class="scary-header">Enter At Your Own Risk</h2>
+  <p class="scary-text">This webpage is where I do my testing...you have been WARNED!</p>
 
-    <div class="danger-zone">
-      <h2 class="danger-header">⚠️ ENTER OPTION 1 ⚠️</h2>
-      <a href="infected/infected.html" class="danger-button">ENTER NOW</a>
-    </div>
+  <div class="danger-zone">
+    <h2 class="danger-header">⚠️ ENTER OPTION 1 ⚠️</h2>
+    <a href="test.html" class="danger-button">ENTER NOW</a>
   </div>
+</div>
 
 
 
@@ -111,93 +111,59 @@
       <button id="soundOffBtn">🔇 Sound Off</button>
     </div>
 
-    <!-- YOUTUBE-VIDEO-1 -->
-    <h1>First</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/jfXxIkeOE8U"
-        allowfullscreen>
-      </iframe>
+   
+    <!-- YouTube Videos in 3-column layout -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="flex:1 1 calc(33% - 10px);">
+        <h3>First</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/jfXxIkeOE8U" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div style="flex:1 1 calc(33% - 10px);">
+        <h3>Second</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dvsuKU37Sec" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div style="flex:1 1 calc(33% - 10px);">
+        <h3>Third</h3>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/dvsuKU37Sec" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
+  </div>
 
-<!-- YOUTUBE-VIDEO-2 -->
-    <h1>Second</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-3 -->
-    <h1>Third</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-
-
-  <!-- COLUMN 3 (fixed class) -->
+<!-- COLUMN 3: BUTTONS -->
   <div class="column">
-        <!-- YOUTUBE-LIVESTREAM -->
-    <h1>Live Stream</h1>
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/live_stream?channel=UC_8Kg4SqDyJxKCM56mNM2NTw"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <!-- YOUTUBE-VIDEO-1 -->
-    <h1>First</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/jfXxIkeOE8U"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-2 -->
-    <h1>Second</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-<!-- YOUTUBE-VIDEO-3 -->
-    <h1>Third</h1>
-    <div class="video-wrapper">
-      <iframe 
-        src="https://www.youtube.com/embed/dvsuKU37Sec"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-
-    
     <div class="button-column">
       <div class="button-section">
         <h2>Button 2:</h2>
         <a href="coin/coin.html" class="game-button">Enter Now 😄</a>
       </div>
-
       <div class="button-section">
         <h2>Option 3:</h2>
         <a href="mystery/mystery.html" class="mystery-button">Enter the Unknown</a>
       </div>
     </div>
-
-  </div> <!-- END COLUMN 3 -->
+  </div>
 
 </div> <!-- END CONTAINER -->
 
+<!-- FOOTER -->
+<footer>
+  <h2>Thanks for visiting ✌️💛</h2>
+  <p>Crafted with fun and a bit of magic ✨</p>
+  <div>
+    <a href="#">PayPal</a>
+    <a href="#">Zelle</a>
+    <a href="#">Cash App</a>
+  </div>
+  <small>© 2025 💥DangeRussProductions💥 — All rights reserved.</small>
+</footer>
 
-
-<!-- SOUND LOGIC -->
+<!-- SOUND SCRIPT -->
 <script>
   const video = document.getElementById('featureVideo');
   const soundOnBtn = document.getElementById('soundOnBtn');
@@ -212,24 +178,6 @@
     video.muted = true;
   });
 </script>
-
-
-
-<!-- FOOTER -->
-<footer style="padding: 40px 20px; text-align: center; color: #fff;">
-  <h2>Thanks for visiting ✌️💛</h2>
-  <p>Crafted with fun and a bit of magic ✨</p>
-
-  <div style="margin-bottom: 20px;">
-    <a href="#" style="color: #fff; margin: 0 10px;">PayPal</a>
-    <a href="#" style="color: #fff; margin: 0 10px;">Zelle</a>
-    <a href="#" style="color: #fff; margin: 0 10px;">Cash App</a>
-  </div>
-
-  <small>© 2025 💥DangeRussProductions💥 — All rights reserved.</small>
-</footer>
-
-</header>
 
 </body>
 </html>
