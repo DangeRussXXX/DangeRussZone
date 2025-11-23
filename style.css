@@ -27,9 +27,11 @@ nav {
     text-decoration: none;
 }
 
-.scrolling-message a:hover {
-    text-decoration: underline;
+.scrolling-message:hover {
+    background: #ff9933; /* Change color when hovered */
+    text-decoration: underline; /* Add an underline on hover */
 }
+
 
 /* Scrolling Animation */
 @keyframes scrollMessage {
