@@ -131,40 +131,56 @@
 <h1>Crawdads</h1>
 <div class="video-wrapper">
   <iframe 
-    width="1248" 
-    height="702" 
     src="https://www.youtube.com/embed/jfXxIkeOE8U" 
     title="Crawdads in Aquarium" 
     frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen>
   </iframe>
 </div>
-
 
 <!-- Main YouTube Live Video BOTTOM -->
+<h1>Live Stream</h1>
 <div class="video-wrapper">
   <iframe
-    src="https://www.youtube.com/embed/live_stream?channel=UC_8Kg4SqDyJxKCM56mNM2NTw&autoplay=1"
-    allow="autoplay; encrypted-media"
+    src="https://www.youtube.com/embed/live_stream?channel=UC_8Kg4SqDyJxKCM56mNM2NTw"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
 </div>
 
+<!-- 360 Video -->
 <h1>Check Out This 360 Camera Video</h1>
 <div class="video-wrapper">
   <iframe 
-    width="1248" 
-    height="702" 
-    src="https://www.youtube.com/embed/dvsuKU37Sec" 
-    title="360 Camera" 
+    src="https://www.youtube.com/embed/dvsuKU37Sec"
+    title="360 Camera"
     frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen>
   </iframe>
 </div>
+
+<!-- Responsive Wrapper CSS (required) -->
+<style>
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1248px;  /* optional, your preferred width */
+  margin: 20px auto;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
 
 
 
