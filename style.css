@@ -10,7 +10,7 @@ nav {
 .scrolling-message {
     position: absolute;
     bottom: 0;
-    left: 0%;  /* Start completely off the left side of the screen */
+    left: 0;  /* Start completely off the left side of the screen */
     width: 100%;  /* Ensure it takes up the entire width of the screen */
     background: #ff6600;
     color: white;
@@ -19,7 +19,7 @@ nav {
     font-size: 1.2rem;
     font-weight: bold;
     animation: scrollMessage 15s linear infinite;  /* Speed up the animation */
-    top: %;  /* Adjust to avoid cutting off at the top */
+    top: 80%;  /* Adjust to avoid cutting off at the top */
     z-index: 9999; /* Ensure it stays on top of other content */
 }
 
@@ -35,15 +35,13 @@ nav {
 /* Scrolling Animation */
 @keyframes scrollMessage {
     0% {
-        transform: translateX(-100%); /* Start completely off the screen to the left */
-    }
-    50% {
-        transform: translateX(0); /* Move to the center (fully visible) */
+        transform: translateX(100%); /* Start off the screen to the right */
     }
     100% {
-        transform: translateX(100%); /* Move off the screen to the right */
+        transform: translateX(-100%); /* Move off the screen to the left */
     }
 }
+
 
 /* ------------------ FIRE HEADER WITH LIGHTNING ------------------ */
 
