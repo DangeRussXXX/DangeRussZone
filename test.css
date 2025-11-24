@@ -78,16 +78,24 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 5px #ff0000, 0 0 10px #ff6600, 0 0 20px #ffff00;
-  animation: flicker 1s infinite alternate;
   position: relative;
   z-index: 1; /* ensures text stays above lightning flashes */
+  animation: flicker 1s infinite alternate, floatUpDown 3s ease-in-out infinite;
 }
 
+/* Flicker animation (existing) */
 @keyframes flicker {
-  0%,100% { text-shadow: 0 0 5px #ff0000,0 0 10px #ff6600,0 0 20px #ffff00; }
-  25% { text-shadow: 0 0 8px #ff3300,0 0 15px #ff9900,0 0 25px #ffff33; }
-  50% { text-shadow: 0 0 4px #ff0000,0 0 8px #ff6600,0 0 15px #ffff00; }
-  75% { text-shadow: 0 0 10px #ff3300,0 0 18px #ff9933,0 0 28px #ffff66; }
+  0%, 100% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff6600, 0 0 20px #ffff00; }
+  25% { text-shadow: 0 0 8px #ff3300, 0 0 15px #ff9900, 0 0 25px #ffff33; }
+  50% { text-shadow: 0 0 4px #ff0000, 0 0 8px #ff6600, 0 0 15px #ffff00; }
+  75% { text-shadow: 0 0 10px #ff3300, 0 0 18px #ff9933, 0 0 28px #ffff66; }
+}
+
+/* New up & down floating animation */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); } /* move up 20px */
+  100% { transform: translateY(0); }
 }
 
 /* ------------------ CONTAINER & COLUMNS ------------------ */
