@@ -91,7 +91,7 @@ header {
 .flying-object {
   position: absolute;
   width: 500px;
-  height: auto;
+  height: 500px;
   top: 5%; /* Adjust this for vertical position */
   left: 0;
   z-index: 5;
