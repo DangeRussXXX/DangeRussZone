@@ -1,3 +1,46 @@
+/* ------------------ SCROLLING MESSAGE ------------------ */
+.scrolling-message {
+    position: absolute;
+    bottom: 100;
+    left: -100%;  /* Start completely off the left side */
+    width: auto;  /* Make sure width is based on content size */
+    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+    color: white;
+    text-align: center;
+    padding: 15px 0;  /* Padding for extra space around text */
+    font-size: 50rem; /* Font size for better visibility */
+    font-weight: bold;
+    animation: scrollMessage 10s linear infinite;  /* Continuous scroll */
+    top: 50%;  /* Adjust to avoid cutting off at the top */
+    z-index: 9999; /* Ensure it stays on top of other content */
+    text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff9900; /* Glowing effect */
+    transform-origin: center;
+    overflow: hidden; /* Make sure no overflow happens */
+}
+
+/* Link styling within the scrolling message */
+.scrolling-message a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal; /* Keep the link from being too bold */
+    text-transform: uppercase;
+}
+
+.scrolling-message a:hover {
+    text-decoration: underline;
+    color: #ffcc00; /* Highlight color on hover */
+}
+
+/* Scrolling Animation */
+@keyframes scrollMessage {
+    0% {
+        transform: translateX(-100%); /* Start off the screen to the left */
+    }
+    100% {
+        transform: translateX(100%); /* Move off the screen to the right */
+    }
+}
+
 
 /* ------------------ NAVIGATION-TABS ------------------ */
 nav {
