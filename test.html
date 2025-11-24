@@ -1,28 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DangeRussZone</title>
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="test.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump Scare</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        button {
+            padding: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff1a1a;
+        }
+
+        /* Styles for the jump scare image */
+        #jumpScareImage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://via.placeholder.com/1500x1000/ff0000/ffffff?text=BOO!') center center no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
 </head>
-
 <body>
-<nav style="position: relative; height: 100px;">
-    <div class="scrolling-message">
-        <a href="infected/infected.html">🎉 Click for your free prize! 🎉</a>
-    </div>
-</nav>
+    <!-- Jump scare image div -->
+    <div id="jumpScareImage"></div>
 
-  
-<!-- HEADER-START -->
-<header>
-  <h1 class="fire-text">🔥 DangeRuss Zone 🔥</h1>
-  <img src="index/images/HomeFlyingObject2.png" alt="Spaceship" class="flying-object">
-  
-</header>
-<!-- HEADER-END -->
+    <!-- Trigger button -->
+    <button id="triggerButton">Click me for a surprise!</button>
+
+    <script>
+        // Get references to the button and jump scare image
+        const button = document.getElementById("triggerButton");
+        const jumpScareImage = document.getElementById("jumpScareImage");
+
+        // Add event listener for the button click
+        button.addEventListener("click", function() {
+            // Show the jump scare image
+            jumpScareImage.style.display = "block";
+            
+            // Play a scary sound (you can replace this with any other sound)
+            const audio = new Audio('https://www.soundjay.com/button/beep-07.wav'); // Replace with your own scary sound URL
+            audio.play();
+
+            // Hide the image after 2 seconds (for the jump scare effect)
+            setTimeout(() => {
+                jumpScareImage.style.display = "none";
+            }, 2000);
+        });
+    </script>
 </body>
-  
 </html>
