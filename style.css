@@ -386,3 +386,43 @@ footer small {
     align-items: center;
   }
 }
+
+.view-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #ff7a00, #ff9900);
+  border: 3px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(255, 120, 0, 0.5);
+  font-family: 'Arial Black', sans-serif;
+  font-size: 22px;
+  color: white;
+  text-shadow: 0 0 8px #ff9900;
+  animation: popIn 0.5s ease-out forwards;
+  transform: scale(0.8);
+}
+
+.view-counter .label {
+  opacity: 0.8;
+}
+
+.view-counter .count {
+  font-size: 26px;
+  font-weight: bold;
+  animation: glowPulse 1.5s infinite ease-in-out;
+}
+
+/* Glow pulsing animation */
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 8px #ffb84d; }
+  50% { text-shadow: 0 0 18px #ff7a00; }
+  100% { text-shadow: 0 0 8px #ffb84d; }
+}
+
+/* Pop-in entrance animation */
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
