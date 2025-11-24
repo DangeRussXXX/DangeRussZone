@@ -47,3 +47,12 @@ range.addEventListener('input', () => {
   const posX = range.value + '%'; // 0% = full left, 100% = full right
   video.style.objectPosition = `${posX} center`;
 });
+
+<script>
+fetch("https://api.countapi.xyz/hit/YOURUNIQUEID_HERE/viewCounter")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("viewCount").textContent = data.value;
+  });
+</script>
+
