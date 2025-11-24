@@ -34,8 +34,7 @@ nav {
 
     padding: 2px 0;
     position: relative;
-    z-index: 1; /* Ensure nav has lower z-index */
-    overflow: hidden; /* Ensures scrolling message is clipped when outside */
+
 }
 
 
