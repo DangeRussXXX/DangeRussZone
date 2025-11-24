@@ -1,7 +1,7 @@
 /* ------------------ SCROLLING MESSAGE LIKE FLYING OBJECT ------------------ */
 .scrolling-message {
     position: absolute;       /* Like flying object */
-    top: 10%;                 /* Vertical position */
+    top: 2%;                 /* Vertical position */
     left: 0%;              /* Start off-screen left */
     white-space: nowrap;
     font-size: 2.5rem;
