@@ -11,7 +11,7 @@
     font-size: 50rem; /* Font size for better visibility */
     font-weight: bold;
     animation: scrollMessage 10s linear infinite;  /* Continuous scroll */
-    top: 80%;  /* Adjust to avoid cutting off at the top */
+    top: 50%;  /* Adjust to avoid cutting off at the top */
     z-index: 9999; /* Ensure it stays on top of other content */
     text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff9900; /* Glowing effect */
     transform-origin: center;
