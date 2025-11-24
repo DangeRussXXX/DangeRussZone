@@ -142,8 +142,15 @@
   <span id="viewCount" class="count">0</span>
 </div>
 
-    <!-- LINKED JAVASCRIPT FILE -->
-    <script src="index/script/script.js"></script>
+    <!-- COUNTER-API -->
+<script>
+fetch("https://api.countapi.xyz/hit/https://dangerussxxx.github.io/DangeRussZone/viewCounter")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("viewCount").textContent = data.value;
+  });
+</script>
+
 
 
   
