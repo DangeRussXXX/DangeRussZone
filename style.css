@@ -33,7 +33,7 @@
 /* ------------------ NAVIGATION-TABS ------------------ */
 nav {
     background: #222;
-    padding: 10px 0;
+    padding: 2px 0;
     position: relative;
     z-index: 1; /* Ensure nav has lower z-index */
     overflow: hidden; /* Ensures scrolling message is clipped when outside */
@@ -71,7 +71,7 @@ nav a:hover {
 header {
   text-align: center;
   position: relative;
-  padding: 120px;
+  padding: 2px;
   background: url('index/images/lightning.png') center/cover no-repeat;
 }
 
