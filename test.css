@@ -11,7 +11,7 @@
     font-size: 5rem; /* Reduced font size */
     font-weight: bold;
     animation: scrollMessage 10s linear infinite;  /* Continuous scroll */
-    top: 50%;  /* Adjust to avoid cutting off at the top */
+    top: 25%;  /* Adjust to avoid cutting off at the top */
     z-index: 9999; /* Ensure it stays on top */
     text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff9900; /* Glowing effect */
     transform-origin: center;
