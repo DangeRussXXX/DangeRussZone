@@ -156,8 +156,15 @@
   soundOffBtn.addEventListener('click', () => {
     video.muted = true;
   });
+</script><!-- VIEW-COUNTER -->
+  <script>
+fetch("https://api.countapi.xyz/hit/YOURUNIQUEID_HERE/viewCounter")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("viewCount").textContent = data.value;
+  });
 </script>
-  
+
 </header>
 <!-- HEADER-END -->
 </body>
