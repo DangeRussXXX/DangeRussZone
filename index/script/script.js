@@ -35,24 +35,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Video muted, icon updated to 🔇");
     }
   });
-});
-// Manual left/right crop slider
-const video = document.getElementById('featureVideo');
-const range = document.getElementById('cropRange');
-
-// Initialize center
-video.style.objectPosition = '50% center';
-
-range.addEventListener('input', () => {
-  const posX = range.value + '%'; // 0% = full left, 100% = full right
-  video.style.objectPosition = `${posX} center`;
-});
-
-<script>
-fetch("https://api.countapi.xyz/hit/YOURUNIQUEID_HERE/viewCounter")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("viewCount").textContent = data.value;
-  });
-</script>
 
