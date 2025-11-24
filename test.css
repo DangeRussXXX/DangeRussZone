@@ -44,7 +44,7 @@ nav {
 header {
   text-align: center;
   position: relative;
-  padding: 20px; /* small padding around text */
+  padding: 2px; /* small padding around text */
   height: auto;  /* automatically fits content */
   background: url('index/images/lightning.png') center/cover no-repeat;
   background-size: cover;
