@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Psychedelic Flying Page</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        font-family: "Comic Sans MS", sans-serif;
+        background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff8800);
+        background-size: 600% 600%;
+        animation: trippyBackground 10s ease infinite;
+    }
+
+    /* Background color-morphing animation */
+    @keyframes trippyBackground {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Flying text class */
+    .flying-text {
+        position: absolute;
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0 0 15px #000;
+        animation: flyText 8s linear infinite;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    @keyframes flyText {
+        0%   { transform: translate(-10vw, 0vh) rotate(0deg); }
+        50%  { transform: translate(110vw, -20vh) rotate(180deg); }
+        100% { transform: translate(-10vw, 0vh) rotate(360deg); }
+    }
+
+    /* Flying images */
+    .flying-img {
+        position: absolute;
+        width: 150px;
+        animation: flyImg 12s ease-in-out infinite;
+        filter: drop-shadow(0 0 15px #fff);
+    }
+
+    @keyframes flyImg {
+        0%   { transform: translate(0vw, 100vh) rotate(0deg); }
+        50%  { transform: translate(80vw, -20vh) rotate(180deg); }
+        100% { transform: translate(0vw, 100vh) rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<!-- ✨ EDIT TEXT HERE ✨ -->
+<div class="flying-text" style="top: 20%; left: 5%;">Your Psychedelic Text Here</div>
+<div class="flying-text" style="top: 60%; left: 10%; animation-duration: 12s;">
+    Another Flying Text
+</div>
+
+<!-- ✨ EDIT IMAGE URLS HERE ✨ -->
+<img class="flying-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Acid_smiley.svg/1024px-Acid_smiley.svg.png" 
+     style="top: 70%; left: 50%; animation-duration: 10s;">
+
+<img class="flying-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Psychedelic_art.png/600px-Psychedelic_art.png"
+     style="top: 10%; left: 5%; animation-duration: 14s;">
+
+</body>
+</html>
