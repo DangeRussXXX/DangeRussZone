@@ -36,18 +36,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-// Google search functionality
+// GOOGLE SEARCH
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
+const luckyButton = document.getElementById('luckyButton');
 
+// Perform Google search
 searchButton.addEventListener('click', () => {
   const query = searchInput.value.trim();
   if (query) {
-    const googleURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-    window.open(googleURL, "_blank");
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
   }
 });
 
+// Enter key triggers search
 searchInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') searchButton.click();
+  if (e.key === "Enter") searchButton.click();
+});
+
+// I'm Feeling Lucky (go to first result)
+luckyButton.addEventListener('click', () => {
+  const query = searchInput.value.trim();
+  if (query) {
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}&btnI=1`, "_blank");
+  }
+});
+
+// Voice Search (Web Speech API)
+document.querySelector('.mic-icon').addEventListener('click', () => {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Your browser doesn't support voice search.");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.start();
+
+  recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    searchInput.value = transcript;
+    searchButton.click();
+  };
 });
