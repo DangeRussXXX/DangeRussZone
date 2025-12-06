@@ -36,45 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Adding search bar functionality
-  const searchInput = document.getElementById('searchBar');
-  const searchButton = document.getElementById('searchButton');
-
-  // When user clicks the search button
-  searchButton.addEventListener('click', () => {
-    const query = searchInput.value.trim();  // Get the search query
-    if (query) {
-      console.log('Searching for:', query);
-      // You could now implement your search logic here, like filtering content or querying a database
-    } else {
-      console.log('Please enter a search term');
-    }
-  });
-
-  // Optional: You can also listen for the "Enter" key to submit the search
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      searchButton.click();  // Trigger the search button click event
-    }
-  });
-});
-
 // Google search functionality
-const searchInput = document.getElementById('searchBar');
+const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 
 searchButton.addEventListener('click', () => {
   const query = searchInput.value.trim();
   if (query) {
-    // Redirect to Google with the query
     const googleURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-    window.open(googleURL, "_blank");   // Opens in new tab
+    window.open(googleURL, "_blank");
   }
 });
 
-// Allow Enter key to trigger search
 searchInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    searchButton.click();
-  }
+  if (e.key === 'Enter') searchButton.click();
 });
