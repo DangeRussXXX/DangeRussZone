@@ -12,7 +12,7 @@
   transition: 0.2s ease-in-out;
   animation: pulse 1.2s infinite alternate ease-in-out;
 
-  margin-top: 20px; /* <-- adds space above the button */
+  margin-top: 30px; /* <-- adds space above the button */
 }
 
 
@@ -107,7 +107,7 @@
 /* ------------------ SCROLLING MESSAGE LIKE FLYING OBJECT (SMOKE EFFECT) ------------------ */
 .scrolling-message {
     position: absolute;       /* Like flying object */
-    top: 30px;                 /* Vertical position */
+    top: 10px;                 /* Vertical position */
     left: 0%;                 /* Start off-screen left */
     white-space: nowrap;
     font-size: 2.5rem;
