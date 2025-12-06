@@ -107,7 +107,7 @@
 /* ------------------ SCROLLING MESSAGE LIKE FLYING OBJECT (SMOKE EFFECT) ------------------ */
 .scrolling-message {
     position: absolute;       /* Like flying object */
-    top: 7px;                 /* Vertical position */
+    top: 4px;                 /* Vertical position */
     left: 0%;                 /* Start off-screen left */
     white-space: nowrap;
     font-size: 2.5rem;
