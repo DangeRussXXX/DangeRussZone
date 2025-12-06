@@ -1,3 +1,20 @@
+
+
+/* ------------------ SEARCH-BAR------------------ */
+.search-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#searchInput {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
 /* ------------------ SCROLLING MESSAGE LIKE FLYING OBJECT ------------------ */
 .scrolling-message {
     position: absolute;       /* Like flying object */
