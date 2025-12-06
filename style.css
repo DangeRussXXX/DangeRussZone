@@ -1,3 +1,28 @@
+.danger-button {
+  display: inline-block;
+  padding: 18px 40px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #660000 10px, #660000 20px);
+  border: 3px solid #ff0000;
+  border-radius: 10px;
+  box-shadow: 0 0 15px red, 0 0 40px #ff0000;
+  transition: 0.2s ease-in-out;
+  animation: pulse 1.2s infinite alternate ease-in-out;
+
+  margin-top: 50px; /* <-- adds space above the button */
+}
+
+
+@keyframes pulse { 0%{ transform:scale(1); box-shadow:0 0 20px red; } 100%{ transform:scale(1.07); box-shadow:0 0 35px red; } }
+.danger-button:hover { transform: scale(1.1); box-shadow: 0 0 30px #ff3300,0 0 60px #ff0000; }
+
+
+
+
+
 /* Search bar container */
 .search-box {
   width: 560px;
@@ -300,26 +325,6 @@ header {
 /* ------------------ BUTTONS ------------------ */
 .button-column { display: flex; flex-direction: column; gap: 25px; align-items: center; width: 100%; }
 
-.danger-button {
-  display: inline-block;
-  padding: 18px 40px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  background: repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #660000 10px, #660000 20px);
-  border: 3px solid #ff0000;
-  border-radius: 10px;
-  box-shadow: 0 0 15px red, 0 0 40px #ff0000;
-  transition: 0.2s ease-in-out;
-  animation: pulse 1.2s infinite alternate ease-in-out;
-
-  margin-top: 50px; /* <-- adds space above the button */
-}
-
-
-@keyframes pulse { 0%{ transform:scale(1); box-shadow:0 0 20px red; } 100%{ transform:scale(1.07); box-shadow:0 0 35px red; } }
-.danger-button:hover { transform: scale(1.1); box-shadow: 0 0 30px #ff3300,0 0 60px #ff0000; }
 
 .game-button {
   display: inline-block;
