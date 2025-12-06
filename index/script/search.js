@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById('searchInput');
   const searchTrigger = document.getElementById('searchTrigger');
+  const mic = document.querySelector('.mic-icon');
+
+  if (!searchInput || !searchTrigger) return;
 
   // Clicking the danger button triggers Google search
   searchTrigger.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent default link behavior
+    e.preventDefault(); // Prevent default link jump
     const query = searchInput.value.trim();
     if (query) {
       window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
@@ -16,21 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") searchTrigger.click();
   });
 
-  // Voice search (optional)
-  document.querySelector('.mic-icon').addEventListener('click', () => {
-    if (!('webkitSpeechRecognition' in window)) {
-      alert("Your browser doesn't support voice search.");
-      return;
-    }
+  // Optional: Voice search
+  if (mic && 'webkitSpeechRecognition' in window) {
+    mic.addEventListener('click', () => {
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.start();
 
-    const recognition = new webkitSpeechRecognition();
-    recognition.lang = "en-US";
-    recognition.start();
-
-    recognition.onresult = function(event) {
-      const transcript = event.results[0][0].transcript;
-      searchInput.value = transcript;
-      searchTrigger.click();
-    };
-  });
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        searchInput.value = transcript;
+        searchTrigger.click();
+      };
+    });
+  }
 });
