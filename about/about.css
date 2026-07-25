@@ -974,3 +974,50 @@ a {
 
 
 }
+
+/* =========================
+   PROFILE ACTION BUTTONS
+========================= */
+
+
+.contact-links {
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+
+}
+
+
+
+.action-link {
+
+    color:#2563eb;
+
+    border:2px solid #2563eb;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.action-link:hover {
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+}
