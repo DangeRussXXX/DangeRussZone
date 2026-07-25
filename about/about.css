@@ -13,6 +13,11 @@
    GLOBAL
 ========================= */
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
 
     font-family:
@@ -66,9 +71,10 @@ section {
 
     color: #1e3a8a;
 
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 
 }
+
 
 
 /* =========================
@@ -84,7 +90,7 @@ header {
 
     top: 0;
 
-    z-index: 100;
+    z-index: 1000;
 
 }
 
@@ -94,6 +100,8 @@ header {
     display:flex;
 
     justify-content:center;
+
+    align-items:center;
 
     list-style:none;
 
@@ -136,7 +144,7 @@ header {
 
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 
 
@@ -172,7 +180,25 @@ header {
     box-shadow:
     0 10px 30px rgba(0,0,0,.15);
 
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
 }
+
+
+.hero-image img.loaded {
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
 
 
 .hero-content h1 {
@@ -181,6 +207,8 @@ header {
 
     color:#111827;
 
+    line-height:1.2;
+
 }
 
 
@@ -188,9 +216,10 @@ header {
 
     color:#2563eb;
 
-    margin:10px 0;
+    margin:15px 0;
 
 }
+
 
 
 .tagline {
@@ -204,12 +233,26 @@ header {
 }
 
 
+
+.hero-content p {
+
+    max-width:700px;
+
+}
+
+
+
 .hero-buttons {
 
     margin-top:30px;
 
 }
 
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 
 .button {
@@ -245,6 +288,13 @@ header {
 .button.secondary {
 
     background:#374151;
+
+}
+
+
+.button.secondary:hover {
+
+    background:#111827;
 
 }
 
@@ -286,6 +336,18 @@ header {
 .card:hover {
 
     transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+.card h3 {
+
+    color:#1e3a8a;
+
+    margin-bottom:10px;
 
 }
 
@@ -330,12 +392,14 @@ header {
 
     color:#2563eb;
 
+    border:none;
+
 }
 
 
 
 /* =========================
-   SKILLS BADGES
+   SKILLS
 ========================= */
 
 
@@ -350,6 +414,7 @@ header {
     gap:12px;
 
 }
+
 
 
 .badge-container span {
@@ -397,7 +462,19 @@ details {
     box-shadow:
     0 8px 20px rgba(0,0,0,.08);
 
+    transition:.3s;
+
 }
+
+
+
+details:hover {
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.12);
+
+}
+
 
 
 summary {
@@ -409,6 +486,7 @@ summary {
 }
 
 
+
 summary::-webkit-details-marker {
 
     display:none;
@@ -416,11 +494,15 @@ summary::-webkit-details-marker {
 }
 
 
+
 summary h3 {
 
     color:#1e3a8a;
 
+    display:inline-block;
+
 }
+
 
 
 summary p {
@@ -436,6 +518,55 @@ details ul {
     margin-top:15px;
 
     padding-left:25px;
+
+}
+
+
+details li {
+
+    margin-bottom:8px;
+
+}
+
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+
+#projects {
+
+    scroll-margin-top:100px;
+
+}
+
+
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+
+.hidden {
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+
+
+.show {
+
+    opacity:1;
+
+    transform:translateY(0);
 
 }
 
@@ -461,9 +592,30 @@ footer {
 }
 
 
+
 footer a {
 
     color:#60a5fa;
+
+}
+
+
+
+footer h2 {
+
+    color:white;
+
+    border:none;
+
+}
+
+
+
+.copyright {
+
+    margin-top:20px;
+
+    color:#9ca3af;
 
 }
 
@@ -483,7 +635,10 @@ footer a {
 
     text-align:center;
 
+    padding:20px;
+
 }
+
 
 
 .hero-content h1 {
@@ -493,13 +648,13 @@ footer a {
 }
 
 
+
 .navbar {
 
     flex-direction:column;
 
-    align-items:center;
-
 }
+
 
 
 .navbar li {
@@ -509,20 +664,32 @@ footer a {
 }
 
 
+
 .button {
 
     display:block;
 
-    margin:10px auto;
+    width:220px;
 
-    width:200px;
+    margin:12px auto;
 
 }
+
 
 
 section {
 
     padding:0 20px;
+
+}
+
+
+
+.hero-image img {
+
+    width:180px;
+
+    height:180px;
 
 }
 
