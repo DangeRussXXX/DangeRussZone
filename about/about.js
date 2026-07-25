@@ -210,3 +210,51 @@ document.querySelectorAll(".navbar a").forEach(link => {
 
 
 });
+
+/* =========================
+   PRINT PROFESSIONAL PDF
+========================= */
+
+
+function printResume(){
+
+    window.print();
+
+}
+
+
+
+
+
+/* =========================
+   SHARE PROFILE
+========================= */
+
+
+function shareProfile(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:"Russ Isrow | Professional Services Engineer",
+
+            text:"Professional portfolio and technical experience",
+
+            url:window.location.href
+
+        })
+
+        .catch(error => console.log(error));
+
+    }
+
+    else {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert("Profile link copied to clipboard!");
+
+    }
+
+}
