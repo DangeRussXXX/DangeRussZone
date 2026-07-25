@@ -1,0 +1,697 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background: #f4f7fb;
+
+    color: #333;
+
+    line-height: 1.6;
+
+    padding-bottom: 40px;
+
+}
+
+
+a {
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+}
+
+
+a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+section {
+
+    max-width: 1100px;
+
+    margin: 60px auto;
+
+    padding: 0 30px;
+
+}
+
+
+.section-title {
+
+    text-align: center;
+
+    font-size: 32px;
+
+    color: #1e3a8a;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+
+header {
+
+    background: #111827;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+.navbar {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    list-style:none;
+
+    padding:20px;
+
+}
+
+
+.navbar li {
+
+    margin:0 15px;
+
+}
+
+
+.navbar a {
+
+    color:white;
+
+    font-size:18px;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+
+.navbar a:hover,
+.navbar .active {
+
+    background:#2563eb;
+
+    text-decoration:none;
+
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+
+.hero {
+
+    max-width:1100px;
+
+    margin:70px auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:40px;
+
+}
+
+
+.hero-image img {
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:8px solid white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+
+.hero-image img.loaded {
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+
+.hero-content h1 {
+
+    font-size:52px;
+
+    color:#111827;
+
+    line-height:1.2;
+
+}
+
+
+.hero-content h2 {
+
+    color:#2563eb;
+
+    margin:15px 0;
+
+}
+
+
+
+.tagline {
+
+    font-weight:bold;
+
+    color:#4b5563;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.hero-content p {
+
+    max-width:700px;
+
+}
+
+
+
+.hero-buttons {
+
+    margin-top:30px;
+
+}
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+.button {
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    margin-right:10px;
+
+    transition:.3s;
+
+}
+
+
+.button:hover {
+
+    background:#1d4ed8;
+
+    text-decoration:none;
+
+    transform:translateY(-3px);
+
+}
+
+
+.button.secondary {
+
+    background:#374151;
+
+}
+
+
+.button.secondary:hover {
+
+    background:#111827;
+
+}
+
+
+
+/* =========================
+   CARDS
+========================= */
+
+
+.card-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+
+.card {
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+.card h3 {
+
+    color:#1e3a8a;
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* =========================
+   STATS
+========================= */
+
+
+.stats {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
+
+    text-align:center;
+
+}
+
+
+.stats div {
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+.stats h2 {
+
+    font-size:45px;
+
+    color:#2563eb;
+
+    border:none;
+
+}
+
+
+
+/* =========================
+   SKILLS
+========================= */
+
+
+.badge-container {
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+
+
+.badge-container span {
+
+    background:#1f2937;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.badge-container span:hover {
+
+    background:#2563eb;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+
+details {
+
+    background:white;
+
+    margin-bottom:20px;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+details:hover {
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.12);
+
+}
+
+
+
+summary {
+
+    cursor:pointer;
+
+    list-style:none;
+
+}
+
+
+
+summary::-webkit-details-marker {
+
+    display:none;
+
+}
+
+
+
+summary h3 {
+
+    color:#1e3a8a;
+
+    display:inline-block;
+
+}
+
+
+
+summary p {
+
+    color:#6b7280;
+
+}
+
+
+
+details ul {
+
+    margin-top:15px;
+
+    padding-left:25px;
+
+}
+
+
+details li {
+
+    margin-bottom:8px;
+
+}
+
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+
+#projects {
+
+    scroll-margin-top:100px;
+
+}
+
+
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+
+.hidden {
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+
+
+.show {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+
+    background:#111827;
+
+    color:white;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+    margin-top:60px;
+
+}
+
+
+
+footer a {
+
+    color:#60a5fa;
+
+}
+
+
+
+footer h2 {
+
+    color:white;
+
+    border:none;
+
+}
+
+
+
+.copyright {
+
+    margin-top:20px;
+
+    color:#9ca3af;
+
+}
+
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+
+@media(max-width:800px) {
+
+
+.hero {
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+
+
+.hero-content h1 {
+
+    font-size:40px;
+
+}
+
+
+
+.navbar {
+
+    flex-direction:column;
+
+}
+
+
+
+.navbar li {
+
+    margin:8px;
+
+}
+
+
+
+.button {
+
+    display:block;
+
+    width:220px;
+
+    margin:12px auto;
+
+}
+
+
+
+section {
+
+    padding:0 20px;
+
+}
+
+
+
+.hero-image img {
+
+    width:180px;
+
+    height:180px;
+
+}
+
+
+}
