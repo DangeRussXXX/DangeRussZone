@@ -66,7 +66,6 @@ li {
 
 
 
-
 /* =========================
    NAVIGATION
 ========================= */
@@ -169,6 +168,7 @@ section {
 
 
 
+
 /* =========================
    PROFESSIONAL HEADER
 ========================= */
@@ -189,6 +189,7 @@ section {
     border-radius:15px;
 
     box-shadow:
+
     0 10px 25px rgba(0,0,0,.08);
 
 }
@@ -256,6 +257,7 @@ section {
 
 
 
+
 /* =========================
    RESUME BOX
 ========================= */
@@ -278,6 +280,7 @@ section {
 }
 
 
+
 .resume-box h3 {
 
     color:#1e3a8a;
@@ -285,6 +288,7 @@ section {
     margin-bottom:15px;
 
 }
+
 
 
 
@@ -332,6 +336,7 @@ section {
     margin-bottom:15px;
 
 }
+
 
 
 
@@ -406,6 +411,14 @@ summary p {
 
 
 
+
+
+
+/* =========================
+   MAIN EXPERIENCE CONTENT
+========================= */
+
+
 .experience-content {
 
     margin-top:20px;
@@ -418,7 +431,12 @@ summary p {
 
 
 
-/* Nested credential sections */
+
+
+
+/* =========================
+   BADGE CATEGORY DROPDOWNS
+========================= */
 
 
 .experience-content details {
@@ -429,7 +447,7 @@ summary p {
 
     box-shadow:none;
 
-    padding:18px;
+    padding:15px;
 
     margin-top:15px;
 
@@ -447,6 +465,16 @@ summary p {
 
 
 
+.experience-content details summary:hover {
+
+    background:#eef2ff;
+
+    border-radius:8px;
+
+}
+
+
+
 .experience-content details summary h4 {
 
     color:#2563eb;
@@ -459,8 +487,144 @@ summary p {
 
 
 
+
 /* =========================
-   EXPERIENCE
+   BADGE SCROLL AREA
+========================= */
+
+
+.badge-scroll {
+
+    max-height:500px;
+
+    overflow-y:auto;
+
+    padding-right:15px;
+
+}
+
+
+
+.badge-scroll::-webkit-scrollbar {
+
+    width:10px;
+
+}
+
+
+.badge-scroll::-webkit-scrollbar-thumb {
+
+    background:#2563eb;
+
+    border-radius:10px;
+
+}
+
+
+
+.badge-scroll::-webkit-scrollbar-track {
+
+    background:#e5e7eb;
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   BADGE LIST
+========================= */
+
+
+.badge-list {
+
+    list-style:none;
+
+    padding:0;
+
+    margin-top:20px;
+
+}
+
+
+
+
+.badge-list li {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:white;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    border:1px solid #e5e7eb;
+
+    transition:.3s;
+
+}
+
+
+
+.badge-list li:hover {
+
+    transform:translateX(5px);
+
+    box-shadow:
+
+    0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+.badge-icon {
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+}
+
+
+
+.badge-list a {
+
+    font-weight:600;
+
+}
+
+
+
+.badge-list a:hover {
+
+    color:#1d4ed8;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   EXPERIENCE SECTIONS
 ========================= */
 
 
@@ -542,6 +706,7 @@ footer {
 }
 
 
+
 footer h2 {
 
     color:white;
@@ -567,6 +732,7 @@ footer a {
     color:#9ca3af;
 
 }
+
 
 
 
@@ -631,6 +797,24 @@ section {
 
 }
 
+
+
+.badge-list li {
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+.badge-icon {
+
+    width:70px;
+
+    height:70px;
+
+}
 
 
 }
