@@ -258,3 +258,34 @@ function shareProfile(){
     }
 
 }
+
+function shareProfile() {
+
+    if (navigator.share) {
+
+        navigator.share({
+
+            title: "Russ Isrow | Professional Services Engineer",
+
+            text:
+            "Professional portfolio and resume for Russ Isrow.",
+
+            url: window.location.href
+
+        })
+
+        .catch(error => console.log(error));
+
+    }
+
+    else {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert(
+        "Profile link copied to clipboard!"
+        );
+
+    }
+
+}
