@@ -495,11 +495,13 @@ summary p {
 
 .badge-scroll {
 
-    max-height:500px;
+    max-height:600px;
 
     overflow-y:auto;
 
-    padding-right:15px;
+    padding-right:20px;
+
+    scrollbar-width:thin;
 
 }
 
@@ -617,6 +619,51 @@ summary p {
 
 }
 
+
+.badge-list a {
+
+    color:#1e3a8a;
+
+    font-weight:700;
+
+    flex:1;
+
+}
+
+
+.badge-list a:hover {
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+}
+
+
+.badge-icon {
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+    background:#ffffff;
+
+    border-radius:8px;
+
+    padding:5px;
+
+}
+
+
+.badge-list li {
+
+    cursor:pointer;
+
+}
 
 
 
