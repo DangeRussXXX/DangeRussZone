@@ -1,0 +1,6 @@
+-- Russ Portfolio Database
+-- Existing PostgreSQL database connection
+-- Database: russ_portfolio
+--
+-- This file contains setup scripts for future development.
+-- Existing tables and data were imported from an existing database.

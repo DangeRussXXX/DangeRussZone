@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Superhero Command Center</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="command-header">
+
+    <div class="logo">
+        🛡️
+    </div>
+
+    <h1>
+        SUPERHERO COMMAND CENTER
+    </h1>
+
+    <p>
+        PostgreSQL Powered Hero Intelligence Database
+    </p>
+
+</header>
+
+
+
+
+<main>
+
+
+<section class="status-panel">
+
+
+<h2>
+📡 Database Status
+</h2>
+
+
+<div class="stats-grid">
+
+
+<div class="stat-card">
+
+    <span id="count">
+        Loading...
+    </span>
+
+    <small>
+        Registered Heroes
+    </small>
+
+</div>
+
+
+<div class="stat-card">
+
+    <span>
+        ACTIVE
+    </span>
+
+    <small>
+        System Status
+    </small>
+
+</div>
+
+
+<div class="stat-card">
+
+    <span>
+        PostgreSQL
+    </span>
+
+    <small>
+        Database Engine
+    </small>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="search-panel">
+
+
+<h2>
+🔎 Hero Registry Search
+</h2>
+
+
+<div class="controls">
+
+
+<input
+id="search"
+type="text"
+placeholder="Enter hero identity..."
+>
+
+
+<button onclick="searchHeroes()">
+Search
+</button>
+
+
+<button onclick="loadHeroes()">
+Load All
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2 class="section-title">
+🦸 Registered Heroes
+</h2>
+
+
+<div id="heroes" class="hero-grid">
+
+Loading database records...
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+
+<footer>
+
+<p>
+Russ Isrow | Full Stack Superhero Database Project
+</p>
+
+</footer>
+
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>

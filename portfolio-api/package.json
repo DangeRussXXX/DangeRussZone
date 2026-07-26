@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "description": "Russ Isrow Portfolio Database API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "pg": "^8.13.1"
+  }
+}
