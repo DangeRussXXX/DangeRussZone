@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Documents/residential-wiring-simulator"
+		},
+		{
+			"name": "DangerussZone002",
+			"path": "../../DangerussZone002"
+		},
+		{
+			"name": "DangeRussZone",
+			"path": ".."
+		},
+		{
+			"path": "../../Python - Robotics"
+		}
+	],
+	"settings": {}
+}
