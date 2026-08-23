@@ -1,1747 +1,1067 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================
+   RESET
+========================= */
 
-<head>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================
+   GLOBAL
+========================= */
 
-    <title>
-        Russ Isrow | Higher Education Technology Professional | Enterprise Systems Specialist
-    </title>
 
-    <link rel="stylesheet" href="about.css">
+html {
+    scroll-behavior: smooth;
+}
 
-</head>
 
+body {
 
-<body>
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
+    background:#f4f7fb;
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+    color:#333;
 
-<header>
+    line-height:1.6;
 
-    <nav>
+}
 
-        <ul class="navbar">
 
-            <li>
-                <a href="../index.html">
-                    Home
-                </a>
-            </li>
+a {
 
-            <li>
-                <a href="about.html" class="active">
-                    About
-                </a>
-            </li>
+    color:#2563eb;
 
-            <li>
-                <a href="../gallery/gallery.html">
-                    Projects
-                </a>
-            </li>
+    text-decoration:none;
 
-            <li>
-                <a href="../contact/contact.html">
-                    Contact
-                </a>
-            </li>
+}
 
-        </ul>
 
-    </nav>
+a:hover {
 
-</header>
+    text-decoration:underline;
 
+}
 
-<!-- =========================================================
-     PROFESSIONAL HEADER
-========================================================= -->
 
-<section class="professional-header">
+ul {
 
-    <div class="profile-image">
+    padding-left:25px;
 
-        <img
-            src="images/aboutmehead.jpg"
-            alt="Russ Isrow"
-        >
+}
 
-    </div>
 
+li {
 
-    <div class="profile-content">
+    margin-bottom:8px;
 
-        <h1>
-            Russ Isrow
-        </h1>
+}
 
 
-        <h2>
-            Higher Education Technology Professional
-        </h2>
 
+/* =========================
+   NAVIGATION
+========================= */
 
-        <p class="headline">
 
-            Student Success |
-            Enterprise Systems |
-            Reporting & Data Solutions
+header {
 
-        </p>
+    background:#111827;
 
+    position:sticky;
 
-        <p>
+    top:0;
 
-            Higher education technology professional specializing in
-            enterprise systems, reporting, ERP administration, workflow
-            automation, and student-centered technology solutions.
+    z-index:1000;
 
-        </p>
+}
 
 
-        <div class="contact-links">
+.navbar {
 
-            <a
-                class="action-link"
-                href="mailto:risrow@outlook.com"
-            >
-                ✉ Contact Russ
-            </a>
+    display:flex;
 
+    justify-content:center;
 
-            <a
-                class="action-link"
-                href="javascript:window.print();"
-            >
-                🖨 Print / Save as PDF
-            </a>
+    align-items:center;
 
+    list-style:none;
 
-            <a
-                class="action-link"
-                href="#"
-                onclick="shareProfile(); return false;"
-            >
-                ↗ Share My Profile
-            </a>
+    padding:20px;
 
+}
 
-            <a
-                class="action-link"
-                href="https://dangerussxxx.github.io/DangeRussZone/index.html"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Visit My Portfolio ↗
-            </a>
 
+.navbar li {
 
-            <a
-                class="action-link"
-                href="https://github.com/DangeRussXXX"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View My GitHub ↗
-            </a>
+    margin:0 15px;
 
-        </div>
+}
 
-    </div>
 
-</section>
+.navbar a {
 
+    color:white;
 
+    font-size:18px;
 
-<!-- =========================================================
-     CORE STRENGTHS
-========================================================= -->
+    padding:10px 20px;
 
-<section>
+    border-radius:8px;
 
-    <h2 class="section-title">
-        Core Strengths
-    </h2>
+    transition:.3s;
 
+}
 
-    <div class="highlight-grid">
 
+.navbar a:hover,
+.navbar .active {
 
-        <div class="resume-box">
+    background:#2563eb;
 
-            <h3>
-                Enterprise Systems
-            </h3>
+    text-decoration:none;
 
-            <p>
+}
 
-                ERP administration, student information systems,
-                SaaS applications, security administration,
-                and institutional technology.
 
-            </p>
 
-        </div>
 
 
+/* =========================
+   SECTIONS
+========================= */
 
-        <div class="resume-box">
 
-            <h3>
-                Reporting & Data
-            </h3>
+section {
 
-            <p>
+    max-width:1100px;
 
-                SQL, Evisions Argos, reporting development,
-                data analysis, and institutional decision support.
+    margin:60px auto;
 
-            </p>
+    padding:0 30px;
 
-        </div>
+}
 
 
 
-        <div class="resume-box">
+.section-title {
 
-            <h3>
-                Process Improvement
-            </h3>
+    text-align:center;
 
-            <p>
+    font-size:32px;
 
-                Workflow automation, document imaging,
-                system optimization, process redesign,
-                and technical documentation.
+    color:#1e3a8a;
 
-            </p>
+    margin-bottom:35px;
 
-        </div>
+}
 
 
 
-        <div class="resume-box">
 
-            <h3>
-                Higher Education
-            </h3>
 
-            <p>
 
-                Student services, student success, enrollment,
-                financial aid, academic support, and institutional
-                operations.
 
-            </p>
+/* =========================
+   PROFESSIONAL HEADER
+========================= */
 
-        </div>
 
+.professional-header {
 
+    display:flex;
 
-        <div class="resume-box">
+    align-items:center;
 
-            <h3>
-                Technology Leadership
-            </h3>
+    gap:50px;
 
-            <p>
+    background:white;
 
-                System implementations, project coordination,
-                stakeholder collaboration, training, and
-                technology initiatives.
+    padding:40px;
 
-            </p>
+    border-radius:15px;
 
-        </div>
+    box-shadow:
 
+    0 10px 25px rgba(0,0,0,.08);
 
+}
 
-        <div class="resume-box">
 
-            <h3>
-                Software Development
-            </h3>
 
-            <p>
+.profile-image img {
 
-                Web applications, databases, APIs, JavaScript,
-                HTML, CSS, PostgreSQL, Node.js, and GitHub.
+    width:220px;
 
-            </p>
+    height:220px;
 
-        </div>
+    border-radius:50%;
 
+    object-fit:cover;
 
-    </div>
+    border:8px solid #e5e7eb;
 
-</section>
+}
 
 
 
-<!-- =========================================================
-     TECHNICAL EXPERTISE
-========================================================= -->
+.profile-content h1 {
 
-<section>
+    font-size:52px;
 
-    <h2 class="section-title">
-        Technical Expertise
-    </h2>
+    color:#111827;
 
+}
 
-    <div class="skill-columns">
 
 
-        <!-- ENTERPRISE SYSTEMS -->
+.profile-content h2 {
 
-        <div>
+    color:#2563eb;
 
-            <h3>
-                Enterprise Systems
-            </h3>
+    margin:15px 0;
 
-            <ul>
+}
 
-                <li>
-                    Ellucian Colleague
-                </li>
 
-                <li>
-                    Ellucian Banner
-                </li>
 
-                <li>
-                    Jenzabar EX / One
-                </li>
+.headline {
 
-                <li>
-                    CRM Recruit
-                </li>
+    font-weight:bold;
 
-                <li>
-                    PowerFAIDS
-                </li>
+    color:#1e3a8a;
 
-                <li>
-                    Canvas LMS
-                </li>
+    margin-bottom:20px;
 
-            </ul>
+}
 
-        </div>
 
 
+.contact-links {
 
-        <!-- REPORTING & DATA -->
+    margin-top:25px;
 
-        <div>
+    font-size:18px;
 
-            <h3>
-                Reporting & Data
-            </h3>
+}
 
-            <ul>
 
-                <li>
-                    Evisions Argos
-                </li>
 
-                <li>
-                    Microsoft SQL Server
-                </li>
 
-                <li>
-                    PostgreSQL
-                </li>
 
-                <li>
-                    InfoMaker
-                </li>
 
-                <li>
-                    Izenda
-                </li>
 
-                <li>
-                    Appeon
-                </li>
+/* =========================
+   RESUME BOX
+========================= */
 
-            </ul>
 
-        </div>
+.resume-box {
 
+    background:white;
 
+    padding:30px;
 
-        <!-- DEVELOPMENT -->
+    border-radius:12px;
 
-        <div>
+    margin-bottom:25px;
 
-            <h3>
-                Development & Tools
-            </h3>
+    box-shadow:
 
-            <ul>
+    0 8px 20px rgba(0,0,0,.08);
 
-                <li>
-                    HTML5
-                </li>
+}
 
-                <li>
-                    CSS3
-                </li>
 
-                <li>
-                    JavaScript
-                </li>
 
-                <li>
-                    Node.js
-                </li>
+.resume-box h3 {
 
-                <li>
-                    Git / GitHub
-                </li>
+    color:#1e3a8a;
 
-                <li>
-                    Microsoft Office 365
-                </li>
+    margin-bottom:15px;
 
-            </ul>
+}
 
-        </div>
 
 
 
-        <!-- SYSTEMS OPERATIONS -->
 
-        <div>
 
-            <h3>
-                Systems & Operations
-            </h3>
 
-            <ul>
+/* =========================
+   TECHNICAL EXPERTISE
+========================= */
 
-                <li>
-                    ERP Administration
-                </li>
 
-                <li>
-                    Student Information Systems
-                </li>
+.skill-columns {
 
-                <li>
-                    LMS Administration
-                </li>
+    display:grid;
 
-                <li>
-                    Security Administration
-                </li>
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
 
-                <li>
-                    SaaS Implementations
-                </li>
+    gap:25px;
 
-                <li>
-                    Workflow Automation
-                </li>
+}
 
-            </ul>
 
-        </div>
 
+.skill-columns > div {
 
+    background:white;
 
-        <!-- DOCUMENT IMAGING -->
+    padding:25px;
 
-        <div>
+    border-radius:12px;
 
-            <h3>
-                Document Imaging & Automation
-            </h3>
+    box-shadow:
 
-            <ul>
+    0 8px 20px rgba(0,0,0,.08);
 
-                <li>
-                    OnBase
-                </li>
+}
 
-                <li>
-                    Nolij
-                </li>
 
-                <li>
-                    Document Automation
-                </li>
 
-                <li>
-                    Workflow Automation
-                </li>
+.skill-columns h3 {
 
-            </ul>
+    color:#2563eb;
 
-        </div>
+    margin-bottom:15px;
 
+}
 
-    </div>
 
-</section>
 
 
 
-<!-- =========================================================
-     PROFESSIONAL DEVELOPMENT
-========================================================= -->
 
-<section>
 
-    <h2 class="section-title">
-        Professional Development
-    </h2>
 
+/* =========================
+   ELLUCIAN CREDENTIALS
+========================= */
 
-    <details>
 
-        <summary>
+details {
 
-            <h3>
-                Ellucian Learning Credentials
-            </h3>
+    background:white;
 
-            <p>
-                18 Badges Earned | 4,900 Professional Learning Points
-            </p>
+    padding:25px;
 
-        </summary>
+    border-radius:12px;
 
+    margin-bottom:20px;
 
-        <div class="experience-content badge-scroll">
+    box-shadow:
 
+    0 8px 20px rgba(0,0,0,.08);
 
-            <p>
+}
 
-                Completed Ellucian learning paths and professional
-                development focused on higher education ERP systems,
-                student success, financial aid, finance, and
-                administrative solutions.
 
-            </p>
 
+summary {
 
-            <ul class="badge-list">
+    cursor:pointer;
 
+    list-style:none;
 
-                <li>
+}
 
-                    <img
-                        src="images/badges/advisor-foundations.png"
-                        alt="Ellucian Advisor Foundations Badge Icon"
-                        class="badge-icon"
-                    >
 
-                    <a
-                        href="https://training.ellucian.com/share/gamification/badges/external/7ebdadc9-61a9-478c-bc3c-5b7dc98cbd25?lang=en"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ellucian Advisor Foundations Badge
-                        (CRM Advise) ↗
-                    </a>
+summary::-webkit-details-marker {
 
-                </li>
+    display:none;
 
+}
 
 
-                <li>
+summary h3 {
 
-                    <img
-                        src="images/badges/grant-processor.png"
-                        alt="Ellucian Grant Processor Badge Icon"
-                        class="badge-icon"
-                    >
+    display:inline-block;
 
-                    <a
-                        href="PASTE_BADGE_LINK_HERE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ellucian Grant Processor Foundations Badge
-                        (Colleague Financial Aid) ↗
-                    </a>
+    color:#1e3a8a;
 
-                </li>
+}
 
 
 
-                <li>
+summary h4 {
 
-                    <img
-                        src="images/badges/it-support.png"
-                        alt="Ellucian IT Support Lead Badge Icon"
-                        class="badge-icon"
-                    >
+    display:inline-block;
 
-                    <a
-                        href="https://training.ellucian.com/share/gamification/badges/external/690ba821-6069-4387-a0cf-b52168d7bf5b?lang=en"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ellucian IT Support Lead Foundations Badge
-                        (Colleague Financial Aid) ↗
-                    </a>
+    color:#2563eb;
 
-                </li>
+}
 
 
 
-                <li>
+summary p {
 
-                    <img
-                        src="images/badges/general-ledger.png"
-                        alt="General Ledger Badge Icon"
-                        class="badge-icon"
-                    >
+    color:#6b7280;
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/02abb8fb-3faf-4391-bf51-ab81e51fa504/shared?lang=en&t=1785016125823"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        General Ledger Foundations Badge
-                        (Colleague CF) ↗
-                    </a>
+}
 
-                </li>
 
 
 
-                <li>
 
-                    <img
-                        src="images/badges/purchasing.png"
-                        alt="Purchasing Badge Icon"
-                        class="badge-icon"
-                    >
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/f08efb96-502f-44ed-9d48-eb707f261d95/shared?lang=en&t=1785016166049"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Purchasing Foundations Badge
-                        (Colleague CF) ↗
-                    </a>
+/* =========================
+   MAIN EXPERIENCE CONTENT
+========================= */
 
-                </li>
 
+.experience-content {
 
+    margin-top:20px;
 
-                <li>
+    padding-top:20px;
 
-                    <img
-                        src="images/badges/financial-aid-manager.png"
-                        alt="Financial Aid Manager Badge Icon"
-                        class="badge-icon"
-                    >
+    border-top:1px solid #e5e7eb;
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/8818ea53-8135-4b9c-887a-3dbcd5e9b8c7/shared?lang=en&t=1785016187730"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague Financial Aid Manager Learning Plan
-                        (CCC) ↗
-                    </a>
+}
 
-                </li>
 
 
 
-                <li>
 
-                    <img
-                        src="images/badges/accounts-payable.png"
-                        alt="Accounts Payable Badge Icon"
-                        class="badge-icon"
-                    >
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/10a6d20d-132f-48ce-9687-c5e0996369cf/shared?lang=en&t=1785016198732"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Accounts Payable Foundations Badge
-                        (Colleague CF) ↗
-                    </a>
+/* =========================
+   BADGE CATEGORY DROPDOWNS
+========================= */
 
-                </li>
 
+.experience-content details {
 
+    background:#f9fafb;
 
-                <li>
+    border:1px solid #e5e7eb;
 
-                    <img
-                        src="images/badges/accounts-payable-learning.png"
-                        alt="Accounts Payable Learning Badge Icon"
-                        class="badge-icon"
-                    >
+    box-shadow:none;
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/4e6c2f71-9c6f-4b0c-8883-80e92193e575/shared?lang=en&t=1785016219866"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague Accounts Payable Learning Plan
-                        (CCC) ↗
-                    </a>
+    padding:15px;
 
-                </li>
+    margin-top:15px;
 
+}
 
 
-                <li>
 
-                    <img
-                        src="images/badges/accounts-receivable.png"
-                        alt="Accounts Receivable Badge Icon"
-                        class="badge-icon"
-                    >
+.experience-content details:hover {
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/e065244e-824e-447a-8ea9-935d05bc5641/shared?lang=en&t=1785016231074"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague Accounts Receivable Specialist
-                        Learning Plan (CCC) ↗
-                    </a>
+    box-shadow:
 
-                </li>
+    0 5px 15px rgba(0,0,0,.08);
 
+}
 
 
-                <li>
 
-                    <img
-                        src="images/badges/accounts-receivable-foundations.png"
-                        alt="Accounts Receivable Foundations Badge Icon"
-                        class="badge-icon"
-                    >
+.experience-content details summary:hover {
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/e220bd0d-8da6-4f97-91f6-f1b153741eda/shared?lang=en&t=1785016249698"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Accounts Receivable Specialist Foundations
-                        Badge (Colleague AR) ↗
-                    </a>
+    background:#eef2ff;
 
-                </li>
+    border-radius:8px;
 
+}
 
 
-                <li>
 
-                    <img
-                        src="images/badges/application-processor.png"
-                        alt="Application Processor Badge Icon"
-                        class="badge-icon"
-                    >
+.experience-content details summary h4 {
 
-                    <a
-                        href="PASTE_BADGE_LINK_HERE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague Application Processor Learning Plan
-                        (CCC) ↗
-                    </a>
+    color:#2563eb;
 
-                </li>
+}
 
 
 
-                <li>
 
-                    <img
-                        src="images/badges/financial-aid-specialist.png"
-                        alt="Financial Aid Specialist Badge Icon"
-                        class="badge-icon"
-                    >
 
-                    <a
-                        href="PASTE_BADGE_LINK_HERE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague Financial Aid Specialist Learning Plan
-                        (CCC) ↗
-                    </a>
 
-                </li>
 
 
+/* =========================
+   BADGE SCROLL AREA
+========================= */
 
-                <li>
 
-                    <img
-                        src="images/badges/general-ledger-learning.png"
-                        alt="General Ledger Learning Badge Icon"
-                        class="badge-icon"
-                    >
+.badge-scroll {
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/01f7c3f4-6c65-42a2-b4fe-b69db5f98510/shared?lang=en&t=1785016307428"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague General Ledger Learning Plan
-                        (CCC) ↗
-                    </a>
+    max-height:600px;
 
-                </li>
+    overflow-y:auto;
 
+    padding-right:20px;
 
+    scrollbar-width:thin;
 
-                <li>
+}
 
-                    <img
-                        src="images/badges/grant-processor-learning.png"
-                        alt="Grant Processor Learning Badge Icon"
-                        class="badge-icon"
-                    >
 
-                    <a
-                        href="PASTE_BADGE_LINK_HERE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Colleague Grant Processor Learning Plan
-                        (CCC) ↗
-                    </a>
 
-                </li>
+.badge-scroll::-webkit-scrollbar {
 
+    width:10px;
 
+}
 
-                <li>
 
-                    <img
-                        src="images/badges/student-employment.png"
-                        alt="Student Employment Badge Icon"
-                        class="badge-icon"
-                    >
+.badge-scroll::-webkit-scrollbar-thumb {
 
-                    <a
-                        href="https://training.ellucian.com/share/v1/gamification/assigned_badge/f5efead0-c334-4af2-abf4-1d965a20fb9b/shared?lang=en&t=1785016318850"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ellucian Student Employment Specialist
-                        Foundations Badge ↗
-                    </a>
+    background:#2563eb;
 
-                </li>
+    border-radius:10px;
 
+}
 
 
-                <li>
 
-                    <img
-                        src="images/badges/registrar.png"
-                        alt="Registrar Badge Icon"
-                        class="badge-icon"
-                    >
+.badge-scroll::-webkit-scrollbar-track {
 
-                    <a
-                        href="PASTE_BADGE_LINK_HERE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ellucian Registrar Learning Plan
-                        (Colleague) ↗
-                    </a>
+    background:#e5e7eb;
 
-                </li>
+}
 
 
-            </ul>
 
-        </div>
 
-    </details>
 
-</section>
 
 
 
-<!-- =========================================================
-     INDUSTRY PRESENTATIONS
-========================================================= -->
+/* =========================
+   BADGE LIST
+========================= */
 
-<section>
 
-    <h2 class="section-title">
-        Industry Presentations
-    </h2>
+.badge-list {
 
+    list-style:none;
 
-    <div class="resume-box">
+    padding:0;
 
-        <ul>
+    margin-top:20px;
 
+}
 
-            <li>
 
-                <strong>
-                    Ellucian Live 2023
-                </strong>
 
-                <br>
 
-                Co-Presenter —
-                <a
-                    href="https://elive.ellucian.com/flow/ellucian/elive23/elive23homepage/page/sessioncatalog/session/1671218834635001Rxgv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    "Role-ing" Out Security Permissions with Colleague ↗
-                </a>
+.badge-list li {
 
-            </li>
+    display:flex;
 
+    align-items:center;
 
+    gap:15px;
 
-            <li>
+    background:white;
 
-                <strong>
-                    Jenzabar JAM 2019
-                </strong>
+    padding:15px;
 
-                <br>
+    margin-bottom:12px;
 
-                Presenter & Creator —
-                "Jenzabar EX to PowerFAIDS Automation"
+    border-radius:10px;
 
-            </li>
+    border:1px solid #e5e7eb;
 
+    transition:.3s;
 
+}
 
-            <li>
 
-                <strong>
-                    2023 Q4 Colleague Argos User Group
-                </strong>
 
-                <br>
+.badge-list li:hover {
 
-                Presenter —
-                "Building Colleague SaaS User Security Reports
-                for User Interface and Self-Service with Argos"
+    transform:translateX(5px);
 
-            </li>
+    box-shadow:
 
+    0 5px 15px rgba(0,0,0,.08);
 
+}
 
-            <li>
 
-                <strong>
-                    Evisions Conference 2024
-                </strong>
 
-                <br>
+.badge-icon {
 
-                Presenter —
-                "Building Colleague SaaS User Security Reports
-                for User Interface and Self-Service with Argos"
+    width:60px;
 
-            </li>
+    height:60px;
 
+    object-fit:contain;
 
-        </ul>
+    flex-shrink:0;
 
-    </div>
+}
 
-</section>
 
 
+.badge-list a {
 
-<!-- =========================================================
-     AWARDS & LEADERSHIP
-========================================================= -->
+    font-weight:600;
 
-<section>
+}
 
-    <h2 class="section-title">
-        Awards & Leadership
-    </h2>
 
 
-    <div class="highlight-grid">
+.badge-list a:hover {
 
+    color:#1d4ed8;
 
-        <div class="resume-box">
+}
 
-            <h3>
-                40 Under 40 Technology Award
-            </h3>
 
-            <p>
+.badge-list a {
 
-                2019 Kingman Daily Miner
-                40 Under 40 Technology Award
+    color:#1e3a8a;
 
-            </p>
+    font-weight:700;
 
-        </div>
+    flex:1;
 
+}
 
 
-        <div class="resume-box">
+.badge-list a:hover {
 
-            <h3>
-                Bighorn Leadership Academy
-            </h3>
+    color:#2563eb;
 
-            <p>
+    text-decoration:none;
 
-                Alumni of the Bighorn Leadership Academy.
+}
 
-            </p>
 
-        </div>
+.badge-icon {
 
+    width:60px;
 
+    height:60px;
 
-        <div class="resume-box">
+    object-fit:contain;
 
-            <h3>
-                Staff Council
-            </h3>
+    flex-shrink:0;
 
-            <p>
+    background:#ffffff;
 
-                Staff Council Representative,
-                Mohave Community College, 2024.
+    border-radius:8px;
 
-            </p>
+    padding:5px;
 
-        </div>
+}
 
 
-    </div>
+.badge-list li {
 
-</section>
+    cursor:pointer;
 
+}
 
 
-<!-- =========================================================
-     PROFESSIONAL EXPERIENCE
-========================================================= -->
 
-<section>
 
-    <h2 class="section-title">
-        Professional Experience
-    </h2>
 
 
-    <!-- =====================================================
-         CURRENT MOHAVE ROLE
-    ===================================================== -->
+/* =========================
+   EXPERIENCE SECTIONS
+========================= */
 
-    <details open>
 
-        <summary>
+.experience-content h4 {
 
-            <h3>
-                Mohave Community College
-            </h3>
+    color:#2563eb;
 
-            <p>
-                Pathway Advisor, First Time College Students |
-                Kingman, Arizona | 2025–Present
-            </p>
+    margin:15px 0;
 
-        </summary>
+}
 
 
-        <div class="experience-content">
 
-            <p>
+details ul {
 
-                Support first-time college students through enrollment,
-                academic planning, student onboarding, and connection
-                to institutional resources. Provide guidance that helps
-                students successfully transition into higher education
-                and achieve their academic goals.
+    margin-top:15px;
 
-            </p>
+}
 
 
-            <h4>
-                Responsibilities
-            </h4>
 
 
-            <ul>
 
-                <li>
-                    Assist prospective and new students with enrollment processes
-                </li>
 
-                <li>
-                    Provide academic pathway guidance and student support
-                </li>
+/* =========================
+   CAREER HIGHLIGHTS
+========================= */
 
-                <li>
-                    Help students navigate college systems, resources, and services
-                </li>
 
-                <li>
-                    Collaborate with faculty and staff to improve student success
-                </li>
+.highlight-grid {
 
-                <li>
-                    Maintain accurate student records and documentation
-                </li>
+    display:grid;
 
-            </ul>
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
 
-        </div>
+    gap:25px;
 
-    </details>
+}
 
 
 
-    <!-- =====================================================
-         EVISIONS
-    ===================================================== -->
 
-    <details>
 
-        <summary>
 
-            <h3>
-                Evisions
-            </h3>
+/* =========================
+   PROJECTS
+========================= */
 
-            <p>
-                Professional Services Engineer |
-                Remote | 2024–2025
-            </p>
 
-        </summary>
+#projects {
 
+    scroll-margin-top:100px;
 
-        <div class="experience-content">
+}
 
-            <p>
 
-                Provided enterprise consulting services supporting
-                higher education institutions using Evisions Argos,
-                Ellucian Colleague, Banner, CRM Recruit, FormFusion,
-                and SaaS environments.
 
-            </p>
 
 
-            <h4>
-                Responsibilities
-            </h4>
 
+/* =========================
+   FOOTER
+========================= */
 
-            <ul>
 
-                <li>
-                    Developed enterprise reporting solutions
-                </li>
+footer {
 
-                <li>
-                    Supported institutional reporting requirements
-                </li>
+    background:#111827;
 
-                <li>
-                    Performed security auditing and analysis
-                </li>
+    color:white;
 
-                <li>
-                    Delivered client consulting and technical guidance
-                </li>
+    text-align:center;
 
-                <li>
-                    Supported domestic and international higher education clients
-                </li>
+    padding:50px 20px;
 
-            </ul>
+    margin-top:60px;
 
-        </div>
+}
 
-    </details>
 
 
+footer h2 {
 
-    <!-- =====================================================
-         MOHAVE COMMUNITY COLLEGE - PROGRAM ANALYST
-    ===================================================== -->
+    color:white;
 
-    <details>
+    margin-bottom:15px;
 
-        <summary>
+}
 
-            <h3>
-                Mohave Community College
-            </h3>
 
-            <p>
-                Program Analyst / New Systems Team Lead |
-                Kingman, Arizona | 2016–2024
-            </p>
 
-        </summary>
+footer a {
 
+    color:#60a5fa;
 
-        <div class="experience-content">
+}
 
 
-            <p>
 
-                Supported enterprise systems including Ellucian
-                Colleague, PowerFAIDS, Jenzabar, Canvas, Argos,
-                and institutional reporting solutions.
+.copyright {
 
-                Served as backup Database Administrator and LMS
-                Administrator while developing reports, workflows,
-                documentation, and technical solutions to improve
-                institutional operations.
+    margin-top:20px;
 
-            </p>
+    color:#9ca3af;
 
+}
 
-            <h4>
-                Systems & Technology
-            </h4>
 
 
-            <ul>
 
-                <li>
-                    Enterprise application administration
-                </li>
 
-                <li>
-                    Reporting and database solutions
-                </li>
 
-                <li>
-                    Workflow automation
-                </li>
 
-                <li>
-                    System security and access management
-                </li>
+/* =========================
+   MOBILE
+========================= */
 
-                <li>
-                    LMS administration
-                </li>
 
-                <li>
-                    Technical documentation and training
-                </li>
+@media(max-width:850px) {
 
-            </ul>
 
+.professional-header {
 
-            <h4>
-                Selected Achievements
-            </h4>
+    flex-direction:column;
 
+    text-align:center;
 
-            <ul>
+}
 
-                <li>
-                    Led implementation of new software systems
-                </li>
 
-                <li>
-                    Coordinated technology projects and system initiatives
-                </li>
 
-                <li>
-                    Developed Colleague and Argos reporting solutions
-                </li>
+.profile-content h1 {
 
-                <li>
-                    Served as backup Database Administrator
-                </li>
+    font-size:38px;
 
-                <li>
-                    Served as backup LMS Administrator
-                </li>
+}
 
-                <li>
-                    Automated institutional workflows and processes
-                </li>
 
-            </ul>
 
+.navbar {
 
-        </div>
+    flex-direction:column;
 
-    </details>
+}
 
 
 
-    <!-- =====================================================
-         FINANCIAL AID
-    ===================================================== -->
+.navbar li {
 
-    <details>
+    margin:8px;
 
-        <summary>
+}
 
-            <h3>
-                Mohave Community College
-            </h3>
 
-            <p>
-                Financial Aid Specialist / Financial Aid Technician |
-                2014–2016
-            </p>
 
-        </summary>
+section {
 
+    padding:0 20px;
 
-        <div class="experience-content">
+}
 
-            <p>
 
-                Supported financial aid operations through software
-                testing, report development, troubleshooting,
-                compliance support, and process improvements.
 
-            </p>
+.profile-image img {
 
+    width:180px;
 
-            <ul>
+    height:180px;
 
-                <li>
-                    Completed PowerFAIDS testing and annual updates
-                </li>
+}
 
-                <li>
-                    Created reports supporting institutional decisions
-                </li>
 
-                <li>
-                    Assisted with federal compliance processes
-                </li>
 
-                <li>
-                    Developed documentation and training materials
-                </li>
+.badge-list li {
 
-            </ul>
+    flex-direction:column;
 
-        </div>
+    text-align:center;
 
-    </details>
+}
 
 
+.badge-icon {
 
-    <!-- =====================================================
-         EARLIER EXPERIENCE
-    ===================================================== -->
+    width:70px;
 
-    <details>
+    height:70px;
 
-        <summary>
+}
 
-            <h3>
-                Earlier Professional Experience
-            </h3>
 
-            <p>
-                1999–2014
-            </p>
+}
 
-        </summary>
+/* =========================
+   ACTION BUTTONS
+========================= */
 
+.action-button {
 
-        <div class="experience-content">
+    background:#2563eb;
 
-            <ul>
+    color:white;
 
-                <li>
-                    Designer I — BMC Construction Services
-                </li>
+    border:none;
 
-                <li>
-                    Slot Technician — RC's Worldwide Gaming Supplies
-                </li>
+    padding:10px 18px;
 
-                <li>
-                    Warehouse Operations — C.W.C.I. of Nevada
-                </li>
+    border-radius:8px;
 
-                <li>
-                    Retail Sales — Sears Roebuck
-                </li>
+    font-size:16px;
 
-                <li>
-                    Restaurant Leadership —
-                    Big Daddy's Colorado River Bar & Grill
-                </li>
+    cursor:pointer;
 
-            </ul>
+    transition:.3s;
 
-        </div>
+}
 
-    </details>
 
+.action-button:hover {
 
-</section>
+    background:#1d4ed8;
 
+    transform:translateY(-2px);
 
+}
 
-<!-- =========================================================
-     TECHNICAL PROJECTS
-========================================================= -->
+/* =========================
+   PROFESSIONAL PDF PRINT
+========================= */
 
-<section id="projects">
 
-    <h2 class="section-title">
-        Technical Projects
-    </h2>
+@media print {
 
 
+header,
+footer,
+.action-button {
 
-    <!-- =====================================================
-         SUPERHERO COMMAND CENTER
-    ===================================================== -->
+    display:none;
 
-    <details class="project-card">
+}
 
-        <summary>
 
-            <h3>
-                🛡️ Superhero Command Center
-            </h3>
 
-            <p>
-                Full-stack superhero intelligence dashboard
-            </p>
+body {
 
-        </summary>
+    background:white;
 
+    color:black;
 
-        <div class="experience-content">
+}
 
 
-            <p>
 
-                A full-stack database-driven application designed
-                to transform a relational superhero database into
-                an interactive intelligence dashboard.
+section {
 
-            </p>
+    margin:20px auto;
 
+}
 
-            <h4>
-                Project Link
-            </h4>
 
 
-            <p>
+.resume-box,
+details,
+.skill-columns > div,
+.professional-header {
 
-                <a
-                    href="PASTE_PROJECT_LINK_HERE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    View Superhero Command Center ↗
-                </a>
+    box-shadow:none;
 
-            </p>
+    border:1px solid #ddd;
 
+}
 
-            <h4>
-                Project Highlights
-            </h4>
 
 
-            <ul>
+details {
 
-                <li>
-                    750+ superhero and villain records
-                </li>
+    break-inside:avoid;
 
-                <li>
-                    PostgreSQL relational database architecture
-                </li>
+}
 
-                <li>
-                    Custom REST API using Express.js
-                </li>
 
-                <li>
-                    Publisher, identity, race, and alignment relationships
-                </li>
 
-                <li>
-                    Dynamic hero and villain classification
-                </li>
+a {
 
-                <li>
-                    Searchable intelligence dashboard
-                </li>
+    color:black;
 
-                <li>
-                    Responsive command center interface
-                </li>
+    text-decoration:none;
 
-            </ul>
+}
 
 
-            <h4>
-                Technology Stack
-            </h4>
 
+.profile-content h1 {
 
-            <ul>
+    font-size:36px;
 
-                <li>
-                    Node.js
-                </li>
+}
 
-                <li>
-                    Express.js
-                </li>
 
-                <li>
-                    PostgreSQL
-                </li>
+}
 
-                <li>
-                    JavaScript
-                </li>
+/* =========================
+   PROFILE ACTION BUTTONS
+========================= */
 
-                <li>
-                    HTML5 / CSS3
-                </li>
 
-                <li>
-                    Git / GitHub
-                </li>
+.contact-links {
 
-            </ul>
+    display:flex;
 
+    gap:15px;
 
-        </div>
+    flex-wrap:wrap;
 
-    </details>
+    margin-top:25px;
 
+}
 
 
-    <!-- =====================================================
-         PERSONAL PORTFOLIO
-    ===================================================== -->
 
-    <details class="project-card">
+.action-link {
 
-        <summary>
+    display:inline-block;
 
-            <h3>
-                🌐 Personal Portfolio Website
-            </h3>
+    color:#2563eb;
 
-            <p>
-                Professional responsive portfolio
-            </p>
+    border:2px solid #2563eb;
 
-        </summary>
+    padding:10px 18px;
 
+    border-radius:8px;
 
-        <div class="experience-content">
+    font-weight:600;
 
+    margin:5px;
 
-            <p>
+    transition:.3s;
 
-                Designed and developed a responsive portfolio website
-                using HTML, CSS, and JavaScript to showcase professional
-                experience, certifications, technical skills, and
-                software projects.
+}
 
-            </p>
 
+.action-link:hover {
 
-            <h4>
-                Project Link
-            </h4>
+    background:#2563eb;
 
+    color:white;
 
-            <p>
+    text-decoration:none;
 
-                <a
-                    href="PASTE_PROJECT_LINK_HERE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    View Portfolio Website ↗
-                </a>
+    transform:translateY(-2px);
 
-            </p>
+}
 
+/* =========================
+   SUPERHERO COMMAND CENTER
+========================= */
 
-            <h4>
-                Technology Stack
-            </h4>
 
+.superhero-project {
 
-            <ul>
+    border-left: 5px solid #dc2626;
 
-                <li>
-                    HTML5
-                </li>
+}
 
-                <li>
-                    CSS3
-                </li>
 
-                <li>
-                    JavaScript
-                </li>
+.superhero-project h3 {
 
-                <li>
-                    GitHub Pages
-                </li>
+    color:#dc2626;
 
-            </ul>
+}
 
 
-        </div>
+.superhero-project h4 {
 
-    </details>
+    color:#2563eb;
 
+}
 
-</section>
 
+.superhero-project ul {
 
+    padding-left:25px;
 
-<!-- =========================================================
-     EDUCATION
-========================================================= -->
+}
 
-<section>
 
-    <h2 class="section-title">
-        Education
-    </h2>
+.superhero-project li {
 
+    margin-bottom:8px;
 
-    <div class="resume-box">
-
-
-        <h3>
-            ITT Technical Institute of Henderson
-        </h3>
-
-
-        <p>
-
-            <strong>
-                Associate of Applied Science
-            </strong>
-
-            <br>
-
-            Computer Aided Drafting and Design
-
-        </p>
-
-
-        <p>
-
-            Highest Honors
-
-        </p>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<footer>
-
-
-    <h2>
-        Let's Connect
-    </h2>
-
-
-    <p>
-
-        Interested in higher education technology,
-        student success initiatives, enterprise systems,
-        reporting solutions, or institutional improvement
-        projects?
-
-    </p>
-
-
-    <p>
-
-        <a href="mailto:risrow@outlook.com">
-            risrow@outlook.com
-        </a>
-
-
-        &nbsp; | &nbsp;
-
-
-        <a
-            href="https://github.com/DangeRussXXX"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            GitHub
-        </a>
-
-    </p>
-
-
-    <p class="copyright">
-
-        © 2026 Russ Isrow
-
-    </p>
-
-
-</footer>
-
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script src="about.js"></script>
-
-
-</body>
-
-</html>
+}
