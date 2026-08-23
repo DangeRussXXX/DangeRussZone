@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -9,16 +9,15 @@
 }
 
 
-/* =========================
+/* =========================================================
    GLOBAL
-========================= */
+========================================================= */
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-
     font-family:
         "Segoe UI",
         Arial,
@@ -29,42 +28,31 @@ body {
     color: #333;
 
     line-height: 1.6;
-
 }
 
 a {
-
     color: #2563eb;
-
     text-decoration: none;
-
 }
 
 a:hover {
-
     text-decoration: underline;
-
 }
 
 ul {
-
-    padding-left: 25px;
-
+    padding-left: 22px;
 }
 
 li {
-
     margin-bottom: 8px;
-
 }
 
 
-/* =========================
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 header {
-
     background: #111827;
 
     position: sticky;
@@ -72,11 +60,9 @@ header {
     top: 0;
 
     z-index: 1000;
-
 }
 
 .navbar {
-
     display: flex;
 
     justify-content: center;
@@ -86,17 +72,13 @@ header {
     list-style: none;
 
     padding: 20px;
-
 }
 
 .navbar li {
-
     margin: 0 15px;
-
 }
 
 .navbar a {
-
     color: white;
 
     font-size: 18px;
@@ -106,28 +88,24 @@ header {
     border-radius: 8px;
 
     transition: .3s;
-
 }
 
 .navbar a:hover,
 .navbar .active {
-
     background: #2563eb;
 
     text-decoration: none;
-
 }
 
 
-/* =========================
+/* =========================================================
    PROFESSIONAL HEADER
-========================= */
+========================================================= */
 
 .professional-header {
+    width: min(1500px, 94%);
 
-    width: min(1500px, 96%);
-
-    margin: 40px auto 50px;
+    margin: 45px auto;
 
     display: flex;
 
@@ -137,17 +115,15 @@ header {
 
     background: white;
 
-    padding: 40px;
+    padding: 45px;
 
-    border-radius: 15px;
+    border-radius: 18px;
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,.08);
-
+        0 10px 30px rgba(0, 0, 0, .08);
 }
 
 .profile-image img {
-
     width: 220px;
 
     height: 220px;
@@ -157,373 +133,54 @@ header {
     object-fit: cover;
 
     border: 8px solid #e5e7eb;
-
 }
 
 .profile-content {
-
     flex: 1;
-
 }
 
 .profile-content h1 {
-
     font-size: 52px;
 
     color: #111827;
 
+    line-height: 1.15;
 }
 
 .profile-content h2 {
-
     color: #2563eb;
 
-    margin: 15px 0;
-
+    margin: 12px 0 18px;
 }
 
 .headline {
-
     font-weight: bold;
 
     color: #1e3a8a;
 
     margin-bottom: 20px;
-
 }
 
-
-/* =========================
-   THREE COLUMN LAYOUT
-========================= */
-
-.three-column-layout {
-
-    width: min(1500px, 96%);
-
-    margin: 0 auto 60px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        1.55fr
-        1fr;
-
-    gap: 25px;
-
-    align-items: start;
-
-}
-
-
-/* =========================
-   COLUMN
-========================= */
-
-.column {
-
-    min-width: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-
-/* =========================
-   COLUMN SECTIONS
-========================= */
-
-.column section {
-
-    width: 100%;
-
-    margin: 0 0 35px;
-
-    padding: 0;
-
-}
-
-
-/* =========================
-   SECTION TITLE
-========================= */
-
-.section-title {
-
-    text-align: center;
-
-    font-size: 27px;
-
-    color: #1e3a8a;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* =========================
-   TECHNICAL EXPERTISE
-========================= */
-
-.skill-columns {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-
-}
-
-.skill-card {
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.08);
-
-    transition: .3s;
-
-}
-
-.skill-card:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,.12);
-
-}
-
-.skill-card h3 {
-
-    color: #2563eb;
-
+.profile-content p {
     margin-bottom: 15px;
-
-}
-
-.skill-card ul {
-
-    margin-bottom: 0;
-
 }
 
 
-/* =========================
-   PROFESSIONAL EXPERIENCE
-========================= */
-
-.professional-column details {
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    margin-bottom: 20px;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.08);
-
-    transition: .3s;
-
-}
-
-.professional-column details:hover {
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.12);
-
-}
-
-
-/* =========================
-   DETAILS / SUMMARY
-========================= */
-
-details {
-
-    background: white;
-
-    border-radius: 12px;
-
-}
-
-summary {
-
-    cursor: pointer;
-
-    list-style: none;
-
-}
-
-summary::-webkit-details-marker {
-
-    display: none;
-
-}
-
-summary h3 {
-
-    display: inline-block;
-
-    color: #1e3a8a;
-
-    margin-right: 10px;
-
-}
-
-summary p {
-
-    color: #6b7280;
-
-    margin-top: 5px;
-
-}
-
-
-/* =========================
-   EXPERIENCE CONTENT
-========================= */
-
-.experience-content {
-
-    margin-top: 20px;
-
-    padding-top: 20px;
-
-    border-top: 1px solid #e5e7eb;
-
-}
-
-.experience-content h4 {
-
-    color: #2563eb;
-
-    margin: 15px 0;
-
-}
-
-.experience-content ul {
-
-    margin-top: 10px;
-
-}
-
-
-/* =========================
-   CAREER HIGHLIGHTS
-========================= */
-
-.highlight-grid {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-
-}
-
-.resume-box {
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 12px;
-
-    margin: 0;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.08);
-
-    transition: .3s;
-
-}
-
-.resume-box:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,.12);
-
-}
-
-.resume-box h3 {
-
-    color: #1e3a8a;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* =========================
-   PROJECTS
-========================= */
-
-#projects {
-
-    scroll-margin-top: 100px;
-
-}
-
-.project-card {
-
-    border-left: 5px solid #2563eb;
-
-}
-
-.project-card summary h3 {
-
-    color: #1e3a8a;
-
-}
-
-.project-card summary p {
-
-    color: #6b7280;
-
-}
-
-.project-card h4 {
-
-    color: #2563eb;
-
-    margin-top: 20px;
-
-}
-
-
-/* =========================
-   CONTACT BUTTONS
-========================= */
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
 
 .contact-links {
-
     display: flex;
 
-    gap: 15px;
+    gap: 12px;
 
     flex-wrap: wrap;
 
     margin-top: 25px;
-
 }
 
 .action-link {
-
     display: inline-block;
 
     color: #2563eb;
@@ -536,14 +193,10 @@ summary p {
 
     font-weight: 600;
 
-    margin: 5px;
-
     transition: .3s;
-
 }
 
 .action-link:hover {
-
     background: #2563eb;
 
     color: white;
@@ -551,288 +204,547 @@ summary p {
     text-decoration: none;
 
     transform: translateY(-2px);
-
 }
 
 
-/* =========================
-   ACTION BUTTONS
-========================= */
+/* =========================================================
+   THREE COLUMN MAIN LAYOUT
+========================================================= */
 
-.action-button {
+.three-column-layout {
+    width: min(1500px, 94%);
 
-    background: #2563eb;
+    margin: 0 auto 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(250px, 0.82fr)
+        minmax(420px, 1.35fr)
+        minmax(250px, 0.82fr);
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+.column {
+    min-width: 0;
+}
+
+.column-heading {
+    background: #111827;
 
     color: white;
 
-    border: none;
+    padding: 22px;
 
-    padding: 10px 18px;
+    border-radius: 14px;
 
-    border-radius: 8px;
+    margin-bottom: 22px;
 
-    font-size: 16px;
+    position: sticky;
 
+    top: 95px;
+
+    z-index: 10;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.column-heading h2 {
+    font-size: 24px;
+
+    line-height: 1.25;
+
+    margin-bottom: 7px;
+}
+
+.column-heading p {
+    font-size: 14px;
+
+    color: #d1d5db;
+}
+
+
+/* =========================================================
+   TECHNICAL EXPERTISE CARDS
+========================================================= */
+
+.skill-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .07);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .11);
+}
+
+.skill-card h3 {
+    color: #2563eb;
+
+    font-size: 19px;
+
+    margin-bottom: 15px;
+}
+
+.skill-card ul {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   EXPERIENCE CARDS
+========================================================= */
+
+.experience-card {
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 14px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .07);
+
+    transition:
+        box-shadow .25s,
+        transform .25s;
+}
+
+.experience-card:hover {
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .11);
+}
+
+.experience-card summary {
     cursor: pointer;
 
-    transition: .3s;
+    list-style: none;
 
+    position: relative;
+
+    padding-right: 25px;
 }
 
-.action-button:hover {
-
-    background: #1d4ed8;
-
-    transform: translateY(-2px);
-
+.experience-card summary::-webkit-details-marker {
+    display: none;
 }
 
+.experience-card summary::after {
+    content: "+";
 
-/* =========================
-   SUPERHERO PROJECT
-========================= */
+    position: absolute;
 
-.superhero-project {
+    right: 0;
 
-    border-left: 5px solid #dc2626;
+    top: 0;
 
-}
-
-.superhero-project h3 {
-
-    color: #dc2626;
-
-}
-
-.superhero-project h4 {
+    font-size: 24px;
 
     color: #2563eb;
 
+    font-weight: bold;
 }
 
-.superhero-project ul {
-
-    padding-left: 25px;
-
+.experience-card[open] summary::after {
+    content: "−";
 }
 
-.superhero-project li {
+.experience-card summary h3 {
+    color: #1e3a8a;
 
-    margin-bottom: 8px;
+    font-size: 21px;
 
+    margin-bottom: 5px;
+}
+
+.experience-card summary p {
+    color: #6b7280;
+
+    font-size: 15px;
+}
+
+.experience-content {
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.experience-content p {
+    margin-bottom: 15px;
+}
+
+.experience-content h4 {
+    color: #2563eb;
+
+    margin: 18px 0 10px;
+}
+
+.experience-content ul {
+    margin-bottom: 10px;
 }
 
 
-/* =========================
+/* =========================================================
+   CAREER HIGHLIGHTS
+========================================================= */
+
+.highlight-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .07);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+}
+
+.highlight-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .11);
+}
+
+.highlight-card h3 {
+    color: #2563eb;
+
+    margin-bottom: 12px;
+
+    font-size: 19px;
+}
+
+.highlight-card p {
+    margin-bottom: 10px;
+}
+
+.highlight-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   FULL WIDTH SECTIONS
+========================================================= */
+
+.full-width-section {
+    width: min(1500px, 94%);
+
+    margin: 70px auto;
+
+    padding: 0;
+}
+
+.section-title {
+    text-align: center;
+
+    font-size: 32px;
+
+    color: #1e3a8a;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.project-card {
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 14px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .07);
+}
+
+.project-card summary {
+    cursor: pointer;
+
+    list-style: none;
+}
+
+.project-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.project-card summary h3 {
+    color: #1e3a8a;
+
+    display: inline-block;
+
+    margin-right: 10px;
+}
+
+.project-card summary p {
+    color: #6b7280;
+
+    margin-top: 5px;
+}
+
+.project-card[open] {
+    border-left: 5px solid #dc2626;
+}
+
+.project-card h4 {
+    color: #2563eb;
+
+    margin: 20px 0 10px;
+}
+
+
+/* =========================================================
+   RESUME BOX
+========================================================= */
+
+.resume-box {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .07);
+}
+
+.resume-box h3 {
+    color: #1e3a8a;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
-
     background: #111827;
 
     color: white;
 
     text-align: center;
 
-    padding: 50px 20px;
+    padding: 55px 20px;
 
-    margin-top: 60px;
-
+    margin-top: 70px;
 }
 
 footer h2 {
-
     color: white;
 
     margin-bottom: 15px;
-
 }
 
 footer a {
-
     color: #60a5fa;
-
 }
 
 .copyright {
-
     margin-top: 20px;
 
     color: #9ca3af;
-
 }
 
 
-/* =========================
-   TABLET
-========================= */
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
 
 @media (max-width: 1100px) {
 
     .three-column-layout {
+        grid-template-columns:
+            1fr 1.35fr;
+
+        gap: 25px;
+    }
+
+    .career-column {
+        grid-column: 1 / -1;
+
+        display: grid;
 
         grid-template-columns:
-            1fr
-            1.35fr
-            1fr;
+            repeat(2, 1fr);
 
-        gap: 18px;
-
+        gap: 20px;
     }
 
-    .section-title {
-
-        font-size: 24px;
-
+    .career-column .column-heading {
+        grid-column: 1 / -1;
     }
 
-    .skill-card,
-    .resume-box,
-    .professional-column details {
-
-        padding: 20px;
-
+    .career-column .highlight-card {
+        margin-bottom: 0;
     }
 
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 850px) {
 
-    .three-column-layout {
-
-        width: 92%;
-
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-
-    }
-
     .professional-header {
-
-        width: 92%;
-
         flex-direction: column;
 
         text-align: center;
 
-        padding: 30px 20px;
-
-        gap: 25px;
-
+        padding: 35px 25px;
     }
 
     .profile-content h1 {
-
-        font-size: 38px;
-
-    }
-
-    .profile-content h2 {
-
-        font-size: 24px;
-
-    }
-
-    .navbar {
-
-        flex-direction: column;
-
-        padding: 15px;
-
-    }
-
-    .navbar li {
-
-        margin: 6px;
-
-    }
-
-    .profile-image img {
-
-        width: 180px;
-
-        height: 180px;
-
+        font-size: 40px;
     }
 
     .contact-links {
-
         justify-content: center;
+    }
 
+    .three-column-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .career-column {
+        display: block;
+    }
+
+    .career-column .highlight-card {
+        margin-bottom: 22px;
+    }
+
+    .column-heading {
+        position: static;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 7px;
     }
 
 }
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* =========================================================
+   PHONE
+========================================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
     .professional-header {
+        width: 94%;
 
         margin-top: 25px;
 
-        margin-bottom: 40px;
+        padding: 25px 20px;
+    }
 
+    .profile-image img {
+        width: 175px;
+
+        height: 175px;
     }
 
     .profile-content h1 {
-
-        font-size: 32px;
-
+        font-size: 34px;
     }
 
     .profile-content h2 {
-
-        font-size: 21px;
-
+        font-size: 22px;
     }
 
-    .headline {
-
-        font-size: 15px;
-
+    .contact-links {
+        flex-direction: column;
     }
 
     .action-link {
-
         width: 100%;
 
         text-align: center;
-
-        margin: 3px 0;
-
     }
 
-    .section-title {
+    .three-column-layout,
+    .full-width-section {
+        width: 94%;
+    }
 
-        font-size: 23px;
-
+    .column-heading h2 {
+        font-size: 22px;
     }
 
     .skill-card,
-    .resume-box,
-    .professional-column details {
+    .experience-card,
+    .highlight-card {
+        padding: 21px;
+    }
 
-        padding: 20px;
-
+    .section-title {
+        font-size: 27px;
     }
 
 }
 
 
-/* =========================
-   PRINT / PDF
-========================= */
+/* =========================================================
+   PRINT / RESUME
+========================================================= */
 
 @media print {
 
@@ -840,82 +752,80 @@ footer a {
     footer,
     .action-button,
     .contact-links {
-
         display: none;
-
     }
 
     body {
+        background: white;
+
+        color: black;
+    }
+
+    .professional-header,
+    .three-column-layout,
+    .full-width-section {
+        width: 100%;
+    }
+
+    .professional-header {
+        box-shadow: none;
+
+        border: 1px solid #ddd;
+
+        margin: 20px 0;
+    }
+
+    .three-column-layout {
+        display: grid;
+
+        grid-template-columns:
+            1fr 1.3fr 1fr;
+
+        gap: 15px;
+    }
+
+    .column-heading {
+        position: static;
 
         background: white;
 
         color: black;
 
-    }
-
-    .professional-header {
-
-        width: 100%;
-
-        margin: 0 0 20px;
-
-        padding: 20px;
-
-        box-shadow: none;
-
         border: 1px solid #ddd;
 
+        box-shadow: none;
     }
 
-    .three-column-layout {
-
-        width: 100%;
-
-        margin: 0;
-
-        grid-template-columns:
-            1fr
-            1.5fr
-            1fr;
-
-        gap: 15px;
-
+    .column-heading h2 {
+        color: #1e3a8a;
     }
 
-    .column section {
-
-        margin-bottom: 20px;
-
+    .column-heading p {
+        color: #333;
     }
 
     .skill-card,
+    .experience-card,
+    .highlight-card,
     .resume-box,
-    .professional-column details {
-
+    .project-card {
         box-shadow: none;
 
         border: 1px solid #ddd;
-
     }
 
     details {
-
         break-inside: avoid;
-
     }
 
     a {
-
         color: black;
 
         text-decoration: none;
-
     }
 
     .profile-content h1 {
-
         font-size: 36px;
-
     }
 
 }
