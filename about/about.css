@@ -24,7 +24,9 @@ body {
         sans-serif;
 
     background: #f4f7fb;
+
     color: #333;
+
     line-height: 1.6;
 }
 
@@ -52,16 +54,23 @@ li {
 
 header {
     background: #111827;
+
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
 }
 
 .navbar {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     list-style: none;
+
     padding: 20px;
 }
 
@@ -71,118 +80,21 @@ header {
 
 .navbar a {
     color: white;
+
     font-size: 18px;
+
     padding: 10px 20px;
+
     border-radius: 8px;
+
     transition: .3s;
 }
 
 .navbar a:hover,
 .navbar .active {
     background: #2563eb;
+
     text-decoration: none;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-section {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 30px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 32px;
-    color: #1e3a8a;
-    margin-bottom: 35px;
-}
-
-
-/* =========================
-   THREE COLUMN PROFESSIONAL LAYOUT
-========================= */
-
-/*
-    COLUMN 1:
-    Technical Expertise
-
-    COLUMN 2:
-    Higher Education Technology Professional
-
-    COLUMN 3:
-    Career Highlights
-
-    The center column is intentionally wider.
-*/
-
-.three-column-layout {
-    width: min(1500px, 96%);
-    margin: 60px auto;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(260px, 1fr)
-        minmax(420px, 1.6fr)
-        minmax(260px, 1fr);
-
-    gap: 25px;
-
-    align-items: start;
-}
-
-
-/* Individual columns */
-
-.three-column-layout > .column {
-    min-width: 0;
-}
-
-
-/*
-    Sections inside the three-column
-    layout should not have their own
-    large outside margins.
-*/
-
-.three-column-layout section {
-    width: 100%;
-    max-width: none;
-
-    margin: 0;
-    padding: 0;
-}
-
-
-/* Column titles */
-
-.three-column-layout .section-title {
-    font-size: 28px;
-    margin-bottom: 25px;
-}
-
-
-/* Make the Technical Expertise
-   cards stack vertically */
-
-.three-column-layout .skill-columns {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-}
-
-
-/* Make Career Highlights
-   cards stack vertically */
-
-.three-column-layout .highlight-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
 }
 
 
@@ -191,8 +103,15 @@ section {
 ========================= */
 
 .professional-header {
+
+    width: min(1500px, 96%);
+
+    margin: 40px auto 60px;
+
     display: flex;
+
     align-items: center;
+
     gap: 50px;
 
     background: white;
@@ -206,7 +125,9 @@ section {
 }
 
 .profile-image img {
+
     width: 220px;
+
     height: 220px;
 
     border-radius: 50%;
@@ -216,48 +137,103 @@ section {
     border: 8px solid #e5e7eb;
 }
 
+.profile-content {
+    flex: 1;
+}
+
 .profile-content h1 {
+
     font-size: 52px;
+
     color: #111827;
 }
 
 .profile-content h2 {
+
     color: #2563eb;
+
     margin: 15px 0;
 }
 
 .headline {
-    font-weight: bold;
-    color: #1e3a8a;
-    margin-bottom: 20px;
-}
 
-.contact-links {
-    margin-top: 25px;
-    font-size: 18px;
+    font-weight: bold;
+
+    color: #1e3a8a;
+
+    margin-bottom: 20px;
 }
 
 
 /* =========================
-   RESUME BOX
+   THREE COLUMN LAYOUT
 ========================= */
 
-.resume-box {
-    background: white;
+.three-column-layout {
 
-    padding: 30px;
+    width: min(1500px, 96%);
 
-    border-radius: 12px;
+    margin: 0 auto 60px;
 
-    margin-bottom: 25px;
+    display: grid;
 
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, .08);
+    /*
+       LEFT COLUMN
+       Technical Expertise
+
+       CENTER COLUMN
+       Professional Experience
+       Technical Projects
+
+       RIGHT COLUMN
+       Career Highlights
+       Education
+    */
+
+    grid-template-columns:
+        minmax(260px, 1fr)
+        minmax(500px, 1.7fr)
+        minmax(260px, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
 }
 
-.resume-box h3 {
+.column {
+    min-width: 0;
+}
+
+
+/* =========================
+   COLUMN SECTIONS
+========================= */
+
+.column section {
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0 0 40px;
+
+    padding: 0;
+}
+
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section-title {
+
+    text-align: center;
+
+    font-size: 28px;
+
     color: #1e3a8a;
-    margin-bottom: 15px;
+
+    margin-bottom: 25px;
 }
 
 
@@ -266,15 +242,16 @@ section {
 ========================= */
 
 .skill-columns {
+
     display: grid;
 
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
 
-    gap: 25px;
+    gap: 20px;
 }
 
-.skill-columns > div {
+.skill-card {
+
     background: white;
 
     padding: 25px;
@@ -283,19 +260,82 @@ section {
 
     box-shadow:
         0 8px 20px rgba(0, 0, 0, .08);
+
+    transition: .3s;
 }
 
-.skill-columns h3 {
+.skill-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .12);
+}
+
+.skill-card h3 {
+
     color: #2563eb;
+
+    margin-bottom: 15px;
+}
+
+.skill-card ul {
+
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   CAREER HIGHLIGHTS
+========================= */
+
+.highlight-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+}
+
+.resume-box {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    margin-bottom: 0;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+}
+
+.resume-box:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, .12);
+}
+
+.resume-box h3 {
+
+    color: #1e3a8a;
+
     margin-bottom: 15px;
 }
 
 
 /* =========================
-   ELLUCIAN CREDENTIALS
+   PROFESSIONAL EXPERIENCE
 ========================= */
 
-details {
+.professional-column details {
+
     background: white;
 
     padding: 25px;
@@ -306,37 +346,51 @@ details {
 
     box-shadow:
         0 8px 20px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+}
+
+.professional-column details:hover {
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .12);
 }
 
 summary {
+
     cursor: pointer;
+
     list-style: none;
 }
 
 summary::-webkit-details-marker {
+
     display: none;
 }
 
 summary h3 {
-    display: inline-block;
-    color: #1e3a8a;
-}
 
-summary h4 {
     display: inline-block;
-    color: #2563eb;
+
+    color: #1e3a8a;
+
+    margin-right: 10px;
 }
 
 summary p {
+
     color: #6b7280;
+
+    margin-top: 5px;
 }
 
 
 /* =========================
-   MAIN EXPERIENCE CONTENT
+   EXPERIENCE CONTENT
 ========================= */
 
 .experience-content {
+
     margin-top: 20px;
 
     padding-top: 20px;
@@ -344,163 +398,16 @@ summary p {
     border-top: 1px solid #e5e7eb;
 }
 
-
-/* =========================
-   BADGE CATEGORY DROPDOWNS
-========================= */
-
-.experience-content details {
-    background: #f9fafb;
-
-    border: 1px solid #e5e7eb;
-
-    box-shadow: none;
-
-    padding: 15px;
-
-    margin-top: 15px;
-}
-
-.experience-content details:hover {
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, .08);
-}
-
-.experience-content details summary:hover {
-    background: #eef2ff;
-
-    border-radius: 8px;
-}
-
-.experience-content details summary h4 {
-    color: #2563eb;
-}
-
-
-/* =========================
-   BADGE SCROLL AREA
-========================= */
-
-.badge-scroll {
-    max-height: 600px;
-
-    overflow-y: auto;
-
-    padding-right: 20px;
-
-    scrollbar-width: thin;
-}
-
-.badge-scroll::-webkit-scrollbar {
-    width: 10px;
-}
-
-.badge-scroll::-webkit-scrollbar-thumb {
-    background: #2563eb;
-    border-radius: 10px;
-}
-
-.badge-scroll::-webkit-scrollbar-track {
-    background: #e5e7eb;
-}
-
-
-/* =========================
-   BADGE LIST
-========================= */
-
-.badge-list {
-    list-style: none;
-
-    padding: 0;
-
-    margin-top: 20px;
-}
-
-.badge-list li {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    background: white;
-
-    padding: 15px;
-
-    margin-bottom: 12px;
-
-    border-radius: 10px;
-
-    border: 1px solid #e5e7eb;
-
-    transition: .3s;
-
-    cursor: pointer;
-}
-
-.badge-list li:hover {
-    transform: translateX(5px);
-
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, .08);
-}
-
-.badge-icon {
-    width: 60px;
-    height: 60px;
-
-    object-fit: contain;
-
-    flex-shrink: 0;
-
-    background: #ffffff;
-
-    border-radius: 8px;
-
-    padding: 5px;
-}
-
-.badge-list a {
-    color: #1e3a8a;
-
-    font-weight: 700;
-
-    flex: 1;
-}
-
-.badge-list a:hover {
-    color: #2563eb;
-
-    text-decoration: none;
-}
-
-
-/* =========================
-   EXPERIENCE SECTIONS
-========================= */
-
 .experience-content h4 {
+
     color: #2563eb;
+
     margin: 15px 0;
 }
 
-details ul {
-    margin-top: 15px;
-}
+.experience-content ul {
 
-
-/* =========================
-   CAREER HIGHLIGHTS
-========================= */
-
-.highlight-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 25px;
+    margin-top: 10px;
 }
 
 
@@ -509,75 +416,39 @@ details ul {
 ========================= */
 
 #projects {
+
     scroll-margin-top: 100px;
 }
 
+.project-card {
 
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #111827;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 50px 20px;
-
-    margin-top: 60px;
+    border-left: 5px solid #2563eb;
 }
 
-footer h2 {
-    color: white;
-    margin-bottom: 15px;
+.project-card summary h3 {
+
+    color: #1e3a8a;
 }
 
-footer a {
-    color: #60a5fa;
+.project-card summary p {
+
+    color: #6b7280;
 }
 
-.copyright {
+.project-card h4 {
+
+    color: #2563eb;
+
     margin-top: 20px;
-    color: #9ca3af;
 }
 
 
 /* =========================
-   ACTION BUTTONS
-========================= */
-
-.action-button {
-    background: #2563eb;
-
-    color: white;
-
-    border: none;
-
-    padding: 10px 18px;
-
-    border-radius: 8px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.action-button:hover {
-    background: #1d4ed8;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================
-   PROFILE ACTION BUTTONS
+   CONTACT BUTTONS
 ========================= */
 
 .contact-links {
+
     display: flex;
 
     gap: 15px;
@@ -588,6 +459,7 @@ footer a {
 }
 
 .action-link {
+
     display: inline-block;
 
     color: #2563eb;
@@ -606,6 +478,7 @@ footer a {
 }
 
 .action-link:hover {
+
     background: #2563eb;
 
     color: white;
@@ -617,27 +490,100 @@ footer a {
 
 
 /* =========================
-   SUPERHERO COMMAND CENTER
+   ACTION BUTTON
+========================= */
+
+.action-button {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.action-button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SUPERHERO PROJECT
 ========================= */
 
 .superhero-project {
+
     border-left: 5px solid #dc2626;
 }
 
 .superhero-project h3 {
+
     color: #dc2626;
 }
 
 .superhero-project h4 {
+
     color: #2563eb;
 }
 
 .superhero-project ul {
+
     padding-left: 25px;
 }
 
 .superhero-project li {
+
     margin-bottom: 8px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #111827;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    margin-top: 60px;
+}
+
+footer h2 {
+
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+footer a {
+
+    color: #60a5fa;
+}
+
+.copyright {
+
+    margin-top: 20px;
+
+    color: #9ca3af;
 }
 
 
@@ -645,22 +591,26 @@ footer a {
    TABLET
 ========================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1150px) {
 
     .three-column-layout {
 
-        width: 96%;
-
         grid-template-columns:
             minmax(220px, 1fr)
-            minmax(350px, 1.5fr)
+            minmax(420px, 1.5fr)
             minmax(220px, 1fr);
 
         gap: 20px;
     }
 
-    .three-column-layout .section-title {
+    .section-title {
+
         font-size: 25px;
+    }
+
+    .professional-header {
+
+        width: 96%;
     }
 
 }
@@ -674,34 +624,37 @@ footer a {
 
     .three-column-layout {
 
+        width: 92%;
+
         grid-template-columns: 1fr;
 
-        gap: 40px;
-
-        width: 92%;
-    }
-
-
-    .three-column-layout .section-title {
-
-        font-size: 28px;
-
+        gap: 20px;
     }
 
 
     .professional-header {
 
+        width: 92%;
+
         flex-direction: column;
 
         text-align: center;
 
+        padding: 30px 20px;
+
+        gap: 25px;
     }
 
 
     .profile-content h1 {
 
         font-size: 38px;
+    }
 
+
+    .profile-content h2 {
+
+        font-size: 24px;
     }
 
 
@@ -709,20 +662,19 @@ footer a {
 
         flex-direction: column;
 
+        padding: 15px;
     }
 
 
     .navbar li {
 
-        margin: 8px;
-
+        margin: 6px;
     }
 
 
-    section {
+    .contact-links {
 
-        padding: 0 20px;
-
+        justify-content: center;
     }
 
 
@@ -731,51 +683,110 @@ footer a {
         width: 180px;
 
         height: 180px;
-
     }
 
 
-    .badge-list li {
+    .skill-columns,
+    .highlight-grid {
 
-        flex-direction: column;
-
-        text-align: center;
-
-    }
-
-
-    .badge-icon {
-
-        width: 70px;
-
-        height: 70px;
-
+        grid-template-columns: 1fr;
     }
 
 }
 
 
 /* =========================
-   PROFESSIONAL PDF PRINT
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .professional-header {
+
+        margin-top: 25px;
+
+        margin-bottom: 40px;
+    }
+
+
+    .profile-content h1 {
+
+        font-size: 32px;
+    }
+
+
+    .profile-content h2 {
+
+        font-size: 21px;
+    }
+
+
+    .headline {
+
+        font-size: 15px;
+    }
+
+
+    .action-link {
+
+        width: 100%;
+
+        text-align: center;
+
+        margin: 3px 0;
+    }
+
+
+    .section-title {
+
+        font-size: 24px;
+    }
+
+
+    .professional-column details,
+    .skill-card,
+    .resume-box {
+
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================
+   PRINT / PDF
 ========================= */
 
 @media print {
 
     header,
     footer,
-    .action-button {
+    .action-button,
+    .contact-links {
+
         display: none;
     }
 
 
     body {
+
         background: white;
+
         color: black;
     }
 
 
-    section {
-        margin: 20px auto;
+    .professional-header {
+
+        width: 100%;
+
+        margin: 0 0 20px;
+
+        padding: 20px;
+
+        box-shadow: none;
+
+        border: 1px solid #ddd;
     }
 
 
@@ -783,42 +794,49 @@ footer a {
 
         width: 100%;
 
+        margin: 0;
+
         grid-template-columns:
             1fr
-            1.5fr
+            1.6fr
             1fr;
 
         gap: 15px;
+    }
 
-        margin: 20px auto;
 
+    .column section {
+
+        margin-bottom: 20px;
     }
 
 
     .resume-box,
-    details,
-    .skill-columns > div,
-    .professional-header {
+    .skill-card,
+    .professional-column details {
 
         box-shadow: none;
 
         border: 1px solid #ddd;
-
     }
 
 
     details {
+
         break-inside: avoid;
     }
 
 
     a {
+
         color: black;
+
         text-decoration: none;
     }
 
 
     .profile-content h1 {
+
         font-size: 36px;
     }
 
