@@ -13,1055 +13,813 @@
    GLOBAL
 ========================= */
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
     font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-    background:#f4f7fb;
-
-    color:#333;
-
-    line-height:1.6;
-
+    background: #f4f7fb;
+    color: #333;
+    line-height: 1.6;
 }
-
 
 a {
-
-    color:#2563eb;
-
-    text-decoration:none;
-
+    color: #2563eb;
+    text-decoration: none;
 }
-
 
 a:hover {
-
-    text-decoration:underline;
-
+    text-decoration: underline;
 }
-
 
 ul {
-
-    padding-left:25px;
-
+    padding-left: 25px;
 }
-
 
 li {
-
-    margin-bottom:8px;
-
+    margin-bottom: 8px;
 }
-
 
 
 /* =========================
    NAVIGATION
 ========================= */
 
-
 header {
-
-    background:#111827;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
+    background: #111827;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
 
 .navbar {
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    list-style:none;
-
-    padding:20px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 20px;
 }
-
 
 .navbar li {
-
-    margin:0 15px;
-
+    margin: 0 15px;
 }
-
 
 .navbar a {
-
-    color:white;
-
-    font-size:18px;
-
-    padding:10px 20px;
-
-    border-radius:8px;
-
-    transition:.3s;
-
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: .3s;
 }
-
 
 .navbar a:hover,
 .navbar .active {
-
-    background:#2563eb;
-
-    text-decoration:none;
-
+    background: #2563eb;
+    text-decoration: none;
 }
-
-
-
 
 
 /* =========================
    SECTIONS
 ========================= */
 
-
 section {
-
-    max-width:1100px;
-
-    margin:60px auto;
-
-    padding:0 30px;
-
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 30px;
 }
-
-
 
 .section-title {
-
-    text-align:center;
-
-    font-size:32px;
-
-    color:#1e3a8a;
-
-    margin-bottom:35px;
-
+    text-align: center;
+    font-size: 32px;
+    color: #1e3a8a;
+    margin-bottom: 35px;
 }
 
 
+/* =========================
+   THREE COLUMN PROFESSIONAL LAYOUT
+========================= */
+
+/*
+    COLUMN 1:
+    Technical Expertise
+
+    COLUMN 2:
+    Higher Education Technology Professional
+
+    COLUMN 3:
+    Career Highlights
+
+    The center column is intentionally wider.
+*/
+
+.three-column-layout {
+    width: min(1500px, 96%);
+    margin: 60px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(260px, 1fr)
+        minmax(420px, 1.6fr)
+        minmax(260px, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
+}
 
 
+/* Individual columns */
 
+.three-column-layout > .column {
+    min-width: 0;
+}
+
+
+/*
+    Sections inside the three-column
+    layout should not have their own
+    large outside margins.
+*/
+
+.three-column-layout section {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Column titles */
+
+.three-column-layout .section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+
+/* Make the Technical Expertise
+   cards stack vertically */
+
+.three-column-layout .skill-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+
+/* Make Career Highlights
+   cards stack vertically */
+
+.three-column-layout .highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
 
 
 /* =========================
    PROFESSIONAL HEADER
 ========================= */
 
-
 .professional-header {
+    display: flex;
+    align-items: center;
+    gap: 50px;
 
-    display:flex;
+    background: white;
 
-    align-items:center;
+    padding: 40px;
 
-    gap:50px;
-
-    background:white;
-
-    padding:40px;
-
-    border-radius:15px;
+    border-radius: 15px;
 
     box-shadow:
-
-    0 10px 25px rgba(0,0,0,.08);
-
+        0 10px 25px rgba(0, 0, 0, .08);
 }
-
-
 
 .profile-image img {
+    width: 220px;
+    height: 220px;
 
-    width:220px;
+    border-radius: 50%;
 
-    height:220px;
+    object-fit: cover;
 
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:8px solid #e5e7eb;
-
+    border: 8px solid #e5e7eb;
 }
-
-
 
 .profile-content h1 {
-
-    font-size:52px;
-
-    color:#111827;
-
+    font-size: 52px;
+    color: #111827;
 }
-
-
 
 .profile-content h2 {
-
-    color:#2563eb;
-
-    margin:15px 0;
-
+    color: #2563eb;
+    margin: 15px 0;
 }
-
-
 
 .headline {
-
-    font-weight:bold;
-
-    color:#1e3a8a;
-
-    margin-bottom:20px;
-
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 20px;
 }
-
-
 
 .contact-links {
-
-    margin-top:25px;
-
-    font-size:18px;
-
+    margin-top: 25px;
+    font-size: 18px;
 }
-
-
-
-
-
 
 
 /* =========================
    RESUME BOX
 ========================= */
 
-
 .resume-box {
+    background: white;
 
-    background:white;
+    padding: 30px;
 
-    padding:30px;
+    border-radius: 12px;
 
-    border-radius:12px;
-
-    margin-bottom:25px;
+    margin-bottom: 25px;
 
     box-shadow:
-
-    0 8px 20px rgba(0,0,0,.08);
-
+        0 8px 20px rgba(0, 0, 0, .08);
 }
-
-
 
 .resume-box h3 {
-
-    color:#1e3a8a;
-
-    margin-bottom:15px;
-
+    color: #1e3a8a;
+    margin-bottom: 15px;
 }
-
-
-
-
-
 
 
 /* =========================
    TECHNICAL EXPERTISE
 ========================= */
 
-
 .skill-columns {
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+        repeat(auto-fit, minmax(260px, 1fr));
 
-    gap:25px;
-
+    gap: 25px;
 }
-
-
 
 .skill-columns > div {
+    background: white;
 
-    background:white;
+    padding: 25px;
 
-    padding:25px;
-
-    border-radius:12px;
+    border-radius: 12px;
 
     box-shadow:
-
-    0 8px 20px rgba(0,0,0,.08);
-
+        0 8px 20px rgba(0, 0, 0, .08);
 }
-
-
 
 .skill-columns h3 {
-
-    color:#2563eb;
-
-    margin-bottom:15px;
-
+    color: #2563eb;
+    margin-bottom: 15px;
 }
-
-
-
-
-
-
 
 
 /* =========================
    ELLUCIAN CREDENTIALS
 ========================= */
 
-
 details {
+    background: white;
 
-    background:white;
+    padding: 25px;
 
-    padding:25px;
+    border-radius: 12px;
 
-    border-radius:12px;
-
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
     box-shadow:
-
-    0 8px 20px rgba(0,0,0,.08);
-
+        0 8px 20px rgba(0, 0, 0, .08);
 }
-
-
 
 summary {
-
-    cursor:pointer;
-
-    list-style:none;
-
+    cursor: pointer;
+    list-style: none;
 }
-
 
 summary::-webkit-details-marker {
-
-    display:none;
-
+    display: none;
 }
-
 
 summary h3 {
-
-    display:inline-block;
-
-    color:#1e3a8a;
-
+    display: inline-block;
+    color: #1e3a8a;
 }
-
-
 
 summary h4 {
-
-    display:inline-block;
-
-    color:#2563eb;
-
+    display: inline-block;
+    color: #2563eb;
 }
-
-
 
 summary p {
-
-    color:#6b7280;
-
+    color: #6b7280;
 }
-
-
-
-
 
 
 /* =========================
    MAIN EXPERIENCE CONTENT
 ========================= */
 
-
 .experience-content {
+    margin-top: 20px;
 
-    margin-top:20px;
+    padding-top: 20px;
 
-    padding-top:20px;
-
-    border-top:1px solid #e5e7eb;
-
+    border-top: 1px solid #e5e7eb;
 }
-
-
-
-
 
 
 /* =========================
    BADGE CATEGORY DROPDOWNS
 ========================= */
 
-
 .experience-content details {
+    background: #f9fafb;
 
-    background:#f9fafb;
+    border: 1px solid #e5e7eb;
 
-    border:1px solid #e5e7eb;
+    box-shadow: none;
 
-    box-shadow:none;
+    padding: 15px;
 
-    padding:15px;
-
-    margin-top:15px;
-
+    margin-top: 15px;
 }
-
-
 
 .experience-content details:hover {
-
     box-shadow:
-
-    0 5px 15px rgba(0,0,0,.08);
-
+        0 5px 15px rgba(0, 0, 0, .08);
 }
-
-
 
 .experience-content details summary:hover {
+    background: #eef2ff;
 
-    background:#eef2ff;
-
-    border-radius:8px;
-
+    border-radius: 8px;
 }
-
-
 
 .experience-content details summary h4 {
-
-    color:#2563eb;
-
+    color: #2563eb;
 }
-
-
-
-
-
-
 
 
 /* =========================
    BADGE SCROLL AREA
 ========================= */
 
-
 .badge-scroll {
+    max-height: 600px;
 
-    max-height:600px;
+    overflow-y: auto;
 
-    overflow-y:auto;
+    padding-right: 20px;
 
-    padding-right:20px;
-
-    scrollbar-width:thin;
-
+    scrollbar-width: thin;
 }
-
-
 
 .badge-scroll::-webkit-scrollbar {
-
-    width:10px;
-
+    width: 10px;
 }
-
 
 .badge-scroll::-webkit-scrollbar-thumb {
-
-    background:#2563eb;
-
-    border-radius:10px;
-
+    background: #2563eb;
+    border-radius: 10px;
 }
-
-
 
 .badge-scroll::-webkit-scrollbar-track {
-
-    background:#e5e7eb;
-
+    background: #e5e7eb;
 }
-
-
-
-
-
-
 
 
 /* =========================
    BADGE LIST
 ========================= */
 
-
 .badge-list {
+    list-style: none;
 
-    list-style:none;
+    padding: 0;
 
-    padding:0;
-
-    margin-top:20px;
-
+    margin-top: 20px;
 }
-
-
-
 
 .badge-list li {
+    display: flex;
 
-    display:flex;
+    align-items: center;
 
-    align-items:center;
+    gap: 15px;
 
-    gap:15px;
+    background: white;
 
-    background:white;
+    padding: 15px;
 
-    padding:15px;
+    margin-bottom: 12px;
 
-    margin-bottom:12px;
+    border-radius: 10px;
 
-    border-radius:10px;
+    border: 1px solid #e5e7eb;
 
-    border:1px solid #e5e7eb;
+    transition: .3s;
 
-    transition:.3s;
-
+    cursor: pointer;
 }
-
-
 
 .badge-list li:hover {
-
-    transform:translateX(5px);
+    transform: translateX(5px);
 
     box-shadow:
-
-    0 5px 15px rgba(0,0,0,.08);
-
+        0 5px 15px rgba(0, 0, 0, .08);
 }
-
-
 
 .badge-icon {
+    width: 60px;
+    height: 60px;
 
-    width:60px;
+    object-fit: contain;
 
-    height:60px;
+    flex-shrink: 0;
 
-    object-fit:contain;
+    background: #ffffff;
 
-    flex-shrink:0;
+    border-radius: 8px;
 
+    padding: 5px;
 }
-
-
 
 .badge-list a {
+    color: #1e3a8a;
 
-    font-weight:600;
+    font-weight: 700;
 
+    flex: 1;
 }
-
-
 
 .badge-list a:hover {
+    color: #2563eb;
 
-    color:#1d4ed8;
-
+    text-decoration: none;
 }
-
-
-.badge-list a {
-
-    color:#1e3a8a;
-
-    font-weight:700;
-
-    flex:1;
-
-}
-
-
-.badge-list a:hover {
-
-    color:#2563eb;
-
-    text-decoration:none;
-
-}
-
-
-.badge-icon {
-
-    width:60px;
-
-    height:60px;
-
-    object-fit:contain;
-
-    flex-shrink:0;
-
-    background:#ffffff;
-
-    border-radius:8px;
-
-    padding:5px;
-
-}
-
-
-.badge-list li {
-
-    cursor:pointer;
-
-}
-
-
-
-
 
 
 /* =========================
    EXPERIENCE SECTIONS
 ========================= */
 
-
 .experience-content h4 {
-
-    color:#2563eb;
-
-    margin:15px 0;
-
+    color: #2563eb;
+    margin: 15px 0;
 }
-
-
 
 details ul {
-
-    margin-top:15px;
-
+    margin-top: 15px;
 }
-
-
-
-
 
 
 /* =========================
    CAREER HIGHLIGHTS
 ========================= */
 
-
 .highlight-grid {
-
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+        repeat(auto-fit, minmax(260px, 1fr));
 
-    gap:25px;
-
+    gap: 25px;
 }
-
-
-
-
 
 
 /* =========================
    PROJECTS
 ========================= */
 
-
 #projects {
-
-    scroll-margin-top:100px;
-
+    scroll-margin-top: 100px;
 }
-
-
-
-
 
 
 /* =========================
    FOOTER
 ========================= */
 
-
 footer {
+    background: #111827;
 
-    background:#111827;
+    color: white;
 
-    color:white;
+    text-align: center;
 
-    text-align:center;
+    padding: 50px 20px;
 
-    padding:50px 20px;
-
-    margin-top:60px;
-
+    margin-top: 60px;
 }
-
-
 
 footer h2 {
-
-    color:white;
-
-    margin-bottom:15px;
-
+    color: white;
+    margin-bottom: 15px;
 }
-
-
 
 footer a {
-
-    color:#60a5fa;
-
+    color: #60a5fa;
 }
-
-
 
 .copyright {
-
-    margin-top:20px;
-
-    color:#9ca3af;
-
+    margin-top: 20px;
+    color: #9ca3af;
 }
 
-
-
-
-
-
-
-/* =========================
-   MOBILE
-========================= */
-
-
-@media(max-width:850px) {
-
-
-.professional-header {
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-
-
-.profile-content h1 {
-
-    font-size:38px;
-
-}
-
-
-
-.navbar {
-
-    flex-direction:column;
-
-}
-
-
-
-.navbar li {
-
-    margin:8px;
-
-}
-
-
-
-section {
-
-    padding:0 20px;
-
-}
-
-
-
-.profile-image img {
-
-    width:180px;
-
-    height:180px;
-
-}
-
-
-
-.badge-list li {
-
-    flex-direction:column;
-
-    text-align:center;
-
-}
-
-
-.badge-icon {
-
-    width:70px;
-
-    height:70px;
-
-}
-
-
-}
 
 /* =========================
    ACTION BUTTONS
 ========================= */
 
 .action-button {
+    background: #2563eb;
 
-    background:#2563eb;
+    color: white;
 
-    color:white;
+    border: none;
 
-    border:none;
+    padding: 10px 18px;
 
-    padding:10px 18px;
+    border-radius: 8px;
 
-    border-radius:8px;
+    font-size: 16px;
 
-    font-size:16px;
+    cursor: pointer;
 
-    cursor:pointer;
-
-    transition:.3s;
-
+    transition: .3s;
 }
-
 
 .action-button:hover {
+    background: #1d4ed8;
 
-    background:#1d4ed8;
-
-    transform:translateY(-2px);
-
+    transform: translateY(-2px);
 }
 
-/* =========================
-   PROFESSIONAL PDF PRINT
-========================= */
-
-
-@media print {
-
-
-header,
-footer,
-.action-button {
-
-    display:none;
-
-}
-
-
-
-body {
-
-    background:white;
-
-    color:black;
-
-}
-
-
-
-section {
-
-    margin:20px auto;
-
-}
-
-
-
-.resume-box,
-details,
-.skill-columns > div,
-.professional-header {
-
-    box-shadow:none;
-
-    border:1px solid #ddd;
-
-}
-
-
-
-details {
-
-    break-inside:avoid;
-
-}
-
-
-
-a {
-
-    color:black;
-
-    text-decoration:none;
-
-}
-
-
-
-.profile-content h1 {
-
-    font-size:36px;
-
-}
-
-
-}
 
 /* =========================
    PROFILE ACTION BUTTONS
 ========================= */
 
-
 .contact-links {
+    display: flex;
 
-    display:flex;
+    gap: 15px;
 
-    gap:15px;
+    flex-wrap: wrap;
 
-    flex-wrap:wrap;
-
-    margin-top:25px;
-
+    margin-top: 25px;
 }
-
-
 
 .action-link {
+    display: inline-block;
 
-    display:inline-block;
+    color: #2563eb;
 
-    color:#2563eb;
+    border: 2px solid #2563eb;
 
-    border:2px solid #2563eb;
+    padding: 10px 18px;
 
-    padding:10px 18px;
+    border-radius: 8px;
 
-    border-radius:8px;
+    font-weight: 600;
 
-    font-weight:600;
+    margin: 5px;
 
-    margin:5px;
-
-    transition:.3s;
-
+    transition: .3s;
 }
-
 
 .action-link:hover {
+    background: #2563eb;
 
-    background:#2563eb;
+    color: white;
 
-    color:white;
+    text-decoration: none;
 
-    text-decoration:none;
-
-    transform:translateY(-2px);
-
+    transform: translateY(-2px);
 }
+
 
 /* =========================
    SUPERHERO COMMAND CENTER
 ========================= */
 
-
 .superhero-project {
-
     border-left: 5px solid #dc2626;
-
 }
-
 
 .superhero-project h3 {
-
-    color:#dc2626;
-
+    color: #dc2626;
 }
-
 
 .superhero-project h4 {
-
-    color:#2563eb;
-
+    color: #2563eb;
 }
-
 
 .superhero-project ul {
+    padding-left: 25px;
+}
 
-    padding-left:25px;
+.superhero-project li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .three-column-layout {
+
+        width: 96%;
+
+        grid-template-columns:
+            minmax(220px, 1fr)
+            minmax(350px, 1.5fr)
+            minmax(220px, 1fr);
+
+        gap: 20px;
+    }
+
+    .three-column-layout .section-title {
+        font-size: 25px;
+    }
 
 }
 
 
-.superhero-project li {
+/* =========================
+   MOBILE
+========================= */
 
-    margin-bottom:8px;
+@media (max-width: 850px) {
+
+    .three-column-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        width: 92%;
+    }
+
+
+    .three-column-layout .section-title {
+
+        font-size: 28px;
+
+    }
+
+
+    .professional-header {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .profile-content h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    .navbar {
+
+        flex-direction: column;
+
+    }
+
+
+    .navbar li {
+
+        margin: 8px;
+
+    }
+
+
+    section {
+
+        padding: 0 20px;
+
+    }
+
+
+    .profile-image img {
+
+        width: 180px;
+
+        height: 180px;
+
+    }
+
+
+    .badge-list li {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+    .badge-icon {
+
+        width: 70px;
+
+        height: 70px;
+
+    }
+
+}
+
+
+/* =========================
+   PROFESSIONAL PDF PRINT
+========================= */
+
+@media print {
+
+    header,
+    footer,
+    .action-button {
+        display: none;
+    }
+
+
+    body {
+        background: white;
+        color: black;
+    }
+
+
+    section {
+        margin: 20px auto;
+    }
+
+
+    .three-column-layout {
+
+        width: 100%;
+
+        grid-template-columns:
+            1fr
+            1.5fr
+            1fr;
+
+        gap: 15px;
+
+        margin: 20px auto;
+
+    }
+
+
+    .resume-box,
+    details,
+    .skill-columns > div,
+    .professional-header {
+
+        box-shadow: none;
+
+        border: 1px solid #ddd;
+
+    }
+
+
+    details {
+        break-inside: avoid;
+    }
+
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+
+    .profile-content h1 {
+        font-size: 36px;
+    }
 
 }
