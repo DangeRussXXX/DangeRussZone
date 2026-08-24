@@ -1,31 +1,28 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
+   WORD-BUILDING VERSION
    ============================================================ */
-
-
-/* ============================================================
-   GET ELEMENTS
-   ============================================================ */
-
-const dinosaur = document.getElementById("dinosaur");
-const dinoSpeech = document.getElementById("dinoSpeech");
 
 const gameArea = document.getElementById("gameArea");
+const dinosaur = document.getElementById("dinosaur");
 const foodArea = document.getElementById("foodArea");
-
 const targetLetter = document.getElementById("targetLetter");
-
+const message = document.getElementById("message");
+const scoreDisplay = document.getElementById("score");
 const fedDisplay = document.getElementById("fed");
-const wordProgressDisplay =
-  document.getElementById("wordProgress");
-
-const keyboardLetters =
-  document.getElementById("keyboardLetters");
-
 const effect = document.getElementById("effect");
+const keyboardLetters = document.getElementById("keyboardLetters");
+const restartButton = document.getElementById("restartButton");
 
-const restartButton =
-  document.getElementById("restartButton");
+let score = 0;
+let fed = 0;
+
+let currentWord = "";
+let currentIndex = 0;
+
+let burgers = [];
+
+let busy = false;
 
 
 /* ============================================================
@@ -33,28 +30,17 @@ const restartButton =
    ============================================================ */
 
 const words = [
+  "DINO",
+  "ROAR",
+  "TREE",
+  "JUNGLE",
+  "MAMA",
+  "DAD",
+  "BABY",
   "CAT",
   "DOG",
-  "SUN",
-  "MOM",
-  "DAD",
-  "PIG",
-  "COW",
-  "HAT"
+  "SUN"
 ];
-
-
-/* ============================================================
-   GAME VARIABLES
-   ============================================================ */
-
-let currentWordIndex = 0;
-
-let currentLetterIndex = 0;
-
-let fed = 0;
-
-let busy = false;
 
 
 /* ============================================================
@@ -63,103 +49,114 @@ let busy = false;
 
 function startGame() {
 
-  currentWordIndex = 0;
-
-  currentLetterIndex = 0;
-
+  score = 0;
   fed = 0;
 
-  busy = false;
-
+  scoreDisplay.textContent = score;
   fedDisplay.textContent = fed;
+
+  currentWord =
+    words[Math.floor(Math.random() * words.length)];
+
+  currentIndex = 0;
+
+  message.textContent = "Help Dino spell the word!";
 
   createKeyboard();
 
-  showCurrentLetter();
-
+  showNextLetter();
 }
 
 
 /* ============================================================
-   CURRENT WORD
+   NEXT LETTER
    ============================================================ */
 
-function getCurrentWord() {
+function showNextLetter() {
 
-  return words[currentWordIndex];
+  busy = false;
 
-}
+  clearBurgers();
 
+  if (currentIndex >= currentWord.length) {
 
-/* ============================================================
-   SHOW LETTER
-   ============================================================ */
+    wordComplete();
 
-function showCurrentLetter() {
+    return;
+  }
 
-  const word = getCurrentWord();
-
-  const letter = word[currentLetterIndex];
+  const letter =
+    currentWord[currentIndex];
 
   targetLetter.textContent = letter;
 
-  updateWordProgress();
+  message.textContent =
+    "FIND: " + letter;
 
   createBurgers(letter);
-
-  dinoSpeech.textContent = "🍔?";
-
 }
 
 
 /* ============================================================
-   WORD PROGRESS
-   ============================================================ */
-
-function updateWordProgress() {
-
-  const word = getCurrentWord();
-
-  let display = "";
-
-  for (
-    let i = 0;
-    i < word.length;
-    i++
-  ) {
-
-    if (i < currentLetterIndex) {
-
-      display += word[i];
-
-    } else {
-
-      display += "_";
-
-    }
-
-    if (i < word.length - 1) {
-
-      display += " ";
-
-    }
-  }
-
-  wordProgressDisplay.textContent = display;
-}
-
-
-/* ============================================================
-   CREATE 3 BURGERS
+   CREATE THREE BURGERS
    ============================================================ */
 
 function createBurgers(correctLetter) {
 
   foodArea.innerHTML = "";
 
-  const letters = createChoices(correctLetter);
+  burgers = [];
 
-  const positions = getBurgerPositions();
+  const letters = [];
+
+  letters.push(correctLetter);
+
+  while (letters.length < 3) {
+
+    const randomLetter =
+      String.fromCharCode(
+        65 + Math.floor(Math.random() * 26)
+      );
+
+    if (!letters.includes(randomLetter)) {
+
+      letters.push(randomLetter);
+
+    }
+  }
+
+
+  // Shuffle choices
+
+  letters.sort(() => Math.random() - 0.5);
+
+
+  /*
+     Three safe positions.
+
+     These deliberately stay away from
+     the dinosaur's starting area.
+  */
+
+  const positions = [
+
+    {
+      left: "12%",
+      top: "18%"
+    },
+
+    {
+      left: "75%",
+      top: "20%"
+    },
+
+    {
+      left: "45%",
+      top: "72%"
+    }
+
+  ];
+
 
   letters.forEach((letter, index) => {
 
@@ -171,38 +168,33 @@ function createBurgers(correctLetter) {
     burger.dataset.letter = letter;
 
     burger.style.left =
-      positions[index].x + "%";
+      positions[index].left;
 
     burger.style.top =
-      positions[index].y + "%";
+      positions[index].top;
 
 
-    const letterBubble =
+    const letterElement =
       document.createElement("div");
 
-    letterBubble.className =
+    letterElement.className =
       "burger-letter";
 
-    letterBubble.textContent =
+    letterElement.textContent =
       letter;
 
 
-    burger.appendChild(letterBubble);
+    burger.appendChild(letterElement);
+
+    foodArea.appendChild(burger);
+
+    burgers.push(burger);
+
 
     burger.addEventListener(
       "click",
-      function () {
-
-        chooseBurger(
-          burger,
-          letter
-        );
-
-      }
+      () => selectLetter(burger)
     );
-
-
-    foodArea.appendChild(burger);
 
   });
 
@@ -210,276 +202,81 @@ function createBurgers(correctLetter) {
 
 
 /* ============================================================
-   CREATE LETTER CHOICES
+   SELECT LETTER
    ============================================================ */
 
-function createChoices(correctLetter) {
+function selectLetter(burger) {
 
-  const choices = [correctLetter];
-
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-
-  while (choices.length < 3) {
-
-    const randomLetter =
-      alphabet[
-        Math.floor(
-          Math.random() * alphabet.length
-        )
-      ];
-
-
-    if (
-      !choices.includes(randomLetter)
-    ) {
-
-      choices.push(randomLetter);
-
-    }
-
-  }
-
-
-  /*
-     Shuffle the three choices
-  */
-
-  for (
-    let i = choices.length - 1;
-    i > 0;
-    i--
-  ) {
-
-    const j =
-      Math.floor(
-        Math.random() * (i + 1)
-      );
-
-    [
-      choices[i],
-      choices[j]
-    ] =
-    [
-      choices[j],
-      choices[i]
-    ];
-
-  }
-
-
-  return choices;
-
-}
-
-
-/* ============================================================
-   BURGER POSITIONS
-   ============================================================ */
-
-function getBurgerPositions() {
-
-  return [
-
-    {
-      x: 12,
-      y: 18
-    },
-
-    {
-      x: 70,
-      y: 22
-    },
-
-    {
-      x: 42,
-      y: 62
-    }
-
-  ];
-
-}
-
-
-/* ============================================================
-   SELECT BURGER
-   ============================================================ */
-
-function chooseBurger(
-  burger,
-  selectedLetter
-) {
-
-  if (busy) {
-
-    return;
-
-  }
+  if (busy) return;
 
   busy = true;
 
+  const selectedLetter =
+    burger.dataset.letter;
 
-  /*
-     Move dinosaur to burger
-  */
-
-  walkToBurger(burger);
-
-
-  setTimeout(
-    function () {
-
-      const correctLetter =
-        getCurrentWord()[
-          currentLetterIndex
-        ];
+  const correctLetter =
+    currentWord[currentIndex];
 
 
-      if (
-        selectedLetter ===
-        correctLetter
-      ) {
+  if (selectedLetter === correctLetter) {
 
-        correctAnswer(burger);
+    correctAnswer(burger);
 
-      } else {
+  } else {
 
-        wrongAnswer(burger);
+    wrongAnswer(burger);
 
-      }
-
-    },
-    1000
-  );
+  }
 
 }
 
 
 /* ============================================================
-   DINO WALKS TO BURGER
-   ============================================================ */
-
-function walkToBurger(burger) {
-
-  const burgerRect =
-    burger.getBoundingClientRect();
-
-  const areaRect =
-    gameArea.getBoundingClientRect();
-
-
-  const x =
-    (
-      burgerRect.left +
-      burgerRect.width / 2 -
-      areaRect.left
-    )
-    /
-    areaRect.width
-    *
-    100;
-
-
-  const y =
-    (
-      burgerRect.top +
-      burgerRect.height / 2 -
-      areaRect.top
-    )
-    /
-    areaRect.height
-    *
-    100;
-
-
-  dinosaur.classList.add(
-    "walking"
-  );
-
-
-  dinosaur.style.left =
-    x + "%";
-
-  dinosaur.style.top =
-    y + "%";
-
-}
-
-
-/* ============================================================
-   CORRECT ANSWER
+   CORRECT
    ============================================================ */
 
 function correctAnswer(burger) {
 
-  dinosaur.classList.remove(
-    "walking"
-  );
+  message.textContent =
+    "🦖 ROAR! Great job!";
 
-  dinosaur.classList.add(
-    "eating"
-  );
+  score++;
+  fed++;
 
-
-  dinoSpeech.textContent =
-    "😋 YUM!";
+  scoreDisplay.textContent = score;
+  fedDisplay.textContent = fed;
 
 
-  burger.classList.add(
-    "eaten"
-  );
+  /*
+     Move dinosaur directly
+     to the selected burger.
+  */
+
+  moveDinosaurTo(burger, () => {
+
+    dinosaur.classList.remove("walking");
+
+    dinosaur.classList.add("eating");
+
+    dinosaurSpeech("😋 YUM!");
+
+    burger.classList.add("eaten");
 
 
-  playSound("correct");
+    playRoar();
 
 
-  setTimeout(
-    function () {
+    setTimeout(() => {
 
-      dinosaur.classList.remove(
-        "eating"
-      );
+      dinosaur.classList.remove("eating");
 
-      dinoSpeech.textContent =
-        "🦖 ROAR! GOOD JOB!";
+      currentIndex++;
 
+      showNextLetter();
 
-      fed++;
+    }, 900);
 
-      fedDisplay.textContent =
-        fed;
-
-
-      currentLetterIndex++;
-
-
-      if (
-        currentLetterIndex >=
-        getCurrentWord().length
-      ) {
-
-        finishWord();
-
-      } else {
-
-        updateWordProgress();
-
-        setTimeout(
-          function () {
-
-            showCurrentLetter();
-
-            busy = false;
-
-          },
-          900
-        );
-
-      }
-
-    },
-    600
-  );
+  });
 
 }
 
@@ -490,80 +287,99 @@ function correctAnswer(burger) {
 
 function wrongAnswer(burger) {
 
-  dinosaur.classList.remove(
-    "walking"
-  );
+  message.textContent =
+    "💥 BOOM! Try again!";
+
+  dinosaurSpeech("😮 OH NO!");
 
 
-  burger.classList.add(
-    "explode"
-  );
+  /*
+     Move the BOOM to the
+     incorrect burger.
+  */
+
+  showBoomAt(burger);
 
 
-  dinoSpeech.textContent =
-    "💥 BOOM! TRY AGAIN!";
+  burger.classList.add("explode");
+
+  playBoom();
 
 
-  showBoom(burger);
+  setTimeout(() => {
 
+    dinosaurSpeech("Try again!");
 
-  playSound("wrong");
+    busy = false;
 
-
-  setTimeout(
-    function () {
-
-      dinosaur.style.left = "50%";
-      dinosaur.style.top = "62%";
-
-
-      setTimeout(
-        function () {
-
-          dinoSpeech.textContent =
-            "🍔 TRY AGAIN!";
-
-          busy = false;
-
-        },
-        700
-      );
-
-    },
-    500
-  );
+  }, 800);
 
 }
 
 
 /* ============================================================
-   BOOM EFFECT
+   MOVE DINO TO BURGER
    ============================================================ */
 
-function showBoom(burger) {
+function moveDinosaurTo(burger, callback) {
+
+  const gameRect =
+    gameArea.getBoundingClientRect();
 
   const burgerRect =
     burger.getBoundingClientRect();
 
-  const areaRect =
-    gameArea.getBoundingClientRect();
-
-
-  /*
-     Put the explosion directly
-     over the incorrect burger.
-  */
 
   const x =
     burgerRect.left +
     burgerRect.width / 2 -
-    areaRect.left;
+    gameRect.left;
 
 
   const y =
     burgerRect.top +
     burgerRect.height / 2 -
-    areaRect.top;
+    gameRect.top;
+
+
+  dinosaur.classList.add("walking");
+
+
+  dinosaur.style.left =
+    x + "px";
+
+  dinosaur.style.top =
+    y + "px";
+
+
+  setTimeout(callback, 1000);
+
+}
+
+
+/* ============================================================
+   BOOM OVER BURGER
+   ============================================================ */
+
+function showBoomAt(burger) {
+
+  const gameRect =
+    gameArea.getBoundingClientRect();
+
+  const burgerRect =
+    burger.getBoundingClientRect();
+
+
+  const x =
+    burgerRect.left +
+    burgerRect.width / 2 -
+    gameRect.left;
+
+
+  const y =
+    burgerRect.top +
+    burgerRect.height / 2 -
+    gameRect.top;
 
 
   effect.style.left =
@@ -575,71 +391,67 @@ function showBoom(burger) {
 
   effect.textContent = "💥";
 
+  effect.classList.remove("show-boom");
 
-  effect.classList.remove("show");
 
-
-  /*
-     Force the animation to restart.
-  */
+  // Force animation restart
 
   void effect.offsetWidth;
 
+  effect.classList.add("show-boom");
 
-  effect.classList.add("show");
+
+  setTimeout(() => {
+
+    effect.classList.remove("show-boom");
+
+  }, 850);
+
 }
 
 
 /* ============================================================
-   FINISH WORD
+   DINO SPEECH
    ============================================================ */
 
-function finishWord() {
+function dinosaurSpeech(text) {
 
-  const finishedWord =
-    getCurrentWord();
+  const speech =
+    document.getElementById("dinoSpeech");
 
+  if (!speech) return;
 
-  wordProgressDisplay.textContent =
-    finishedWord;
+  speech.textContent = text;
 
-
-  targetLetter.textContent =
-    "🎉";
+}
 
 
-  dinoSpeech.textContent =
-    "🦖 GREAT JOB!";
+/* ============================================================
+   WORD COMPLETE
+   ============================================================ */
+
+function wordComplete() {
+
+  busy = true;
+
+  dinosaurSpeech("🎉 YAY!");
+
+  message.textContent =
+    "🎉 You spelled " + currentWord + "!";
+
+  playSuccess();
 
 
-  playSound("word");
+  setTimeout(() => {
 
+    currentWord =
+      words[Math.floor(Math.random() * words.length)];
 
-  setTimeout(
-    function () {
+    currentIndex = 0;
 
-      currentWordIndex++;
+    showNextLetter();
 
-      currentLetterIndex = 0;
-
-
-      if (
-        currentWordIndex >=
-        words.length
-      ) {
-
-        currentWordIndex = 0;
-
-      }
-
-
-      showCurrentLetter();
-
-      busy = false;
-
-    },
-    1800
-  );
+  }, 1800);
 
 }
 
@@ -652,92 +464,66 @@ function createKeyboard() {
 
   keyboardLetters.innerHTML = "";
 
-
   const alphabet =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+  alphabet.split("").forEach(letter => {
 
-  alphabet.split("").forEach(
-    function (letter) {
+    const button =
+      document.createElement("button");
 
-      const button =
-        document.createElement("button");
+    button.className = "key";
 
+    button.textContent = letter;
 
-      button.className = "key";
+    button.type = "button";
 
-      button.type = "button";
+    button.addEventListener(
+      "click",
+      () => keyboardSelect(letter)
+    );
 
-      button.textContent = letter;
+    keyboardLetters.appendChild(button);
 
-
-      button.addEventListener(
-        "click",
-        function () {
-
-          chooseKeyboardLetter(
-            letter
-          );
-
-        }
-      );
-
-
-      keyboardLetters.appendChild(
-        button
-      );
-
-    }
-  );
+  });
 
 }
 
 
 /* ============================================================
-   KEYBOARD LETTER SELECTION
+   KEYBOARD LETTER
    ============================================================ */
 
-function chooseKeyboardLetter(letter) {
+function keyboardSelect(letter) {
 
-  if (busy) {
+  if (busy) return;
 
-    return;
-
-  }
-
-
-  const burgers =
-    document.querySelectorAll(
-      ".burger"
+  const burger =
+    burgers.find(
+      b => b.dataset.letter === letter
     );
 
 
-  for (
-    const burger of burgers
-  ) {
+  if (burger) {
 
-    if (
-      burger.dataset.letter ===
-      letter
-    ) {
+    selectLetter(burger);
 
-      chooseBurger(
-        burger,
-        letter
-      );
+  } else {
 
-      return;
+    /*
+       If the keyboard letter isn't one
+       of the three burgers, treat it
+       as an incorrect choice.
+    */
 
-    }
+    message.textContent =
+      "💥 BOOM! Try again!";
+
+    dinosaurSpeech("Try again!");
+
+    playBoom();
 
   }
-
-
-  /*
-     If the pressed letter isn't
-     one of the three burgers,
-     do nothing.
-  */
 
 }
 
@@ -748,24 +534,35 @@ function chooseKeyboardLetter(letter) {
 
 document.addEventListener(
   "keydown",
-  function (event) {
+  event => {
 
     const letter =
       event.key.toUpperCase();
 
-
     if (
-      /^[A-Z]$/.test(letter)
+      letter >= "A" &&
+      letter <= "Z"
     ) {
 
-      chooseKeyboardLetter(
-        letter
-      );
+      keyboardSelect(letter);
 
     }
 
   }
 );
+
+
+/* ============================================================
+   CLEAR BURGERS
+   ============================================================ */
+
+function clearBurgers() {
+
+  foodArea.innerHTML = "";
+
+  burgers = [];
+
+}
 
 
 /* ============================================================
@@ -774,164 +571,74 @@ document.addEventListener(
 
 restartButton.addEventListener(
   "click",
-  function () {
-
-    startGame();
-
-  }
+  startGame
 );
 
 
 /* ============================================================
-   SIMPLE SOUND EFFECTS
+   SOUND
    ============================================================ */
 
-let audioContext = null;
-
-
-function getAudioContext() {
-
-  if (!audioContext) {
-
-    audioContext =
-      new (
-        window.AudioContext ||
-        window.webkitAudioContext
-      )();
-
-  }
-
-  return audioContext;
-
-}
-
-
-function playSound(type) {
+function playRoar() {
 
   try {
 
     const audio =
-      getAudioContext();
-
-
-    if (
-      audio.state ===
-      "suspended"
-    ) {
-
-      audio.resume();
-
-    }
-
-
-    const oscillator =
-      audio.createOscillator();
-
-    const gain =
-      audio.createGain();
-
-
-    oscillator.connect(gain);
-
-    gain.connect(
-      audio.destination
-    );
-
-
-    if (
-      type === "correct"
-    ) {
-
-      oscillator.frequency.value =
-        650;
-
-      gain.gain.value =
-        0.12;
-
-      oscillator.start();
-
-      oscillator.frequency.exponentialRampToValueAtTime(
-        900,
-        audio.currentTime + 0.15
+      new Audio(
+        "sounds/dino-roar.mp3"
       );
 
-      gain.gain.exponentialRampToValueAtTime(
-        0.001,
-        audio.currentTime + 0.3
-      );
+    audio.volume = 0.8;
 
-      oscillator.stop(
-        audio.currentTime + 0.3
-      );
+    audio.play();
 
-    }
+  } catch (error) {
 
-
-    else if (
-      type === "wrong"
-    ) {
-
-      oscillator.frequency.value =
-        120;
-
-      gain.gain.value =
-        0.18;
-
-      oscillator.start();
-
-      oscillator.frequency.exponentialRampToValueAtTime(
-        50,
-        audio.currentTime + 0.35
-      );
-
-      gain.gain.exponentialRampToValueAtTime(
-        0.001,
-        audio.currentTime + 0.4
-      );
-
-      oscillator.stop(
-        audio.currentTime + 0.4
-      );
-
-    }
-
-
-    else if (
-      type === "word"
-    ) {
-
-      oscillator.frequency.value =
-        500;
-
-      gain.gain.value =
-        0.15;
-
-      oscillator.start();
-
-      oscillator.frequency.exponentialRampToValueAtTime(
-        1000,
-        audio.currentTime + 0.4
-      );
-
-      gain.gain.exponentialRampToValueAtTime(
-        0.001,
-        audio.currentTime + 0.6
-      );
-
-      oscillator.stop(
-        audio.currentTime + 0.6
-      );
-
-    }
+    console.log("Roar sound unavailable.");
 
   }
 
-  catch (error) {
+}
 
-    console.log(
-      "Sound unavailable:",
-      error
-    );
+
+function playBoom() {
+
+  try {
+
+    const audio =
+      new Audio(
+        "sounds/boom.mp3"
+      );
+
+    audio.volume = 0.8;
+
+    audio.play();
+
+  } catch (error) {
+
+    console.log("Boom sound unavailable.");
+
+  }
+
+}
+
+
+function playSuccess() {
+
+  try {
+
+    const audio =
+      new Audio(
+        "sounds/success.mp3"
+      );
+
+    audio.volume = 0.8;
+
+    audio.play();
+
+  } catch (error) {
+
+    console.log("Success sound unavailable.");
 
   }
 
