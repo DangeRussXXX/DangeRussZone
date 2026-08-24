@@ -1,47 +1,47 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
-   FULL SCREEN JUNGLE
    ============================================================ */
 
 * {
   box-sizing: border-box;
 }
 
+
 html,
 body {
+
   margin: 0;
   padding: 0;
 
   width: 100%;
   height: 100%;
 
+  overflow: hidden;
+
   font-family: Arial, sans-serif;
 
-  overflow: hidden;
 }
 
 
-/* ============================================================
-   🌴 PAGE
-   ============================================================ */
-
 body {
+
   background:
     linear-gradient(
-      rgba(20, 80, 30, 0.2),
-      rgba(0, 30, 10, 0.35)
+      rgba(20, 80, 20, 0.2),
+      rgba(0, 40, 10, 0.4)
     ),
     linear-gradient(
-      #75c957,
-      #247536
+      #78c95b,
+      #247438
     );
 
   color: white;
+
 }
 
 
 /* ============================================================
-   🎮 GAME
+   GAME
    ============================================================ */
 
 .game {
@@ -51,35 +51,34 @@ body {
   width: 100vw;
   height: 100vh;
 
-  margin: 0;
-  padding: 0;
-
   overflow: hidden;
 
 }
 
 
 /* ============================================================
-   🦖 TITLE
+   TITLE
    ============================================================ */
 
 h1 {
 
   position: absolute;
 
-  top: 10px;
+  top: 8px;
   left: 50%;
 
   transform: translateX(-50%);
 
-  z-index: 200;
-
-  width: 100%;
+  z-index: 500;
 
   margin: 0;
 
+  width: 100%;
+
+  text-align: center;
+
   font-size: clamp(
-    24px,
+    26px,
     5vw,
     48px
   );
@@ -87,113 +86,14 @@ h1 {
   color: white;
 
   text-shadow:
-    0 4px 0 #174d25,
+    0 3px 0 #174d25,
     0 0 12px #ffe600;
 
 }
 
 
 /* ============================================================
-   🌴 MISSION MESSAGE
-   ============================================================ */
-
-.mission {
-
-  position: absolute;
-
-  top: 75px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  z-index: 200;
-
-  width: min(700px, 90%);
-
-  padding: 8px 15px;
-
-  text-align: center;
-
-  border: 3px solid #ffe600;
-
-  border-radius: 18px;
-
-  background:
-    rgba(10, 60, 20, 0.88);
-
-  box-shadow:
-    0 5px 20px rgba(0,0,0,0.4);
-
-}
-
-
-/* Hide extra text to give the child more room */
-
-.mission p {
-
-  margin: 3px;
-
-  font-size: 16px;
-
-}
-
-
-.mission h2 {
-
-  margin: 2px;
-
-  color: #ffe600;
-
-}
-
-
-.target {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-top: 5px;
-
-  padding: 5px 15px;
-
-  border-radius: 12px;
-
-  background: white;
-
-  color: #174d25;
-
-  font-weight: bold;
-
-}
-
-
-#targetLetter {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  width: 45px;
-  height: 45px;
-
-  border-radius: 10px;
-
-  background: #ffe600;
-
-  color: #174d25;
-
-  font-size: 32px;
-
-}
-
-
-/* ============================================================
-   🌴 THE ACTUAL JUNGLE
+   JUNGLE
    ============================================================ */
 
 #gameArea {
@@ -205,34 +105,26 @@ h1 {
   width: 100vw;
   height: 100vh;
 
-  min-height: 0;
-
   overflow: hidden;
-
-  border: 0;
-
-  border-radius: 0;
 
   background:
 
     linear-gradient(
-      rgba(40, 130, 45, 0.15),
+      rgba(40, 130, 45, 0.1),
       rgba(5, 40, 15, 0.3)
     ),
 
     linear-gradient(
-      #76c95b 0%,
-      #3d963f 50%,
-      #175225 100%
+      #78c95b 0%,
+      #3e9840 55%,
+      #164e24 100%
     );
-
-  box-shadow: none;
 
 }
 
 
 /* ============================================================
-   🌴 JUNGLE DECOR
+   JUNGLE DECOR
    ============================================================ */
 
 #jungleDecor {
@@ -240,9 +132,6 @@ h1 {
   position: absolute;
 
   inset: 0;
-
-  width: 100%;
-  height: 100%;
 
   font-size: clamp(
     35px,
@@ -252,9 +141,7 @@ h1 {
 
   letter-spacing: 15px;
 
-  line-height: 1.5;
-
-  opacity: 0.8;
+  opacity: 0.75;
 
   pointer-events: none;
 
@@ -264,90 +151,115 @@ h1 {
 
 
 /* ============================================================
-   🍔 FOOD
+   🔤 TARGET ABOVE DINO
    ============================================================ */
 
-#foodArea {
+#dinoTarget {
 
   position: absolute;
 
-  inset: 0;
+  left: 50%;
 
-  width: 100%;
-  height: 100%;
+  bottom: 220px;
 
-  z-index: 50;
+  transform: translateX(-50%);
+
+  z-index: 200;
+
+  text-align: center;
+
+  transition:
+    left 0.5s ease;
 
 }
 
 
-.letter-food {
+/* glowing circle */
 
-  position: absolute;
+.target-glow {
 
-  width: 115px;
-  height: 115px;
-
-  padding: 0;
-
-  border: 0;
-
-  background: transparent;
-
-  cursor: pointer;
+  width: 95px;
+  height: 95px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
-  flex-direction: column;
+  border-radius: 50%;
 
-  transition:
-    transform 0.2s,
-    opacity 0.2s;
+  background: #ffe600;
 
-}
+  border: 6px solid white;
 
+  box-shadow:
+    0 0 10px white,
+    0 0 25px #ffe600,
+    0 0 50px #ff9900;
 
-.letter-food:hover {
-
-  transform: scale(1.2);
-
-}
-
-
-.letter-food:active {
-
-  transform: scale(0.9);
+  animation:
+    letterGlow
+    1s
+    infinite alternate;
 
 }
 
 
-.burger {
+#targetLetter {
 
-  font-size: 70px;
-
-  line-height: 1;
-
-}
-
-
-.food-letter {
-
-  position: absolute;
-
-  top: 48px;
-
-  font-size: 34px;
+  font-size: 60px;
 
   font-weight: bold;
 
-  color: white;
+  color: #174d25;
 
-  text-shadow:
-    2px 2px 4px black;
+}
+
+
+.target-arrow {
+
+  margin-top: -3px;
+
+  font-size: 35px;
+
+  animation:
+    arrowBounce
+    0.7s
+    infinite alternate;
+
+}
+
+
+@keyframes letterGlow {
+
+  from {
+
+    transform: scale(1);
+
+  }
+
+  to {
+
+    transform: scale(1.12);
+
+  }
+
+}
+
+
+@keyframes arrowBounce {
+
+  from {
+
+    transform: translateY(0);
+
+  }
+
+  to {
+
+    transform: translateY(8px);
+
+  }
 
 }
 
@@ -364,16 +276,27 @@ h1 {
 
   bottom: 35px;
 
-  width: 200px;
+  width: 190px;
 
   text-align: center;
 
   transform: translateX(-50%);
 
-  z-index: 100;
+  z-index: 150;
 
   transition:
-    left 0.5s ease;
+    left 1s ease;
+
+}
+
+
+#dinoSpeech {
+
+  min-height: 45px;
+
+  font-size: 38px;
+
+  font-weight: bold;
 
 }
 
@@ -397,27 +320,76 @@ h1 {
 }
 
 
-#dinoSpeech {
+/* ============================================================
+   🍔 FOOD
+   ============================================================ */
 
-  font-size: 45px;
+#foodArea {
 
-  animation:
-    dinoBounce
-    0.8s
-    infinite alternate;
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
 
 }
 
 
-@keyframes dinoBounce {
+.letter-food {
 
-  from {
-    transform: translateY(0);
-  }
+  position: absolute;
 
-  to {
-    transform: translateY(-10px);
-  }
+  width: 110px;
+  height: 110px;
+
+  border: 0;
+
+  padding: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  transition:
+    transform 0.2s,
+    opacity 0.3s;
+
+}
+
+
+.letter-food:hover {
+
+  transform: scale(1.2);
+
+}
+
+
+.burger {
+
+  font-size: 70px;
+
+}
+
+
+.food-letter {
+
+  position: absolute;
+
+  top: 42px;
+
+  font-size: 35px;
+
+  font-weight: bold;
+
+  color: white;
+
+  text-shadow:
+    2px 2px 5px black;
 
 }
 
@@ -437,9 +409,9 @@ h1 {
     translate(-50%, -50%)
     scale(0);
 
-  z-index: 500;
+  z-index: 1000;
 
-  font-size: 110px;
+  font-size: 120px;
 
   pointer-events: none;
 
@@ -449,14 +421,14 @@ h1 {
 .effect-show {
 
   animation:
-    effectPop
-    0.7s
+    explosion
+    0.8s
     ease;
 
 }
 
 
-@keyframes effectPop {
+@keyframes explosion {
 
   0% {
 
@@ -470,7 +442,94 @@ h1 {
 
     transform:
       translate(-50%, -50%)
-      scale(1.5);
+      scale(1.6);
+
+  }
+
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0);
+
+  }
+
+}
+
+
+/* ============================================================
+   💬 BIG MESSAGE
+   ============================================================ */
+
+#messageEffect {
+
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0);
+
+  z-index: 1100;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-size: clamp(
+    40px,
+    8vw,
+    90px
+  );
+
+  font-weight: bold;
+
+  color: #ffe600;
+
+  text-shadow:
+    0 5px 0 #174d25,
+    0 0 20px white;
+
+  pointer-events: none;
+
+}
+
+
+.message-show {
+
+  animation:
+    messagePop
+    1.2s
+    ease;
+
+}
+
+
+@keyframes messagePop {
+
+  0% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0);
+
+  }
+
+  30% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.2);
+
+  }
+
+  70% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
 
   }
 
@@ -496,7 +555,7 @@ h1 {
   left: 20px;
   bottom: 20px;
 
-  z-index: 300;
+  z-index: 600;
 
   display: flex;
 
@@ -509,7 +568,7 @@ h1 {
   background:
     rgba(0,0,0,0.65);
 
-  font-size: 20px;
+  font-size: 22px;
 
   font-weight: bold;
 
@@ -524,7 +583,7 @@ h1 {
 
 
 /* ============================================================
-   ⌨️ LETTER KEYBOARD
+   ⌨️ KEYBOARD
    ============================================================ */
 
 .keyboard {
@@ -537,25 +596,9 @@ h1 {
 
   transform: translateX(-50%);
 
-  z-index: 300;
+  z-index: 600;
 
-  width: min(850px, 80%);
-
-  padding: 8px;
-
-  border-radius: 18px;
-
-  background:
-    rgba(0,50,15,0.88);
-
-}
-
-
-.keyboard p {
-
-  margin: 3px;
-
-  font-size: 14px;
+  width: min(800px, 70%);
 
 }
 
@@ -597,15 +640,15 @@ h1 {
 
 .keyboard-letter:hover {
 
-  transform: scale(1.1);
-
   background: #287a36;
+
+  transform: scale(1.1);
 
 }
 
 
 /* ============================================================
-   🔄 RESTART
+   RESTART
    ============================================================ */
 
 #restartButton {
@@ -615,7 +658,7 @@ h1 {
   right: 20px;
   bottom: 20px;
 
-  z-index: 300;
+  z-index: 600;
 
   padding: 10px 18px;
 
@@ -637,90 +680,65 @@ h1 {
 
 
 /* ============================================================
-   ❤️ BACK BUTTON
-   ============================================================ */
-
-.backButton {
-
-  position: absolute;
-
-  right: 20px;
-  top: 20px;
-
-  z-index: 300;
-
-  padding: 8px 14px;
-
-  border: 2px solid white;
-
-  border-radius: 10px;
-
-  background:
-    rgba(0,0,0,0.55);
-
-  color: white;
-
-  text-decoration: none;
-
-  font-weight: bold;
-
-}
-
-
-/* ============================================================
-   📱 PHONE
+   📱 MOBILE
    ============================================================ */
 
 @media (max-width: 600px) {
 
   h1 {
 
-    top: 5px;
-
-    font-size: 25px;
+    font-size: 26px;
 
   }
 
 
-  .mission {
+  #dinoTarget {
 
-    top: 45px;
-
-    width: 94%;
-
-    padding: 5px;
+    bottom: 185px;
 
   }
 
 
-  .mission h2 {
+  .target-glow {
 
-    font-size: 18px;
-
-  }
-
-
-  .mission p {
-
-    display: none;
+    width: 75px;
+    height: 75px;
 
   }
 
 
   #targetLetter {
 
-    width: 38px;
-    height: 38px;
+    font-size: 48px;
+
+  }
+
+
+  .target-arrow {
 
     font-size: 28px;
 
   }
 
 
+  #dinosaur {
+
+    bottom: 65px;
+
+  }
+
+
+  #dinoBody {
+
+    font-size: 90px;
+
+  }
+
+
   .letter-food {
 
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
 
   }
 
@@ -734,95 +752,50 @@ h1 {
 
   .food-letter {
 
-    top: 35px;
+    top: 32px;
 
-    font-size: 26px;
-
-  }
-
-
-  #dinosaur {
-
-    bottom: 80px;
-
-    width: 140px;
-
-  }
-
-
-  #dinoBody {
-
-    font-size: 90px;
-
-  }
-
-
-  #dinoSpeech {
-
-    font-size: 30px;
+    font-size: 27px;
 
   }
 
 
   .keyboard {
 
-    width: 96%;
+    width: 95%;
 
     bottom: 5px;
 
   }
 
 
-  .keyboard p {
-
-    display: none;
-
-  }
-
-
   .keyboard-letter {
 
-    width: 31px;
-    height: 31px;
+    width: 30px;
+    height: 30px;
 
-    font-size: 15px;
+    font-size: 14px;
 
   }
 
 
   .game-info {
 
-    top: 45px;
-
     left: 5px;
 
-    bottom: auto;
+    bottom: 5px;
 
     font-size: 15px;
-
-    padding: 5px 8px;
-
-  }
-
-
-  .backButton {
-
-    display: none;
 
   }
 
 
   #restartButton {
 
-    top: 45px;
-
     right: 5px;
 
-    bottom: auto;
+    bottom: 5px;
 
     font-size: 14px;
-
-    padding: 6px 10px;
 
   }
 

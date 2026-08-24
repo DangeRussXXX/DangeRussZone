@@ -16,176 +16,116 @@
 
 </head>
 
-
 <body>
 
-  <main class="game">
+<main class="game">
 
-    <h1>
-      🦖 Dino's Letter Lunch 🍔
-    </h1>
+  <!-- TITLE -->
 
-
-    <section class="mission">
-
-      <h2>
-        🌴 Feed the Dinosaur!
-      </h2>
-
-      <p id="message">
-        Find the letter Dino wants!
-      </p>
-
-      <div class="target">
-
-        <span>🦖 Dino wants:</span>
-
-        <strong id="targetLetter">A</strong>
-
-      </div>
-
-    </section>
+  <h1>
+    🦖 Dino's Letter Lunch 🍔
+  </h1>
 
 
-    <!-- ======================================================
-         GAME
-         ====================================================== -->
+  <!-- FULL SCREEN JUNGLE -->
 
-    <section
-      id="gameArea"
-      aria-label="Dinosaur alphabet game"
-    >
+  <section
+    id="gameArea"
+    aria-label="Dinosaur Letter Game"
+  >
 
-      <!-- JUNGLE -->
+    <!-- JUNGLE -->
 
-      <div class="cloud cloud1">
-        ☁️
-      </div>
-
-      <div class="cloud cloud2">
-        ☁️
-      </div>
-
-      <div id="jungleDecor">
-        🌴 🌿 🌴 🌿 🌴
-      </div>
-
-      <div class="butterfly butterfly1">
-        🦋
-      </div>
-
-      <div class="butterfly butterfly2">
-        🦋
-      </div>
+    <div id="jungleDecor">
+      🌴 🌿 🌴 🌿 🌴
+    </div>
 
 
-      <!-- DINOSAUR -->
+    <!-- TARGET LETTER ABOVE DINO -->
 
-      <div id="dinosaur">
+    <div id="dinoTarget">
 
-        <div id="dinoSpeech">
-          🍔?
-        </div>
+      <div class="target-glow">
 
-        <div id="dinoBody">
-          🦖
-        </div>
+        <span id="targetLetter">A</span>
 
       </div>
 
-
-      <!-- FOOD -->
-
-      <div id="foodArea"></div>
-
-
-      <!-- EFFECT -->
-
-      <div id="effect"></div>
-
-    </section>
-
-
-    <!-- ======================================================
-         SCORE
-         ====================================================== -->
-
-    <section class="game-info">
-
-      <div>
-        ⭐ Stars:
-        <span id="score">0</span>
+      <div class="target-arrow">
+        👇
       </div>
 
-      <div>
-        🍔 Fed:
-        <span id="fed">0</span>
+    </div>
+
+
+    <!-- DINOSAUR -->
+
+    <div id="dinosaur">
+
+      <div id="dinoSpeech">
+        🍔?
       </div>
 
-      <div>
-        🏆 Streak:
-        <span id="streak">0</span>
+      <div id="dinoBody">
+        🦖
       </div>
 
-    </section>
+    </div>
 
 
-    <!-- ======================================================
-         TODDLER INSTRUCTIONS
-         ====================================================== -->
+    <!-- HAMBURGERS -->
 
-    <section class="instructions">
-
-      <div>
-        👆 Click the burger
-      </div>
-
-      <div>
-        ⌨️ Or press the letter
-      </div>
-
-      <div>
-        🔊 Listen to Dino say the letter!
-      </div>
-
-    </section>
+    <div id="foodArea"></div>
 
 
-    <!-- ======================================================
-         KEYBOARD
-         ====================================================== -->
+    <!-- EFFECTS -->
 
-    <section class="keyboard">
+    <div id="effect"></div>
 
-      <div id="keyboardLetters"></div>
-
-    </section>
+    <div id="messageEffect"></div>
 
 
-    <!-- ======================================================
-         RESTART
-         ====================================================== -->
-
-    <button
-      id="restartButton"
-      type="button"
-    >
-      🔄 Play Again
-    </button>
+  </section>
 
 
-    <a
-      href="../grandpas_games.html"
-      class="backButton"
-    >
-      ❤️ Back to Grandpa's Adventures
-    </a>
+  <!-- SCORE -->
+
+  <section class="game-info">
+
+    <div>
+      ⭐ <span id="score">0</span>
+    </div>
+
+    <div>
+      🍔 <span id="fed">0</span>
+    </div>
+
+  </section>
 
 
-  </main>
+  <!-- KEYBOARD -->
+
+  <section class="keyboard">
+
+    <div id="keyboardLetters"></div>
+
+  </section>
 
 
-  <script src="dinosaur.js"></script>
+  <!-- RESTART -->
+
+  <button
+    id="restartButton"
+    type="button"
+  >
+    🔄 Play Again
+  </button>
+
+
+</main>
+
+
+<script src="dinosaur.js"></script>
 
 </body>
 
