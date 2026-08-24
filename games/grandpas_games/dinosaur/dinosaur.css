@@ -1,6 +1,6 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
-   MERGED CLEAN CSS
+   FULL CLEAN CSS
    ============================================================ */
 
 * {
@@ -65,7 +65,7 @@ h1 {
 
 
 /* ============================================================
-   🔎 FIND AREA
+   🔎 FIND / WORD AREA
    ============================================================ */
 
 .find-area {
@@ -96,6 +96,8 @@ h1 {
 
 
 .find-label {
+  flex-shrink: 0;
+
   font-size: clamp(1.6rem, 3vw, 3rem);
 
   font-weight: 900;
@@ -109,7 +111,7 @@ h1 {
 
 
 /* ============================================================
-   🔤 WORD TO SPELL
+   🔤 ENTIRE WORD
    ============================================================ */
 
 #targetLetter {
@@ -120,9 +122,9 @@ h1 {
 
   gap: 10px;
 
-  min-width: 180px !important;
+  min-width: 180px;
 
-  font-size: clamp(2.8rem, 6vw, 5rem) !important;
+  font-size: clamp(2.8rem, 6vw, 5rem);
 
   line-height: 1;
 
@@ -132,13 +134,9 @@ h1 {
 
   text-shadow: none;
 
-  animation: none !important;
+  animation: none;
 }
 
-
-/* ============================================================
-   🔤 NORMAL LETTERS
-   ============================================================ */
 
 #targetLetter .word-letter {
   display: inline-block;
@@ -296,13 +294,19 @@ h1 {
 #dinosaur {
   position: absolute;
 
-  left: 50%;
-  top: 62%;
+  /*
+     🦖 Starts in a safe empty corner.
+     JavaScript moves him between safe corners.
+  */
+
+  left: 85%;
+  top: 80%;
 
   width: 360px;
   height: 360px;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
   z-index: 10;
 
@@ -332,7 +336,7 @@ h1 {
 
 
 /* ============================================================
-   🦖 DINO BOUNCE
+   🦖 NORMAL BOUNCE
    ============================================================ */
 
 @keyframes dinoBounce {
@@ -466,6 +470,7 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger {
+
   position: absolute !important;
 
   left: 0;
@@ -514,6 +519,7 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger::before {
+
   content: "🍔";
 
   position: absolute;
@@ -551,10 +557,11 @@ h1 {
 
 
 /* ============================================================
-   🔤 LETTER ON BURGER
+   🔤 BURGER LETTER
    ============================================================ */
 
 #gameArea > .burger > .burger-letter {
+
   position: absolute;
 
   left: 50%;
@@ -610,10 +617,6 @@ h1 {
 }
 
 
-/* ============================================================
-   🍔 LETTER GLOW
-   ============================================================ */
-
 @keyframes letterGlow {
 
   from {
@@ -635,6 +638,7 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger:hover {
+
   transform:
     translate(-50%, -50%)
     scale(1.12);
@@ -646,6 +650,7 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger:active {
+
   transform:
     translate(-50%, -50%)
     scale(0.95);
@@ -657,6 +662,7 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger.eaten {
+
   animation:
     burgerEat 0.55s forwards;
 }
@@ -696,6 +702,7 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger.explode {
+
   animation:
     burgerExplode 0.55s forwards;
 }
@@ -731,10 +738,11 @@ h1 {
 
 
 /* ============================================================
-   💥 EXPLOSION
+   💥 EXPLOSION EFFECT
    ============================================================ */
 
 #effect {
+
   position: absolute;
 
   left: 50%;
@@ -764,6 +772,7 @@ h1 {
 
 #effect.show-boom,
 #effect.show {
+
   animation:
     boom 0.8s forwards;
 }
@@ -810,6 +819,7 @@ h1 {
    ============================================================ */
 
 .game-info {
+
   display: flex;
 
   justify-content: center;
@@ -825,6 +835,7 @@ h1 {
 
 
 .game-info span {
+
   color: #ffe600;
 
   font-size: 1.8rem;
@@ -835,6 +846,7 @@ h1 {
 
 
 #wordProgress {
+
   color: #fff700;
 
   letter-spacing: 8px;
@@ -861,6 +873,7 @@ h1 {
 
 
 #keyboardLetters {
+
   display: flex;
 
   justify-content: center;
@@ -872,6 +885,7 @@ h1 {
 
 
 .key {
+
   width: 42px;
   height: 42px;
 
@@ -892,6 +906,7 @@ h1 {
 
 
 .key:hover {
+
   transform: scale(1.15);
 
   background: #3a811d;
@@ -903,6 +918,7 @@ h1 {
    ============================================================ */
 
 #restartButton {
+
   padding: 12px 28px;
 
   border: 3px solid #ffe600;
@@ -922,6 +938,7 @@ h1 {
 
 
 #restartButton:hover {
+
   background: #4d8425;
 
   transform: scale(1.05);
@@ -933,6 +950,7 @@ h1 {
    ============================================================ */
 
 .backButton {
+
   display: inline-block;
 
   margin: 8px;
@@ -971,10 +989,12 @@ h1 {
 
 
   .find-area {
+
     display: flex !important;
 
     width: 96% !important;
     max-width: 96% !important;
+
     min-width: 0 !important;
 
     gap: 8px !important;
@@ -988,6 +1008,7 @@ h1 {
 
 
   .find-label {
+
     flex-shrink: 0 !important;
 
     font-size: 1.3rem !important;
@@ -997,6 +1018,7 @@ h1 {
 
 
   #targetLetter {
+
     display: flex !important;
 
     flex: 1 1 auto !important;
@@ -1004,6 +1026,7 @@ h1 {
     width: auto !important;
 
     min-width: 0 !important;
+
     max-width: none !important;
 
     height: auto !important;
@@ -1011,11 +1034,13 @@ h1 {
     overflow: visible !important;
 
     justify-content: center !important;
+
     align-items: center !important;
 
     gap: 5px !important;
 
     margin: 0 !important;
+
     padding: 2px 0 !important;
 
     font-size: 2.6rem !important;
@@ -1033,9 +1058,11 @@ h1 {
 
 
   #targetLetter .word-letter {
+
     display: inline-block !important;
 
     min-width: 0 !important;
+
     width: auto !important;
 
     flex: 0 0 auto !important;
@@ -1051,6 +1078,7 @@ h1 {
 
 
   #targetLetter .word-letter.current {
+
     color: #fff700 !important;
 
     opacity: 1 !important;
@@ -1068,6 +1096,7 @@ h1 {
 
 
   #targetLetter .word-letter.completed {
+
     color: #75ff45 !important;
 
     opacity: 1 !important;
@@ -1081,6 +1110,7 @@ h1 {
 
 
   #message {
+
     font-size: 1.2rem;
 
     min-height: 30px;
@@ -1088,6 +1118,7 @@ h1 {
 
 
   #gameArea {
+
     height: calc(100vh - 245px);
 
     min-height: 450px;
@@ -1098,12 +1129,22 @@ h1 {
   }
 
 
+  /* ==========================================================
+     🦖 MOBILE DINO
+     ========================================================== */
+
   #dinosaur {
+
     width: 270px;
     height: 270px;
 
-    left: 50%;
-    top: 62%;
+    /*
+       Same safe starting corner.
+       JavaScript controls movement afterward.
+    */
+
+    left: 85%;
+    top: 80%;
   }
 
 
@@ -1113,6 +1154,7 @@ h1 {
 
 
   #dinoSpeech {
+
     top: 38%;
     left: 82%;
 
@@ -1122,20 +1164,25 @@ h1 {
   }
 
 
-  /* MOBILE BURGERS */
+  /* ==========================================================
+     🍔 MOBILE BURGERS
+     ========================================================== */
 
   #gameArea > .burger {
+
     width: 130px !important;
     height: 130px !important;
   }
 
 
   #gameArea > .burger::before {
+
     font-size: 100px;
   }
 
 
   #gameArea > .burger > .burger-letter {
+
     width: 60px;
     height: 60px;
 
@@ -1146,6 +1193,7 @@ h1 {
 
 
   .game-info {
+
     gap: 25px;
 
     font-size: 1rem;
@@ -1153,11 +1201,13 @@ h1 {
 
 
   .game-info span {
+
     font-size: 1.4rem;
   }
 
 
   .key {
+
     width: 34px;
     height: 34px;
 
@@ -1177,7 +1227,50 @@ h1 {
   }
 
 
+  #gameArea {
+    min-height: 410px;
+  }
+
+
+  #dinosaur {
+
+    width: 220px;
+    height: 220px;
+
+    left: 85%;
+    top: 80%;
+  }
+
+
+  #dinoBody {
+    font-size: 190px;
+  }
+
+
+  #gameArea > .burger {
+
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+
+  #gameArea > .burger::before {
+
+    font-size: 85px;
+  }
+
+
+  #gameArea > .burger > .burger-letter {
+
+    width: 52px;
+    height: 52px;
+
+    font-size: 2.1rem;
+  }
+
+
   .find-area {
+
     width: 98% !important;
     max-width: 98% !important;
 
@@ -1188,11 +1281,13 @@ h1 {
 
 
   .find-label {
+
     font-size: 1.05rem !important;
   }
 
 
   #targetLetter {
+
     font-size: 2.15rem !important;
 
     gap: 3px !important;
@@ -1202,46 +1297,13 @@ h1 {
 
 
   #targetLetter .word-letter {
+
     min-width: 0 !important;
   }
 
 
   #targetLetter .word-letter.current {
+
     transform: scale(1.2) !important;
-  }
-
-
-  #gameArea {
-    min-height: 410px;
-  }
-
-
-  #dinosaur {
-    width: 220px;
-    height: 220px;
-  }
-
-
-  #dinoBody {
-    font-size: 190px;
-  }
-
-
-  #gameArea > .burger {
-    width: 110px !important;
-    height: 110px !important;
-  }
-
-
-  #gameArea > .burger::before {
-    font-size: 85px;
-  }
-
-
-  #gameArea > .burger > .burger-letter {
-    width: 52px;
-    height: 52px;
-
-    font-size: 2.1rem;
   }
 }

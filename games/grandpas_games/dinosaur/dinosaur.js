@@ -2,6 +2,7 @@
    🦖 DINO'S LETTER LUNCH
    FULL WORKING GAME SCRIPT
    WORD ALWAYS VISIBLE
+   DINO MOVES TO EMPTY CORNER AFTER EATING
    ============================================================ */
 
 
@@ -73,7 +74,188 @@ const words = [
 
 
 /* ============================================================
-   START GAME
+   🦖 DINO CORNER POSITIONS
+   ============================================================
+
+   These are positions inside #gameArea.
+
+   The dinosaur will:
+   1. Start in one corner.
+   2. Walk to the correct burger.
+   3. Eat it.
+   4. Walk to an EMPTY corner.
+   5. Stay there while the next letters appear.
+
+   This prevents the dinosaur from sitting on top
+   of the new burgers.
+   ============================================================ */
+
+const dinoCorners = [
+
+  {
+    left: "12%",
+    top: "15%"
+  },
+
+  {
+    left: "88%",
+    top: "15%"
+  },
+
+  {
+    left: "12%",
+    top: "85%"
+  },
+
+  {
+    left: "88%",
+    top: "85%"
+  }
+
+];
+
+
+/*
+   Remember which corner the dinosaur is currently using.
+*/
+
+let currentDinoCorner = 0;
+
+
+/* ============================================================
+   🦖 CHOOSE AN EMPTY CORNER
+   ============================================================ */
+
+function chooseEmptyDinoCorner() {
+
+  /*
+     Find corners that are NOT the current corner.
+  */
+
+  const availableCorners =
+    dinoCorners.filter(
+      function(corner, index) {
+
+        return index !== currentDinoCorner;
+
+      }
+    );
+
+
+  /*
+     Pick one of the available corners.
+  */
+
+  const selected =
+    availableCorners[
+      Math.floor(
+        Math.random() *
+        availableCorners.length
+      )
+    ];
+
+
+  /*
+     Remember its index.
+  */
+
+  currentDinoCorner =
+    dinoCorners.indexOf(selected);
+
+
+  return selected;
+
+}
+
+
+/* ============================================================
+   🦖 MOVE DINO TO A CORNER
+   ============================================================ */
+
+function moveDinosaurToCorner(
+  finished
+) {
+
+  if (
+    !dinosaur ||
+    !gameArea
+  ) {
+
+    if (
+      typeof finished ===
+      "function"
+    ) {
+
+      finished();
+
+    }
+
+    return;
+
+  }
+
+
+  const corner =
+    chooseEmptyDinoCorner();
+
+
+  dinosaur.classList.remove(
+    "eating"
+  );
+
+
+  dinosaur.classList.add(
+    "walking"
+  );
+
+
+  /*
+     Force browser to recognize
+     the current position first.
+  */
+
+  void dinosaur.offsetWidth;
+
+
+  dinosaur.style.left =
+    corner.left;
+
+
+  dinosaur.style.top =
+    corner.top;
+
+
+  /*
+     Wait for the dinosaur
+     to finish walking.
+  */
+
+  setTimeout(
+    function() {
+
+      dinosaur.classList.remove(
+        "walking"
+      );
+
+
+      if (
+        typeof finished ===
+        "function"
+      ) {
+
+        finished();
+
+      }
+
+    },
+    1050
+  );
+
+}
+
+
+/* ============================================================
+   🚀 START GAME
    ============================================================ */
 
 function startGame() {
@@ -84,7 +266,8 @@ function startGame() {
   currentWord =
     words[
       Math.floor(
-        Math.random() * words.length
+        Math.random() *
+        words.length
       )
     ];
 
@@ -93,13 +276,27 @@ function startGame() {
   busy = false;
 
 
+  /*
+     Start dinosaur in the
+     FIRST EMPTY CORNER.
+  */
+
+  currentDinoCorner = 0;
+
+
   if (scoreDisplay) {
-    scoreDisplay.textContent = score;
+
+    scoreDisplay.textContent =
+      score;
+
   }
 
 
   if (fedDisplay) {
-    fedDisplay.textContent = fed;
+
+    fedDisplay.textContent =
+      fed;
+
   }
 
 
@@ -110,12 +307,20 @@ function startGame() {
       "eating"
     );
 
-    dinosaur.style.left = "50%";
-    dinosaur.style.top = "62%";
+
+    dinosaur.style.left =
+      dinoCorners[0].left;
+
+
+    dinosaur.style.top =
+      dinoCorners[0].top;
+
   }
 
 
-  dinosaurSpeech("🍔?");
+  dinosaurSpeech(
+    "🍔?"
+  );
 
 
   createKeyboard();
@@ -127,147 +332,158 @@ function startGame() {
 
 
 /* ============================================================
-   SHOW THE ENTIRE WORD
+   🔤 SHOW ENTIRE WORD
    ============================================================ */
 
 function showNextLetter() {
 
   busy = false;
 
+
   clearBurgers();
 
 
-  /* ==========================================================
+  /*
      WORD COMPLETE
-     ========================================================== */
+  */
 
   if (
-    currentIndex >= currentWord.length
+    currentIndex >=
+    currentWord.length
   ) {
 
     showWordComplete();
 
 
-    setTimeout(function() {
+    setTimeout(
+      function() {
 
-      currentWord =
-        words[
-          Math.floor(
-            Math.random() * words.length
-          )
-        ];
+        currentWord =
+          words[
+            Math.floor(
+              Math.random() *
+              words.length
+            )
+          ];
 
-      currentIndex = 0;
 
-      showNextLetter();
+        currentIndex = 0;
 
-    }, 1800);
+
+        showNextLetter();
+
+      },
+      1800
+    );
+
 
     return;
+
   }
 
 
-  /* ==========================================================
-     BUILD ENTIRE WORD
-     
-     Example:
-     
-     D I N O
-     
-     The current letter is highlighted.
-     ========================================================== */
+  /*
+     Build the complete word.
 
-  targetLetter.innerHTML = "";
+     Example:
+
+     D I N O
+
+     Completed letters = green
+     Current letter = yellow
+     Future letters = white
+  */
+
+  targetLetter.innerHTML =
+    "";
 
 
   currentWord
     .split("")
-    .forEach(function(letter, index) {
+    .forEach(
+      function(letter, index) {
 
-      const span =
-        document.createElement("span");
-
-
-      span.className =
-        "word-letter";
-
-
-      span.textContent =
-        letter;
+        const span =
+          document.createElement(
+            "span"
+          );
 
 
-      /*
-         LETTERS ALREADY COMPLETED
-      */
+        span.className =
+          "word-letter";
 
-      if (
-        index < currentIndex
-      ) {
 
-        span.classList.add(
-          "completed"
+        span.textContent =
+          letter;
+
+
+        /*
+           COMPLETED
+        */
+
+        if (
+          index <
+          currentIndex
+        ) {
+
+          span.classList.add(
+            "completed"
+          );
+
+        }
+
+
+        /*
+           CURRENT
+        */
+
+        else if (
+          index ===
+          currentIndex
+        ) {
+
+          span.classList.add(
+            "current"
+          );
+
+        }
+
+
+        /*
+           FUTURE
+        */
+
+        else {
+
+          span.classList.add(
+            "future"
+          );
+
+        }
+
+
+        span.style.display =
+          "inline-block";
+
+
+        span.style.visibility =
+          "visible";
+
+
+        targetLetter.appendChild(
+          span
         );
 
       }
+    );
 
 
-      /*
-         CURRENT LETTER
-      */
-
-      else if (
-        index === currentIndex
-      ) {
-
-        span.classList.add(
-          "current"
-        );
-
-      }
-
-
-      /*
-         FUTURE LETTERS
-      */
-
-      else {
-
-        span.classList.add(
-          "future"
-        );
-
-      }
-
-
-      /*
-         FORCE the word letters
-         to actually display.
-      */
-
-      span.style.display =
-        "inline-block";
-
-      span.style.visibility =
-        "visible";
-
-
-      targetLetter.appendChild(
-        span
-      );
-
-    });
+  message.textContent =
+    "";
 
 
   /*
-     IMPORTANT:
-     There is NO "FIND: A" text anymore.
-  */
-
-  message.textContent = "";
-
-
-  /*
-     Create the three burger choices.
+     Create the three burgers.
   */
 
   createBurgers(
@@ -278,42 +494,48 @@ function showNextLetter() {
 
 
 /* ============================================================
-   WORD COMPLETE DISPLAY
+   🎉 WORD COMPLETE
    ============================================================ */
 
 function showWordComplete() {
 
-  targetLetter.innerHTML = "";
+  targetLetter.innerHTML =
+    "";
 
 
   currentWord
     .split("")
-    .forEach(function(letter) {
+    .forEach(
+      function(letter) {
 
-      const span =
-        document.createElement("span");
-
-
-      span.className =
-        "word-letter completed";
-
-
-      span.textContent =
-        letter;
+        const span =
+          document.createElement(
+            "span"
+          );
 
 
-      span.style.display =
-        "inline-block";
-
-      span.style.visibility =
-        "visible";
+        span.className =
+          "word-letter completed";
 
 
-      targetLetter.appendChild(
-        span
-      );
+        span.textContent =
+          letter;
 
-    });
+
+        span.style.display =
+          "inline-block";
+
+
+        span.style.visibility =
+          "visible";
+
+
+        targetLetter.appendChild(
+          span
+        );
+
+      }
+    );
 
 
   message.textContent =
@@ -328,7 +550,7 @@ function showWordComplete() {
 
 
 /* ============================================================
-   CREATE EXACTLY 3 BURGERS
+   🍔 CREATE 3 BURGERS
    ============================================================ */
 
 function createBurgers(
@@ -355,7 +577,8 @@ function createBurgers(
       String.fromCharCode(
         65 +
         Math.floor(
-          Math.random() * 26
+          Math.random() *
+          26
         )
       );
 
@@ -386,6 +609,9 @@ function createBurgers(
 
   /*
      Burger positions.
+
+     These intentionally leave the
+     four corners available for Dino.
   */
 
   const positions = [
@@ -461,8 +687,8 @@ function createBurgers(
 
 
       /*
-         Put burger directly
-         into gameArea.
+         IMPORTANT:
+         Burgers go directly inside gameArea.
       */
 
       gameArea.appendChild(
@@ -493,14 +719,15 @@ function createBurgers(
 
 
 /* ============================================================
-   SELECT BURGER
+   🍔 SELECT BURGER
    ============================================================ */
 
 function selectBurger(
   burger
 ) {
 
-  if (busy) return;
+  if (busy)
+    return;
 
 
   busy = true;
@@ -569,7 +796,8 @@ function correctAnswer(
 
 
   /*
-     Dino walks to correct burger.
+     FIRST:
+     Dino walks to the burger.
   */
 
   moveDinosaurTo(
@@ -605,6 +833,11 @@ function correctAnswer(
       );
 
 
+      /*
+         Give the eating animation
+         time to play.
+      */
+
       setTimeout(
         function() {
 
@@ -614,22 +847,33 @@ function correctAnswer(
 
 
           /*
-             Move to next letter.
+             Move Dino to an EMPTY
+             corner BEFORE showing
+             the next burger choices.
           */
 
-          currentIndex++;
+          moveDinosaurToCorner(
+            function() {
+
+              /*
+                 Now advance the word.
+              */
+
+              currentIndex++;
 
 
-          /*
-             Show the SAME word again,
-             but now the next letter
-             is highlighted.
-          */
+              /*
+                 Show next letter
+                 and create new burgers.
+              */
 
-          showNextLetter();
+              showNextLetter();
+
+            }
+          );
 
         },
-        900
+        650
       );
 
     }
@@ -697,11 +941,21 @@ function wrongAnswer(
 
 
           /*
-             Same word and same
-             highlighted letter remain.
+             Move Dino away from
+             the burger after the
+             wrong answer too.
+
+             This keeps the game
+             visually clean.
           */
 
-          busy = false;
+          moveDinosaurToCorner(
+            function() {
+
+              busy = false;
+
+            }
+          );
 
         },
         700
@@ -714,8 +968,7 @@ function wrongAnswer(
 
 
 /* ============================================================
-   🦖 MOVE DINOSAUR
-   MOBILE + DESKTOP SAFE
+   🦖 MOVE DINOSAUR TO BURGER
    ============================================================ */
 
 function moveDinosaurTo(
@@ -752,8 +1005,8 @@ function moveDinosaurTo(
 
 
   /*
-     Find burger center
-     relative to game area.
+     Burger center relative
+     to gameArea.
   */
 
   const x =
@@ -823,7 +1076,7 @@ function moveDinosaurTo(
 
 
 /* ============================================================
-   💥 BOOM
+   💥 BOOM EFFECT
    ============================================================ */
 
 function showBoomAt(
@@ -833,7 +1086,8 @@ function showBoomAt(
   if (
     !burger ||
     !effect
-  ) return;
+  )
+    return;
 
 
   const gameRect =
@@ -913,7 +1167,9 @@ function dinosaurSpeech(
 
 function createKeyboard() {
 
-  if (!keyboardLetters)
+  if (
+    !keyboardLetters
+  )
     return;
 
 
@@ -978,7 +1234,8 @@ function keyboardSelect(
   letter
 ) {
 
-  if (busy) return;
+  if (busy)
+    return;
 
 
   const burger =
@@ -995,8 +1252,8 @@ function keyboardSelect(
 
 
   /*
-     If letter is one of
-     the three burgers,
+     If the letter is one of
+     the visible burgers,
      select it.
   */
 
@@ -1012,8 +1269,7 @@ function keyboardSelect(
 
 
   /*
-     Letter isn't one of
-     the visible choices.
+     Letter isn't visible.
   */
 
   dinosaurSpeech(
