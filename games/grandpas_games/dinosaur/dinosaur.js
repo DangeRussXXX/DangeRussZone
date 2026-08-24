@@ -504,7 +504,7 @@ function wrongAnswer(burger) {
     "💥 BOOM! TRY AGAIN!";
 
 
-  showBoom();
+  showBoom(burger);
 
 
   playSound("wrong");
