@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>🦖 Dino's Letter Lunch</title>
+
+  <link
+    rel="stylesheet"
+    href="dinosaur.css"
+  >
+
+</head>
+
+
+<body>
+
+  <main class="game">
+
+
+    <!-- =====================================================
+         🦖 TITLE
+         ===================================================== -->
+
+    <h1>
+      🦖 Dino's Letter Lunch 🍔
+    </h1>
+
+
+    <!-- =====================================================
+         🔤 WORD TO SPELL
+         ===================================================== -->
+
+    <section class="find-area">
+
+      <div class="find-label">
+        SPELL
+      </div>
+
+      <div id="targetLetter"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         🎮 GAME AREA
+         ===================================================== -->
+
+    <section
+      id="gameArea"
+      aria-label="Dinosaur letter game"
+    >
+
+
+      <!-- ===================================================
+           🦖 DINOSAUR
+           =================================================== -->
+
+      <div id="dinosaur">
+
+        <div id="dinoSpeech">
+          🍔?
+        </div>
+
+        <div id="dinoBody">
+          🦖
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           🍔 FOOD AREA
+           =================================================== -->
+
+      <div id="foodArea"></div>
+
+
+      <!-- ===================================================
+           💥 EFFECT
+           =================================================== -->
+
+      <div id="effect"></div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         🍔 GAME INFORMATION
+         Only Fed remains.
+         The old Word display is removed.
+         ===================================================== -->
+
+    <section class="game-info">
+
+      <div>
+        🍔 Fed:
+        <span id="fed">0</span>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ⌨️ KEYBOARD
+         ===================================================== -->
+
+    <section class="keyboard">
+
+      <p>
+        ⌨️ Or tap a letter
+      </p>
+
+      <div id="keyboardLetters"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         🔄 PLAY AGAIN
+         ===================================================== -->
+
+    <button
+      id="restartButton"
+      type="button"
+    >
+      🔄 PLAY AGAIN
+    </button>
+
+
+    <!-- =====================================================
+         ❤️ BACK
+         ===================================================== -->
+
+    <a
+      href="../grandpas_games.html"
+      class="backButton"
+    >
+      ❤️ Back to Grandpa's Adventures
+    </a>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       🦖 GAME JAVASCRIPT
+       ======================================================= -->
+
+  <script src="dinosaur.js"></script>
+
+</body>
+
+</html>
