@@ -1,9 +1,4 @@
-/* ============================================================
-   LIL' RUSSELL'S SPACE MISSION
-   ============================================================ */
-
-// Get game elements
-const rocket = document.getElementById("player");
+const player = document.getElementById("player");
 const gameArea = document.getElementById("gameArea");
 
 const scoreDisplay = document.getElementById("score");
@@ -17,153 +12,150 @@ const restartButton = document.getElementById("restartButton");
 
 const message = document.getElementById("message");
 
-
-// ============================================================
-// GAME VARIABLES
-// ============================================================
+let x = 50;
+let y = 80;
 
 let score = 0;
 let lives = 3;
 let fuel = 100;
 
-let rocketX = 50;
-let rocketY = 80;
+let playing = false;
 
-let gameRunning = false;
-
-let star;
+let star = null;
 
 
-// ============================================================
+// ================================
+// START GAME
+// ================================
+
+function startGame() {
+
+  playing = true;
+
+  score = 0;
+  lives = 3;
+  fuel = 100;
+
+  x = 50;
+  y = 80;
+
+  scoreDisplay.textContent = score;
+  livesDisplay.textContent = lives;
+  fuelDisplay.textContent = fuel;
+
+  player.style.left = x + "%";
+  player.style.top = y + "%";
+  player.style.bottom = "auto";
+
+  startButton.style.display = "none";
+  restartButton.style.display = "none";
+
+  message.textContent =
+    "🚀 Mission started! Collect the stars!";
+
+  createStar();
+}
+
+
+// ================================
 // CREATE STAR
-// ============================================================
+// ================================
 
 function createStar() {
+
+  if (star) {
+    star.remove();
+  }
 
   star = document.createElement("div");
 
   star.id = "star";
   star.textContent = "⭐";
 
+  star.style.position = "absolute";
+  star.style.fontSize = "50px";
+  star.style.left = (Math.random() * 70 + 15) + "%";
+  star.style.top = (Math.random() * 60 + 10) + "%";
+
   gameArea.appendChild(star);
-
-  moveStar();
 }
 
 
-// ============================================================
-// MOVE STAR TO RANDOM LOCATION
-// ============================================================
+// ================================
+// MOVE PLAYER
+// ================================
 
-function moveStar() {
+function movePlayer(direction) {
 
-  if (!star) return;
-
-  const maxX = 85;
-  const maxY = 70;
-
-  const randomX = Math.random() * (maxX - 10) + 10;
-  const randomY = Math.random() * (maxY - 10) + 10;
-
-  star.style.left = randomX + "%";
-  star.style.top = randomY + "%";
-}
-
-
-// ============================================================
-// MOVE ROCKET
-// ============================================================
-
-function moveRocket(direction) {
-
-  if (!gameRunning) return;
+  if (!playing) return;
 
   if (direction === "left") {
-    rocketX -= 5;
-    fuel -= 1;
+    x -= 5;
   }
 
   if (direction === "right") {
-    rocketX += 5;
-    fuel -= 1;
+    x += 5;
   }
 
   if (direction === "up") {
-    rocketY -= 5;
-    fuel -= 1;
+    y -= 5;
   }
 
   if (direction === "down") {
-    rocketY += 5;
-    fuel -= 1;
+    y += 5;
   }
-
 
   // Keep rocket inside game area
 
-  rocketX = Math.max(5, Math.min(95, rocketX));
-  rocketY = Math.max(5, Math.min(90, rocketY));
+  x = Math.max(5, Math.min(95, x));
+  y = Math.max(5, Math.min(90, y));
 
+  player.style.left = x + "%";
+  player.style.top = y + "%";
 
-  // Update rocket position
+  fuel--;
 
-  rocket.style.left = rocketX + "%";
-  rocket.style.top = rocketY + "%";
-  rocket.style.bottom = "auto";
-
-
-  // Update fuel
-
-  fuel = Math.max(0, fuel);
+  if (fuel < 0) {
+    fuel = 0;
+  }
 
   fuelDisplay.textContent = fuel;
 
+  checkStar();
 
-  // Check if fuel is empty
-
-  if (fuel <= 0) {
-
-    endGame("⛽ Oh no! Russell ran out of fuel!");
-
-    return;
+  if (fuel === 0) {
+    gameOver("⛽ Russell ran out of fuel!");
   }
-
-
-  checkStarCollision();
 }
 
 
-// ============================================================
-// CHECK STAR COLLISION
-// ============================================================
+// ================================
+// CHECK STAR
+// ================================
 
-function checkStarCollision() {
+function checkStar() {
 
   if (!star) return;
 
-  const rocketRect = rocket.getBoundingClientRect();
+  const playerRect = player.getBoundingClientRect();
   const starRect = star.getBoundingClientRect();
 
+  const playerX =
+    playerRect.left + playerRect.width / 2;
 
-  const rocketCenterX =
-    rocketRect.left + rocketRect.width / 2;
+  const playerY =
+    playerRect.top + playerRect.height / 2;
 
-  const rocketCenterY =
-    rocketRect.top + rocketRect.height / 2;
-
-
-  const starCenterX =
+  const starX =
     starRect.left + starRect.width / 2;
 
-  const starCenterY =
+  const starY =
     starRect.top + starRect.height / 2;
 
-
   const distance = Math.hypot(
-    rocketCenterX - starCenterX,
-    rocketCenterY - starCenterY
+    playerX - starX,
+    playerY - starY
   );
-
 
   if (distance < 60) {
 
@@ -172,143 +164,87 @@ function checkStarCollision() {
     scoreDisplay.textContent = score;
 
     message.textContent =
-      "⭐ Great job, Russell! You collected a star!";
+      "⭐ Awesome! You found a star!";
 
-
-    moveStar();
+    createStar();
   }
 }
 
 
-// ============================================================
-// START MISSION
-// ============================================================
+// ================================
+// GAME OVER
+// ================================
 
-function startMission() {
+function gameOver(text) {
 
-  if (gameRunning) return;
-
-  gameRunning = true;
-
-  score = 0;
-  lives = 3;
-  fuel = 100;
-
-  rocketX = 50;
-  rocketY = 80;
-
-
-  scoreDisplay.textContent = score;
-  livesDisplay.textContent = lives;
-  fuelDisplay.textContent = fuel;
-
-
-  rocket.style.left = rocketX + "%";
-  rocket.style.top = rocketY + "%";
-  rocket.style.bottom = "auto";
-
-
-  message.textContent =
-    "🚀 Mission started! Collect the stars, Russell!";
-
-
-  startButton.style.display = "none";
-  restartButton.style.display = "none";
-
-
-  createStar();
-}
-
-
-// ============================================================
-// END GAME
-// ============================================================
-
-function endGame(text) {
-
-  gameRunning = false;
+  playing = false;
 
   message.textContent = text;
 
+  startButton.style.display = "none";
   restartButton.style.display = "inline-block";
 }
 
 
-// ============================================================
-// KEYBOARD CONTROLS
-// ============================================================
+// ================================
+// BUTTONS
+// ================================
 
-document.addEventListener("keydown", function(event) {
+leftButton.addEventListener("click", function () {
+  movePlayer("left");
+});
 
-  if (!gameRunning) return;
+rightButton.addEventListener("click", function () {
+  movePlayer("right");
+});
 
+startButton.addEventListener("click", function () {
+  startGame();
+});
 
-  const key = event.key.toLowerCase();
-
-
-  if (key === "arrowleft" || key === "a") {
-
-    event.preventDefault();
-
-    moveRocket("left");
-  }
-
-
-  if (key === "arrowright" || key === "d") {
-
-    event.preventDefault();
-
-    moveRocket("right");
-  }
-
-
-  if (key === "arrowup" || key === "w") {
-
-    event.preventDefault();
-
-    moveRocket("up");
-  }
-
-
-  if (key === "arrowdown" || key === "s") {
-
-    event.preventDefault();
-
-    moveRocket("down");
-  }
-
+restartButton.addEventListener("click", function () {
+  startGame();
 });
 
 
-// ============================================================
-// BUTTON CONTROLS
-// ============================================================
+// ================================
+// KEYBOARD
+// ================================
 
-leftButton.addEventListener("click", function() {
+document.addEventListener("keydown", function (event) {
 
-  moveRocket("left");
+  if (!playing) return;
 
-});
+  if (
+    event.key === "ArrowLeft" ||
+    event.key.toLowerCase() === "a"
+  ) {
+    event.preventDefault();
+    movePlayer("left");
+  }
 
+  if (
+    event.key === "ArrowRight" ||
+    event.key.toLowerCase() === "d"
+  ) {
+    event.preventDefault();
+    movePlayer("right");
+  }
 
-rightButton.addEventListener("click", function() {
+  if (
+    event.key === "ArrowUp" ||
+    event.key.toLowerCase() === "w"
+  ) {
+    event.preventDefault();
+    movePlayer("up");
+  }
 
-  moveRocket("right");
-
-});
-
-
-startButton.addEventListener("click", function() {
-
-  startMission();
-
-});
-
-
-restartButton.addEventListener("click", function() {
-
-  startButton.style.display = "inline-block";
-
-  startMission();
+  if (
+    event.key === "ArrowDown" ||
+    event.key.toLowerCase() === "s"
+  ) {
+    event.preventDefault();
+    movePlayer("down");
+  }
 
 });
