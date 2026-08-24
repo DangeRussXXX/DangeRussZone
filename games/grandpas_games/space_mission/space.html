@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Lil' Russell's Space Mission</title>
+
+  <link
+    rel="stylesheet"
+    href="space.css"
+  >
+
+</head>
+
+
+<body>
+
+  <!-- =========================================================
+       GAME
+       ========================================================= -->
+
+  <main class="game">
+
+    <!-- GAME TITLE -->
+
+    <h1>
+      🚀 Lil' Russell's Space Mission 🚀
+    </h1>
+
+
+    <!-- MISSION INTRO -->
+
+    <section class="mission">
+
+      <h2>
+        Grandpa Needs Your Help!
+      </h2>
+
+      <p id="message">
+        Russell, we have an important mission for you!
+      </p>
+
+      <p>
+        🚀 Fly the rocket and rescue the lost star! ⭐
+      </p>
+
+    </section>
+
+
+    <!-- =======================================================
+         GAME AREA
+         ======================================================= -->
+
+    <section
+      id="gameArea"
+      aria-label="Space Mission Game"
+    >
+
+      <!-- ROCKET -->
+
+      <div
+        id="rocket"
+        aria-label="Rocket"
+      >
+        🚀
+      </div>
+
+
+      <!-- STAR -->
+
+      <div
+        id="star"
+        aria-label="Star"
+      >
+        ⭐
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CONTROLS
+         ======================================================= -->
+
+    <section class="controls">
+
+      <button
+        id="leftButton"
+        type="button"
+      >
+        ⬅️
+      </button>
+
+
+      <button
+        id="launchButton"
+        type="button"
+      >
+        🚀 LAUNCH!
+      </button>
+
+
+      <button
+        id="rightButton"
+        type="button"
+      >
+        ➡️
+      </button>
+
+    </section>
+
+
+    <!-- =======================================================
+         SCORE
+         ======================================================= -->
+
+    <p id="score">
+      ⭐ Stars Rescued: 0
+    </p>
+
+
+    <!-- =======================================================
+         BACK TO GRANDPA'S ADVENTURES
+         ======================================================= -->
+
+    <a
+      href="../grandpas_games.html"
+      class="backButton"
+    >
+      ❤️ Back to Grandpa's Adventures
+    </a>
+
+  </main>
+
+
+  <!-- =========================================================
+       GAME JAVASCRIPT
+       ========================================================= -->
+
+  <script src="space.js"></script>
+
+</body>
+
+</html>
