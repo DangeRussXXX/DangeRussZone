@@ -1,7 +1,6 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
-   FULL SCREEN JUNGLE GAME
-   CLEAN BURGER VERSION
+   CLEAN WORKING VERSION
    ============================================================ */
 
 * {
@@ -35,15 +34,13 @@ body {
 
 
 /* ============================================================
-   🎮 MAIN GAME
+   🎮 GAME
    ============================================================ */
 
 .game {
   width: 100%;
   min-height: 100vh;
-
   padding: 10px;
-
   text-align: center;
 }
 
@@ -56,7 +53,6 @@ h1 {
   margin: 5px 0 10px;
 
   font-size: clamp(2.5rem, 5vw, 5rem);
-
   line-height: 1;
 
   color: #fff58a;
@@ -69,7 +65,7 @@ h1 {
 
 
 /* ============================================================
-   🔎 FIND LETTER
+   🔎 FIND AREA
    ============================================================ */
 
 .find-area {
@@ -83,7 +79,7 @@ h1 {
   width: fit-content;
   max-width: 95%;
 
-  margin: 8px auto 12px;
+  margin: 8px auto 8px;
 
   padding: 8px 22px;
 
@@ -133,6 +129,7 @@ h1 {
 
 
 @keyframes targetGlow {
+
   from {
     transform: scale(1);
   }
@@ -140,6 +137,27 @@ h1 {
   to {
     transform: scale(1.12);
   }
+}
+
+
+/* ============================================================
+   💬 MESSAGE
+   ============================================================ */
+
+#message {
+  min-height: 34px;
+
+  margin: 4px auto 6px;
+
+  color: #fff700;
+
+  font-size: 1.4rem;
+
+  font-weight: 900;
+
+  text-shadow:
+    0 0 8px #ff9900,
+    0 0 15px #ffe600;
 }
 
 
@@ -168,6 +186,7 @@ h1 {
       rgba(255, 230, 100, 0.35),
       transparent 25%
     ),
+
     linear-gradient(
       to bottom,
       #16923e 0%,
@@ -182,19 +201,9 @@ h1 {
 
   /*
     IMPORTANT:
-    Creates a clean stacking world for
-    dinosaur + burgers + explosion.
+    All burgers are children of this element.
   */
   isolation: isolate;
-}
-
-
-/* ============================================================
-   🌿 JUNGLE DECOR
-   ============================================================ */
-
-#jungleDecor {
-  display: none;
 }
 
 
@@ -213,9 +222,6 @@ h1 {
 
   transform: translate(-50%, -50%);
 
-  /*
-    BELOW BURGERS
-  */
   z-index: 10;
 
   pointer-events: none;
@@ -244,6 +250,7 @@ h1 {
 
 
 @keyframes dinoBounce {
+
   from {
     transform:
       translateY(0)
@@ -269,6 +276,7 @@ h1 {
 
 
 @keyframes dinoWalk {
+
   from {
     transform:
       translateY(0)
@@ -284,7 +292,7 @@ h1 {
 
 
 /* ============================================================
-   🦖 EATING
+   😋 EATING
    ============================================================ */
 
 #dinosaur.eating #dinoBody {
@@ -294,6 +302,7 @@ h1 {
 
 
 @keyframes dinoEat {
+
   from {
     transform:
       scale(1)
@@ -351,6 +360,12 @@ h1 {
    🍔 FOOD AREA
    ============================================================ */
 
+/*
+   Kept only because it exists in the HTML.
+
+   JavaScript is NOT putting burgers here.
+*/
+
 #foodArea {
   position: absolute;
 
@@ -361,57 +376,69 @@ h1 {
 
   pointer-events: none;
 
-  z-index: 50;
+  z-index: 1;
 }
 
 
 /* ============================================================
-   🍔 BURGERS
+   🍔 BURGER
    ============================================================ */
 
 /*
    IMPORTANT:
-   Your NEW JavaScript puts each .burger DIRECTLY
-   inside #gameArea.
 
-   Therefore these styles intentionally target
-   .burger itself rather than relying on #foodArea.
+   JavaScript creates:
+
+   #gameArea
+      ├── #dinosaur
+      ├── #foodArea
+      ├── #effect
+      ├── .burger
+      ├── .burger
+      └── .burger
+
+   Therefore we target:
+
+   #gameArea > .burger
 */
 
-#gameArea .burger {
-  position: absolute;
 
-  width: 190px;
-  height: 190px;
+#gameArea > .burger {
 
-  margin: 0;
-  padding: 0;
+  position: absolute !important;
 
-  display: flex;
+  left: 0;
+  top: 0;
+
+  width: 180px !important;
+  height: 180px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
 
   align-items: center;
   justify-content: center;
 
-  border: none;
+  border: 0 !important;
+  outline: 0 !important;
 
-  background: transparent;
+  background: transparent !important;
+
+  appearance: none;
+  -webkit-appearance: none;
 
   cursor: pointer;
 
   user-select: none;
 
-  appearance: none;
-  -webkit-appearance: none;
+  visibility: visible !important;
+  opacity: 1 !important;
 
-  /*
-    VERY IMPORTANT
-  */
-  visibility: visible;
-  opacity: 1;
+  pointer-events: auto !important;
 
-  pointer-events: auto;
-
-  z-index: 100;
+  z-index: 100 !important;
 
   transform:
     translate(-50%, -50%);
@@ -425,16 +452,14 @@ h1 {
    🍔 BURGER EMOJI
    ============================================================ */
 
-#gameArea .burger::before {
+#gameArea > .burger::before {
+
   content: "🍔";
 
   position: absolute;
 
   left: 50%;
   top: 50%;
-
-  width: auto;
-  height: auto;
 
   display: block;
 
@@ -447,12 +472,12 @@ h1 {
     "Noto Color Emoji",
     sans-serif;
 
-  font-size: 145px;
+  font-size: 140px;
 
   line-height: 1;
 
-  visibility: visible;
-  opacity: 1;
+  visibility: visible !important;
+  opacity: 1 !important;
 
   z-index: 1;
 
@@ -469,14 +494,15 @@ h1 {
    🔤 LETTER ON BURGER
    ============================================================ */
 
-#gameArea .burger .burger-letter {
+#gameArea > .burger > .burger-letter {
+
   position: absolute;
 
   left: 50%;
   top: 50%;
 
-  width: 85px;
-  height: 85px;
+  width: 82px;
+  height: 82px;
 
   display: flex;
 
@@ -500,7 +526,7 @@ h1 {
 
   color: #173500;
 
-  font-size: 3.5rem;
+  font-size: 3.3rem;
 
   font-weight: 900;
 
@@ -508,8 +534,8 @@ h1 {
 
   text-align: center;
 
-  visibility: visible;
-  opacity: 1;
+  visibility: visible !important;
+  opacity: 1 !important;
 
   z-index: 2;
 
@@ -526,6 +552,7 @@ h1 {
 
 
 @keyframes letterGlow {
+
   from {
     transform:
       translate(-50%, -50%)
@@ -544,7 +571,8 @@ h1 {
    🍔 BURGER HOVER
    ============================================================ */
 
-#gameArea .burger:hover {
+#gameArea > .burger:hover {
+
   transform:
     translate(-50%, -50%)
     scale(1.12);
@@ -555,7 +583,8 @@ h1 {
    🍔 BURGER PRESS
    ============================================================ */
 
-#gameArea .burger:active {
+#gameArea > .burger:active {
+
   transform:
     translate(-50%, -50%)
     scale(0.95);
@@ -563,10 +592,11 @@ h1 {
 
 
 /* ============================================================
-   😋 CORRECT — EATEN
+   😋 EATEN
    ============================================================ */
 
-#gameArea .burger.eaten {
+#gameArea > .burger.eaten {
+
   animation:
     burgerEat 0.55s forwards;
 }
@@ -605,7 +635,8 @@ h1 {
    💥 WRONG BURGER
    ============================================================ */
 
-#gameArea .burger.explode {
+#gameArea > .burger.explode {
+
   animation:
     burgerExplode 0.55s forwards;
 }
@@ -641,10 +672,11 @@ h1 {
 
 
 /* ============================================================
-   💥 BOOM
+   💥 EXPLOSION
    ============================================================ */
 
 #effect {
+
   position: absolute;
 
   left: 50%;
@@ -666,7 +698,7 @@ h1 {
 
   pointer-events: none;
 
-  z-index: 200;
+  z-index: 500;
 
   opacity: 0;
 }
@@ -674,6 +706,7 @@ h1 {
 
 #effect.show-boom,
 #effect.show {
+
   animation:
     boom 0.8s forwards;
 }
@@ -716,31 +749,16 @@ h1 {
 
 
 /* ============================================================
-   📝 WORD PROGRESS
-   ============================================================ */
-
-#wordProgress {
-  color: #fff700;
-
-  font-size: 1.8rem;
-
-  letter-spacing: 8px;
-
-  text-shadow:
-    0 0 10px #ffe600;
-}
-
-
-/* ============================================================
-   ⭐ SCORE
+   📝 GAME INFO
    ============================================================ */
 
 .game-info {
+
   display: flex;
 
   justify-content: center;
 
-  gap: 60px;
+  gap: 50px;
 
   padding: 8px;
 
@@ -751,12 +769,24 @@ h1 {
 
 
 .game-info span {
+
   color: #ffe600;
 
   font-size: 1.8rem;
 
   text-shadow:
     0 0 8px #ff9900;
+}
+
+
+#wordProgress {
+
+  color: #fff700;
+
+  letter-spacing: 8px;
+
+  text-shadow:
+    0 0 10px #ffe600;
 }
 
 
@@ -777,6 +807,7 @@ h1 {
 
 
 #keyboardLetters {
+
   display: flex;
 
   justify-content: center;
@@ -788,6 +819,7 @@ h1 {
 
 
 .key {
+
   width: 42px;
   height: 42px;
 
@@ -808,6 +840,7 @@ h1 {
 
 
 .key:hover {
+
   transform: scale(1.15);
 
   background: #3a811d;
@@ -815,10 +848,11 @@ h1 {
 
 
 /* ============================================================
-   🔄 RESTART
+   🔄 PLAY AGAIN
    ============================================================ */
 
 #restartButton {
+
   padding: 12px 28px;
 
   border: 3px solid #ffe600;
@@ -838,6 +872,7 @@ h1 {
 
 
 #restartButton:hover {
+
   background: #4d8425;
 
   transform: scale(1.05);
@@ -849,6 +884,7 @@ h1 {
    ============================================================ */
 
 .backButton {
+
   display: inline-block;
 
   margin: 8px;
@@ -882,17 +918,17 @@ h1 {
 
   h1 {
     font-size: 2rem;
-
     margin: 3px 0 7px;
   }
 
 
   .find-area {
+
     gap: 10px;
 
     padding: 6px 15px;
 
-    margin-bottom: 7px;
+    margin-bottom: 5px;
   }
 
 
@@ -902,13 +938,23 @@ h1 {
 
 
   #targetLetter {
+
     min-width: 65px;
 
     font-size: 3.5rem;
   }
 
 
+  #message {
+
+    font-size: 1.2rem;
+
+    min-height: 30px;
+  }
+
+
   #gameArea {
+
     height: calc(100vh - 245px);
 
     min-height: 450px;
@@ -919,9 +965,8 @@ h1 {
   }
 
 
-  /* DINO */
-
   #dinosaur {
+
     width: 270px;
     height: 270px;
 
@@ -936,6 +981,7 @@ h1 {
 
 
   #dinoSpeech {
+
     top: -60px;
 
     font-size: 1.3rem;
@@ -944,20 +990,23 @@ h1 {
   }
 
 
-  /* BURGERS */
+  /* MOBILE BURGERS */
 
-  #gameArea .burger {
-    width: 130px;
-    height: 130px;
+  #gameArea > .burger {
+
+    width: 130px !important;
+    height: 130px !important;
   }
 
 
-  #gameArea .burger::before {
+  #gameArea > .burger::before {
+
     font-size: 100px;
   }
 
 
-  #gameArea .burger .burger-letter {
+  #gameArea > .burger > .burger-letter {
+
     width: 60px;
     height: 60px;
 
@@ -967,9 +1016,8 @@ h1 {
   }
 
 
-  /* INFO */
-
   .game-info {
+
     gap: 25px;
 
     font-size: 1rem;
@@ -977,13 +1025,13 @@ h1 {
 
 
   .game-info span {
+
     font-size: 1.4rem;
   }
 
 
-  /* KEYBOARD */
-
   .key {
+
     width: 34px;
     height: 34px;
 
@@ -1009,6 +1057,7 @@ h1 {
 
 
   #dinosaur {
+
     width: 220px;
     height: 220px;
   }
@@ -1019,18 +1068,21 @@ h1 {
   }
 
 
-  #gameArea .burger {
-    width: 110px;
-    height: 110px;
+  #gameArea > .burger {
+
+    width: 110px !important;
+    height: 110px !important;
   }
 
 
-  #gameArea .burger::before {
+  #gameArea > .burger::before {
+
     font-size: 85px;
   }
 
 
-  #gameArea .burger .burger-letter {
+  #gameArea > .burger > .burger-letter {
+
     width: 52px;
     height: 52px;
 
