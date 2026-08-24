@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,112 +11,150 @@
 
   <title>🦖 Dino's Letter Lunch</title>
 
-  <link
-    rel="stylesheet"
-    href="dinosaur.css"
-  >
-
+  <link rel="stylesheet" href="dinosaur.css">
 </head>
-
 
 <body>
 
-<main class="game">
+  <main class="game">
 
-  <h1>
-    🦖 Dino's Letter Lunch 🍔
-  </h1>
-
-
-  <section id="gameArea">
+    <!-- TITLE ONLY -->
+    <header class="title-area">
+      <h1>🦖 Dino's Letter Lunch 🍔</h1>
+    </header>
 
 
-    <!-- JUNGLE -->
+    <!-- FULL SCREEN GAME -->
 
-    <div id="jungleDecor">
-      🌴 🌿 🌴 🌿 🌴 🌿 🌴
-    </div>
+    <section
+      id="gameArea"
+      aria-label="Dinosaur letter learning game"
+    >
 
+      <!-- JUNGLE BACKGROUND -->
 
-    <!-- TARGET LETTER -->
-
-    <div id="dinoTarget">
-
-      <div id="targetLetter">
-        A
+      <div class="jungle-back">
+        🌴
+        <span>🌿</span>
+        🌴
+        <span>🌿</span>
+        🌴
       </div>
 
-      <div class="targetArrow">
-        ▼
+
+      <!-- TARGET LETTER ABOVE DINO -->
+
+      <div id="targetBubble">
+
+        <div class="target-label">
+          FIND
+        </div>
+
+        <div id="targetLetter">
+          A
+        </div>
+
       </div>
 
-    </div>
 
+      <!-- DINOSAUR -->
 
-    <!-- DINOSAUR -->
+      <div id="dinosaur">
 
-    <div id="dinosaur">
+        <div id="dinoSpeech">
+          🍔?
+        </div>
 
-      <div id="dinoSpeech">
-        🍔?
+        <div id="dinoEmoji">
+          🦖
+        </div>
+
       </div>
 
-      <div id="dinoBody">
-        🦖
+
+      <!-- BURGERS WITH LETTERS -->
+
+      <div id="foodArea"></div>
+
+
+      <!-- GAME EFFECTS -->
+
+      <div id="effect"></div>
+
+
+      <!-- MESSAGE -->
+
+      <div id="gameMessage">
+        Pick the letter Dino wants!
       </div>
 
-    </div>
+
+      <!-- GROUND -->
+
+      <div class="jungle-ground">
+        🌿 🌱 🌿 🌱 🌿 🌱 🌿 🌱 🌿
+      </div>
+
+    </section>
 
 
-    <!-- BURGERS -->
+    <!-- GAME INFORMATION -->
 
-    <div id="foodArea"></div>
+    <section class="game-info">
 
+      <div class="info-box">
+        ⭐
+        <span>Stars</span>
+        <strong id="score">0</strong>
+      </div>
 
-    <!-- EFFECT -->
+      <div class="info-box">
+        🍔
+        <span>Fed</span>
+        <strong id="fed">0</strong>
+      </div>
 
-    <div id="effect"></div>
-
-    <div id="messageEffect"></div>
-
-
-  </section>
-
-
-  <!-- SCORE -->
-
-  <div class="game-info">
-
-    ⭐ <span id="score">0</span>
-
-    &nbsp;&nbsp;
-
-    🍔 <span id="fed">0</span>
-
-  </div>
+    </section>
 
 
-  <!-- KEYBOARD -->
+    <!-- KEYBOARD -->
 
-  <div class="keyboard">
+    <section class="keyboard">
 
-    <div id="keyboardLetters"></div>
+      <p>
+        🖱️ Click a burger or press a letter!
+      </p>
 
-  </div>
+      <div id="keyboardLetters"></div>
 
-
-  <button
-    id="restartButton"
-    type="button"
-  >
-    🔄 Play Again
-  </button>
+    </section>
 
 
-</main>
+    <!-- PLAY AGAIN -->
+
+    <button
+      id="restartButton"
+      type="button"
+    >
+      🔄 PLAY AGAIN
+    </button>
 
 
-<script src="dinosaur.js"></script>
+    <!-- BACK -->
+
+    <a
+      href="../grandpas_games.html"
+      class="backButton"
+    >
+      ❤️ Back to Grandpa's Adventures
+    </a>
+
+  </main>
+
+
+  <!-- GAME JAVASCRIPT -->
+
+  <script src="dinosaur.js"></script>
 
 </body>
 
