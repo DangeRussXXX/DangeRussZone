@@ -1,218 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>DangeRussZone</title>
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Search Script -->
+  <script src="index/script/search.js"></script>
 </head>
-<script src="index/script/search.js"></script>
+
 <body>
-<!-- NAVBAR -->
-<nav>
-  <div class="scrolling-message">
-    <a href="infected/infected.html" target="_blank">🎉 Click for your free prize! 🎉</a>    <!-- MESSAGE -->
-  </div>
-</nav>
-  
-<!-- HEADER-START -->
-<header>
-  <h1 class="fire-text">🔥 DangeRuss Zone 🔥</h1>                                            <!-- MESSAGE -->
-  <img src="index/images/HomeFlyingObject2.png" alt="Spaceship" class="flying-object">        <!-- IMAGE -->
 
-<!-- MAIN CONTAINER -->
-<div class="container">
-
-
-
-
-  
-<!-- COLUMN 1 -->
-<div class="column first-column scary-column">
-
-  <!-- HEADER TEXT -->
-  <h2 class="scary-header">Enter At Your Own Risk</h2>
-  <p class="scary-text">YOU HAVE BEEN WARNED</p>
-
-  <!-- GOOGLE SEARCH BAR -->
-  <div class="google-container">
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search Google...">
-      <span class="mic-icon">🎤</span>
+  <!-- =========================================================
+       NAVBAR
+       ========================================================= -->
+  <nav>
+    <div class="scrolling-message">
+      <a href="infected/infected.html" target="_blank">
+        🎉 Click for your free prize! 🎉
+      </a>
     </div>
-  </div>
-
-  <!-- Danger button triggers search -->
-  <div class="danger-zone">
-    <a href="#" id="searchTrigger" class="danger-button">⚠️ENTER NOW⚠️</a>
-  </div>
-
-  <!-- Floating image -->
-  <img src="index/images/column1.png" alt="Image 1" class="floating-image">
-
-</div>
+  </nav>
 
 
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header>
+
+    <h1 class="fire-text">
+      🔥 DangeRuss Zone 🔥
+    </h1>
+
+    <img
+      src="index/images/HomeFlyingObject2.png"
+      alt="Spaceship"
+      class="flying-object"
+    >
 
 
+    <!-- =======================================================
+         MAIN CONTAINER
+         ======================================================= -->
+    <div class="container">
 
 
+      <!-- =====================================================
+           COLUMN 1
+           ===================================================== -->
+      <div class="column first-column scary-column">
+
+        <!-- Header Text -->
+        <h2 class="scary-header">
+          Enter At Your Own Risk
+        </h2>
+
+        <p class="scary-text">
+          YOU HAVE BEEN WARNED
+        </p>
 
 
+        <!-- Google Search Bar -->
+        <div class="google-container">
 
+          <div class="search-box">
 
+            <span class="search-icon">🔍</span>
 
-  
-  <!-- COLUMN 2 -->
-  <div class="column video-column">
-    <!-- FEATURE-VIDEO-SOUND-BUTTONS-->
-    <div id="soundControls">
-      <button id="soundOnBtn">🔊 Sound On</button>                                              <!-- SOUND-ON-BUTTON -->
-      <button id="soundOffBtn">🔇 Sound Off</button>                                            <!-- SOUND-OFF-BUTTON -->
-  </div>
-    <!-- FEATURE-VIDEO -->
-    <div class="video-wrapper">
-      <video id="featureVideo" autoplay loop muted playsinline>
-        <source src="index/video/featurevideo.mp4" type="video/mp4">                              <!-- VIDEO-LINK -->
-        Your browser does not support the video tag.
-      </video>
-    </div>
-<!-- YOUTUBE-LIVESTREAM -->
-<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%; background:#000;">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search Google..."
+            >
 
-  <!-- SCROLLING MESSAGE ABOVE OR BELOW THE VIDEO -->
-  <div class="scrolling-message" style="position:absolute; top:10px; left:10px; z-index:10;">
-    <a href="infected/infected.html" target="_blank">🎉 LATEST LIVESTREAM! 🎉</a>
-  </div>
+            <span class="mic-icon">🎤</span>
 
-  <!-- YOUTUBE-EMBED-LIVESTREAM -->
-  <iframe
-    src="https://www.youtube.com/embed/RTRZauxQRxs"                                                  
-    title="Test Website"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-    style="position:absolute; top:0; left:0; width:100%; height:100%;">
-  </iframe>
+          </div>
 
-</div>
-
-    <!-- YOUTUBE-CHANNEL-LINK-BUTTON -->
-    <a href="https://www.youtube.com/@DangerussZone" target="_blank" class="game-button">          <!-- YOUTUBE-CHANNEL-LINK&BUTTON -->
-      Visit My YouTube Channel 🎥                                                                  <!-- BUTTON TEXT -->
-    </a>
-    <!-- YOUTUBE-3-COLUMN-LAYOUT-->
-    <div style="display:flex; flex-wrap:wrap; gap:10px;">
-      <div style="flex:1 1 calc(33% - 10px);">
-        <h3>Top Joke</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/jVDT_K_XstA" allowfullscreen></iframe>            <!-- YOUTUBE-VIDEO-LINK -->
         </div>
-      </div>
-      <div style="flex:1 1 calc(33% - 10px);">
-        <h3>Top Video</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/er63bbbirIc" allowfullscreen></iframe>            <!-- YOUTUBE-VIDEO-LINK -->
-        </div>
-      </div>
-      <div style="flex:1 1 calc(33% - 10px);">
-        <h3>Top Other</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/Q69Ktj0a824" allowfullscreen></iframe>            <!-- YOUTUBE-VIDEO-LINK -->
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- COLUMN-LINKS-&-BUTTONS -->
-  <!-- MAIN-BUTTONS -->
-  <div class="column">
-    <div class="button-column">
-      <!-- BUTTON-1:-SCRIPTURE -->
-      <div class="button-section">
-        <h2></h2>
-       <a href="https://www.youtube.com/@ScriptureStudioAI" target="_blank" class="game-button">          <!-- YOUTUBE-CHANNEL-LINK&BUTTON -->
-      </div>
-      <!-- BUTTON-2:-ABOUT -->
-      <div class="button-section">
-        <h2></h2>
-        <a href="about/about.html" class="mystery-button">About</a>
-      </div>
-      <!-- BUTTON-3:-GALLERY -->
-      <div class="button-section">
-        <h2></h2>
-        <a href="gallery/gallery.html" class="mystery-button">Gallery</a>
-      </div>
-      <!-- BUTTON-4:-GAMES -->
-      <div class="button-section">
-        <h2></h2>
-        <a href="tetris/tetris.html" class="mystery-button">Play Games</a>
-      </div>
-      <!-- BUTTON-5:-FREE-STUFF -->
-      <div class="button-section">
-        <h2></h2>
-        <a href="infected/infected.html" class="mystery-button">FREE STUFF</a>
-      </div>
-      
-      <!-- BUTTON-5:-TESTING-HTML -->
-      <div class="button-section">
-        <h2></h2>
-       <!--  <a href="test.html" class="mystery-button">Residential Electrcal Wiring Simulator</a> -->
-         <a href="https://dangerussxxx.github.io/residential-wiring-simulator/" class="mystery-button">Residential Electrcal Wiring Simulator</a>
-      </div>
-     
-      <!-- BUTTON-99:-CONTACT -->
-      <div class="button-section">
-        <h2></h2>
-        <a href="contact/contact.html" class="mystery-button">Contact</a>
-      </div>
 
-      <div>
-        <!-- FOOTER-MINI-BUTTONS -->
-        <div class="footer-buttons">
-          <!-- PayPal -->
-          <a href="https://paypal.me/risrow" target="_blank" class="footer-button">
-            <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
-                 alt="PayPal" style="width:16px; vertical-align:middle; margin-right:4px;">
-            PayPal
+        <!-- Search Button -->
+        <div class="danger-zone">
+
+          <a
+            href="#"
+            id="searchTrigger"
+            class="danger-button"
+          >
+            ⚠️ENTER NOW⚠️
           </a>
+
         </div>
+
+
+        <!-- Floating Image -->
+        <img
+          src="index/images/column1.png"
+          alt="Image 1"
+          class="floating-image"
+        >
+
       </div>
+
+
+      <!-- =====================================================
+           COLUMN 2 — VIDEO / YOUTUBE
+           ===================================================== -->
+      <div class="column video-column">
+
+
+        <!-- Sound Controls -->
+        <div id="soundControls">
+
+          <button id="soundOnBtn">
+            🔊 Sound On
+          </button>
+
+          <button id="soundOffBtn">
+            🔇 Sound Off
+          </button>
+
+        </div>
+
+
+        <!-- Feature Video -->
+        <div class="video-wrapper">
+
+          <video
+            id="featureVideo"
+            autoplay
+            loop
+            muted
+            playsinline
+          >
+
+            <source
+              src="index/video/featurevideo.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support the video tag.
+
+          </video>
+
+        </div>
+
+
+        <!-- ===================================================
+             YOUTUBE LIVESTREAM
+             =================================================== -->
+
+        <div
+          style="
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+          "
+        >
+
+          <!-- Livestream Message -->
+          <div
+            class="scrolling-message"
+            style="
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              z-index: 10;
+            "
+          >
+
+            <a
+              href="infected/infected.html"
+              target="_blank"
+            >
+              🎉 LATEST LIVESTREAM! 🎉
+            </a>
+
+          </div>
+
+
+          <!-- YouTube Livestream -->
+          <iframe
+            src="https://www.youtube.com/embed/RTRZauxQRxs"
+            title="DangeRuss Zone Livestream"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
+          ></iframe>
+
+        </div>
+
+
+        <!-- ===================================================
+             YOUTUBE CHANNEL BUTTON
+             =================================================== -->
+
+        <a
+          href="https://www.youtube.com/@DangerussZone"
+          target="_blank"
+          class="game-button"
+        >
+          Visit My YouTube Channel 🎥
+        </a>
+
+
+        <!-- ===================================================
+             THREE YOUTUBE VIDEOS
+             =================================================== -->
+
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+          "
+        >
+
+
+          <!-- TOP JOKE -->
+          <div style="flex: 1 1 calc(33% - 10px);">
+
+            <h3>
+              Top Joke
+            </h3>
+
+            <div class="video-wrapper">
+
+              <iframe
+                src="https://www.youtube.com/embed/jVDT_K_XstA"
+                title="Top Joke"
+                allowfullscreen
+              ></iframe>
+
+            </div>
+
+          </div>
+
+
+          <!-- TOP VIDEO -->
+          <div style="flex: 1 1 calc(33% - 10px);">
+
+            <h3>
+              Top Video
+            </h3>
+
+            <div class="video-wrapper">
+
+              <iframe
+                src="https://www.youtube.com/embed/er63bbbirIc"
+                title="Top Video"
+                allowfullscreen
+              ></iframe>
+
+            </div>
+
+          </div>
+
+
+          <!-- TOP OTHER -->
+          <div style="flex: 1 1 calc(33% - 10px);">
+
+            <h3>
+              Top Other
+            </h3>
+
+            <div class="video-wrapper">
+
+              <iframe
+                src="https://www.youtube.com/embed/Q69Ktj0a824"
+                title="Top Other"
+                allowfullscreen
+              ></iframe>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           COLUMN 3 — SITE LINKS
+           ===================================================== -->
+      <div class="column">
+
+        <div class="button-column">
+
+
+          <!-- =================================================
+               SCRIPTURE
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="https://www.youtube.com/@ScriptureStudioAI"
+              target="_blank"
+              class="game-button"
+            >
+              Scripture Studio AI
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               ABOUT
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="about/about.html"
+              class="mystery-button"
+            >
+              About
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               GALLERY
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="gallery/gallery.html"
+              class="mystery-button"
+            >
+              Gallery
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               GAMES
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="tetris/tetris.html"
+              class="mystery-button"
+            >
+              Play Games
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               FREE STUFF
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="infected/infected.html"
+              class="mystery-button"
+            >
+              FREE STUFF
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               RESIDENTIAL ELECTRICAL WIRING SIMULATOR
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="https://dangerussxxx.github.io/residential-wiring-simulator/"
+              class="mystery-button"
+              target="_blank"
+            >
+              Residential Electrical Wiring Simulator
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               CONTACT
+               ================================================= -->
+
+          <div class="button-section">
+
+            <a
+              href="contact/contact.html"
+              class="mystery-button"
+            >
+              Contact
+            </a>
+
+          </div>
+
+
+          <!-- =================================================
+               FOOTER BUTTONS
+               ================================================= -->
+
+          <div class="footer-buttons">
+
+            <!-- PayPal -->
+            <a
+              href="https://paypal.me/risrow"
+              target="_blank"
+              class="footer-button"
+            >
+
+              <img
+                src="https://www.paypalobjects.com/webstatic/icon/pp258.png"
+                alt="PayPal"
+                style="
+                  width: 16px;
+                  vertical-align: middle;
+                  margin-right: 4px;
+                "
+              >
+
+              PayPal
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
     </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <h2>Thanks for visiting ✌️💛</h2>
-  <p>Crafted with fun and a bit of magic ✨</p>
-  <small>© 2025 💥DangeRussProductions💥 — All rights reserved.</small>
-</footer>
 
 
-</header>
-<!-- HEADER-END -->
+  </header>
 
-<!-- SOUND SCRIPT -->
-<script>
-  const video = document.getElementById('featureVideo');
-  const soundOnBtn = document.getElementById('soundOnBtn');
-  const soundOffBtn = document.getElementById('soundOffBtn');
 
-  soundOnBtn.addEventListener('click', () => {
-    video.muted = false;
-    video.play();
-  });
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
 
-  soundOffBtn.addEventListener('click', () => {
-    video.muted = true;
-  });
-</script>
-  
- <script src="search.js"></script>
+  <footer>
+
+    <h2>
+      Thanks for visiting ✌️💛
+    </h2>
+
+    <p>
+      Crafted with fun and a bit of magic ✨
+    </p>
+
+    <small>
+      © 2025 💥DangeRussProductions💥 — All rights reserved.
+    </small>
+
+  </footer>
+
+
+  <!-- =========================================================
+       SOUND SCRIPT
+       ========================================================= -->
+
+  <script>
+
+    const video = document.getElementById("featureVideo");
+
+    const soundOnBtn = document.getElementById("soundOnBtn");
+
+    const soundOffBtn = document.getElementById("soundOffBtn");
+
+
+    // Sound ON
+    soundOnBtn.addEventListener("click", () => {
+
+      video.muted = false;
+
+      video.play();
+
+    });
+
+
+    // Sound OFF
+    soundOffBtn.addEventListener("click", () => {
+
+      video.muted = true;
+
+    });
+
+  </script>
+
+
 </body>
-  
+
 </html>
