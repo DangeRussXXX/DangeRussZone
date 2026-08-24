@@ -15,6 +15,7 @@ body {
 
 body {
   font-family: Arial, sans-serif;
+
   background:
     radial-gradient(circle at 20% 20%, #24245c 0%, transparent 25%),
     radial-gradient(circle at 80% 30%, #35145c 0%, transparent 25%),
@@ -93,7 +94,6 @@ h1 {
 
   width: 100%;
   height: min(65vh, 600px);
-
   min-height: 400px;
 
   overflow: hidden;
@@ -121,19 +121,18 @@ h1 {
    ROCKET
    ============================================================ */
 
-#rocket {
+#player {
   position: absolute;
-
   left: 50%;
-  bottom: 30px;
-
-  transform: translateX(-50%);
-
+  top: 80%;
+  transform: translate(-50%, -50%);
   font-size: 60px;
-
   user-select: none;
+  z-index: 10;
 
-  transition: left 0.12s ease;
+  transition:
+    left 0.12s ease,
+    top 0.12s ease;
 
   filter:
     drop-shadow(0 0 8px #00ffff)
@@ -142,7 +141,7 @@ h1 {
 
 
 /* ============================================================
-   STAR
+   STARS
    ============================================================ */
 
 #star {
@@ -160,11 +159,12 @@ h1 {
     drop-shadow(0 0 18px #ffe600);
 
   animation: starGlow 1.2s infinite alternate;
+
+  z-index: 5;
 }
 
 
 @keyframes starGlow {
-
   from {
     transform: scale(1);
   }
@@ -172,7 +172,6 @@ h1 {
   to {
     transform: scale(1.25);
   }
-
 }
 
 
@@ -230,9 +229,11 @@ h1 {
 }
 
 
-/* LAUNCH BUTTON */
+/* ============================================================
+   START BUTTON
+   ============================================================ */
 
-#launchButton {
+#startButton {
   background: #7b00ff;
 
   border-color: #ff00ff;
@@ -242,26 +243,97 @@ h1 {
 }
 
 
-#launchButton:hover {
+#startButton:hover {
   background: #9b35ff;
 }
 
 
 /* ============================================================
-   SCORE
+   GAME INFORMATION
    ============================================================ */
 
-#score {
+.game-info {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+
+  margin: 20px 0;
+
   font-size: 22px;
-
   font-weight: bold;
+}
 
+.game-info span {
   color: #ffe600;
 
   text-shadow:
     0 0 8px #ff9900;
+}
 
-  margin: 20px 0;
+
+/* ============================================================
+   RESTART BUTTON
+   ============================================================ */
+
+.restart-area {
+  margin-top: 15px;
+}
+
+#restartButton {
+  border: 2px solid #ff69b4;
+
+  border-radius: 12px;
+
+  background: #35002d;
+
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  padding: 12px 24px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+#restartButton:hover {
+  background: #650055;
+}
+
+
+/* ============================================================
+   INSTRUCTIONS
+   ============================================================ */
+
+.instructions {
+  margin-top: 25px;
+
+  padding: 15px;
+
+  background: rgba(0, 0, 40, 0.65);
+
+  border: 2px solid #7b00ff;
+
+  border-radius: 15px;
+}
+
+.instructions h2 {
+  margin-top: 0;
+
+  color: #ffe600;
+}
+
+.instructions p {
+  margin: 8px 0;
+
+  font-size: 16px;
 }
 
 
@@ -272,7 +344,7 @@ h1 {
 .backButton {
   display: inline-block;
 
-  margin-top: 10px;
+  margin-top: 20px;
 
   padding: 12px 20px;
 
@@ -322,10 +394,11 @@ h1 {
   }
 
   #gameArea {
+    height: 55vh;
     min-height: 350px;
   }
 
-  #rocket {
+  #player {
     font-size: 48px;
   }
 
@@ -342,4 +415,9 @@ h1 {
     font-size: 20px;
   }
 
+  .game-info {
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 18px;
+  }
 }
