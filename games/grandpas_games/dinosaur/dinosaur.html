@@ -2,510 +2,129 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Dino Jungle - Learn Your Letters</title>
+  <title>🦖 Dino's Letter Lunch</title>
 
-  <link
-    rel="stylesheet"
-    href="dinosaur.css"
-  >
-
+  <link rel="stylesheet" href="dinosaur.css">
 </head>
-
 
 <body>
 
-  <!-- =========================================================
-       DINO JUNGLE
-       ========================================================= -->
+  <main class="game">
 
-  <main id="dinoGame">
+    <h1>🦖 Dino's Letter Lunch 🍔</h1>
 
+    <section class="mission">
 
-    <!-- =======================================================
-         TOP HUD
-         ======================================================= -->
+      <h2>🌴 Feed the Dinosaur!</h2>
 
-    <header class="game-header">
+      <p id="message">
+        Find the letter Dino wants!
+      </p>
 
-      <div class="game-title">
-        🦖 Dino Jungle
+      <div class="target">
+
+        <span>🦖 Dino wants:</span>
+
+        <strong id="targetLetter">A</strong>
+
       </div>
 
-      <div class="score-box">
-        ⭐
+    </section>
+
+
+    <!-- GAME -->
+
+    <section
+      id="gameArea"
+      aria-label="Dinosaur letter game"
+    >
+
+      <div id="jungleDecor">
+        🌴 🌿 🌴 🌿 🌴
+      </div>
+
+
+      <!-- DINOSAUR -->
+
+      <div id="dinosaur">
+
+        <div id="dinoSpeech">
+          🍔?
+        </div>
+
+        <div id="dinoBody">
+          🦖
+        </div>
+
+      </div>
+
+
+      <!-- HAMBURGERS APPEAR HERE -->
+
+      <div id="foodArea"></div>
+
+
+      <!-- EFFECT -->
+
+      <div id="effect"></div>
+
+    </section>
+
+
+    <!-- SCORE -->
+
+    <section class="game-info">
+
+      <div>
+        ⭐ Stars:
         <span id="score">0</span>
       </div>
 
-      <button
-        id="soundButton"
-        class="hud-button"
-        type="button"
-        aria-label="Turn sound on or off"
-      >
-        🔊
-      </button>
-
-      <button
-        id="musicButton"
-        class="hud-button"
-        type="button"
-        aria-label="Turn music on or off"
-      >
-        🎵
-      </button>
-
-    </header>
-
-
-    <!-- =======================================================
-         JUNGLE BACKGROUND
-         ======================================================= -->
-
-    <section
-      id="jungle"
-      aria-label="Dinosaur Jungle"
-    >
-
-
-      <!-- SKY -->
-
-      <div class="sky">
-
-        <div class="sun">
-          ☀️
-        </div>
-
-        <div class="cloud cloud-one">
-          ☁️
-        </div>
-
-        <div class="cloud cloud-two">
-          ☁️
-        </div>
-
-        <div class="cloud cloud-three">
-          ☁️
-        </div>
-
+      <div>
+        🍔 Fed:
+        <span id="fed">0</span>
       </div>
-
-
-      <!-- DISTANT JUNGLE -->
-
-      <div class="distant-jungle">
-
-        <div class="mountain">
-          🌋
-        </div>
-
-        <div class="tree tree-one">
-          🌴
-        </div>
-
-        <div class="tree tree-two">
-          🌴
-        </div>
-
-        <div class="tree tree-three">
-          🌴
-        </div>
-
-        <div class="tree tree-four">
-          🌴
-        </div>
-
-      </div>
-
-
-      <!-- JUNGLE ANIMALS -->
-
-      <div
-        id="butterfly"
-        class="jungle-creature"
-      >
-        🦋
-      </div>
-
-      <div
-        id="bird"
-        class="jungle-creature"
-      >
-        🐦
-      </div>
-
-      <div
-        id="frog"
-        class="jungle-creature"
-      >
-        🐸
-      </div>
-
-
-      <!-- =====================================================
-           DINOSAURS
-           ===================================================== -->
-
-      <div
-        id="dinoBackground"
-        aria-hidden="true"
-      >
-
-        <div
-          id="dinoSmall"
-          class="dinosaur background-dino"
-        >
-          🦕
-        </div>
-
-        <div
-          id="dinoWalking"
-          class="dinosaur walking-dino"
-        >
-          🦖
-        </div>
-
-      </div>
-
-
-      <!-- =====================================================
-           MAIN DINOSAUR
-           ===================================================== -->
-
-      <div
-        id="mainDinosaur"
-        class="dinosaur main-dinosaur"
-        aria-label="Friendly dinosaur"
-      >
-
-        <div
-          id="dinoName"
-          class="dino-name"
-        >
-          🦖
-        </div>
-
-        <div
-          id="dinoFace"
-          class="dino-face"
-        >
-          😃
-        </div>
-
-      </div>
-
-
-      <!-- =====================================================
-           SPEECH BUBBLE
-           ===================================================== -->
-
-      <div
-        id="dinoSpeech"
-        class="dino-speech"
-      >
-        Feed me a letter! 🦖
-      </div>
-
-
-      <!-- =====================================================
-           LETTER TARGET
-           ===================================================== -->
-
-      <div
-        id="targetArea"
-        class="target-area"
-      >
-
-        <div
-          id="targetLabel"
-          class="target-label"
-        >
-          FIND THIS LETTER
-        </div>
-
-        <div
-          id="targetLetter"
-          class="target-letter"
-        >
-          A
-        </div>
-
-      </div>
-
-
-      <!-- =====================================================
-           FOOD / LETTER CHOICES
-           ===================================================== -->
-
-      <div
-        id="foodArea"
-        class="food-area"
-        aria-label="Letter choices"
-      >
-
-        <!-- JavaScript will create the food here -->
-
-      </div>
-
-
-      <!-- =====================================================
-           FLYING FOOD
-           ===================================================== -->
-
-      <div
-        id="flyingFood"
-        class="flying-food"
-        aria-hidden="true"
-      >
-        🍎
-      </div>
-
-
-      <!-- =====================================================
-           CELEBRATION
-           ===================================================== -->
-
-      <div
-        id="celebration"
-        class="celebration"
-        aria-hidden="true"
-      >
-
-        🎉
-
-        <div id="celebrationText">
-          GREAT JOB!
-        </div>
-
-      </div>
-
-
-      <!-- =====================================================
-           WRONG ANSWER EFFECT
-           ===================================================== -->
-
-      <div
-        id="oopsEffect"
-        class="oops-effect"
-        aria-hidden="true"
-      >
-        💨
-      </div>
-
-
-      <!-- =====================================================
-           FOREGROUND JUNGLE
-           ===================================================== -->
-
-      <div class="foreground-jungle">
-
-        <div class="grass grass-one">
-          🌿
-        </div>
-
-        <div class="grass grass-two">
-          🌿
-        </div>
-
-        <div class="grass grass-three">
-          🌿
-        </div>
-
-        <div class="grass grass-four">
-          🌿
-        </div>
-
-        <div class="plant plant-one">
-          🌱
-        </div>
-
-        <div class="plant plant-two">
-          🌱
-        </div>
-
-      </div>
-
-
-      <!-- =====================================================
-           GAME MESSAGE
-           ===================================================== -->
-
-      <div
-        id="gameMessage"
-        class="game-message"
-      >
-        Let's learn our letters! 🔤
-      </div>
-
 
     </section>
 
 
-    <!-- =======================================================
-         BOTTOM CONTROLS
-         ======================================================= -->
+    <!-- KEYBOARD -->
 
-    <section class="bottom-area">
+    <section class="keyboard">
 
+      <p>⌨️ You can also press a letter!</p>
 
-      <!-- MISSION -->
-
-      <div class="mission-progress">
-
-        <span>
-          🥚 Dino Eggs:
-        </span>
-
-        <span id="eggs">
-          0
-        </span>
-
-      </div>
-
-
-      <!-- LEVEL -->
-
-      <div class="level-display">
-
-        Level
-        <span id="level">
-          1
-        </span>
-
-      </div>
-
-
-      <!-- START -->
-
-      <button
-        id="startButton"
-        class="start-button"
-        type="button"
-      >
-        🦖 START DINO ADVENTURE
-      </button>
-
-
-      <!-- PLAY AGAIN -->
-
-      <button
-        id="restartButton"
-        class="restart-button"
-        type="button"
-        hidden
-      >
-        🔄 PLAY AGAIN
-      </button>
-
+      <div id="keyboardLetters"></div>
 
     </section>
 
 
-    <!-- =======================================================
-         PARENT CONTROLS
-         ======================================================= -->
-
-    <section
-      id="parentPanel"
-      class="parent-panel"
-      hidden
-    >
-
-      <h2>
-        👨‍👩‍👦 Grown-Up Settings
-      </h2>
-
-
-      <label>
-
-        Practice Letters
-
-        <select id="letterDifficulty">
-
-          <option value="AB">
-            A and B
-          </option>
-
-          <option value="ABC">
-            A, B and C
-          </option>
-
-          <option value="ABCDE">
-            A through E
-          </option>
-
-          <option value="ALL">
-            Whole Alphabet
-          </option>
-
-        </select>
-
-      </label>
-
-
-      <label>
-
-        Letter Sounds
-
-        <input
-          id="soundLearning"
-          type="checkbox"
-          checked
-        >
-
-      </label>
-
-
-      <label>
-
-        Voice Instructions
-
-        <input
-          id="voiceInstructions"
-          type="checkbox"
-          checked
-        >
-
-      </label>
-
-
-      <button
-        id="closeParentPanel"
-        type="button"
-      >
-        Done
-      </button>
-
-    </section>
-
-
-    <!-- =======================================================
-         PARENT BUTTON
-         ======================================================= -->
+    <!-- RESTART -->
 
     <button
-      id="parentButton"
-      class="parent-button"
+      id="restartButton"
       type="button"
-      aria-label="Open grown-up settings"
     >
-      🔒
+      🔄 Play Again
     </button>
 
 
+    <a
+      href="../grandpas_games.html"
+      class="backButton"
+    >
+      ❤️ Back to Grandpa's Adventures
+    </a>
+
   </main>
 
-
-  <!-- =========================================================
-       JAVASCRIPT
-       ========================================================= -->
 
   <script src="dinosaur.js"></script>
 
