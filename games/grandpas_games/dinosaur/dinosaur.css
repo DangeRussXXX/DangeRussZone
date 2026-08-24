@@ -374,6 +374,25 @@ h1 {
 /* ============================================================
    🍔 BURGER
    ============================================================ */
+.burger {
+  z-index: 50;
+}
+
+#dinosaur {
+  z-index: 30;
+}
+
+#foodArea {
+  z-index: 50;
+  pointer-events: none;
+}
+
+#foodArea .burger {
+  pointer-events: auto;
+}
+
+
+
 
 .burger {
 
