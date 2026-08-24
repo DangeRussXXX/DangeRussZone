@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -11,48 +12,56 @@
 
   <title>🦖 Dino's Letter Lunch</title>
 
-  <link rel="stylesheet" href="dinosaur.css">
+  <link
+    rel="stylesheet"
+    href="dinosaur.css"
+  >
+
 </head>
+
 
 <body>
 
   <main class="game">
+
+
+    <!-- =====================================================
+         🦖 TITLE
+         ===================================================== -->
 
     <h1>
       🦖 Dino's Letter Lunch 🍔
     </h1>
 
 
-    <!-- FIND LETTER -->
+    <!-- =====================================================
+         🔤 WORD TO SPELL
+         ===================================================== -->
 
     <section class="find-area">
 
       <div class="find-label">
-        🔎 FIND
+        SPELL
       </div>
 
-      <div id="targetLetter">
-        A
-      </div>
+      <div id="targetLetter"></div>
 
     </section>
 
 
-    <!-- MESSAGE -->
-
-    <div id="message">
-      Help Dino spell the word!
-    </div>
-
-
-    <!-- GAME -->
+    <!-- =====================================================
+         🎮 GAME AREA
+         ===================================================== -->
 
     <section
       id="gameArea"
       aria-label="Dinosaur letter game"
     >
 
-      <!-- DINOSAUR -->
+
+      <!-- ===================================================
+           🦖 DINOSAUR
+           =================================================== -->
 
       <div id="dinosaur">
 
@@ -67,41 +76,42 @@
       </div>
 
 
-      <!-- BURGERS -->
+      <!-- ===================================================
+           🍔 FOOD AREA
+           =================================================== -->
 
       <div id="foodArea"></div>
 
 
-      <!-- EXPLOSION -->
+      <!-- ===================================================
+           💥 EFFECT
+           =================================================== -->
 
       <div id="effect"></div>
+
 
     </section>
 
 
-    <!-- GAME INFORMATION -->
+    <!-- =====================================================
+         🍔 GAME INFORMATION
+         Only Fed remains.
+         The old Word display is removed.
+         ===================================================== -->
 
     <section class="game-info">
-
-      <div>
-        ⭐ Score:
-        <span id="score">0</span>
-      </div>
 
       <div>
         🍔 Fed:
         <span id="fed">0</span>
       </div>
 
-      <div>
-        📝 Word:
-        <span id="wordProgress">_ _ _</span>
-      </div>
-
     </section>
 
 
-    <!-- KEYBOARD -->
+    <!-- =====================================================
+         ⌨️ KEYBOARD
+         ===================================================== -->
 
     <section class="keyboard">
 
@@ -114,7 +124,9 @@
     </section>
 
 
-    <!-- PLAY AGAIN -->
+    <!-- =====================================================
+         🔄 PLAY AGAIN
+         ===================================================== -->
 
     <button
       id="restartButton"
@@ -124,7 +136,9 @@
     </button>
 
 
-    <!-- BACK -->
+    <!-- =====================================================
+         ❤️ BACK
+         ===================================================== -->
 
     <a
       href="../grandpas_games.html"
@@ -133,8 +147,13 @@
       ❤️ Back to Grandpa's Adventures
     </a>
 
+
   </main>
 
+
+  <!-- =======================================================
+       🦖 GAME JAVASCRIPT
+       ======================================================= -->
 
   <script src="dinosaur.js"></script>
 
