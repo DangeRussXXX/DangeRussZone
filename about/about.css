@@ -24,10 +24,12 @@ body {
         sans-serif;
 
     background: #f4f7fb;
-
     color: #333;
-
     line-height: 1.6;
+
+    /* IMPORTANT FOR STICKY */
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 a {
@@ -63,7 +65,6 @@ header {
 
 .navbar {
     display: flex;
-
     justify-content: center;
     align-items: center;
 
@@ -91,7 +92,6 @@ header {
 .navbar a:hover,
 .navbar .active {
     background: #2563eb;
-
     text-decoration: none;
 }
 
@@ -106,7 +106,6 @@ header {
     margin: 50px auto;
 
     display: flex;
-
     align-items: center;
 
     gap: 50px;
@@ -138,21 +137,17 @@ header {
 
 .profile-content h1 {
     font-size: 52px;
-
     color: #111827;
 }
 
 .profile-content h2 {
     color: #2563eb;
-
     margin: 15px 0;
 }
 
 .headline {
     font-weight: bold;
-
     color: #1e3a8a;
-
     margin-bottom: 20px;
 }
 
@@ -220,23 +215,52 @@ header {
 
     gap: 25px;
 
+    /*
+       IMPORTANT:
+       Prevent the grid from interfering with
+       sticky positioning.
+    */
     align-items: start;
 }
 
 .column {
     min-width: 0;
+
+    /*
+       IMPORTANT:
+       Allow sticky children to operate normally.
+    */
+    align-self: start;
+
+    overflow: visible;
 }
 
 
 /* =========================================================
-   COLUMN HEADINGS
+   STICKY COLUMN HEADINGS
 ========================================================= */
+
+/*
+   THIS IS THE IMPORTANT PART.
+
+   Each blue heading will remain visible while
+   you scroll through that column.
+
+   90px leaves room underneath the navigation bar.
+*/
+
 .column-heading {
+    position: -webkit-sticky;
     position: sticky;
+
     top: 90px;
-    z-index: 100;
+
+    z-index: 500;
+
+    align-self: flex-start;
 
     background: #1e3a8a;
+
     color: white;
 
     padding: 22px;
@@ -248,6 +272,12 @@ header {
     box-shadow:
         0 8px 20px rgba(0, 0, 0, .08);
 }
+
+
+/* =========================================================
+   STICKY HEADING CONTENT
+========================================================= */
+
 .column-heading h2 {
     font-size: 24px;
 
@@ -521,10 +551,17 @@ footer a {
 
 
 /* =========================================================
-   MOBILE
+   TABLET / MOBILE
 ========================================================= */
 
 @media (max-width: 1050px) {
+
+    /*
+       Switch to one column.
+
+       Sticky headings are disabled here because
+       each section becomes its own vertical section.
+    */
 
     .three-column-layout {
         grid-template-columns: 1fr;
@@ -536,6 +573,9 @@ footer a {
         width: 100%;
     }
 
+    .column-heading {
+        position: static;
+    }
 }
 
 
@@ -569,7 +609,6 @@ footer a {
     .contact-links {
         justify-content: center;
     }
-
 }
 
 
@@ -587,7 +626,6 @@ footer a {
 
     body {
         background: white;
-
         color: black;
     }
 
@@ -636,5 +674,4 @@ footer a {
     .column-heading {
         position: static;
     }
-
 }
