@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DangeRussZone Tetris</title>
+  <link rel="stylesheet" href="tetris.css">
+</head>
+
+<body>
+
+  <main class="game-shell">
+
+    <header class="game-header">
+      <h1>TETRIS</h1>
+      <p>DangeRussZone</p>
+    </header>
+
+    <section class="game-layout">
+
+      <aside class="panel left-panel">
+        <div class="info-box">
+          <h2>HOLD</h2>
+          <canvas id="holdCanvas" width="120" height="100"></canvas>
+        </div>
+
+        <div class="info-box">
+          <h2>SCORE</h2>
+          <div id="score">0</div>
+        </div>
+
+        <div class="info-box">
+          <h2>HIGH SCORE</h2>
+          <div id="highScore">0</div>
+        </div>
+      </aside>
+
+      <section class="board-wrapper">
+
+        <div id="startScreen" class="overlay">
+          <h2>TETRIS</h2>
+          <p>Ready?</p>
+          <button id="startButton">START GAME</button>
+        </div>
+
+        <div id="gameOverScreen" class="overlay hidden">
+          <h2>GAME OVER</h2>
+          <p>Final Score: <span id="finalScore">0</span></p>
+          <button id="restartButton">PLAY AGAIN</button>
+        </div>
+
+        <canvas
+          id="gameCanvas"
+          width="300"
+          height="600">
+        </canvas>
+      </section>
+
+      <aside class="panel right-panel">
+
+        <div class="info-box">
+          <h2>NEXT</h2>
+          <canvas id="nextCanvas" width="120" height="100"></canvas>
+        </div>
+
+        <div class="info-box">
+          <h2>LEVEL</h2>
+          <div id="level">1</div>
+        </div>
+
+        <div class="info-box">
+          <h2>LINES</h2>
+          <div id="lines">0</div>
+        </div>
+
+        <div class="controls">
+          <h2>CONTROLS</h2>
+          <p>← → Move</p>
+          <p>↓ Soft Drop</p>
+          <p>↑ Rotate</p>
+          <p>SPACE Hard Drop</p>
+          <p>C Hold</p>
+          <p>P Pause</p>
+        </div>
+
+      </aside>
+
+    </section>
+
+    <div id="mobileControls" class="mobile-controls">
+      <button data-action="left">←</button>
+      <button data-action="rotate">↻</button>
+      <button data-action="right">→</button>
+      <button data-action="down">↓</button>
+      <button data-action="drop">DROP</button>
+      <button data-action="hold">HOLD</button>
+    </div>
+
+    <footer>
+      <button id="pauseButton">PAUSE</button>
+    </footer>
+
+  </main>
+
+  <script src="tetris.js"></script>
+
+</body>
+</html>

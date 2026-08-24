@@ -1,23 +1,284 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #111;
-  color: white;
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
-h1 {
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top, #242424 0%, #111 45%, #050505 100%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+.game-shell {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
+}
+
+.game-header p {
+  margin: 5px 0 0;
+  color: #aaa;
+  letter-spacing: 0.15em;
+}
+
+.game-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.panel {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-box,
+.controls {
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.info-box h2,
+.controls h2 {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: #ccc;
+}
+
+.info-box div {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.info-box canvas {
+  display: block;
+  width: 120px;
+  height: 100px;
+  margin: auto;
+  background: #050505;
+  border-radius: 5px;
+}
+
+.controls p {
+  margin: 6px 0;
+  font-size: 0.78rem;
+  color: #bbb;
+}
+
+.board-wrapper {
+  position: relative;
+  width: 300px;
+  height: 600px;
+}
+
+#gameCanvas {
+  display: block;
+  width: 300px;
+  height: 600px;
+  background: #050505;
+  border: 3px solid #777;
+  border-radius: 5px;
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(255, 255, 255, 0.04);
+}
+
+.overlay {
+  position: absolute;
+  z-index: 10;
+  inset: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.82);
+  border-radius: 3px;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h2 {
+  margin: 0 0 10px;
+  font-size: 2.5rem;
+  letter-spacing: 0.08em;
+}
+
+.overlay p {
+  color: #bbb;
+  margin: 5px 0 20px;
+}
+
+.overlay button,
+#pauseButton {
+  border: 1px solid #777;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.overlay button:hover,
+#pauseButton:hover {
+  background: #555;
+  transform: translateY(-1px);
+}
+
+footer {
   margin-top: 20px;
 }
 
-#game-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+#pauseButton {
+  min-width: 120px;
 }
 
-canvas {
-  border: 2px solid white;
+.mobile-controls {
+  display: none;
+}
+
+.mobile-controls button {
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  min-width: 55px;
+  min-height: 45px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.mobile-controls button:active {
+  background: #555;
+  transform: scale(0.95);
+}
+
+@media (max-width: 760px) {
+  .game-shell {
+    padding: 10px;
+  }
+
+  .game-layout {
+    gap: 8px;
+  }
+
+  .panel {
+    width: 90px;
+  }
+
+  .left-panel .info-box:nth-child(n + 2),
+  .right-panel .info-box:nth-child(n + 2),
+  .controls {
+    display: none;
+  }
+
+  .info-box {
+    padding: 6px;
+  }
+
+  .info-box h2 {
+    font-size: 0.7rem;
+  }
+
+  .info-box canvas {
+    width: 78px;
+    height: 65px;
+  }
+
+  .board-wrapper,
+  #gameCanvas {
+    width: min(60vw, 300px);
+  }
+
+  .board-wrapper {
+    height: min(120vw, 600px);
+  }
+
+  #gameCanvas {
+    height: min(120vw, 600px);
+  }
+
+  .mobile-controls {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    width: min(95vw, 300px);
+  }
+
+  .mobile-controls button:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 430px) {
+  .game-header {
+    margin-bottom: 10px;
+  }
+
+  .game-header h1 {
+    font-size: 2rem;
+  }
+
+  .game-layout {
+    align-items: flex-start;
+  }
+
+  .panel {
+    width: 60px;
+  }
+
+  .info-box canvas {
+    width: 55px;
+    height: 50px;
+  }
+
+  .board-wrapper,
+  #gameCanvas {
+    width: min(68vw, 300px);
+  }
+
+  .board-wrapper {
+    height: min(136vw, 600px);
+  }
+
+  #gameCanvas {
+    height: min(136vw, 600px);
+  }
 }
