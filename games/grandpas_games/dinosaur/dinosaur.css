@@ -3,7 +3,10 @@
    FULL SCREEN JUNGLE
    ============================================================ */
 
-* {
+*
+
+
+{
   box-sizing: border-box;
 }
 
@@ -1044,6 +1047,140 @@ h1 {
 
     font-size: 0.85rem;
 
+  }
+
+}
+
+/* ============================================================
+   🦖 DESKTOP SIZE BOOST
+   ============================================================ */
+
+@media (min-width: 901px) {
+
+  /* Bigger title */
+  h1 {
+    font-size: 4.5rem;
+    margin: 10px 0 18px;
+  }
+
+
+  /* Bigger mission box */
+  .mission {
+    padding: 18px 30px;
+    margin-bottom: 18px;
+  }
+
+  .mission h2 {
+    font-size: 2rem;
+  }
+
+  .mission p {
+    font-size: 1.3rem;
+  }
+
+
+  /* Bigger target letter */
+  #targetLetter {
+    width: 90px;
+    height: 90px;
+
+    font-size: 3.5rem;
+  }
+
+
+  /* BIGGER GAME */
+  #gameArea {
+    height: 68vh;
+    min-height: 600px;
+  }
+
+
+  /* BIG DINOSAUR */
+  #dinosaur {
+    width: 220px;
+    height: 220px;
+  }
+
+  #dinoBody {
+    font-size: 12rem;
+  }
+
+
+  /* Bigger speech bubble */
+  #dinoSpeech {
+    top: -65px;
+
+    min-width: 120px;
+
+    padding: 12px 18px;
+
+    font-size: 2rem;
+
+    border-width: 4px;
+  }
+
+
+  /* BIGGER BURGERS */
+  .burger {
+    width: 130px;
+    height: 130px;
+  }
+
+  .burger::before {
+    font-size: 105px;
+  }
+
+  .burger-letter {
+    width: 60px;
+    height: 60px;
+
+    font-size: 2.5rem;
+
+    border-width: 4px;
+  }
+
+
+  /* Bigger explosion */
+  #effect {
+    font-size: 12rem;
+  }
+
+
+  /* Bigger score */
+  .game-info {
+    font-size: 1.6rem;
+    gap: 70px;
+  }
+
+  .game-info span {
+    font-size: 2rem;
+  }
+
+
+  /* Bigger keyboard */
+  .keyboard p {
+    font-size: 1.2rem;
+  }
+
+  .key {
+    width: 55px;
+    height: 55px;
+
+    font-size: 1.4rem;
+
+    border-width: 3px;
+  }
+
+
+  /* Bigger buttons */
+  #restartButton {
+    font-size: 1.3rem;
+    padding: 14px 30px;
+  }
+
+  .backButton {
+    font-size: 1.1rem;
+    padding: 12px 24px;
   }
 
 }
