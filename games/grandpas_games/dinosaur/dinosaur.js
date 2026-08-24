@@ -139,23 +139,19 @@ function createBurgers(correctLetter) {
   */
 
   const positions = [
-
-    {
-      left: "12%",
-      top: "18%"
-    },
-
-    {
-      left: "75%",
-      top: "20%"
-    },
-
-    {
-      left: "45%",
-      top: "72%"
-    }
-
-  ];
+  {
+    left: "18%",
+    top: "25%"
+  },
+  {
+    left: "82%",
+    top: "25%"
+  },
+  {
+    left: "50%",
+    top: "78%"
+  }
+];
 
 
   letters.forEach((letter, index) => {
