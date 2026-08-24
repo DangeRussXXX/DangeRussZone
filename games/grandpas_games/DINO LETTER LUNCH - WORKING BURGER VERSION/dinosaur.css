@@ -1,0 +1,1091 @@
+/* ============================================================
+   🦖 DINO'S LETTER LUNCH
+   CLEAN WORKING VERSION
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  color: white;
+  overflow-x: hidden;
+
+  background:
+    linear-gradient(
+      rgba(0, 80, 20, 0.2),
+      rgba(0, 20, 5, 0.35)
+    ),
+    linear-gradient(
+      #1a943f,
+      #08702b 50%,
+      #022b0d
+    );
+}
+
+
+/* ============================================================
+   🎮 GAME
+   ============================================================ */
+
+.game {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  text-align: center;
+}
+
+
+/* ============================================================
+   🦖 TITLE
+   ============================================================ */
+
+h1 {
+  margin: 5px 0 10px;
+
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1;
+
+  color: #fff58a;
+
+  text-shadow:
+    0 0 10px #ffe600,
+    0 0 25px #ff8c00,
+    0 5px 5px #173500;
+}
+
+
+/* ============================================================
+   🔎 FIND AREA
+   ============================================================ */
+
+.find-area {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  width: fit-content;
+  max-width: 95%;
+
+  margin: 8px auto 8px;
+
+  padding: 8px 22px;
+
+  background: rgba(0, 30, 5, 0.92);
+
+  border: 4px solid #ffe600;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 15px #ffe600,
+    0 0 30px rgba(255, 200, 0, 0.5);
+}
+
+
+.find-label {
+  font-size: clamp(1.6rem, 3vw, 3rem);
+
+  font-weight: 900;
+
+  color: white;
+
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+}
+
+
+#targetLetter {
+  min-width: 90px;
+
+  font-size: clamp(3.5rem, 8vw, 6rem);
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  color: #fff700;
+
+  text-shadow:
+    0 0 8px white,
+    0 0 20px #ffe600,
+    0 0 40px #ff8c00;
+
+  animation: targetGlow 1s infinite alternate;
+}
+
+
+@keyframes targetGlow {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.12);
+  }
+}
+
+
+/* ============================================================
+   💬 MESSAGE
+   ============================================================ */
+
+#message {
+  min-height: 34px;
+
+  margin: 4px auto 6px;
+
+  color: #fff700;
+
+  font-size: 1.4rem;
+
+  font-weight: 900;
+
+  text-shadow:
+    0 0 8px #ff9900,
+    0 0 15px #ffe600;
+}
+
+
+/* ============================================================
+   🌴 GAME AREA
+   ============================================================ */
+
+#gameArea {
+  position: relative;
+
+  width: 100%;
+
+  height: calc(100vh - 285px);
+
+  min-height: 550px;
+
+  overflow: hidden;
+
+  border: 6px solid #75ff45;
+
+  border-radius: 25px;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255, 230, 100, 0.35),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      to bottom,
+      #16923e 0%,
+      #08702b 40%,
+      #075322 70%,
+      #033014 100%
+    );
+
+  box-shadow:
+    inset 0 0 100px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(70, 255, 50, 0.6);
+
+  /*
+    IMPORTANT:
+    All burgers are children of this element.
+  */
+  isolation: isolate;
+}
+
+
+/* ============================================================
+   🦖 DINOSAUR
+   ============================================================ */
+
+#dinosaur {
+  position: absolute;
+
+  left: 50%;
+  top: 62%;
+
+  width: 360px;
+  height: 360px;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  transition:
+    left 1s ease-in-out,
+    top 1s ease-in-out;
+}
+
+
+#dinoBody {
+  display: block;
+
+  font-size: 320px;
+
+  line-height: 1;
+
+  filter:
+    drop-shadow(
+      0 15px 10px rgba(0, 0, 0, 0.6)
+    );
+
+  animation:
+    dinoBounce 1.5s infinite alternate;
+}
+
+
+@keyframes dinoBounce {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  to {
+    transform:
+      translateY(-15px)
+      rotate(2deg);
+  }
+}
+
+
+/* ============================================================
+   🦖 WALKING
+   ============================================================ */
+
+#dinosaur.walking #dinoBody {
+  animation:
+    dinoWalk 0.18s infinite alternate;
+}
+
+
+@keyframes dinoWalk {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(-7deg);
+  }
+
+  to {
+    transform:
+      translateY(-18px)
+      rotate(7deg);
+  }
+}
+
+
+/* ============================================================
+   😋 EATING
+   ============================================================ */
+
+#dinosaur.eating #dinoBody {
+  animation:
+    dinoEat 0.12s infinite alternate;
+}
+
+
+@keyframes dinoEat {
+
+  from {
+    transform:
+      scale(1)
+      rotate(-4deg);
+  }
+
+  to {
+    transform:
+      scale(1.2)
+      rotate(4deg);
+  }
+}
+
+
+/* ============================================================
+   💬 DINO SPEECH
+   ============================================================ */
+
+#dinoSpeech {
+  position: absolute;
+
+  top: -75px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 12px 22px;
+
+  min-width: 150px;
+
+  background: white;
+
+  color: #173500;
+
+  border: 4px solid #173500;
+
+  border-radius: 22px;
+
+  font-size: 1.8rem;
+
+  font-weight: 900;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.5);
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   🍔 FOOD AREA
+   ============================================================ */
+
+/*
+   Kept only because it exists in the HTML.
+
+   JavaScript is NOT putting burgers here.
+*/
+
+#foodArea {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* ============================================================
+   🍔 BURGER
+   ============================================================ */
+
+/*
+   IMPORTANT:
+
+   JavaScript creates:
+
+   #gameArea
+      ├── #dinosaur
+      ├── #foodArea
+      ├── #effect
+      ├── .burger
+      ├── .burger
+      └── .burger
+
+   Therefore we target:
+
+   #gameArea > .burger
+*/
+
+
+#gameArea > .burger {
+
+  position: absolute !important;
+
+  left: 0;
+  top: 0;
+
+  width: 180px !important;
+  height: 180px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0 !important;
+  outline: 0 !important;
+
+  background: transparent !important;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  pointer-events: auto !important;
+
+  z-index: 100 !important;
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+/* ============================================================
+   🍔 BURGER EMOJI
+   ============================================================ */
+
+#gameArea > .burger::before {
+
+  content: "🍔";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  display: block;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-family:
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Noto Color Emoji",
+    sans-serif;
+
+  font-size: 140px;
+
+  line-height: 1;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      0 10px 8px rgba(0, 0, 0, 0.6)
+    );
+}
+
+
+/* ============================================================
+   🔤 LETTER ON BURGER
+   ============================================================ */
+
+#gameArea > .burger > .burger-letter {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      #fff59a 50%,
+      #ffd000 100%
+    );
+
+  border: 5px solid #ff9d00;
+
+  color: #173500;
+
+  font-size: 3.3rem;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  text-align: center;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  box-shadow:
+    0 0 12px white,
+    0 0 30px #ffe600,
+    0 0 50px #ff9900;
+
+  animation:
+    letterGlow 1s infinite alternate;
+}
+
+
+@keyframes letterGlow {
+
+  from {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      scale(1.12);
+  }
+}
+
+
+/* ============================================================
+   🍔 BURGER HOVER
+   ============================================================ */
+
+#gameArea > .burger:hover {
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.12);
+}
+
+
+/* ============================================================
+   🍔 BURGER PRESS
+   ============================================================ */
+
+#gameArea > .burger:active {
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.95);
+}
+
+
+/* ============================================================
+   😋 EATEN
+   ============================================================ */
+
+#gameArea > .burger.eaten {
+
+  animation:
+    burgerEat 0.55s forwards;
+}
+
+
+@keyframes burgerEat {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  45% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.45);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0)
+      rotate(360deg);
+  }
+}
+
+
+/* ============================================================
+   💥 WRONG BURGER
+   ============================================================ */
+
+#gameArea > .burger.explode {
+
+  animation:
+    burgerExplode 0.55s forwards;
+}
+
+
+@keyframes burgerExplode {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  35% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0)
+      rotate(180deg);
+  }
+}
+
+
+/* ============================================================
+   💥 EXPLOSION
+   ============================================================ */
+
+#effect {
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 180px;
+  height: 180px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0);
+
+  font-size: 8rem;
+
+  pointer-events: none;
+
+  z-index: 500;
+
+  opacity: 0;
+}
+
+
+#effect.show-boom,
+#effect.show {
+
+  animation:
+    boom 0.8s forwards;
+}
+
+
+@keyframes boom {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.2);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.3);
+  }
+
+  55% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.7);
+  }
+}
+
+
+/* ============================================================
+   📝 GAME INFO
+   ============================================================ */
+
+.game-info {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 50px;
+
+  padding: 8px;
+
+  font-size: 1.5rem;
+
+  font-weight: bold;
+}
+
+
+.game-info span {
+
+  color: #ffe600;
+
+  font-size: 1.8rem;
+
+  text-shadow:
+    0 0 8px #ff9900;
+}
+
+
+#wordProgress {
+
+  color: #fff700;
+
+  letter-spacing: 8px;
+
+  text-shadow:
+    0 0 10px #ffe600;
+}
+
+
+/* ============================================================
+   ⌨️ KEYBOARD
+   ============================================================ */
+
+.keyboard {
+  margin: 5px 0;
+}
+
+
+.keyboard p {
+  margin: 3px;
+
+  font-size: 1rem;
+}
+
+
+#keyboardLetters {
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+
+.key {
+
+  width: 42px;
+  height: 42px;
+
+  border: 2px solid #9cff5a;
+
+  border-radius: 8px;
+
+  background: #17450f;
+
+  color: white;
+
+  font-size: 1.1rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+.key:hover {
+
+  transform: scale(1.15);
+
+  background: #3a811d;
+}
+
+
+/* ============================================================
+   🔄 PLAY AGAIN
+   ============================================================ */
+
+#restartButton {
+
+  padding: 12px 28px;
+
+  border: 3px solid #ffe600;
+
+  border-radius: 12px;
+
+  background: #315d16;
+
+  color: white;
+
+  font-size: 1.2rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+#restartButton:hover {
+
+  background: #4d8425;
+
+  transform: scale(1.05);
+}
+
+
+/* ============================================================
+   ❤️ BACK BUTTON
+   ============================================================ */
+
+.backButton {
+
+  display: inline-block;
+
+  margin: 8px;
+
+  padding: 10px 20px;
+
+  border: 2px solid #ff69b4;
+
+  border-radius: 12px;
+
+  background: #35002d;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+
+/* ============================================================
+   📱 MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+  .game {
+    padding: 5px;
+  }
+
+
+  h1 {
+    font-size: 2rem;
+    margin: 3px 0 7px;
+  }
+
+
+  .find-area {
+
+    gap: 10px;
+
+    padding: 6px 15px;
+
+    margin-bottom: 5px;
+  }
+
+
+  .find-label {
+    font-size: 1.3rem;
+  }
+
+
+  #targetLetter {
+
+    min-width: 65px;
+
+    font-size: 3.5rem;
+  }
+
+
+  #message {
+
+    font-size: 1.2rem;
+
+    min-height: 30px;
+  }
+
+
+  #gameArea {
+
+    height: calc(100vh - 245px);
+
+    min-height: 450px;
+
+    border-width: 4px;
+
+    border-radius: 18px;
+  }
+
+
+  #dinosaur {
+
+    width: 270px;
+    height: 270px;
+
+    left: 50%;
+    top: 62%;
+  }
+
+
+  #dinoBody {
+    font-size: 235px;
+  }
+
+
+  #dinoSpeech {
+
+    top: -60px;
+
+    font-size: 1.3rem;
+
+    padding: 8px 14px;
+  }
+
+
+  /* MOBILE BURGERS */
+
+  #gameArea > .burger {
+
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+
+  #gameArea > .burger::before {
+
+    font-size: 100px;
+  }
+
+
+  #gameArea > .burger > .burger-letter {
+
+    width: 60px;
+    height: 60px;
+
+    font-size: 2.4rem;
+
+    border-width: 4px;
+  }
+
+
+  .game-info {
+
+    gap: 25px;
+
+    font-size: 1rem;
+  }
+
+
+  .game-info span {
+
+    font-size: 1.4rem;
+  }
+
+
+  .key {
+
+    width: 34px;
+    height: 34px;
+
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ============================================================
+   📱 VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+
+  #gameArea {
+    min-height: 410px;
+  }
+
+
+  #dinosaur {
+
+    width: 220px;
+    height: 220px;
+  }
+
+
+  #dinoBody {
+    font-size: 190px;
+  }
+
+
+  #gameArea > .burger {
+
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+
+  #gameArea > .burger::before {
+
+    font-size: 85px;
+  }
+
+
+  #gameArea > .burger > .burger-letter {
+
+    width: 52px;
+    height: 52px;
+
+    font-size: 2.1rem;
+  }
+}

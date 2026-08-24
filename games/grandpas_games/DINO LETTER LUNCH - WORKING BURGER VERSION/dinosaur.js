@@ -397,93 +397,57 @@ function correctAnswer(burger) {
 
 }
 
+
 /* ============================================================
-   💥 WRONG ANSWER — DINO WALKS OVER THEN BOOM
+   WRONG ANSWER
    ============================================================ */
 
 function wrongAnswer(burger) {
 
   message.textContent =
-    "🦖 Uh oh...";
+    "💥 BOOM! Try again!";
 
 
   dinosaurSpeech(
-    "🤔 HMMM..."
+    "💥 OH NO!"
   );
 
 
   /*
-     Dino walks over to the wrong burger first.
+     BOOM DIRECTLY OVER WRONG BURGER
   */
 
-  moveDinosaurTo(
-    burger,
+  showBoomAt(
+    burger
+  );
+
+
+  burger.classList.add(
+    "explode"
+  );
+
+
+  playSound(
+    "sounds/boom.mp3"
+  );
+
+
+  setTimeout(
     function() {
 
-      /*
-         Dino has arrived.
-      */
-
-      dinosaur.classList.remove(
-        "walking"
-      );
-
-
       dinosaurSpeech(
-        "💥 OH NO!"
+        "Try again!"
       );
 
 
-      message.textContent =
-        "💥 BOOM! Try again!";
+      busy = false;
 
-
-      /*
-         NOW the burger explodes.
-      */
-
-      showBoomAt(
-        burger
-      );
-
-
-      burger.classList.add(
-        "explode"
-      );
-
-
-      /*
-         Play explosion sound.
-      */
-
-      playSound(
-        "sounds/boom.mp3"
-      );
-
-
-      /*
-         Give the animation time to finish,
-         then let the player try again.
-      */
-
-      setTimeout(
-        function() {
-
-          dinosaurSpeech(
-            "Try again!"
-          );
-
-
-          busy = false;
-
-        },
-        700
-      );
-
-    }
+    },
+    700
   );
 
 }
+
 
 /* ============================================================
    MOVE DINOSAUR
