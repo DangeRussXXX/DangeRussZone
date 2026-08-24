@@ -1,21 +1,29 @@
+/* ============================================================
+   🦖 LIL' RUSSELL'S DINOSAUR JUNGLE
+   LIVING JUNGLE GAME HUB
+   ============================================================ */
+
 * {
   box-sizing: border-box;
 }
 
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+html,
 body {
   margin: 0;
+  padding: 0;
 
+  min-height: 100%;
+}
+
+body {
   min-height: 100vh;
 
   font-family: Arial, sans-serif;
-
-  background:
-    radial-gradient(
-      circle at top,
-      #263b70,
-      #10152b 45%,
-      #050711
-    );
 
   color: white;
 
@@ -26,69 +34,329 @@ body {
   align-items: center;
 
   padding: 20px;
+
+  overflow-x: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      rgba(25, 90, 45, 0.25),
+      rgba(5, 35, 20, 0.7)
+    ),
+    linear-gradient(
+      180deg,
+      #79c95b 0%,
+      #2f8a45 35%,
+      #12552e 70%,
+      #07331f 100%
+    );
 }
 
 
-.game-hub {
+/* ============================================================
+   JUNGLE SUNLIGHT
+   ============================================================ */
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  top: -150px;
+  left: 50%;
+
+  width: 500px;
+  height: 500px;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 245, 160, 0.7) 0%,
+      rgba(255, 220, 80, 0.25) 35%,
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  animation: sunlight 5s ease-in-out infinite alternate;
+}
+
+
+@keyframes sunlight {
+
+  from {
+    opacity: 0.65;
+    transform: translateX(-50%) scale(1);
+  }
+
+  to {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.08);
+  }
+
+}
+
+
+/* ============================================================
+   JUNGLE VINES
+   ============================================================ */
+
+body::after {
+
+  content: "🌿 🌿 🌿 🌿 🌿 🌿 🌿 🌿";
+
+  position: fixed;
+
+  top: -20px;
+  left: 0;
+
   width: 100%;
-  max-width: 900px;
+
+  font-size: 45px;
+
+  letter-spacing: 18px;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  animation: vinesMove 7s ease-in-out infinite alternate;
+}
+
+
+@keyframes vinesMove {
+
+  from {
+    transform: translateX(-10px);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+
+}
+
+
+/* ============================================================
+   GAME HUB
+   ============================================================ */
+
+.game-hub {
+
+  position: relative;
+
+  z-index: 5;
+
+  width: 100%;
+
+  max-width: 950px;
 
   text-align: center;
 
-  padding: 35px 20px;
+  padding: 40px 25px;
 
-  background: rgba(0, 0, 0, 0.45);
+  background:
+    linear-gradient(
+      rgba(7, 55, 30, 0.88),
+      rgba(4, 35, 20, 0.94)
+    );
 
-  border-radius: 25px;
+  border:
+
+    4px solid #79d65b;
+
+  border-radius: 30px;
 
   box-shadow:
-    0 0 30px rgba(0, 0, 0, 0.6);
+
+    0 0 0 6px rgba(20, 80, 35, 0.35),
+
+    0 15px 45px rgba(0, 0, 0, 0.6),
+
+    inset 0 0 40px rgba(0, 0, 0, 0.35);
+
+  overflow: hidden;
 }
 
+
+/* ============================================================
+   JUNGLE FLOOR
+   ============================================================ */
+
+.game-hub::before {
+
+  content: "🌱   🍃   🌱   🍃   🌱   🍃   🌱";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 5px;
+
+  font-size: 25px;
+
+  opacity: 0.75;
+
+  pointer-events: none;
+
+  animation: grassMove 4s ease-in-out infinite alternate;
+}
+
+
+@keyframes grassMove {
+
+  from {
+    transform: translateX(-8px);
+  }
+
+  to {
+    transform: translateX(8px);
+  }
+
+}
+
+
+/* ============================================================
+   TITLE
+   ============================================================ */
 
 h1 {
+
+  position: relative;
+
+  z-index: 2;
+
   margin-top: 0;
 
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(
+    2.2rem,
+    6vw,
+    4rem
+  );
+
+  color: #fff59d;
 
   text-shadow:
-    0 0 10px #ffd700,
-    0 0 25px #ff9900;
+
+    0 3px 0 #315c1d,
+
+    0 0 8px #ffe600,
+
+    0 0 20px #8cff65,
+
+    0 0 35px #3e9e3e;
+
+  animation:
+
+    titleBounce 2.5s ease-in-out infinite;
 }
 
+
+@keyframes titleBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+}
+
+
+/* ============================================================
+   WELCOME MESSAGE
+   ============================================================ */
 
 .welcome {
+
+  position: relative;
+
+  z-index: 2;
+
   font-size: 1.3rem;
 
-  color: #ffe9a3;
+  color: #fff8bf;
 
   margin-bottom: 35px;
+
+  text-shadow:
+
+    0 2px 3px #173b1e;
 }
 
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
 
 h2 {
+
+  position: relative;
+
+  z-index: 2;
+
   margin-bottom: 25px;
+
+  color: #eaff9d;
+
+  text-shadow:
+
+    0 2px 4px #123d1c;
 }
 
 
+/* ============================================================
+   ADVENTURE GRID
+   ============================================================ */
+
 .adventure-grid {
+
+  position: relative;
+
+  z-index: 2;
 
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
   gap: 20px;
 }
 
 
+/* ============================================================
+   ADVENTURE CARDS
+   ============================================================ */
+
 .adventure-card {
+
+  position: relative;
 
   min-height: 220px;
 
-  border: 3px solid rgba(255,255,255,0.3);
+  border:
 
-  border-radius: 20px;
+    4px solid
+    rgba(210, 255, 150, 0.55);
+
+  border-radius: 25px;
 
   padding: 25px 15px;
 
@@ -106,122 +374,345 @@ h2 {
 
   gap: 12px;
 
+  overflow: hidden;
+
   transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    border-color 0.2s;
+
+    transform 0.25s ease,
+
+    box-shadow 0.25s ease,
+
+    border-color 0.25s ease;
 }
 
+
+/* Leaves inside cards */
+
+.adventure-card::before {
+
+  content: "🍃";
+
+  position: absolute;
+
+  top: 8px;
+  right: 12px;
+
+  font-size: 30px;
+
+  animation:
+    leafFloat 3s ease-in-out infinite;
+}
+
+
+.adventure-card::after {
+
+  content: "🌿";
+
+  position: absolute;
+
+  bottom: 5px;
+  left: 10px;
+
+  font-size: 32px;
+
+  opacity: 0.8;
+
+  animation:
+    leafFloat 4s ease-in-out infinite reverse;
+}
+
+
+@keyframes leafFloat {
+
+  0%,
+  100% {
+    transform: rotate(-5deg)
+      translateY(0);
+  }
+
+  50% {
+    transform: rotate(8deg)
+      translateY(-5px);
+  }
+
+}
+
+
+/* ============================================================
+   CARD HOVER
+   ============================================================ */
 
 .adventure-card:hover {
 
-  transform: translateY(-8px) scale(1.02);
+  transform:
+    translateY(-10px)
+    scale(1.03)
+    rotate(-1deg);
 
-  border-color: white;
+  border-color: #efff75;
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.5);
+
+    0 15px 30px rgba(0, 0, 0, 0.5),
+
+    0 0 25px rgba(145, 255, 80, 0.45);
 }
 
+
+/* ============================================================
+   CARD CLICK
+   ============================================================ */
+
+.adventure-card:active {
+
+  transform:
+    scale(0.96)
+    rotate(1deg);
+}
+
+
+/* ============================================================
+   EMOJI
+   ============================================================ */
 
 .emoji {
+
+  position: relative;
+
+  z-index: 2;
+
   font-size: 4rem;
+
+  filter:
+    drop-shadow(
+      0 5px 4px
+      rgba(0, 0, 0, 0.35)
+    );
+
+  animation:
+    dinosaurBounce 2s ease-in-out infinite;
 }
 
 
+@keyframes dinosaurBounce {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-8px)
+      rotate(-3deg);
+  }
+
+}
+
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
 .title {
+
+  position: relative;
+
+  z-index: 2;
 
   font-size: 1.5rem;
 
   font-weight: bold;
+
+  color: #fff9b0;
+
+  text-shadow:
+    0 2px 4px #193c1d;
 }
 
 
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
 .description {
+
+  position: relative;
+
+  z-index: 2;
 
   font-size: 1rem;
 
   line-height: 1.4;
 
-  opacity: 0.9;
+  opacity: 0.95;
+
+  color: #efffd8;
 }
 
 
-/* Adventure backgrounds */
+/* ============================================================
+   DINOSAUR JUNGLE CARD
+   ============================================================ */
+
+.dinosaur {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(80, 170, 65, 0.95),
+      rgba(15, 75, 35, 0.98)
+    );
+}
+
+
+/* ============================================================
+   SPACE CARD
+   ============================================================ */
 
 .space {
 
   background:
+
     linear-gradient(
       135deg,
-      #182d72,
-      #090b2b
+      #236a70,
+      #102f36
     );
 }
 
+
+/* ============================================================
+   TREASURE CARD
+   ============================================================ */
 
 .treasure {
 
   background:
+
     linear-gradient(
       135deg,
-      #8a5a00,
-      #3b2100
+      #8b7020,
+      #4a3107
     );
 }
 
+
+/* ============================================================
+   DRAGON CARD
+   ============================================================ */
 
 .dragon {
 
   background:
+
     linear-gradient(
       135deg,
-      #751c1c,
-      #260909
+      #8c382c,
+      #421611
     );
 }
 
+
+/* ============================================================
+   RACING CARD
+   ============================================================ */
 
 .racing {
 
   background:
+
     linear-gradient(
       135deg,
-      #444,
-      #111
+      #4b7336,
+      #182914
     );
 }
 
 
+/* ============================================================
+   MESSAGE
+   ============================================================ */
+
 .message {
+
+  position: relative;
+
+  z-index: 3;
 
   min-height: 30px;
 
   margin: 25px 0;
 
-  color: #ffe66d;
+  color: #fff18a;
 
   font-weight: bold;
+
+  font-size: 1.1rem;
+
+  text-shadow:
+    0 2px 4px #123519;
+
+  animation:
+    messageGlow 2s ease-in-out infinite alternate;
 }
 
 
+@keyframes messageGlow {
+
+  from {
+    opacity: 0.75;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* ============================================================
+   BACK BUTTON
+   ============================================================ */
+
 .back-button {
+
+  position: relative;
+
+  z-index: 5;
 
   display: inline-block;
 
   margin-top: 15px;
 
-  padding: 12px 25px;
+  padding: 13px 25px;
 
-  border-radius: 12px;
+  border-radius: 15px;
 
-  background: #222;
+  background:
+
+    linear-gradient(
+      #4d8a3b,
+      #275122
+    );
 
   color: white;
 
   text-decoration: none;
 
-  border: 2px solid #777;
+  border:
+
+    3px solid #9ee66b;
+
+  font-weight: bold;
+
+  box-shadow:
+
+    0 5px 12px
+    rgba(0, 0, 0, 0.4);
 
   transition: 0.2s;
 }
@@ -229,26 +720,121 @@ h2 {
 
 .back-button:hover {
 
-  background: #444;
+  background:
 
-  transform: scale(1.05);
+    linear-gradient(
+      #68a84d,
+      #376d2b
+    );
+
+  transform:
+    scale(1.05)
+    rotate(-1deg);
+
+  box-shadow:
+
+    0 0 20px
+    rgba(150, 255, 90, 0.5);
 }
 
 
-/* Mobile */
+/* ============================================================
+   JUNGLE FIREFLIES
+   ============================================================ */
+
+@keyframes firefly {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
 
 @media (max-width: 650px) {
+
+  body {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .game-hub {
+
+    margin-top: 20px;
+
+    padding:
+      35px 15px 30px;
+
+    border-radius: 22px;
+  }
 
   .adventure-grid {
 
     grid-template-columns: 1fr;
 
+    gap: 15px;
   }
 
   .adventure-card {
 
     min-height: 180px;
+  }
 
+  .emoji {
+
+    font-size: 3.5rem;
+  }
+
+  .title {
+
+    font-size: 1.3rem;
+  }
+
+  .description {
+
+    font-size: 0.95rem;
+  }
+
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+  h1 {
+
+    font-size: 2rem;
+  }
+
+  .welcome {
+
+    font-size: 1.05rem;
+  }
+
+  .adventure-card {
+
+    min-height: 165px;
+
+    padding: 20px 12px;
+  }
+
+  .emoji {
+
+    font-size: 3rem;
   }
 
 }
