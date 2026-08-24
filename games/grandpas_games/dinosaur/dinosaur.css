@@ -1222,26 +1222,137 @@ h1 {
 
 }
 
-
 /* ============================================================
-   📱 MOBILE WORD
+   📱 MOBILE — WORD MUST ALWAYS BE VISIBLE
    ============================================================ */
 
 @media (max-width: 650px) {
 
+  .find-area {
+
+    display: flex !important;
+
+    width: 96% !important;
+
+    max-width: 96% !important;
+
+    min-width: 0 !important;
+
+    gap: 8px !important;
+
+    padding: 7px 10px !important;
+
+    margin: 6px auto !important;
+
+    overflow: visible !important;
+
+  }
+
+
+  .find-label {
+
+    flex-shrink: 0 !important;
+
+    font-size: 1.3rem !important;
+
+    white-space: nowrap !important;
+
+  }
+
+
   #targetLetter {
 
-    gap: 6px;
+    display: flex !important;
 
-    min-width: 150px !important;
+    flex: 1 1 auto !important;
 
-    font-size: 2.8rem !important;
+    width: auto !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    height: auto !important;
+
+    overflow: visible !important;
+
+    justify-content: center !important;
+
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    margin: 0 !important;
+
+    padding: 2px 0 !important;
+
+    font-size: 2.6rem !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    color: white !important;
+
+    text-shadow: none !important;
+
+    animation: none !important;
+
   }
 
 
   #targetLetter .word-letter {
 
-    min-width: 0.6em;
+    display: inline-block !important;
+
+    min-width: 0 !important;
+
+    width: auto !important;
+
+    flex: 0 0 auto !important;
+
+    opacity: 0.7 !important;
+
+    color: white !important;
+
+    transform: scale(1) !important;
+
+    white-space: nowrap !important;
+
+  }
+
+
+  #targetLetter .word-letter.current {
+
+    color: #fff700 !important;
+
+    opacity: 1 !important;
+
+    transform: scale(1.25) !important;
+
+    text-shadow:
+      0 0 8px white,
+      0 0 18px #ffe600,
+      0 0 35px #ff8c00 !important;
+
+    animation:
+      currentLetterGlow 0.8s infinite alternate !important;
+
+  }
+
+
+  #targetLetter .word-letter.completed {
+
+    color: #75ff45 !important;
+
+    opacity: 1 !important;
+
+    transform: scale(1) !important;
+
+    text-shadow:
+      0 0 8px #75ff45,
+      0 0 18px #25ff00 !important;
+
   }
 
 }
@@ -1253,13 +1364,48 @@ h1 {
 
 @media (max-width: 400px) {
 
+  .find-area {
+
+    width: 98% !important;
+
+    max-width: 98% !important;
+
+    gap: 5px !important;
+
+    padding: 6px 7px !important;
+
+  }
+
+
+  .find-label {
+
+    font-size: 1.05rem !important;
+
+  }
+
+
   #targetLetter {
 
-    gap: 4px;
+    font-size: 2.15rem !important;
 
-    min-width: 130px !important;
+    gap: 3px !important;
 
-    font-size: 2.3rem !important;
+    min-width: 0 !important;
+
+  }
+
+
+  #targetLetter .word-letter {
+
+    min-width: 0 !important;
+
+  }
+
+
+  #targetLetter .word-letter.current {
+
+    transform: scale(1.2) !important;
+
   }
 
 }
