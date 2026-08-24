@@ -231,16 +231,12 @@ header {
 /* =========================================================
    COLUMN HEADINGS
 ========================================================= */
-
 .column-heading {
     position: sticky;
-
     top: 90px;
-
     z-index: 100;
 
     background: #1e3a8a;
-
     color: white;
 
     padding: 22px;
@@ -252,7 +248,6 @@ header {
     box-shadow:
         0 8px 20px rgba(0, 0, 0, .08);
 }
-
 .column-heading h2 {
     font-size: 24px;
 
