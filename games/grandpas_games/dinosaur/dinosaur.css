@@ -6,19 +6,15 @@
   box-sizing: border-box;
 }
 
-
 html,
 body {
   margin: 0;
   padding: 0;
-
   width: 100%;
   min-height: 100%;
 }
 
-
 body {
-
   min-height: 100vh;
 
   font-family: Arial, sans-serif;
@@ -26,37 +22,35 @@ body {
   color: white;
 
   background:
-
     linear-gradient(
-      rgba(20, 100, 40, 0.25),
-      rgba(3, 45, 20, 0.8)
+      rgba(15, 75, 30, 0.25),
+      rgba(2, 30, 15, 0.75)
     ),
-
     linear-gradient(
-      #78c957,
-      #26783a 45%,
-      #0b3d22
+      180deg,
+      #78c850 0%,
+      #398f45 40%,
+      #176034 70%,
+      #08351f 100%
     );
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   padding: 10px;
-
-  overflow-x: hidden;
 }
 
 
 /* ============================================================
-   GAME
+   MAIN GAME
    ============================================================ */
 
 .game {
+  position: relative;
 
   width: 100%;
+  max-width: 1200px;
 
   min-height: 95vh;
 
@@ -65,20 +59,17 @@ body {
   text-align: center;
 
   background:
+    rgba(5, 50, 25, 0.9);
 
-    rgba(5, 50, 25, 0.82);
-
-  border:
-
-    4px solid #8ee45f;
+  border: 4px solid #8ee45f;
 
   border-radius: 25px;
 
   box-shadow:
-
     0 0 30px rgba(0, 0, 0, 0.6),
+    inset 0 0 40px rgba(0, 0, 0, 0.3);
 
-    inset 0 0 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 
@@ -87,20 +78,15 @@ body {
    ============================================================ */
 
 h1 {
-
   margin: 5px 0 10px;
 
-  font-size:
-    clamp(28px, 6vw, 54px);
+  font-size: clamp(28px, 6vw, 55px);
 
   color: #fff58a;
 
   text-shadow:
-
-    0 3px 0 #27551f,
-
+    0 3px 0 #315d20,
     0 0 10px #ffe600,
-
     0 0 25px #72ff52;
 }
 
@@ -110,35 +96,29 @@ h1 {
    ============================================================ */
 
 .mission {
+  max-width: 900px;
 
-  max-width: 800px;
+  margin: 0 auto 12px;
 
-  margin: 0 auto 10px;
-
-  padding: 10px;
+  padding: 10px 15px;
 
   background:
+    rgba(0, 55, 25, 0.8);
 
-    rgba(0, 50, 20, 0.7);
-
-  border:
-
-    3px solid #6edb5d;
+  border: 3px solid #6edb5d;
 
   border-radius: 18px;
 }
 
-
 .mission h2 {
-
   margin: 0 0 5px;
 
   color: #fff49a;
+
+  font-size: clamp(20px, 4vw, 30px);
 }
 
-
 .mission p {
-
   margin: 5px;
 
   font-size: 18px;
@@ -146,11 +126,10 @@ h1 {
 
 
 /* ============================================================
-   TARGET LETTER
+   TARGET
    ============================================================ */
 
 .target {
-
   display: flex;
 
   justify-content: center;
@@ -159,14 +138,14 @@ h1 {
 
   gap: 12px;
 
-  margin-top: 5px;
+  margin-top: 8px;
 
-  font-size: 20px;
+  font-size: 21px;
+
+  font-weight: bold;
 }
 
-
 #targetLetter {
-
   display: inline-flex;
 
   justify-content: center;
@@ -174,31 +153,26 @@ h1 {
   align-items: center;
 
   width: 65px;
-
   height: 65px;
 
   border-radius: 15px;
 
   background: #ffe34d;
 
-  color: #173c16;
+  color: #193b17;
 
   font-size: 42px;
 
   font-weight: bold;
 
   box-shadow:
-
     0 0 15px #fff000;
 
   animation:
-
-    targetBounce 1s infinite alternate;
+    targetBounce 0.9s infinite alternate;
 }
 
-
 @keyframes targetBounce {
-
   from {
     transform: scale(1);
   }
@@ -206,7 +180,6 @@ h1 {
   to {
     transform: scale(1.12);
   }
-
 }
 
 
@@ -215,7 +188,6 @@ h1 {
    ============================================================ */
 
 #gameArea {
-
   position: relative;
 
   width: 100%;
@@ -226,54 +198,49 @@ h1 {
 
   overflow: hidden;
 
-  border:
-
-    5px solid #39b85b;
+  border: 5px solid #39b85b;
 
   border-radius: 25px;
 
   background:
-
     radial-gradient(
-      circle at 20% 20%,
-      rgba(255, 255, 150, 0.25),
+      circle at 20% 15%,
+      rgba(255, 255, 160, 0.25),
       transparent 20%
     ),
-
     linear-gradient(
-      #5ebd55,
-      #23783c 55%,
-      #14552e
+      #63c55b 0%,
+      #338f47 45%,
+      #176033 75%,
+      #0c4328 100%
     );
 
   box-shadow:
-
     inset 0 0 50px rgba(0, 0, 0, 0.4);
 }
 
 
 /* ============================================================
-   JUNGLE
+   JUNGLE TOP
    ============================================================ */
 
 #jungleDecor {
-
   position: absolute;
 
-  top: 5px;
-
+  top: 0;
   left: 0;
 
   width: 100%;
 
-  font-size:
-    clamp(30px, 6vw, 55px);
+  padding: 5px;
 
-  letter-spacing: 10px;
+  font-size: clamp(30px, 6vw, 60px);
+
+  letter-spacing: 8px;
 
   white-space: nowrap;
 
-  opacity: 0.9;
+  z-index: 2;
 
   pointer-events: none;
 }
@@ -284,48 +251,37 @@ h1 {
    ============================================================ */
 
 #dinosaur {
-
   position: absolute;
 
   left: 50%;
 
   bottom: 10px;
 
-  width: 130px;
+  width: 150px;
 
-  transform:
-    translateX(-50%);
+  transform: translateX(-50%);
 
   z-index: 20;
 
   transition:
-
     left 0.55s ease,
-
     bottom 0.55s ease;
 }
 
-
 #dinoBody {
-
-  font-size:
-    clamp(75px, 12vw, 120px);
+  font-size: clamp(75px, 12vw, 125px);
 
   filter:
-
     drop-shadow(
       0 8px 5px
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.45)
     );
 
   animation:
-
-    dinoIdle 1.4s ease-in-out infinite;
+    dinoIdle 1.3s ease-in-out infinite;
 }
 
-
 @keyframes dinoIdle {
-
   0%,
   100% {
     transform: translateY(0);
@@ -334,7 +290,6 @@ h1 {
   50% {
     transform: translateY(-7px);
   }
-
 }
 
 
@@ -343,14 +298,12 @@ h1 {
    ============================================================ */
 
 #dinoSpeech {
-
   position: absolute;
 
   top: -35px;
+  right: 0;
 
-  right: -5px;
-
-  padding: 8px 12px;
+  padding: 7px 12px;
 
   background: white;
 
@@ -363,66 +316,81 @@ h1 {
   font-weight: bold;
 
   box-shadow:
-    0 3px 8px rgba(0,0,0,0.3);
+    0 3px 8px rgba(0, 0, 0, 0.35);
+
+  z-index: 30;
 }
 
 
 /* ============================================================
-   FOOD
+   FOOD AREA
    ============================================================ */
 
 #foodArea {
-
   position: absolute;
 
   inset: 0;
+
+  width: 100%;
+  height: 100%;
 
   z-index: 10;
 }
 
 
-.food {
+/* ============================================================
+   HAMBURGERS
+   ============================================================ */
 
+.food {
   position: absolute;
 
-  width: 105px;
+  display: block;
 
+  width: 105px;
   height: 85px;
 
-  border: none;
+  padding: 0;
+
+  border: 0;
 
   background: transparent;
+
+  color: white;
 
   cursor: pointer;
 
   user-select: none;
 
+  z-index: 15;
+
   transition:
-
     transform 0.15s ease,
-
     opacity 0.2s ease;
 }
 
-
 .food:hover {
-
   transform:
     scale(1.15)
     rotate(-3deg);
 }
 
-
 .food:active {
-
-  transform:
-    scale(0.9);
+  transform: scale(0.9);
 }
 
 
-.burger {
+/* ============================================================
+   BURGER
+   ============================================================ */
 
+.burger {
   position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
 
   font-size: 58px;
 
@@ -430,16 +398,18 @@ h1 {
 }
 
 
-.food-letter {
+/* ============================================================
+   LETTER ON BURGER
+   ============================================================ */
 
+.food-letter {
   position: absolute;
 
   left: 50%;
-
   top: 50%;
 
   transform:
-    translate(-50%, -45%);
+    translate(-50%, -43%);
 
   font-size: 30px;
 
@@ -448,32 +418,31 @@ h1 {
   color: white;
 
   text-shadow:
-
-    0 2px 3px #000;
+    0 2px 3px black;
 
   pointer-events: none;
 }
 
 
 /* ============================================================
-   CORRECT / WRONG
+   CORRECT BURGER
    ============================================================ */
 
 .correct {
-
   animation:
-    chomp 0.55s forwards;
+    chomp 0.6s forwards;
 }
 
-
 @keyframes chomp {
-
   0% {
     transform: scale(1);
+    opacity: 1;
   }
 
-  40% {
-    transform: scale(1.4) rotate(8deg);
+  35% {
+    transform:
+      scale(1.4)
+      rotate(8deg);
   }
 
   100% {
@@ -483,19 +452,19 @@ h1 {
 
     opacity: 0;
   }
-
 }
 
 
-.wrong {
+/* ============================================================
+   WRONG BURGER
+   ============================================================ */
 
+.wrong {
   animation:
     explode 0.65s forwards;
 }
 
-
 @keyframes explode {
-
   0% {
     transform: scale(1);
     opacity: 1;
@@ -503,7 +472,7 @@ h1 {
 
   30% {
     transform:
-      scale(1.5)
+      scale(1.4)
       rotate(15deg);
   }
 
@@ -514,21 +483,18 @@ h1 {
   }
 
   100% {
-    transform:
-      scale(0);
+    transform: scale(0);
 
     opacity: 0;
   }
-
 }
 
 
 /* ============================================================
-   EFFECT
+   BIG EFFECT
    ============================================================ */
 
 #effect {
-
   position: absolute;
 
   left: 50%;
@@ -539,25 +505,23 @@ h1 {
 
   z-index: 50;
 
-  font-size: 70px;
+  font-size: 75px;
 
   pointer-events: none;
 }
 
-
 .effect-pop {
-
   animation:
     effectPop 0.8s forwards;
 }
 
-
 @keyframes effectPop {
-
   0% {
     transform:
       translate(-50%, -50%)
       scale(0);
+
+    opacity: 1;
   }
 
   40% {
@@ -573,32 +537,29 @@ h1 {
 
     opacity: 0;
   }
-
 }
 
 
 /* ============================================================
-   GAME INFO
+   GAME INFORMATION
    ============================================================ */
 
 .game-info {
-
   display: flex;
 
   justify-content: center;
+  align-items: center;
 
-  gap: 30px;
+  gap: 35px;
 
-  margin: 10px;
+  margin: 10px 0;
 
   font-size: 22px;
 
   font-weight: bold;
 }
 
-
 .game-info span {
-
   color: #fff36a;
 
   text-shadow:
@@ -611,21 +572,16 @@ h1 {
    ============================================================ */
 
 .keyboard {
-
   margin-top: 5px;
 }
 
-
 .keyboard p {
-
   margin: 5px;
 
   font-size: 16px;
 }
 
-
 #keyboardLetters {
-
   display: flex;
 
   justify-content: center;
@@ -633,14 +589,15 @@ h1 {
   flex-wrap: wrap;
 
   gap: 5px;
+
+  max-width: 800px;
+
+  margin: 0 auto;
 }
 
-
 .key {
-
-  width: 35px;
-
-  height: 35px;
+  width: 36px;
+  height: 36px;
 
   border: 2px solid #a8ee74;
 
@@ -655,9 +612,7 @@ h1 {
   cursor: pointer;
 }
 
-
 .key:hover {
-
   background: #438f3e;
 
   transform: scale(1.1);
@@ -669,7 +624,6 @@ h1 {
    ============================================================ */
 
 #restartButton {
-
   margin: 10px;
 
   padding: 12px 25px;
@@ -689,9 +643,7 @@ h1 {
   cursor: pointer;
 }
 
-
 #restartButton:hover {
-
   background: #93661b;
 
   transform: scale(1.05);
@@ -703,7 +655,6 @@ h1 {
    ============================================================ */
 
 .backButton {
-
   display: inline-block;
 
   margin: 5px;
@@ -723,9 +674,7 @@ h1 {
   font-weight: bold;
 }
 
-
 .backButton:hover {
-
   background: #78315b;
 }
 
@@ -741,45 +690,46 @@ h1 {
   }
 
   .game {
+    min-height: 100vh;
+
     padding: 8px;
+
+    border-radius: 18px;
+  }
+
+  .mission p {
+    font-size: 16px;
   }
 
   #gameArea {
+    height: 55vh;
 
-    height: 58vh;
-
-    min-height: 390px;
+    min-height: 380px;
   }
 
   .food {
-
     width: 85px;
+    height: 75px;
   }
 
   .burger {
-
     font-size: 48px;
   }
 
   .food-letter {
-
     font-size: 25px;
   }
 
   .game-info {
+    gap: 15px;
 
     font-size: 18px;
-
-    gap: 15px;
   }
 
   .key {
-
     width: 30px;
-
     height: 30px;
 
     font-size: 14px;
   }
-
 }
