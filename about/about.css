@@ -9,7 +9,6 @@
 }
 
 
-
 /* =========================================================
    GLOBAL
 ========================================================= */
@@ -19,46 +18,34 @@ html {
 }
 
 body {
-
     font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
     background: #f4f7fb;
 
     color: #333;
 
     line-height: 1.6;
-
 }
 
 a {
-
     color: #2563eb;
-
     text-decoration: none;
-
 }
 
 a:hover {
-
     text-decoration: underline;
-
 }
 
 ul {
-
     padding-left: 25px;
-
 }
 
 li {
-
     margin-bottom: 8px;
-
 }
-
 
 
 /* =========================================================
@@ -66,39 +53,30 @@ li {
 ========================================================= */
 
 header {
-
     background: #111827;
 
     position: sticky;
-
     top: 0;
 
     z-index: 1000;
-
 }
 
 .navbar {
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     list-style: none;
 
     padding: 20px;
-
 }
 
 .navbar li {
-
     margin: 0 15px;
-
 }
 
 .navbar a {
-
     color: white;
 
     font-size: 18px;
@@ -108,18 +86,14 @@ header {
     border-radius: 8px;
 
     transition: .3s;
-
 }
 
 .navbar a:hover,
 .navbar .active {
-
     background: #2563eb;
 
     text-decoration: none;
-
 }
-
 
 
 /* =========================================================
@@ -127,7 +101,6 @@ header {
 ========================================================= */
 
 .professional-header {
-
     max-width: 1400px;
 
     margin: 50px auto;
@@ -145,14 +118,11 @@ header {
     border-radius: 15px;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-
+        0 10px 25px rgba(0, 0, 0, .08);
 }
 
 .profile-image img {
-
     width: 220px;
-
     height: 220px;
 
     border-radius: 50%;
@@ -160,41 +130,31 @@ header {
     object-fit: cover;
 
     border: 8px solid #e5e7eb;
-
 }
 
 .profile-content {
-
     flex: 1;
-
 }
 
 .profile-content h1 {
-
     font-size: 52px;
 
     color: #111827;
-
 }
 
 .profile-content h2 {
-
     color: #2563eb;
 
     margin: 15px 0;
-
 }
 
 .headline {
-
     font-weight: bold;
 
     color: #1e3a8a;
 
     margin-bottom: 20px;
-
 }
-
 
 
 /* =========================================================
@@ -202,7 +162,6 @@ header {
 ========================================================= */
 
 .contact-links {
-
     display: flex;
 
     gap: 15px;
@@ -210,11 +169,9 @@ header {
     flex-wrap: wrap;
 
     margin-top: 25px;
-
 }
 
 .action-link {
-
     display: inline-block;
 
     color: #2563eb;
@@ -230,11 +187,9 @@ header {
     margin: 5px;
 
     transition: .3s;
-
 }
 
 .action-link:hover {
-
     background: #2563eb;
 
     color: white;
@@ -242,9 +197,7 @@ header {
     text-decoration: none;
 
     transform: translateY(-2px);
-
 }
-
 
 
 /* =========================================================
@@ -252,7 +205,6 @@ header {
 ========================================================= */
 
 .three-column-layout {
-
     max-width: 1400px;
 
     margin: 60px auto;
@@ -262,20 +214,17 @@ header {
     display: grid;
 
     grid-template-columns:
-    minmax(260px, 0.9fr)
-    minmax(400px, 1.35fr)
-    minmax(260px, 0.9fr);
+        minmax(260px, 0.9fr)
+        minmax(400px, 1.35fr)
+        minmax(260px, 0.9fr);
 
     gap: 25px;
 
     align-items: start;
-
 }
 
 .column {
-
     min-width: 0;
-
 }
 
 
@@ -284,12 +233,11 @@ header {
 ========================================================= */
 
 .column-heading {
-
     position: sticky;
 
-    top: 80px;
+    top: 90px;
 
-    z-index: 10;
+    z-index: 100;
 
     background: #1e3a8a;
 
@@ -302,26 +250,21 @@ header {
     margin-bottom: 20px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
-
+        0 8px 20px rgba(0, 0, 0, .08);
 }
 
 .column-heading h2 {
-
     font-size: 24px;
 
     line-height: 1.25;
 
     margin-bottom: 8px;
-
 }
 
 .column-heading p {
-
     font-size: 14px;
 
     color: #dbeafe;
-
 }
 
 
@@ -330,7 +273,6 @@ header {
 ========================================================= */
 
 .skill-card {
-
     background: white;
 
     padding: 22px;
@@ -340,31 +282,25 @@ header {
     margin-bottom: 20px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
+        0 8px 20px rgba(0, 0, 0, .08);
 
     border-left: 4px solid #2563eb;
 
     transition: .3s;
-
 }
 
 .skill-card:hover {
-
     transform: translateY(-3px);
 
     box-shadow:
-    0 12px 25px rgba(0,0,0,.12);
-
+        0 12px 25px rgba(0, 0, 0, .12);
 }
 
 .skill-card h3 {
-
     color: #2563eb;
 
     margin-bottom: 15px;
-
 }
-
 
 
 /* =========================================================
@@ -372,7 +308,6 @@ header {
 ========================================================= */
 
 .highlight-card {
-
     background: white;
 
     padding: 22px;
@@ -382,31 +317,25 @@ header {
     margin-bottom: 20px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
+        0 8px 20px rgba(0, 0, 0, .08);
 
     border-left: 4px solid #2563eb;
 
     transition: .3s;
-
 }
 
 .highlight-card:hover {
-
     transform: translateY(-3px);
 
     box-shadow:
-    0 12px 25px rgba(0,0,0,.12);
-
+        0 12px 25px rgba(0, 0, 0, .12);
 }
 
 .highlight-card h3 {
-
     color: #1e3a8a;
 
     margin-bottom: 12px;
-
 }
-
 
 
 /* =========================================================
@@ -414,29 +343,22 @@ header {
 ========================================================= */
 
 .projects-heading {
-
     margin-top: 35px;
 
     border-top: 3px solid #e5e7eb;
 
     padding-top: 30px;
-
 }
 
 .project-highlight {
-
     border-left-color: #2563eb;
-
 }
 
 .project-highlight h3 {
-
     color: #1e3a8a;
-
 }
 
 .project-highlight a {
-
     display: inline-block;
 
     margin-top: 15px;
@@ -444,17 +366,13 @@ header {
     font-weight: 700;
 
     color: #2563eb;
-
 }
 
 .project-highlight a:hover {
-
     color: #1d4ed8;
 
     text-decoration: none;
-
 }
-
 
 
 /* =========================================================
@@ -462,7 +380,6 @@ header {
 ========================================================= */
 
 .experience-card {
-
     background: white;
 
     padding: 22px;
@@ -472,44 +389,32 @@ header {
     margin-bottom: 20px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
-
+        0 8px 20px rgba(0, 0, 0, .08);
 }
 
 .experience-card summary {
-
     cursor: pointer;
 
     list-style: none;
-
 }
 
 .experience-card summary::-webkit-details-marker {
-
     display: none;
-
 }
 
 .experience-card summary h3 {
-
     color: #1e3a8a;
 
     margin-bottom: 5px;
-
 }
 
 .experience-card summary p {
-
     color: #6b7280;
-
 }
 
 .experience-card summary:hover h3 {
-
     color: #2563eb;
-
 }
-
 
 
 /* =========================================================
@@ -517,29 +422,22 @@ header {
 ========================================================= */
 
 .experience-content {
-
     margin-top: 20px;
 
     padding-top: 20px;
 
     border-top: 1px solid #e5e7eb;
-
 }
 
 .experience-content h4 {
-
     color: #2563eb;
 
     margin: 15px 0;
-
 }
 
 .experience-content ul {
-
     margin-top: 15px;
-
 }
-
 
 
 /* =========================================================
@@ -547,15 +445,12 @@ header {
 ========================================================= */
 
 .full-width-section {
-
     max-width: 1400px;
 
     margin: 60px auto;
 
     padding: 0 25px;
-
 }
-
 
 
 /* =========================================================
@@ -563,7 +458,6 @@ header {
 ========================================================= */
 
 .section-title {
-
     text-align: center;
 
     font-size: 32px;
@@ -571,9 +465,7 @@ header {
     color: #1e3a8a;
 
     margin-bottom: 35px;
-
 }
-
 
 
 /* =========================================================
@@ -581,7 +473,6 @@ header {
 ========================================================= */
 
 .resume-box {
-
     background: white;
 
     padding: 30px;
@@ -591,18 +482,14 @@ header {
     margin-bottom: 25px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
-
+        0 8px 20px rgba(0, 0, 0, .08);
 }
 
 .resume-box h3 {
-
     color: #1e3a8a;
 
     margin-bottom: 15px;
-
 }
-
 
 
 /* =========================================================
@@ -610,7 +497,6 @@ header {
 ========================================================= */
 
 footer {
-
     background: #111827;
 
     color: white;
@@ -620,31 +506,23 @@ footer {
     padding: 50px 20px;
 
     margin-top: 60px;
-
 }
 
 footer h2 {
-
     color: white;
 
     margin-bottom: 15px;
-
 }
 
 footer a {
-
     color: #60a5fa;
-
 }
 
 .copyright {
-
     margin-top: 20px;
 
     color: #9ca3af;
-
 }
-
 
 
 /* =========================================================
@@ -654,17 +532,13 @@ footer a {
 @media (max-width: 1050px) {
 
     .three-column-layout {
-
         grid-template-columns: 1fr;
-
     }
 
     .technical-column,
     .experience-column,
     .career-column {
-
         width: 100%;
-
     }
 
 }
@@ -673,49 +547,35 @@ footer a {
 @media (max-width: 850px) {
 
     .professional-header {
-
         flex-direction: column;
 
         text-align: center;
 
         margin: 30px 20px;
-
     }
 
     .profile-content h1 {
-
         font-size: 38px;
-
     }
 
     .navbar {
-
         flex-direction: column;
-
     }
 
     .navbar li {
-
         margin: 8px;
-
     }
 
     .profile-image img {
-
         width: 180px;
-
         height: 180px;
-
     }
 
     .contact-links {
-
         justify-content: center;
-
     }
 
 }
-
 
 
 /* =========================================================
@@ -727,71 +587,59 @@ footer a {
     header,
     footer,
     .action-link {
-
         display: none;
-
     }
 
     body {
-
         background: white;
 
         color: black;
-
     }
 
     .three-column-layout {
-
         display: grid;
 
         grid-template-columns:
-        1fr 1.3fr 1fr;
+            1fr 1.3fr 1fr;
 
         gap: 15px;
 
         max-width: 100%;
-
     }
 
     .professional-header {
-
         box-shadow: none;
 
         border: 1px solid #ddd;
 
         margin: 20px 0;
-
     }
 
     .skill-card,
     .highlight-card,
     .experience-card,
     .resume-box {
-
         box-shadow: none;
 
         border: 1px solid #ddd;
-
     }
 
     details {
-
         break-inside: avoid;
-
     }
 
     a {
-
         color: black;
 
         text-decoration: none;
-
     }
 
     .profile-content h1 {
-
         font-size: 36px;
+    }
 
+    .column-heading {
+        position: static;
     }
 
 }
