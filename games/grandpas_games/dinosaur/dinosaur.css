@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: red !important;
+}
+
 html,
 body {
   margin: 0;
