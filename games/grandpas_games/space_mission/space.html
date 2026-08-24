@@ -23,24 +23,29 @@
 <body>
 
   <!-- =========================================================
-       GAME
+       LIL' RUSSELL'S SPACE MISSION
        ========================================================= -->
 
   <main class="game">
 
-    <!-- GAME TITLE -->
+
+    <!-- =======================================================
+         TITLE
+         ======================================================= -->
 
     <h1>
       🚀 Lil' Russell's Space Mission 🚀
     </h1>
 
 
-    <!-- MISSION INTRO -->
+    <!-- =======================================================
+         MISSION MESSAGE
+         ======================================================= -->
 
     <section class="mission">
 
       <h2>
-        Grandpa Needs Your Help!
+        ❤️ Grandpa Needs Your Help! ❤️
       </h2>
 
       <p id="message">
@@ -48,7 +53,9 @@
       </p>
 
       <p>
-        🚀 Fly the rocket and rescue the lost star! ⭐
+        🚀 Fly your rocket through space,
+        collect the stars ⭐,
+        and avoid the asteroids! ☄️
       </p>
 
     </section>
@@ -60,33 +67,47 @@
 
     <section
       id="gameArea"
-      aria-label="Space Mission Game"
+      aria-label="Lil Russell's Space Mission Game"
     >
 
       <!-- ROCKET -->
 
       <div
-        id="rocket"
-        aria-label="Rocket"
+        id="player"
+        aria-label="Russell's Rocket"
       >
         🚀
-      </div>
-
-
-      <!-- STAR -->
-
-      <div
-        id="star"
-        aria-label="Star"
-      >
-        ⭐
       </div>
 
     </section>
 
 
     <!-- =======================================================
-         CONTROLS
+         GAME INFORMATION
+         ======================================================= -->
+
+    <section class="game-info">
+
+      <div>
+        ⭐ Stars:
+        <span id="score">0</span>
+      </div>
+
+      <div>
+        ❤️ Lives:
+        <span id="lives">3</span>
+      </div>
+
+      <div>
+        ⛽ Fuel:
+        <span id="fuel">100</span>
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         GAME CONTROLS
          ======================================================= -->
 
     <section class="controls">
@@ -100,10 +121,10 @@
 
 
       <button
-        id="launchButton"
+        id="startButton"
         type="button"
       >
-        🚀 LAUNCH!
+        🚀 START MISSION
       </button>
 
 
@@ -118,12 +139,47 @@
 
 
     <!-- =======================================================
-         SCORE
+         RESTART
          ======================================================= -->
 
-    <p id="score">
-      ⭐ Stars Rescued: 0
-    </p>
+    <section class="restart-area">
+
+      <button
+        id="restartButton"
+        type="button"
+        style="display: none;"
+      >
+        🔄 PLAY AGAIN
+      </button>
+
+    </section>
+
+
+    <!-- =======================================================
+         INSTRUCTIONS
+         ======================================================= -->
+
+    <section class="instructions">
+
+      <h2>
+        🎮 Mission Controls
+      </h2>
+
+      <p>
+        ⬅️ ➡️ Move Left & Right
+      </p>
+
+      <p>
+        ⬆️ ⬇️ Move Up & Down
+      </p>
+
+      <p>
+        You can also use
+        <strong>W A S D</strong>
+        on your keyboard.
+      </p>
+
+    </section>
 
 
     <!-- =======================================================
@@ -136,6 +192,7 @@
     >
       ❤️ Back to Grandpa's Adventures
     </a>
+
 
   </main>
 
