@@ -1,42 +1,45 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
-   FULL-SCREEN JUNGLE
+   FULL SCREEN JUNGLE
    ============================================================ */
 
 * {
   box-sizing: border-box;
 }
 
-
-/* ============================================================
-   PAGE
-   ============================================================ */
-
 html,
 body {
   margin: 0;
   padding: 0;
-
   width: 100%;
   min-height: 100%;
-
-  font-family: Arial, sans-serif;
-
-  background: #123d20;
-
-  color: white;
 }
 
-
 body {
+  font-family: Arial, sans-serif;
+  color: white;
+
   min-height: 100vh;
+
+  background:
+    linear-gradient(
+      rgba(5, 35, 15, 0.25),
+      rgba(2, 15, 5, 0.45)
+    ),
+    linear-gradient(
+      180deg,
+      #08752f 0%,
+      #07551f 35%,
+      #063816 70%,
+      #021b0a 100%
+    );
 
   overflow-x: hidden;
 }
 
 
 /* ============================================================
-   MAIN GAME
+   GAME
    ============================================================ */
 
 .game {
@@ -44,12 +47,9 @@ body {
   min-height: 100vh;
 
   margin: 0;
-  padding: 0;
+  padding: 15px 25px 30px;
 
   text-align: center;
-
-  display: flex;
-  flex-direction: column;
 }
 
 
@@ -57,151 +57,67 @@ body {
    TITLE
    ============================================================ */
 
-.title-area {
-  position: relative;
-
-  z-index: 100;
-
-  padding: 12px 10px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      #1f6b32,
-      #174b27
-    );
-
-  border-bottom: 4px solid #8bd34b;
-
-  box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-
 h1 {
-  margin: 0;
+  margin: 5px 0 12px;
 
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(
+    2rem,
+    4vw,
+    4rem
+  );
 
-  color: #fff8a6;
+  color: #fff8b0;
 
   text-shadow:
-    0 0 5px #fff,
-    0 0 12px #ffe600,
-    0 0 25px #ff8c00;
+    0 0 8px #ffe600,
+    0 0 18px #ff9d00,
+    0 4px 4px #173b08;
 }
 
 
 /* ============================================================
-   GAME AREA
+   MISSION
    ============================================================ */
 
-#gameArea {
-  position: relative;
-
+.mission {
   width: 100%;
+  max-width: 1100px;
 
-  height: 72vh;
-  min-height: 500px;
+  margin: 0 auto 12px;
 
-  overflow: hidden;
-
-  flex: 1;
-
-  border-bottom: 5px solid #173d1c;
+  padding: 10px 20px;
 
   background:
+    rgba(0, 35, 10, 0.65);
 
-    /* Sunlight */
+  border: 3px solid #8cff4f;
 
-    radial-gradient(
-      circle at 75% 15%,
-      rgba(255, 235, 120, 0.45),
-      transparent 20%
-    ),
+  border-radius: 18px;
 
-    /* Jungle light */
-
-    radial-gradient(
-      circle at 20% 30%,
-      rgba(90, 200, 80, 0.25),
-      transparent 30%
-    ),
-
-    /* Jungle base */
-
-    linear-gradient(
-      to bottom,
-      #4f9b42 0%,
-      #26733a 45%,
-      #18522c 75%,
-      #103b22 100%
-    );
+  box-shadow:
+    0 0 20px rgba(80, 255, 50, 0.35);
 }
 
+.mission h2 {
+  margin: 0 0 5px;
 
-/* ============================================================
-   JUNGLE BACKGROUND
-   ============================================================ */
+  color: #ffe75a;
 
-.jungle-back {
-  position: absolute;
-
-  top: 10px;
-  left: 0;
-
-  width: 100%;
-
-  display: flex;
-
-  justify-content: space-around;
-
-  align-items: flex-start;
-
-  font-size: clamp(4rem, 10vw, 8rem);
-
-  opacity: 0.75;
-
-  pointer-events: none;
-
-  animation: jungleSway 4s ease-in-out infinite;
+  font-size: clamp(
+    1.2rem,
+    2.2vw,
+    2rem
+  );
 }
 
+.mission p {
+  margin: 5px 0;
 
-.jungle-back span {
-  font-size: 0.65em;
-
-  animation: leafSway 3s ease-in-out infinite alternate;
-}
-
-
-@keyframes jungleSway {
-
-  0% {
-    transform: translateX(-8px);
-  }
-
-  50% {
-    transform: translateX(8px);
-  }
-
-  100% {
-    transform: translateX(-8px);
-  }
-
-}
-
-
-@keyframes leafSway {
-
-  from {
-    transform: rotate(-5deg);
-  }
-
-  to {
-    transform: rotate(5deg);
-  }
-
+  font-size: clamp(
+    1rem,
+    1.5vw,
+    1.3rem
+  );
 }
 
 
@@ -209,78 +125,53 @@ h1 {
    TARGET LETTER
    ============================================================ */
 
-#targetBubble {
-  position: absolute;
+.target {
+  display: inline-flex;
 
-  left: 50%;
+  align-items: center;
+  justify-content: center;
 
-  top: 13%;
+  gap: 12px;
 
-  transform: translateX(-50%);
+  margin-top: 5px;
 
-  z-index: 50;
-
-  pointer-events: none;
+  font-size: 1.2rem;
 }
-
-
-.target-label {
-  font-size: clamp(0.8rem, 2vw, 1.1rem);
-
-  font-weight: bold;
-
-  letter-spacing: 3px;
-
-  color: white;
-
-  text-shadow:
-    0 2px 3px #000;
-}
-
 
 #targetLetter {
-  margin-top: 2px;
+  display: inline-flex;
 
-  width: clamp(75px, 10vw, 110px);
-  height: clamp(75px, 10vw, 110px);
-
-  display: flex;
-
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  width: 65px;
+  height: 65px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      #fff,
-      #ffe600 40%,
-      #ff9800 70%,
-      #ff5e00
+      #ffffaa,
+      #ffe600 45%,
+      #ff8c00
     );
 
-  border: 5px solid white;
+  color: #173500;
 
-  color: #4a2600;
-
-  font-size: clamp(3rem, 7vw, 5rem);
-
+  font-size: 2.5rem;
   font-weight: 900;
 
-  text-shadow:
-    0 2px 0 white;
-
   box-shadow:
-    0 0 10px white,
+    0 0 10px #fff,
     0 0 25px #ffe600,
-    0 0 50px #ff9800;
+    0 0 45px #ff9d00;
 
-  animation: targetPulse 1s ease-in-out infinite alternate;
+  animation:
+    targetGlow 1s infinite alternate;
 }
 
-
-@keyframes targetPulse {
+@keyframes targetGlow {
 
   from {
     transform: scale(1);
@@ -290,6 +181,98 @@ h1 {
     transform: scale(1.12);
   }
 
+}
+
+
+/* ============================================================
+   🌴 GAME AREA
+   ============================================================ */
+
+#gameArea {
+  position: relative;
+
+  width: 100%;
+
+  /*
+    This is the important desktop fix.
+  */
+
+  height: calc(100vh - 285px);
+
+  min-height: 500px;
+
+  max-height: 800px;
+
+  overflow: hidden;
+
+  margin: 0 auto;
+
+  border: 5px solid #69e34a;
+
+  border-radius: 25px;
+
+  background:
+
+    /* sun glow */
+    radial-gradient(
+      circle at 50% 5%,
+      rgba(255, 235, 100, 0.35),
+      transparent 25%
+    ),
+
+    /* jungle light */
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(90, 190, 55, 0.25),
+      transparent 35%
+    ),
+
+    /* ground */
+    linear-gradient(
+      to bottom,
+      #08752d 0%,
+      #075c25 55%,
+      #073b19 75%,
+      #06240e 100%
+    );
+
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(50, 255, 60, 0.45);
+
+  isolation: isolate;
+}
+
+
+/* ============================================================
+   JUNGLE DECOR
+   ============================================================ */
+
+#jungleDecor {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+
+  padding: 10px;
+
+  font-size: clamp(
+    2rem,
+    5vw,
+    5rem
+  );
+
+  letter-spacing: 20px;
+
+  white-space: nowrap;
+
+  opacity: 0.9;
+
+  pointer-events: none;
+
+  z-index: 1;
 }
 
 
@@ -303,45 +286,103 @@ h1 {
   left: 50%;
   top: 58%;
 
+  transform:
+    translate(-50%, -50%);
+
   width: 150px;
-  height: 180px;
+  height: 150px;
 
-  transform: translate(-50%, -50%);
-
-  z-index: 40;
+  z-index: 20;
 
   transition:
-    left 0.8s ease-in-out,
-    top 0.8s ease-in-out;
-
-  pointer-events: none;
+    left 0.85s ease-in-out,
+    top 0.85s ease-in-out;
 }
 
 
-/* Dino emoji */
+/* Dino body */
 
-#dinoEmoji {
-  font-size: 100px;
+#dinoBody {
+  font-size: clamp(
+    5rem,
+    9vw,
+    9rem
+  );
 
   line-height: 1;
 
   filter:
-    drop-shadow(0 8px 4px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 8px 5px rgba(0,0,0,0.5));
 
   animation:
-    dinoBounce 1.2s ease-in-out infinite;
+    dinoIdle 1.4s infinite alternate;
 }
 
 
-@keyframes dinoBounce {
+/* Dino idle */
 
-  0%,
-  100% {
-    transform: translateY(0);
+@keyframes dinoIdle {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(-2deg);
   }
 
-  50% {
-    transform: translateY(-8px);
+  to {
+    transform:
+      translateY(-8px)
+      rotate(2deg);
+  }
+
+}
+
+
+/* Walking */
+
+#dinosaur.walking #dinoBody {
+
+  animation:
+    dinoWalk 0.18s infinite alternate;
+}
+
+@keyframes dinoWalk {
+
+  from {
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  to {
+    transform:
+      translateY(-12px)
+      rotate(5deg);
+  }
+
+}
+
+
+/* Eating */
+
+#dinosaur.eating #dinoBody {
+
+  animation:
+    dinoEat 0.16s infinite alternate;
+}
+
+@keyframes dinoEat {
+
+  from {
+    transform:
+      scale(1)
+      rotate(-3deg);
+  }
+
+  to {
+    transform:
+      scale(1.12)
+      rotate(3deg);
   }
 
 }
@@ -354,34 +395,52 @@ h1 {
 #dinoSpeech {
   position: absolute;
 
-  top: -35px;
+  top: -45px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  min-width: 80px;
+
+  padding: 8px 12px;
+
+  background: white;
+
+  color: #173500;
+
+  border: 3px solid #163f0a;
+
+  border-radius: 15px;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.4);
+
+  z-index: 30;
+}
+
+#dinoSpeech::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: -12px;
   left: 50%;
 
   transform: translateX(-50%);
 
-  padding: 7px 12px;
-
-  background: white;
-
-  color: #173d1c;
-
-  border: 3px solid #173d1c;
-
-  border-radius: 15px;
-
-  font-size: 20px;
-
-  font-weight: bold;
-
-  white-space: nowrap;
-
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.35);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid white;
 }
 
 
 /* ============================================================
-   BURGER AREA
+   🍔 FOOD AREA
    ============================================================ */
 
 #foodArea {
@@ -389,26 +448,26 @@ h1 {
 
   inset: 0;
 
-  z-index: 30;
+  z-index: 15;
 
   pointer-events: none;
 }
 
 
 /* ============================================================
-   BURGER
+   BURGERS
    ============================================================ */
 
 .burger {
   position: absolute;
 
-  width: 105px;
-  height: 95px;
+  width: 90px;
+  height: 90px;
 
   display: flex;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   cursor: pointer;
 
@@ -417,120 +476,128 @@ h1 {
   user-select: none;
 
   transition:
-    transform 0.2s ease,
-    opacity 0.25s ease;
+    transform 0.15s ease;
 }
 
 
-/* Actual burger */
+/* Burger emoji */
 
 .burger::before {
   content: "🍔";
 
   position: absolute;
 
-  font-size: 82px;
-
-  z-index: 1;
+  font-size: 70px;
 
   filter:
-    drop-shadow(0 5px 3px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 5px 5px rgba(0,0,0,0.45));
 }
 
 
 /* Letter */
 
 .burger-letter {
+
   position: relative;
 
   z-index: 2;
 
-  margin-top: 3px;
+  display: flex;
 
-  font-size: 34px;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #fff,
+      #fff4a0
+    );
+
+  color: #173500;
+
+  font-size: 1.7rem;
 
   font-weight: 900;
 
-  color: white;
+  border: 3px solid #ffcf00;
 
-  text-shadow:
-    0 2px 3px #000,
-    0 0 5px #000;
+  box-shadow:
+    0 0 8px white,
+    0 0 15px #ffe600;
 }
 
 
 .burger:hover {
-  transform: scale(1.2) rotate(-5deg);
-}
 
-
-.burger:active {
-  transform: scale(0.9);
-}
-
-
-/* ============================================================
-   BURGER HOVER GLOW
-   ============================================================ */
-
-.burger:hover::before {
-  filter:
-    drop-shadow(0 0 8px #ffe600)
-    drop-shadow(0 5px 3px rgba(0, 0, 0, 0.45));
+  transform:
+    scale(1.2)
+    rotate(-5deg);
 }
 
 
 /* ============================================================
-   BURGER DISAPPEAR
+   EATEN
    ============================================================ */
 
 .burger.eaten {
-  animation: eaten 0.45s forwards;
+
+  animation:
+    burgerEat 0.4s forwards;
 }
 
-
-@keyframes eaten {
+@keyframes burgerEat {
 
   0% {
     transform: scale(1);
-    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
   }
 
   100% {
-    transform: scale(0);
-    opacity: 0;
+    transform:
+      scale(0)
+      rotate(180deg);
   }
 
 }
 
 
 /* ============================================================
-   WRONG BURGER EXPLOSION
+   💥 EXPLOSION
    ============================================================ */
 
 .burger.explode {
-  animation: explode 0.65s forwards;
+
+  animation:
+    burgerBoom 0.6s forwards;
 }
 
-
-@keyframes explode {
+@keyframes burgerBoom {
 
   0% {
     transform: scale(1);
     opacity: 1;
   }
 
-  35% {
-    transform: scale(1.4) rotate(15deg);
-  }
-
-  60% {
-    transform: scale(1.8) rotate(-15deg);
-    opacity: 1;
+  50% {
+    transform:
+      scale(2)
+      rotate(20deg);
   }
 
   100% {
-    transform: scale(0);
+    transform:
+      scale(0)
+      rotate(180deg);
+
     opacity: 0;
   }
 
@@ -538,22 +605,27 @@ h1 {
 
 
 /* ============================================================
-   EXPLOSION EFFECT
+   EFFECT
    ============================================================ */
 
 #effect {
+
   position: absolute;
 
   left: 50%;
   top: 50%;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%)
+    scale(0);
 
   z-index: 100;
 
-  font-size: clamp(3rem, 10vw, 7rem);
-
-  font-weight: 900;
+  font-size: clamp(
+    4rem,
+    10vw,
+    9rem
+  );
 
   pointer-events: none;
 
@@ -562,31 +634,29 @@ h1 {
 
 
 #effect.show-boom {
-  animation: boom 0.9s ease-out forwards;
+
+  animation:
+    boomEffect 0.8s forwards;
 }
 
-
-@keyframes boom {
+@keyframes boomEffect {
 
   0% {
     opacity: 0;
-
     transform:
       translate(-50%, -50%)
-      scale(0.3);
+      scale(0.2);
   }
 
-  25% {
+  30% {
     opacity: 1;
-
     transform:
       translate(-50%, -50%)
-      scale(1.3);
+      scale(1.4);
   }
 
   100% {
     opacity: 0;
-
     transform:
       translate(-50%, -50%)
       scale(1.8);
@@ -596,120 +666,33 @@ h1 {
 
 
 /* ============================================================
-   GAME MESSAGE
-   ============================================================ */
-
-#gameMessage {
-  position: absolute;
-
-  bottom: 55px;
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  z-index: 80;
-
-  width: min(90%, 600px);
-
-  padding: 12px 18px;
-
-  border-radius: 18px;
-
-  background: rgba(0, 0, 0, 0.55);
-
-  border: 2px solid rgba(255, 255, 255, 0.5);
-
-  font-size: clamp(1rem, 3vw, 1.5rem);
-
-  font-weight: bold;
-
-  text-shadow:
-    0 2px 3px #000;
-}
-
-
-/* ============================================================
-   GROUND
-   ============================================================ */
-
-.jungle-ground {
-  position: absolute;
-
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-
-  height: 55px;
-
-  display: flex;
-
-  justify-content: space-around;
-
-  align-items: center;
-
-  background:
-    linear-gradient(
-      to bottom,
-      #2b702e,
-      #174b24
-    );
-
-  border-top: 4px solid #479d3e;
-
-  font-size: 30px;
-
-  overflow: hidden;
-
-  pointer-events: none;
-}
-
-
-/* ============================================================
-   GAME INFORMATION
+   GAME INFO
    ============================================================ */
 
 .game-info {
+
   display: flex;
 
   justify-content: center;
   align-items: center;
 
-  gap: 25px;
+  gap: 50px;
 
-  padding: 10px;
+  margin: 12px 0;
 
-  background: #153b20;
-}
-
-
-.info-box {
-  min-width: 130px;
-
-  padding: 8px 15px;
-
-  border-radius: 15px;
-
-  background: rgba(0, 0, 0, 0.35);
-
-  border: 2px solid #78bd45;
-
-  font-size: 20px;
+  font-size: 1.3rem;
 
   font-weight: bold;
 }
 
+.game-info span {
 
-.info-box span {
-  margin: 0 5px;
-}
-
-
-.info-box strong {
   color: #ffe600;
 
-  font-size: 24px;
+  font-size: 1.5rem;
+
+  text-shadow:
+    0 0 8px #ff9d00;
 }
 
 
@@ -718,47 +701,57 @@ h1 {
    ============================================================ */
 
 .keyboard {
-  padding: 8px 10px;
 
-  background: #102d19;
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 10px auto;
 }
 
-
 .keyboard p {
-  margin: 3px 0 8px;
 
-  font-size: 15px;
+  margin: 5px;
+
+  font-size: 1rem;
+
+  font-weight: bold;
 }
 
 
 #keyboardLetters {
-  display: flex;
 
-  justify-content: center;
+  display: flex;
 
   flex-wrap: wrap;
 
-  gap: 5px;
+  justify-content: center;
+
+  gap: 6px;
 }
 
 
 .key {
-  width: 38px;
-  height: 38px;
 
-  border: 2px solid #8bd34b;
+  width: 42px;
+  height: 42px;
 
-  border-radius: 8px;
+  border: 2px solid #9cff5a;
 
-  background: #245d2d;
+  border-radius: 10px;
+
+  background: #173d12;
 
   color: white;
 
-  font-size: 18px;
+  font-size: 1.1rem;
 
   font-weight: bold;
 
   cursor: pointer;
+
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.4);
 
   transition:
     transform 0.1s,
@@ -767,14 +760,18 @@ h1 {
 
 
 .key:hover {
-  background: #3b853e;
 
-  transform: scale(1.08);
+  background: #2c6d1d;
+
+  transform:
+    scale(1.08);
 }
 
 
 .key:active {
-  transform: scale(0.9);
+
+  transform:
+    scale(0.9);
 }
 
 
@@ -783,31 +780,33 @@ h1 {
    ============================================================ */
 
 #restartButton {
-  margin: 10px auto;
 
-  padding: 10px 24px;
+  margin: 10px;
+
+  padding: 12px 25px;
 
   border: 3px solid #ffe600;
 
-  border-radius: 15px;
+  border-radius: 14px;
 
-  background: #744000;
+  background: #315d16;
 
   color: white;
 
-  font-size: 18px;
+  font-size: 1.1rem;
 
   font-weight: bold;
 
   cursor: pointer;
 
   box-shadow:
-    0 0 12px rgba(255, 230, 0, 0.35);
+    0 0 12px rgba(255,230,0,0.35);
 }
 
 
 #restartButton:hover {
-  background: #955800;
+
+  background: #477d21;
 
   transform: scale(1.05);
 }
@@ -818,17 +817,18 @@ h1 {
    ============================================================ */
 
 .backButton {
+
   display: inline-block;
 
-  margin: 5px auto 12px;
+  margin: 5px 0;
 
   padding: 10px 20px;
 
-  border: 2px solid #ff8ab5;
+  border: 2px solid #ff69b4;
 
   border-radius: 12px;
 
-  background: #4d1631;
+  background: #35002d;
 
   color: white;
 
@@ -836,58 +836,33 @@ h1 {
 
   font-weight: bold;
 
-  transition: 0.2s;
+  transition: 0.15s;
 }
 
 
 .backButton:hover {
-  background: #702044;
+
+  background: #650055;
 
   transform: scale(1.05);
 }
 
 
 /* ============================================================
-   DINO WALKING
+   TABLET
    ============================================================ */
 
-#dinosaur.walking #dinoEmoji {
-  animation:
-    dinoWalk 0.25s infinite alternate;
-}
+@media (max-width: 900px) {
 
-
-@keyframes dinoWalk {
-
-  from {
-    transform: translateY(0) rotate(-3deg);
+  .game {
+    padding: 12px;
   }
 
-  to {
-    transform: translateY(-10px) rotate(3deg);
-  }
+  #gameArea {
 
-}
+    height: calc(100vh - 300px);
 
-
-/* ============================================================
-   DINO EATING
-   ============================================================ */
-
-#dinosaur.eating #dinoEmoji {
-  animation:
-    dinoEat 0.25s infinite alternate;
-}
-
-
-@keyframes dinoEat {
-
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.12);
+    min-height: 450px;
   }
 
 }
@@ -899,81 +874,176 @@ h1 {
 
 @media (max-width: 650px) {
 
-  .title-area {
+  .game {
+
     padding: 8px;
+
   }
 
+  h1 {
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+
+  }
+
+  .mission {
+
+    padding: 8px 12px;
+
+    margin-bottom: 8px;
+
+  }
+
+  .mission h2 {
+
+    font-size: 1.15rem;
+
+  }
+
+  .mission p {
+
+    font-size: 0.9rem;
+
+  }
+
+  #targetLetter {
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 2rem;
+
+  }
 
   #gameArea {
-    min-height: 450px;
 
-    height: 65vh;
+    height: 55vh;
+
+    min-height: 360px;
+
+    border-width: 4px;
+
   }
-
 
   #dinosaur {
+
     width: 110px;
-    height: 140px;
+    height: 110px;
+
   }
 
+  #dinoBody {
 
-  #dinoEmoji {
-    font-size: 75px;
+    font-size: 5rem;
+
   }
-
 
   #dinoSpeech {
-    font-size: 16px;
 
-    top: -25px;
+    top: -38px;
+
+    font-size: 1rem;
+
+    min-width: 60px;
+
   }
-
 
   .burger {
-    width: 80px;
-    height: 75px;
-  }
 
+    width: 70px;
+    height: 70px;
+
+  }
 
   .burger::before {
-    font-size: 62px;
-  }
 
+    font-size: 55px;
+
+  }
 
   .burger-letter {
-    font-size: 25px;
-  }
 
+    width: 34px;
+    height: 34px;
+
+    font-size: 1.3rem;
+
+  }
 
   .game-info {
-    gap: 8px;
+
+    gap: 20px;
+
+    font-size: 1rem;
+
   }
 
+  .game-info span {
 
-  .info-box {
-    min-width: 100px;
+    font-size: 1.2rem;
 
-    padding: 6px 8px;
-
-    font-size: 16px;
   }
-
-
-  .info-box strong {
-    font-size: 20px;
-  }
-
 
   .key {
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 0.95rem;
+
+  }
+
+  .keyboard p {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
+
+/* ============================================================
+   VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+  #gameArea {
+
+    min-height: 330px;
+
+  }
+
+  .burger {
+
+    width: 60px;
+    height: 60px;
+  }
+
+  .burger::before {
+
+    font-size: 48px;
+
+  }
+
+  .burger-letter {
+
+    width: 30px;
+    height: 30px;
+
+    font-size: 1.1rem;
+
+  }
+
+  .key {
+
     width: 32px;
     height: 32px;
 
-    font-size: 15px;
-  }
+    font-size: 0.85rem;
 
-
-  .jungle-ground {
-    font-size: 22px;
   }
 
 }
