@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -14,134 +13,105 @@
 
   <link
     rel="stylesheet"
-    href="grandpas.css"
+    href="../../style.css"
   >
-
 </head>
-
 
 <body>
 
-  <main class="game-hub">
+  <header>
 
-    <h1>🌟 Grandpa's Adventure 🌟</h1>
+    <h1 class="fire-text">
+      ❤️ Grandpa's Adventure ❤️
+    </h1>
 
-    <p class="welcome">
-      A special adventure made just for you!
-    </p>
+    <div class="container">
 
-    <h2>Choose Your Adventure</h2>
+      <div class="column">
 
+        <h2>
+          Choose Your Adventure!
+        </h2>
 
-    <div class="adventure-grid">
-
-
-      <!-- SPACE MISSION -->
-
-      <button
-        class="adventure-card space"
-        data-game="space"
-      >
-
-        <span class="emoji">🚀</span>
-
-        <span class="title">
-          Grandson Space Mission
-        </span>
-
-        <span class="description">
-          Fly through space, collect stars
-          and avoid asteroids!
-        </span>
-
-      </button>
+        <p>
+          Grandpa has a mission for you! 🚀
+        </p>
 
 
-      <!-- TREASURE HUNT -->
+        <!-- SPACE MISSION -->
 
-      <button
-        class="adventure-card treasure"
-        data-game="treasure"
-      >
+        <div class="button-section">
 
-        <span class="emoji">🪙</span>
+          <a
+            href="space_mission/space.html"
+            class="mystery-button"
+          >
+            🚀 Grandson Space Mission
+          </a>
 
-        <span class="title">
-          Treasure Hunt
-        </span>
-
-        <span class="description">
-          Find hidden treasure and discover
-          secret places!
-        </span>
-
-      </button>
+        </div>
 
 
-      <!-- DRAGON QUEST -->
+        <!-- TREASURE HUNT -->
 
-      <button
-        class="adventure-card dragon"
-        data-game="dragon"
-      >
+        <div class="button-section">
 
-        <span class="emoji">🐉</span>
+          <a
+            href="treasure_hunt/treasure.html"
+            class="mystery-button"
+          >
+            🪙 Treasure Hunt
+          </a>
 
-        <span class="title">
-          Dragon Quest
-        </span>
-
-        <span class="description">
-          Rescue your friend from the
-          dragon's castle!
-        </span>
-
-      </button>
+        </div>
 
 
-      <!-- GRAND PRIX -->
+        <!-- DRAGON QUEST -->
 
-      <button
-        class="adventure-card racing"
-        data-game="racing"
-      >
+        <div class="button-section">
 
-        <span class="emoji">🏎️</span>
+          <a
+            href="dragon_quest/dragon.html"
+            class="mystery-button"
+          >
+            🐉 Dragon Quest
+          </a>
 
-        <span class="title">
-          Grandpa's Grand Prix
-        </span>
+        </div>
 
-        <span class="description">
-          Race around the track and
-          beat your best time!
-        </span>
 
-      </button>
+        <!-- GRAND PRIX -->
 
+        <div class="button-section">
+
+          <a
+            href="grand_prix/race.html"
+            class="mystery-button"
+          >
+            🏎️ Grandpa's Grand Prix
+          </a>
+
+        </div>
+
+
+        <!-- BACK -->
+
+        <div class="button-section">
+
+          <a
+            href="../games.html"
+            class="mystery-button"
+          >
+            🎮 Back to Games
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
 
-
-    <p
-      id="message"
-      class="message"
-    ></p>
-
-
-    <!-- BACK TO GAMES -->
-
-    <a
-      href="../games.html"
-      class="back-button"
-    >
-      🎮 Back to Games
-    </a>
-
-  </main>
-
-
-  <script src="grandpas.js"></script>
+  </header>
 
 </body>
 
