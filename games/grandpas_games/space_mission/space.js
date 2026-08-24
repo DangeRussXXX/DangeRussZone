@@ -1,3 +1,8 @@
+/* ============================================================
+   LIL' RUSSELL'S SPACE READING MISSION
+   LEVEL 1 - LETTER IDENTIFICATION
+   ============================================================ */
+
 const player = document.getElementById("player");
 const gameArea = document.getElementById("gameArea");
 
@@ -21,12 +26,32 @@ let fuel = 100;
 
 let playing = false;
 
+let currentLetter = "";
+let questionNumber = 0;
+
+const totalQuestions = 10;
+
+let answerButtons = [];
+
 let star = null;
 
 
-// ================================
-// START GAME
-// ================================
+/* ============================================================
+   LETTER BANK
+   ============================================================ */
+
+const letters = [
+  "A", "B", "C", "D", "E",
+  "F", "G", "H", "I", "J",
+  "K", "L", "M", "N", "O",
+  "P", "Q", "R", "S", "T",
+  "U", "V", "W", "X", "Y", "Z"
+];
+
+
+/* ============================================================
+   START GAME
+   ============================================================ */
 
 function startGame() {
 
@@ -35,6 +60,7 @@ function startGame() {
   score = 0;
   lives = 3;
   fuel = 100;
+  questionNumber = 0;
 
   x = 50;
   y = 80;
@@ -45,21 +71,24 @@ function startGame() {
 
   player.style.left = x + "%";
   player.style.top = y + "%";
-  player.style.bottom = "auto";
 
   startButton.style.display = "none";
   restartButton.style.display = "none";
 
   message.textContent =
-    "🚀 Mission started! Collect the stars!";
+    "🚀 Welcome, Russell! Let's find some letters!";
+
+  removeOldAnswers();
 
   createStar();
+
+  createLetterQuestion();
 }
 
 
-// ================================
-// CREATE STAR
-// ================================
+/* ============================================================
+   CREATE STAR
+   ============================================================ */
 
 function createStar() {
 
@@ -74,20 +103,219 @@ function createStar() {
 
   star.style.position = "absolute";
   star.style.fontSize = "50px";
-  star.style.left = (Math.random() * 70 + 15) + "%";
-  star.style.top = (Math.random() * 60 + 10) + "%";
+  star.style.left = "80%";
+  star.style.top = "15%";
 
   gameArea.appendChild(star);
 }
 
 
-// ================================
-// MOVE PLAYER
-// ================================
+/* ============================================================
+   CREATE LETTER QUESTION
+   ============================================================ */
+
+function createLetterQuestion() {
+
+  questionNumber++;
+
+  if (questionNumber > totalQuestions) {
+    finishMission();
+    return;
+  }
+
+  removeOldAnswers();
+
+  currentLetter =
+    letters[Math.floor(Math.random() * letters.length)];
+
+
+  message.innerHTML =
+    "🔤 Find the letter <strong>" +
+    currentLetter +
+    "</strong>!";
+
+
+  createAnswerButtons();
+}
+
+
+/* ============================================================
+   CREATE ANSWER BUTTONS
+   ============================================================ */
+
+function createAnswerButtons() {
+
+  const answerArea = document.createElement("div");
+
+  answerArea.id = "answerArea";
+
+  answerArea.style.display = "flex";
+  answerArea.style.justifyContent = "center";
+  answerArea.style.gap = "12px";
+  answerArea.style.flexWrap = "wrap";
+  answerArea.style.marginTop = "15px";
+
+
+  let choices = [currentLetter];
+
+
+  while (choices.length < 3) {
+
+    const randomLetter =
+      letters[Math.floor(Math.random() * letters.length)];
+
+    if (!choices.includes(randomLetter)) {
+      choices.push(randomLetter);
+    }
+  }
+
+
+  // Shuffle choices
+
+  choices.sort(() => Math.random() - 0.5);
+
+
+  choices.forEach(function(letter) {
+
+    const button = document.createElement("button");
+
+    button.textContent = letter;
+
+    button.style.fontSize = "28px";
+    button.style.fontWeight = "bold";
+    button.style.padding = "12px 24px";
+    button.style.borderRadius = "12px";
+    button.style.border = "2px solid #00ffff";
+    button.style.background = "#10104a";
+    button.style.color = "white";
+    button.style.cursor = "pointer";
+
+
+    button.addEventListener("click", function() {
+
+      checkLetter(letter);
+
+    });
+
+
+    answerArea.appendChild(button);
+
+    answerButtons.push(button);
+
+  });
+
+
+  gameArea.parentNode.insertBefore(
+    answerArea,
+    gameArea.nextSibling
+  );
+}
+
+
+/* ============================================================
+   CHECK LETTER
+   ============================================================ */
+
+function checkLetter(answer) {
+
+  if (!playing) return;
+
+
+  if (answer === currentLetter) {
+
+    score++;
+
+    scoreDisplay.textContent = score;
+
+    message.innerHTML =
+      "🎉 Great job, Russell! " +
+      currentLetter +
+      " is correct! ⭐";
+
+
+    disableAnswers();
+
+
+    setTimeout(function() {
+
+      createLetterQuestion();
+
+    }, 900);
+
+
+  } else {
+
+    message.innerHTML =
+      "💡 Good try! Look again. " +
+      "Find the letter <strong>" +
+      currentLetter +
+      "</strong>.";
+
+  }
+}
+
+
+/* ============================================================
+   DISABLE ANSWERS
+   ============================================================ */
+
+function disableAnswers() {
+
+  answerButtons.forEach(function(button) {
+
+    button.disabled = true;
+
+  });
+
+}
+
+
+/* ============================================================
+   REMOVE OLD ANSWERS
+   ============================================================ */
+
+function removeOldAnswers() {
+
+  const oldArea =
+    document.getElementById("answerArea");
+
+  if (oldArea) {
+    oldArea.remove();
+  }
+
+  answerButtons = [];
+}
+
+
+/* ============================================================
+   FINISH MISSION
+   ============================================================ */
+
+function finishMission() {
+
+  playing = false;
+
+  removeOldAnswers();
+
+  message.innerHTML =
+    "🏆 AMAZING JOB, RUSSELL! 🏆<br>" +
+    "You completed your first reading mission! 🚀";
+
+
+  startButton.style.display = "none";
+
+  restartButton.style.display = "inline-block";
+}
+
+
+/* ============================================================
+   MOVE ROCKET
+   ============================================================ */
 
 function movePlayer(direction) {
 
   if (!playing) return;
+
 
   if (direction === "left") {
     x -= 5;
@@ -105,13 +333,14 @@ function movePlayer(direction) {
     y += 5;
   }
 
-  // Keep rocket inside game area
 
   x = Math.max(5, Math.min(95, x));
   y = Math.max(5, Math.min(90, y));
 
+
   player.style.left = x + "%";
   player.style.top = y + "%";
+
 
   fuel--;
 
@@ -121,130 +350,97 @@ function movePlayer(direction) {
 
   fuelDisplay.textContent = fuel;
 
-  checkStar();
 
   if (fuel === 0) {
-    gameOver("⛽ Russell ran out of fuel!");
-  }
-}
 
+    fuel = 100;
 
-// ================================
-// CHECK STAR
-// ================================
-
-function checkStar() {
-
-  if (!star) return;
-
-  const playerRect = player.getBoundingClientRect();
-  const starRect = star.getBoundingClientRect();
-
-  const playerX =
-    playerRect.left + playerRect.width / 2;
-
-  const playerY =
-    playerRect.top + playerRect.height / 2;
-
-  const starX =
-    starRect.left + starRect.width / 2;
-
-  const starY =
-    starRect.top + starRect.height / 2;
-
-  const distance = Math.hypot(
-    playerX - starX,
-    playerY - starY
-  );
-
-  if (distance < 60) {
-
-    score++;
-
-    scoreDisplay.textContent = score;
+    fuelDisplay.textContent = fuel;
 
     message.textContent =
-      "⭐ Awesome! You found a star!";
+      "⛽ Fuel refilled! Keep learning, Russell!";
 
-    createStar();
   }
 }
 
 
-// ================================
-// GAME OVER
-// ================================
+/* ============================================================
+   BUTTON CONTROLS
+   ============================================================ */
 
-function gameOver(text) {
+leftButton.addEventListener("click", function() {
 
-  playing = false;
-
-  message.textContent = text;
-
-  startButton.style.display = "none";
-  restartButton.style.display = "inline-block";
-}
-
-
-// ================================
-// BUTTONS
-// ================================
-
-leftButton.addEventListener("click", function () {
   movePlayer("left");
+
 });
 
-rightButton.addEventListener("click", function () {
+
+rightButton.addEventListener("click", function() {
+
   movePlayer("right");
+
 });
 
-startButton.addEventListener("click", function () {
+
+startButton.addEventListener("click", function() {
+
   startGame();
+
 });
 
-restartButton.addEventListener("click", function () {
+
+restartButton.addEventListener("click", function() {
+
   startGame();
+
 });
 
 
-// ================================
-// KEYBOARD
-// ================================
+/* ============================================================
+   KEYBOARD CONTROLS
+   ============================================================ */
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function(event) {
 
   if (!playing) return;
 
-  if (
-    event.key === "ArrowLeft" ||
-    event.key.toLowerCase() === "a"
-  ) {
+
+  const key = event.key.toLowerCase();
+
+
+  if (key === "arrowleft" || key === "a") {
+
     event.preventDefault();
+
     movePlayer("left");
+
   }
 
-  if (
-    event.key === "ArrowRight" ||
-    event.key.toLowerCase() === "d"
-  ) {
+
+  if (key === "arrowright" || key === "d") {
+
     event.preventDefault();
+
     movePlayer("right");
+
   }
 
-  if (
-    event.key === "ArrowUp" ||
-    event.key.toLowerCase() === "w"
-  ) {
+
+  if (key === "arrowup" || key === "w") {
+
     event.preventDefault();
+
     movePlayer("up");
+
   }
 
-  if (
-    event.key === "ArrowDown" ||
-    event.key.toLowerCase() === "s"
-  ) {
+
+  if (key === "arrowdown" || key === "s") {
+
     event.preventDefault();
+
     movePlayer("down");
+
   }
 
 });
