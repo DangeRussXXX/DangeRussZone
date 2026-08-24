@@ -1,6 +1,6 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
-   CLEAN WORKING VERSION
+   MERGED CLEAN CSS
    ============================================================ */
 
 * {
@@ -79,7 +79,7 @@ h1 {
   width: fit-content;
   max-width: 95%;
 
-  margin: 8px auto 8px;
+  margin: 8px auto;
 
   padding: 8px 22px;
 
@@ -108,34 +108,120 @@ h1 {
 }
 
 
-#targetLetter {
-  min-width: 90px;
+/* ============================================================
+   🔤 WORD TO SPELL
+   ============================================================ */
 
-  font-size: clamp(3.5rem, 8vw, 6rem);
+#targetLetter {
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 180px !important;
+
+  font-size: clamp(2.8rem, 6vw, 5rem) !important;
 
   line-height: 1;
 
   font-weight: 900;
 
-  color: #fff700;
+  color: white;
 
-  text-shadow:
-    0 0 8px white,
-    0 0 20px #ffe600,
-    0 0 40px #ff8c00;
+  text-shadow: none;
 
-  animation: targetGlow 1s infinite alternate;
+  animation: none !important;
 }
 
 
-@keyframes targetGlow {
+/* ============================================================
+   🔤 NORMAL LETTERS
+   ============================================================ */
+
+#targetLetter .word-letter {
+  display: inline-block;
+
+  min-width: 0.65em;
+
+  color: white;
+
+  opacity: 0.7;
+
+  transform: scale(1);
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.5);
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+
+/* ============================================================
+   ⭐ CURRENT LETTER
+   ============================================================ */
+
+#targetLetter .word-letter.current {
+  color: #fff700;
+
+  opacity: 1;
+
+  transform: scale(1.3);
+
+  text-shadow:
+    0 0 8px white,
+    0 0 18px #ffe600,
+    0 0 35px #ff8c00;
+
+  animation:
+    currentLetterGlow 0.8s infinite alternate;
+}
+
+
+/* ============================================================
+   ✅ COMPLETED LETTER
+   ============================================================ */
+
+#targetLetter .word-letter.completed {
+  color: #75ff45;
+
+  opacity: 1;
+
+  transform: scale(1);
+
+  text-shadow:
+    0 0 8px #75ff45,
+    0 0 18px #25ff00;
+}
+
+
+/* ============================================================
+   ✨ CURRENT LETTER ANIMATION
+   ============================================================ */
+
+@keyframes currentLetterGlow {
 
   from {
-    transform: scale(1);
+    transform: scale(1.15);
+
+    text-shadow:
+      0 0 8px white,
+      0 0 18px #ffe600,
+      0 0 30px #ff8c00;
   }
 
   to {
-    transform: scale(1.12);
+    transform: scale(1.3);
+
+    text-shadow:
+      0 0 12px white,
+      0 0 25px #ffe600,
+      0 0 45px #ff8c00;
   }
 }
 
@@ -199,10 +285,6 @@ h1 {
     inset 0 0 100px rgba(0, 0, 0, 0.7),
     0 0 35px rgba(70, 255, 50, 0.6);
 
-  /*
-    IMPORTANT:
-    All burgers are children of this element.
-  */
   isolation: isolate;
 }
 
@@ -248,6 +330,10 @@ h1 {
     dinoBounce 1.5s infinite alternate;
 }
 
+
+/* ============================================================
+   🦖 DINO BOUNCE
+   ============================================================ */
 
 @keyframes dinoBounce {
 
@@ -315,21 +401,20 @@ h1 {
       rotate(4deg);
   }
 }
+
+
 /* ============================================================
-   💬 DINO SPEECH — IN FRONT OF MOUTH
+   💬 DINO SPEECH
    ============================================================ */
 
 #dinoSpeech {
   position: absolute;
 
-  /*
-     Speech bubble sits directly in front
-     of Dino's mouth.
-  */
   top: 38%;
   left: 82%;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
   padding: 10px 18px;
 
@@ -362,12 +447,6 @@ h1 {
    🍔 FOOD AREA
    ============================================================ */
 
-/*
-   Kept only because it exists in the HTML.
-
-   JavaScript is NOT putting burgers here.
-*/
-
 #foodArea {
   position: absolute;
 
@@ -386,27 +465,7 @@ h1 {
    🍔 BURGER
    ============================================================ */
 
-/*
-   IMPORTANT:
-
-   JavaScript creates:
-
-   #gameArea
-      ├── #dinosaur
-      ├── #foodArea
-      ├── #effect
-      ├── .burger
-      ├── .burger
-      └── .burger
-
-   Therefore we target:
-
-   #gameArea > .burger
-*/
-
-
 #gameArea > .burger {
-
   position: absolute !important;
 
   left: 0;
@@ -455,7 +514,6 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger::before {
-
   content: "🍔";
 
   position: absolute;
@@ -497,7 +555,6 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger > .burger-letter {
-
   position: absolute;
 
   left: 50%;
@@ -553,6 +610,10 @@ h1 {
 }
 
 
+/* ============================================================
+   🍔 LETTER GLOW
+   ============================================================ */
+
 @keyframes letterGlow {
 
   from {
@@ -574,7 +635,6 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger:hover {
-
   transform:
     translate(-50%, -50%)
     scale(1.12);
@@ -586,7 +646,6 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger:active {
-
   transform:
     translate(-50%, -50%)
     scale(0.95);
@@ -598,7 +657,6 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger.eaten {
-
   animation:
     burgerEat 0.55s forwards;
 }
@@ -638,7 +696,6 @@ h1 {
    ============================================================ */
 
 #gameArea > .burger.explode {
-
   animation:
     burgerExplode 0.55s forwards;
 }
@@ -678,7 +735,6 @@ h1 {
    ============================================================ */
 
 #effect {
-
   position: absolute;
 
   left: 50%;
@@ -708,7 +764,6 @@ h1 {
 
 #effect.show-boom,
 #effect.show {
-
   animation:
     boom 0.8s forwards;
 }
@@ -755,7 +810,6 @@ h1 {
    ============================================================ */
 
 .game-info {
-
   display: flex;
 
   justify-content: center;
@@ -771,7 +825,6 @@ h1 {
 
 
 .game-info span {
-
   color: #ffe600;
 
   font-size: 1.8rem;
@@ -782,7 +835,6 @@ h1 {
 
 
 #wordProgress {
-
   color: #fff700;
 
   letter-spacing: 8px;
@@ -809,7 +861,6 @@ h1 {
 
 
 #keyboardLetters {
-
   display: flex;
 
   justify-content: center;
@@ -821,7 +872,6 @@ h1 {
 
 
 .key {
-
   width: 42px;
   height: 42px;
 
@@ -842,7 +892,6 @@ h1 {
 
 
 .key:hover {
-
   transform: scale(1.15);
 
   background: #3a811d;
@@ -854,7 +903,6 @@ h1 {
    ============================================================ */
 
 #restartButton {
-
   padding: 12px 28px;
 
   border: 3px solid #ffe600;
@@ -874,7 +922,6 @@ h1 {
 
 
 #restartButton:hover {
-
   background: #4d8425;
 
   transform: scale(1.05);
@@ -886,7 +933,6 @@ h1 {
    ============================================================ */
 
 .backButton {
-
   display: inline-block;
 
   margin: 8px;
@@ -925,30 +971,116 @@ h1 {
 
 
   .find-area {
+    display: flex !important;
 
-    gap: 10px;
+    width: 96% !important;
+    max-width: 96% !important;
+    min-width: 0 !important;
 
-    padding: 6px 15px;
+    gap: 8px !important;
 
-    margin-bottom: 5px;
+    padding: 7px 10px !important;
+
+    margin: 6px auto !important;
+
+    overflow: visible !important;
   }
 
 
   .find-label {
-    font-size: 1.3rem;
+    flex-shrink: 0 !important;
+
+    font-size: 1.3rem !important;
+
+    white-space: nowrap !important;
   }
 
 
   #targetLetter {
+    display: flex !important;
 
-    min-width: 65px;
+    flex: 1 1 auto !important;
 
-    font-size: 3.5rem;
+    width: auto !important;
+
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: auto !important;
+
+    overflow: visible !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    margin: 0 !important;
+    padding: 2px 0 !important;
+
+    font-size: 2.6rem !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    color: white !important;
+
+    text-shadow: none !important;
+
+    animation: none !important;
+  }
+
+
+  #targetLetter .word-letter {
+    display: inline-block !important;
+
+    min-width: 0 !important;
+    width: auto !important;
+
+    flex: 0 0 auto !important;
+
+    opacity: 0.7 !important;
+
+    color: white !important;
+
+    transform: scale(1) !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  #targetLetter .word-letter.current {
+    color: #fff700 !important;
+
+    opacity: 1 !important;
+
+    transform: scale(1.25) !important;
+
+    text-shadow:
+      0 0 8px white,
+      0 0 18px #ffe600,
+      0 0 35px #ff8c00 !important;
+
+    animation:
+      currentLetterGlow 0.8s infinite alternate !important;
+  }
+
+
+  #targetLetter .word-letter.completed {
+    color: #75ff45 !important;
+
+    opacity: 1 !important;
+
+    transform: scale(1) !important;
+
+    text-shadow:
+      0 0 8px #75ff45,
+      0 0 18px #25ff00 !important;
   }
 
 
   #message {
-
     font-size: 1.2rem;
 
     min-height: 30px;
@@ -956,7 +1088,6 @@ h1 {
 
 
   #gameArea {
-
     height: calc(100vh - 245px);
 
     min-height: 450px;
@@ -968,7 +1099,6 @@ h1 {
 
 
   #dinosaur {
-
     width: 270px;
     height: 270px;
 
@@ -982,33 +1112,30 @@ h1 {
   }
 
 
-#dinoSpeech {
+  #dinoSpeech {
+    top: 38%;
+    left: 82%;
 
-  top: 38%;
-  left: 82%;
+    font-size: 1.3rem;
 
-  font-size: 1.3rem;
+    padding: 8px 14px;
+  }
 
-  padding: 8px 14px;
-}
 
   /* MOBILE BURGERS */
 
   #gameArea > .burger {
-
     width: 130px !important;
     height: 130px !important;
   }
 
 
   #gameArea > .burger::before {
-
     font-size: 100px;
   }
 
 
   #gameArea > .burger > .burger-letter {
-
     width: 60px;
     height: 60px;
 
@@ -1019,7 +1146,6 @@ h1 {
 
 
   .game-info {
-
     gap: 25px;
 
     font-size: 1rem;
@@ -1027,13 +1153,11 @@ h1 {
 
 
   .game-info span {
-
     font-size: 1.4rem;
   }
 
 
   .key {
-
     width: 34px;
     height: 34px;
 
@@ -1053,13 +1177,46 @@ h1 {
   }
 
 
+  .find-area {
+    width: 98% !important;
+    max-width: 98% !important;
+
+    gap: 5px !important;
+
+    padding: 6px 7px !important;
+  }
+
+
+  .find-label {
+    font-size: 1.05rem !important;
+  }
+
+
+  #targetLetter {
+    font-size: 2.15rem !important;
+
+    gap: 3px !important;
+
+    min-width: 0 !important;
+  }
+
+
+  #targetLetter .word-letter {
+    min-width: 0 !important;
+  }
+
+
+  #targetLetter .word-letter.current {
+    transform: scale(1.2) !important;
+  }
+
+
   #gameArea {
     min-height: 410px;
   }
 
 
   #dinosaur {
-
     width: 220px;
     height: 220px;
   }
@@ -1071,343 +1228,20 @@ h1 {
 
 
   #gameArea > .burger {
-
     width: 110px !important;
     height: 110px !important;
   }
 
 
   #gameArea > .burger::before {
-
     font-size: 85px;
   }
 
 
   #gameArea > .burger > .burger-letter {
-
     width: 52px;
     height: 52px;
 
     font-size: 2.1rem;
   }
-}
-/* ============================================================
-   🔤 WORD TO SPELL — FINAL VERSION
-   ============================================================ */
-
-/*
-   The Find box now displays the entire word.
-   Example:
-
-   D I N O
-
-   Only the letter currently being searched for
-   glows and grows.
-*/
-
-#targetLetter {
-  display: flex !important;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-
-  min-width: 180px !important;
-
-  font-size: clamp(2.8rem, 6vw, 5rem) !important;
-
-  line-height: 1;
-
-  font-weight: 900;
-
-  color: white;
-
-  text-shadow: none;
-
-  animation: none !important;
-}
-
-
-/* ============================================================
-   🔤 NORMAL LETTERS
-   ============================================================ */
-
-#targetLetter .word-letter {
-
-  display: inline-block;
-
-  min-width: 0.65em;
-
-  color: white;
-
-  opacity: 0.7;
-
-  transform: scale(1);
-
-  text-shadow:
-    0 0 5px rgba(255,255,255,0.5);
-
-  transition:
-    transform 0.2s ease,
-    color 0.2s ease,
-    opacity 0.2s ease,
-    text-shadow 0.2s ease;
-}
-
-
-/* ============================================================
-   ⭐ CURRENT LETTER
-   ============================================================ */
-
-#targetLetter .word-letter.current {
-
-  color: #fff700;
-
-  opacity: 1;
-
-  transform: scale(1.3);
-
-  text-shadow:
-    0 0 8px white,
-    0 0 18px #ffe600,
-    0 0 35px #ff8c00;
-
-  animation:
-    currentLetterGlow 0.8s infinite alternate;
-}
-
-
-/* ============================================================
-   ✅ COMPLETED LETTER
-   ============================================================ */
-
-#targetLetter .word-letter.completed {
-
-  color: #75ff45;
-
-  opacity: 1;
-
-  transform: scale(1);
-
-  text-shadow:
-    0 0 8px #75ff45,
-    0 0 18px #25ff00;
-}
-
-
-/* ============================================================
-   ✨ CURRENT LETTER ANIMATION
-   ============================================================ */
-
-@keyframes currentLetterGlow {
-
-  from {
-
-    transform: scale(1.15);
-
-    text-shadow:
-      0 0 8px white,
-      0 0 18px #ffe600,
-      0 0 30px #ff8c00;
-  }
-
-  to {
-
-    transform: scale(1.3);
-
-    text-shadow:
-      0 0 12px white,
-      0 0 25px #ffe600,
-      0 0 45px #ff8c00;
-  }
-
-}
-
-/* ============================================================
-   📱 MOBILE — WORD MUST ALWAYS BE VISIBLE
-   ============================================================ */
-
-@media (max-width: 650px) {
-
-  .find-area {
-
-    display: flex !important;
-
-    width: 96% !important;
-
-    max-width: 96% !important;
-
-    min-width: 0 !important;
-
-    gap: 8px !important;
-
-    padding: 7px 10px !important;
-
-    margin: 6px auto !important;
-
-    overflow: visible !important;
-
-  }
-
-
-  .find-label {
-
-    flex-shrink: 0 !important;
-
-    font-size: 1.3rem !important;
-
-    white-space: nowrap !important;
-
-  }
-
-
-  #targetLetter {
-
-    display: flex !important;
-
-    flex: 1 1 auto !important;
-
-    width: auto !important;
-
-    min-width: 0 !important;
-
-    max-width: none !important;
-
-    height: auto !important;
-
-    overflow: visible !important;
-
-    justify-content: center !important;
-
-    align-items: center !important;
-
-    gap: 5px !important;
-
-    margin: 0 !important;
-
-    padding: 2px 0 !important;
-
-    font-size: 2.6rem !important;
-
-    line-height: 1 !important;
-
-    white-space: nowrap !important;
-
-    color: white !important;
-
-    text-shadow: none !important;
-
-    animation: none !important;
-
-  }
-
-
-  #targetLetter .word-letter {
-
-    display: inline-block !important;
-
-    min-width: 0 !important;
-
-    width: auto !important;
-
-    flex: 0 0 auto !important;
-
-    opacity: 0.7 !important;
-
-    color: white !important;
-
-    transform: scale(1) !important;
-
-    white-space: nowrap !important;
-
-  }
-
-
-  #targetLetter .word-letter.current {
-
-    color: #fff700 !important;
-
-    opacity: 1 !important;
-
-    transform: scale(1.25) !important;
-
-    text-shadow:
-      0 0 8px white,
-      0 0 18px #ffe600,
-      0 0 35px #ff8c00 !important;
-
-    animation:
-      currentLetterGlow 0.8s infinite alternate !important;
-
-  }
-
-
-  #targetLetter .word-letter.completed {
-
-    color: #75ff45 !important;
-
-    opacity: 1 !important;
-
-    transform: scale(1) !important;
-
-    text-shadow:
-      0 0 8px #75ff45,
-      0 0 18px #25ff00 !important;
-
-  }
-
-}
-
-
-/* ============================================================
-   📱 VERY SMALL PHONES
-   ============================================================ */
-
-@media (max-width: 400px) {
-
-  .find-area {
-
-    width: 98% !important;
-
-    max-width: 98% !important;
-
-    gap: 5px !important;
-
-    padding: 6px 7px !important;
-
-  }
-
-
-  .find-label {
-
-    font-size: 1.05rem !important;
-
-  }
-
-
-  #targetLetter {
-
-    font-size: 2.15rem !important;
-
-    gap: 3px !important;
-
-    min-width: 0 !important;
-
-  }
-
-
-  #targetLetter .word-letter {
-
-    min-width: 0 !important;
-
-  }
-
-
-  #targetLetter .word-letter.current {
-
-    transform: scale(1.2) !important;
-
-  }
-
 }
