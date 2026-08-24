@@ -1,14 +1,5 @@
-/* ============================================================
-   🦖 DINO'S LETTER LUNCH
-   FULL SCREEN VERSION
-   ============================================================ */
-
 * {
   box-sizing: border-box;
-}
-
-body {
-  background: red !important;
 }
 
 html,
@@ -16,26 +7,24 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
   font-family: Arial, sans-serif;
-
   color: white;
+  overflow-x: hidden;
 
   background:
     linear-gradient(
-      rgba(0, 50, 15, 0.15),
-      rgba(0, 20, 5, 0.3)
+      rgba(0, 60, 15, 0.2),
+      rgba(0, 20, 5, 0.35)
     ),
     linear-gradient(
       #16843b,
       #075a24 50%,
       #022b0d
     );
-
-  overflow-x: hidden;
 }
 
 
@@ -48,7 +37,7 @@ body {
   min-height: 100vh;
 
   margin: 0;
-  padding: 8px;
+  padding: 10px;
 
   text-align: center;
 }
@@ -59,13 +48,9 @@ body {
    ============================================================ */
 
 h1 {
-  margin: 0 0 8px;
+  margin: 5px 0 10px;
 
-  font-size: clamp(
-    2.2rem,
-    5vw,
-    5rem
-  );
+  font-size: clamp(2.5rem, 5vw, 5rem);
 
   line-height: 1;
 
@@ -85,43 +70,28 @@ h1 {
 .mission {
   width: 100%;
 
-  margin: 0 0 8px;
+  margin-bottom: 10px;
+  padding: 10px;
 
-  padding: 8px;
+  background: rgba(0, 35, 5, 0.85);
 
-  background: rgba(0, 35, 5, 0.8);
-
-  border: 3px solid #75ff45;
-
-  border-radius: 15px;
+  border: 4px solid #75ff45;
+  border-radius: 18px;
 }
 
 .mission h2 {
-  margin: 0 0 3px;
+  margin: 0 0 5px;
 
-  font-size: clamp(
-    1.2rem,
-    2.5vw,
-    2rem
-  );
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
 
   color: #ffe600;
 }
 
 .mission p {
-  margin: 3px 0;
+  margin: 5px;
 
-  font-size: clamp(
-    0.9rem,
-    1.5vw,
-    1.3rem
-  );
+  font-size: clamp(1rem, 2vw, 1.3rem);
 }
-
-
-/* ============================================================
-   TARGET LETTER
-   ============================================================ */
 
 .target {
   display: none;
@@ -129,7 +99,7 @@ h1 {
 
 
 /* ============================================================
-   🌴 GIANT GAME AREA
+   GIANT GAME AREA
    ============================================================ */
 
 #gameArea {
@@ -137,37 +107,27 @@ h1 {
 
   width: 100%;
 
-  /*
-     This is the important part.
-     The game itself gets most of the screen.
-  */
+  height: calc(100vh - 230px);
 
-  height: calc(100vh - 225px);
-
-  min-height: 550px;
-
-  margin: 0;
+  min-height: 600px;
 
   overflow: hidden;
 
   border: 6px solid #7cff50;
-
   border-radius: 25px;
 
   background:
-
     radial-gradient(
       circle at 50% 15%,
-      rgba(255, 230, 100, 0.35),
+      rgba(255, 230, 100, 0.3),
       transparent 25%
     ),
-
     linear-gradient(
       to bottom,
-      #168c3d 0%,
-      #08702b 35%,
-      #075322 65%,
-      #033014 100%
+      #168c3d,
+      #08702b 40%,
+      #075322 70%,
+      #033014
     );
 
   box-shadow:
@@ -188,11 +148,7 @@ h1 {
 
   width: 100%;
 
-  font-size: clamp(
-    3rem,
-    7vw,
-    7rem
-  );
+  font-size: clamp(4rem, 8vw, 9rem);
 
   line-height: 1;
 
@@ -205,26 +161,19 @@ h1 {
 
 
 /* ============================================================
-   🦖 GIANT DINOSAUR
+   🦖 DINOSAUR
    ============================================================ */
 
 #dinosaur {
-
   position: absolute;
 
-  /*
-     IMPORTANT:
-     Dinosaur starts in the middle.
-  */
-
   left: 50%;
-  top: 58%;
+  top: 60%;
 
-  width: 300px;
-  height: 300px;
+  width: 520px;
+  height: 520px;
 
-  transform:
-    translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
   z-index: 30;
 
@@ -234,25 +183,24 @@ h1 {
 }
 
 
-/* HUGE DINO */
-
 #dinoBody {
+  display: block;
 
-  font-size: 250px;
+  width: 100%;
+  height: 100%;
+
+  font-size: 440px;
 
   line-height: 1;
 
   filter:
     drop-shadow(
-      0 12px 8px rgba(0,0,0,0.6)
+      0 18px 12px rgba(0,0,0,0.65)
     );
 
-  animation:
-    dinoBounce 1.5s infinite alternate;
+  animation: dinoBounce 1.5s infinite alternate;
 }
 
-
-/* Dino idle */
 
 @keyframes dinoBounce {
 
@@ -267,16 +215,13 @@ h1 {
       translateY(-18px)
       rotate(2deg);
   }
-
 }
 
 
-/* Dino walking */
+/* WALK */
 
 #dinosaur.walking #dinoBody {
-
-  animation:
-    dinoWalk 0.18s infinite alternate;
+  animation: dinoWalk 0.18s infinite alternate;
 }
 
 @keyframes dinoWalk {
@@ -292,53 +237,40 @@ h1 {
       translateY(-20px)
       rotate(7deg);
   }
-
 }
 
 
-/* Dino eating */
+/* EAT */
 
 #dinosaur.eating #dinoBody {
-
-  animation:
-    dinoEat 0.12s infinite alternate;
+  animation: dinoEat 0.12s infinite alternate;
 }
 
 @keyframes dinoEat {
 
   from {
-    transform:
-      scale(1)
-      rotate(-4deg);
+    transform: scale(1) rotate(-4deg);
   }
 
   to {
-    transform:
-      scale(1.18)
-      rotate(4deg);
+    transform: scale(1.2) rotate(4deg);
   }
-
 }
 
 
 /* ============================================================
-   💬 DINO SPEECH
+   DINO SPEECH
    ============================================================ */
 
 #dinoSpeech {
-
   position: absolute;
 
-  top: -65px;
-
+  top: -90px;
   left: 50%;
 
-  transform:
-    translateX(-50%);
+  transform: translateX(-50%);
 
-  padding: 10px 20px;
-
-  min-width: 130px;
+  padding: 14px 28px;
 
   background: white;
 
@@ -346,27 +278,26 @@ h1 {
 
   border: 4px solid #173500;
 
-  border-radius: 20px;
+  border-radius: 22px;
 
-  font-size: 1.7rem;
+  font-size: 2.2rem;
 
   font-weight: 900;
 
   white-space: nowrap;
 
   box-shadow:
-    0 5px 15px rgba(0,0,0,0.5);
+    0 6px 18px rgba(0,0,0,0.5);
 
-  z-index: 40;
+  z-index: 50;
 }
 
 
 /* ============================================================
-   🍔 FOOD AREA
+   FOOD AREA
    ============================================================ */
 
 #foodArea {
-
   position: absolute;
 
   inset: 0;
@@ -378,20 +309,19 @@ h1 {
 
 
 /* ============================================================
-   🍔 GIANT BURGERS
+   🍔 BURGERS
    ============================================================ */
 
 .burger {
-
   position: absolute;
 
-  width: 170px;
-  height: 170px;
+  width: 190px;
+  height: 190px;
 
   display: flex;
 
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   pointer-events: auto;
 
@@ -404,47 +334,39 @@ h1 {
 }
 
 
-/* Burger emoji */
-
 .burger::before {
-
   content: "🍔";
 
   position: absolute;
 
-  font-size: 125px;
+  font-size: 145px;
 
   filter:
     drop-shadow(
-      0 8px 7px rgba(0,0,0,0.5)
+      0 10px 8px rgba(0,0,0,0.55)
     );
 }
 
 
-/* ============================================================
-   LETTER
-   ============================================================ */
-
 .burger-letter {
-
   position: relative;
 
-  z-index: 2;
+  z-index: 5;
+
+  width: 85px;
+  height: 85px;
 
   display: flex;
 
-  justify-content: center;
   align-items: center;
-
-  width: 75px;
-  height: 75px;
+  justify-content: center;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      #ffffff,
+      white,
       #fff59a 50%,
       #ffd000
     );
@@ -453,14 +375,14 @@ h1 {
 
   color: #173500;
 
-  font-size: 3.2rem;
+  font-size: 3.5rem;
 
   font-weight: 900;
 
   box-shadow:
-    0 0 10px white,
-    0 0 25px #ffe600,
-    0 0 40px #ff9900;
+    0 0 12px white,
+    0 0 30px #ffe600,
+    0 0 50px #ff9900;
 
   animation:
     letterGlow 1s infinite alternate;
@@ -476,28 +398,22 @@ h1 {
   to {
     transform: scale(1.12);
   }
-
 }
 
 
-/* Burger hover */
-
 .burger:hover {
-
   transform:
-    scale(1.2)
+    scale(1.15)
     rotate(-5deg);
 }
 
 
 /* ============================================================
-   EAT ANIMATION
+   EAT
    ============================================================ */
 
 .burger.eaten {
-
-  animation:
-    burgerEat 0.5s forwards;
+  animation: burgerEat 0.5s forwards;
 }
 
 @keyframes burgerEat {
@@ -518,18 +434,15 @@ h1 {
 
     opacity: 0;
   }
-
 }
 
 
 /* ============================================================
-   💥 EXPLOSION
+   BOOM
    ============================================================ */
 
 .burger.explode {
-
-  animation:
-    burgerExplode 0.5s forwards;
+  animation: burgerExplode 0.5s forwards;
 }
 
 @keyframes burgerExplode {
@@ -549,16 +462,10 @@ h1 {
 
     opacity: 0;
   }
-
 }
 
 
-/* ============================================================
-   BOOM EFFECT
-   ============================================================ */
-
 #effect {
-
   position: absolute;
 
   left: 50%;
@@ -579,15 +486,12 @@ h1 {
 
 
 #effect.show-boom {
-
-  animation:
-    boom 0.8s forwards;
+  animation: boom 0.8s forwards;
 }
 
 @keyframes boom {
 
   0% {
-
     opacity: 0;
 
     transform:
@@ -596,7 +500,6 @@ h1 {
   }
 
   30% {
-
     opacity: 1;
 
     transform:
@@ -605,14 +508,12 @@ h1 {
   }
 
   100% {
-
     opacity: 0;
 
     transform:
       translate(-50%, -50%)
       scale(2);
   }
-
 }
 
 
@@ -621,25 +522,23 @@ h1 {
    ============================================================ */
 
 .game-info {
-
   display: flex;
 
   justify-content: center;
 
-  gap: 60px;
+  gap: 70px;
 
-  padding: 6px;
+  padding: 8px;
 
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 
   font-weight: bold;
 }
 
 .game-info span {
-
   color: #ffe600;
 
-  font-size: 1.8rem;
+  font-size: 2rem;
 
   text-shadow:
     0 0 8px #ff9900;
@@ -651,34 +550,28 @@ h1 {
    ============================================================ */
 
 .keyboard {
-
-  margin: 4px 0;
+  margin: 5px 0;
 }
 
 .keyboard p {
+  margin: 3px;
 
-  margin: 2px;
-
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
-
 #keyboardLetters {
-
   display: flex;
 
   justify-content: center;
 
   flex-wrap: wrap;
 
-  gap: 5px;
+  gap: 6px;
 }
 
-
 .key {
-
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
 
   border: 2px solid #9cff5a;
 
@@ -695,21 +588,13 @@ h1 {
   cursor: pointer;
 }
 
-.key:hover {
-
-  transform: scale(1.15);
-
-  background: #3a811d;
-}
-
 
 /* ============================================================
    BUTTONS
    ============================================================ */
 
 #restartButton {
-
-  padding: 10px 25px;
+  padding: 12px 28px;
 
   border: 3px solid #ffe600;
 
@@ -719,7 +604,7 @@ h1 {
 
   color: white;
 
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 
   font-weight: bold;
 
@@ -728,12 +613,11 @@ h1 {
 
 
 .backButton {
-
   display: inline-block;
 
-  margin: 5px;
+  margin: 8px;
 
-  padding: 9px 18px;
+  padding: 10px 20px;
 
   border: 2px solid #ff69b4;
 
@@ -756,157 +640,120 @@ h1 {
 @media (max-width: 650px) {
 
   .game {
-
     padding: 5px;
   }
 
   h1 {
-
-    font-size: 2rem;
-
-    margin: 3px 0 5px;
+    font-size: 2.2rem;
   }
 
   .mission {
-
-    padding: 5px;
-
-    margin-bottom: 5px;
+    padding: 6px;
   }
 
   .mission h2 {
-
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .mission p {
-
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   #gameArea {
+    height: calc(100vh - 190px);
 
-    height: calc(100vh - 185px);
-
-    min-height: 430px;
+    min-height: 500px;
 
     border-width: 4px;
-
-    border-radius: 18px;
   }
 
-  /* Smaller but still BIG dinosaur */
+  /* BIG mobile dinosaur */
 
   #dinosaur {
+    width: 300px;
+    height: 300px;
 
-    width: 190px;
-    height: 190px;
+    left: 50%;
+    top: 60%;
   }
 
   #dinoBody {
-
-    font-size: 160px;
+    font-size: 250px;
   }
 
   #dinoSpeech {
+    top: -65px;
 
-    top: -45px;
+    font-size: 1.5rem;
 
-    font-size: 1.2rem;
-
-    padding: 7px 12px;
+    padding: 9px 15px;
   }
 
-  /* Burgers */
+  /* BIG mobile burgers */
 
   .burger {
-
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    height: 130px;
   }
 
   .burger::before {
-
-    font-size: 85px;
+    font-size: 100px;
   }
 
   .burger-letter {
+    width: 60px;
+    height: 60px;
 
-    width: 52px;
-    height: 52px;
-
-    font-size: 2.2rem;
-
-    border-width: 3px;
+    font-size: 2.4rem;
   }
 
   .game-info {
-
     gap: 25px;
 
     font-size: 1rem;
   }
 
   .game-info span {
-
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .key {
+    width: 34px;
+    height: 34px;
 
-    width: 32px;
-    height: 32px;
-
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
-
 }
 
 
 /* ============================================================
-   📱 VERY SMALL PHONES
+   VERY SMALL PHONES
    ============================================================ */
 
 @media (max-width: 400px) {
 
-  h1 {
-
-    font-size: 1.7rem;
-  }
-
-  #gameArea {
-
-    min-height: 390px;
-  }
-
   #dinosaur {
-
-    width: 160px;
-    height: 160px;
+    width: 250px;
+    height: 250px;
   }
 
   #dinoBody {
-
-    font-size: 135px;
+    font-size: 210px;
   }
 
   .burger {
-
-    width: 90px;
-    height: 90px;
+    width: 115px;
+    height: 115px;
   }
 
   .burger::before {
-
-    font-size: 70px;
+    font-size: 90px;
   }
 
   .burger-letter {
+    width: 55px;
+    height: 55px;
 
-    width: 45px;
-    height: 45px;
-
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
-
 }
