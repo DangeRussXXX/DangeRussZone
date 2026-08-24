@@ -1,8 +1,7 @@
 /* ============================================================
    🦖 DINO'S LETTER LUNCH
-   FULL WORKING GAME SCRIPT
-   WORD ALWAYS VISIBLE
-   DINO MOVES TO EMPTY CORNER AFTER EATING
+   FULL GAME SCRIPT
+   DINO ALWAYS RETURNS TO LOWER-RIGHT CORNER
    ============================================================ */
 
 
@@ -74,184 +73,16 @@ const words = [
 
 
 /* ============================================================
-   🦖 DINO CORNER POSITIONS
+   🦖 DINO HOME POSITION
    ============================================================
 
-   These are positions inside #gameArea.
+   Dino ALWAYS returns here.
 
-   The dinosaur will:
-   1. Start in one corner.
-   2. Walk to the correct burger.
-   3. Eat it.
-   4. Walk to an EMPTY corner.
-   5. Stay there while the next letters appear.
-
-   This prevents the dinosaur from sitting on top
-   of the new burgers.
+   This is the lower-right corner.
    ============================================================ */
 
-const dinoCorners = [
-
-  {
-    left: "12%",
-    top: "15%"
-  },
-
-  {
-    left: "88%",
-    top: "15%"
-  },
-
-  {
-    left: "12%",
-    top: "85%"
-  },
-
-  {
-    left: "88%",
-    top: "85%"
-  }
-
-];
-
-
-/*
-   Remember which corner the dinosaur is currently using.
-*/
-
-let currentDinoCorner = 0;
-
-
-/* ============================================================
-   🦖 CHOOSE AN EMPTY CORNER
-   ============================================================ */
-
-function chooseEmptyDinoCorner() {
-
-  /*
-     Find corners that are NOT the current corner.
-  */
-
-  const availableCorners =
-    dinoCorners.filter(
-      function(corner, index) {
-
-        return index !== currentDinoCorner;
-
-      }
-    );
-
-
-  /*
-     Pick one of the available corners.
-  */
-
-  const selected =
-    availableCorners[
-      Math.floor(
-        Math.random() *
-        availableCorners.length
-      )
-    ];
-
-
-  /*
-     Remember its index.
-  */
-
-  currentDinoCorner =
-    dinoCorners.indexOf(selected);
-
-
-  return selected;
-
-}
-
-
-/* ============================================================
-   🦖 MOVE DINO TO A CORNER
-   ============================================================ */
-
-function moveDinosaurToCorner(
-  finished
-) {
-
-  if (
-    !dinosaur ||
-    !gameArea
-  ) {
-
-    if (
-      typeof finished ===
-      "function"
-    ) {
-
-      finished();
-
-    }
-
-    return;
-
-  }
-
-
-  const corner =
-    chooseEmptyDinoCorner();
-
-
-  dinosaur.classList.remove(
-    "eating"
-  );
-
-
-  dinosaur.classList.add(
-    "walking"
-  );
-
-
-  /*
-     Force browser to recognize
-     the current position first.
-  */
-
-  void dinosaur.offsetWidth;
-
-
-  dinosaur.style.left =
-    corner.left;
-
-
-  dinosaur.style.top =
-    corner.top;
-
-
-  /*
-     Wait for the dinosaur
-     to finish walking.
-  */
-
-  setTimeout(
-    function() {
-
-      dinosaur.classList.remove(
-        "walking"
-      );
-
-
-      if (
-        typeof finished ===
-        "function"
-      ) {
-
-        finished();
-
-      }
-
-    },
-    1050
-  );
-
-}
+const DINO_HOME_LEFT = "88%";
+const DINO_HOME_TOP = "85%";
 
 
 /* ============================================================
@@ -266,8 +97,7 @@ function startGame() {
   currentWord =
     words[
       Math.floor(
-        Math.random() *
-        words.length
+        Math.random() * words.length
       )
     ];
 
@@ -276,29 +106,20 @@ function startGame() {
   busy = false;
 
 
-  /*
-     Start dinosaur in the
-     FIRST EMPTY CORNER.
-  */
-
-  currentDinoCorner = 0;
-
-
   if (scoreDisplay) {
-
-    scoreDisplay.textContent =
-      score;
-
+    scoreDisplay.textContent = score;
   }
 
 
   if (fedDisplay) {
-
-    fedDisplay.textContent =
-      fed;
-
+    fedDisplay.textContent = fed;
   }
 
+
+  /*
+     ALWAYS put Dino in the
+     lower-right corner.
+  */
 
   if (dinosaur) {
 
@@ -307,20 +128,33 @@ function startGame() {
       "eating"
     );
 
+    dinosaur.style.transition = "none";
 
     dinosaur.style.left =
-      dinoCorners[0].left;
-
+      DINO_HOME_LEFT;
 
     dinosaur.style.top =
-      dinoCorners[0].top;
+      DINO_HOME_TOP;
+
+    /*
+       Force the browser to apply
+       the starting position.
+    */
+
+    void dinosaur.offsetWidth;
+
+    /*
+       Turn movement transition
+       back on.
+    */
+
+    dinosaur.style.transition =
+      "left 1s ease-in-out, top 1s ease-in-out";
 
   }
 
 
-  dinosaurSpeech(
-    "🍔?"
-  );
+  dinosaurSpeech("🍔?");
 
 
   createKeyboard();
@@ -383,19 +217,18 @@ function showNextLetter() {
 
 
   /*
-     Build the complete word.
+     BUILD WORD
 
      Example:
 
      D I N O
 
-     Completed letters = green
-     Current letter = yellow
-     Future letters = white
+     Completed = green
+     Current = yellow
+     Future = white
   */
 
-  targetLetter.innerHTML =
-    "";
+  targetLetter.innerHTML = "";
 
 
   currentWord
@@ -417,13 +250,8 @@ function showNextLetter() {
           letter;
 
 
-        /*
-           COMPLETED
-        */
-
         if (
-          index <
-          currentIndex
+          index < currentIndex
         ) {
 
           span.classList.add(
@@ -432,14 +260,8 @@ function showNextLetter() {
 
         }
 
-
-        /*
-           CURRENT
-        */
-
         else if (
-          index ===
-          currentIndex
+          index === currentIndex
         ) {
 
           span.classList.add(
@@ -447,11 +269,6 @@ function showNextLetter() {
           );
 
         }
-
-
-        /*
-           FUTURE
-        */
 
         else {
 
@@ -465,7 +282,6 @@ function showNextLetter() {
         span.style.display =
           "inline-block";
 
-
         span.style.visibility =
           "visible";
 
@@ -478,12 +294,11 @@ function showNextLetter() {
     );
 
 
-  message.textContent =
-    "";
+  message.textContent = "";
 
 
   /*
-     Create the three burgers.
+     Create burgers.
   */
 
   createBurgers(
@@ -499,8 +314,7 @@ function showNextLetter() {
 
 function showWordComplete() {
 
-  targetLetter.innerHTML =
-    "";
+  targetLetter.innerHTML = "";
 
 
   currentWord
@@ -524,7 +338,6 @@ function showWordComplete() {
 
         span.style.display =
           "inline-block";
-
 
         span.style.visibility =
           "visible";
@@ -550,7 +363,7 @@ function showWordComplete() {
 
 
 /* ============================================================
-   🍔 CREATE 3 BURGERS
+   🍔 CREATE EXACTLY 3 BURGERS
    ============================================================ */
 
 function createBurgers(
@@ -577,8 +390,7 @@ function createBurgers(
       String.fromCharCode(
         65 +
         Math.floor(
-          Math.random() *
-          26
+          Math.random() * 26
         )
       );
 
@@ -595,7 +407,7 @@ function createBurgers(
 
 
   /*
-     Shuffle choices.
+     Shuffle.
   */
 
   choices.sort(
@@ -608,10 +420,9 @@ function createBurgers(
 
 
   /*
-     Burger positions.
+     BURGER POSITIONS
 
-     These intentionally leave the
-     four corners available for Dino.
+     These stay exactly the same.
   */
 
   const positions = [
@@ -687,8 +498,8 @@ function createBurgers(
 
 
       /*
-         IMPORTANT:
-         Burgers go directly inside gameArea.
+         Put burger directly
+         into gameArea.
       */
 
       gameArea.appendChild(
@@ -775,18 +586,14 @@ function correctAnswer(
 
 
   if (scoreDisplay) {
-
     scoreDisplay.textContent =
       score;
-
   }
 
 
   if (fedDisplay) {
-
     fedDisplay.textContent =
       fed;
-
   }
 
 
@@ -796,8 +603,7 @@ function correctAnswer(
 
 
   /*
-     FIRST:
-     Dino walks to the burger.
+     Dino goes TO the selected burger.
   */
 
   moveDinosaurTo(
@@ -820,7 +626,7 @@ function correctAnswer(
 
 
       /*
-         Eat burger.
+         Eat the burger.
       */
 
       burger.classList.add(
@@ -834,8 +640,7 @@ function correctAnswer(
 
 
       /*
-         Give the eating animation
-         time to play.
+         Let eating animation play.
       */
 
       setTimeout(
@@ -847,25 +652,20 @@ function correctAnswer(
 
 
           /*
-             Move Dino to an EMPTY
-             corner BEFORE showing
-             the next burger choices.
+             NOW return Dino home.
           */
 
-          moveDinosaurToCorner(
+          moveDinosaurHome(
             function() {
 
               /*
-                 Now advance the word.
+                 Only AFTER Dino reaches
+                 lower-right do we show
+                 the next letter.
               */
 
               currentIndex++;
 
-
-              /*
-                 Show next letter
-                 and create new burgers.
-              */
 
               showNextLetter();
 
@@ -896,7 +696,7 @@ function wrongAnswer(
 
 
   /*
-     Dino walks to wrong burger.
+     Dino goes TO the wrong burger.
   */
 
   moveDinosaurTo(
@@ -932,6 +732,10 @@ function wrongAnswer(
       );
 
 
+      /*
+         Wait for explosion.
+      */
+
       setTimeout(
         function() {
 
@@ -941,16 +745,16 @@ function wrongAnswer(
 
 
           /*
-             Move Dino away from
-             the burger after the
-             wrong answer too.
-
-             This keeps the game
-             visually clean.
+             Return Dino to
+             lower-right corner.
           */
 
-          moveDinosaurToCorner(
+          moveDinosaurHome(
             function() {
+
+              /*
+                 Same letter remains.
+              */
 
               busy = false;
 
@@ -958,7 +762,7 @@ function wrongAnswer(
           );
 
         },
-        700
+        650
       );
 
     }
@@ -968,7 +772,7 @@ function wrongAnswer(
 
 
 /* ============================================================
-   🦖 MOVE DINOSAUR TO BURGER
+   🦖 MOVE DINO TO BURGER
    ============================================================ */
 
 function moveDinosaurTo(
@@ -1005,8 +809,8 @@ function moveDinosaurTo(
 
 
   /*
-     Burger center relative
-     to gameArea.
+     Calculate burger center
+     relative to gameArea.
   */
 
   const x =
@@ -1032,12 +836,15 @@ function moveDinosaurTo(
 
 
   /*
-     Force browser to recognize
-     current position.
+     Force current position.
   */
 
   void dinosaur.offsetWidth;
 
+
+  /*
+     Move to burger.
+  */
 
   dinosaur.style.left =
     x + "px";
@@ -1048,7 +855,89 @@ function moveDinosaurTo(
 
 
   /*
-     Wait for movement.
+     Wait for walking animation.
+  */
+
+  setTimeout(
+    function() {
+
+      dinosaur.classList.remove(
+        "walking"
+      );
+
+
+      if (
+        typeof finished ===
+        "function"
+      ) {
+
+        finished();
+
+      }
+
+    },
+    1050
+  );
+
+}
+
+
+/* ============================================================
+   🏠 MOVE DINO HOME
+   ============================================================ */
+
+function moveDinosaurHome(
+  finished
+) {
+
+  if (!dinosaur) {
+
+    if (
+      typeof finished ===
+      "function"
+    ) {
+
+      finished();
+
+    }
+
+    return;
+
+  }
+
+
+  dinosaur.classList.remove(
+    "eating"
+  );
+
+
+  dinosaur.classList.add(
+    "walking"
+  );
+
+
+  /*
+     Force browser to recognize
+     current location before moving.
+  */
+
+  void dinosaur.offsetWidth;
+
+
+  /*
+     ALWAYS go to lower-right.
+  */
+
+  dinosaur.style.left =
+    DINO_HOME_LEFT;
+
+
+  dinosaur.style.top =
+    DINO_HOME_TOP;
+
+
+  /*
+     Wait until Dino gets home.
   */
 
   setTimeout(
@@ -1252,9 +1141,8 @@ function keyboardSelect(
 
 
   /*
-     If the letter is one of
-     the visible burgers,
-     select it.
+     If letter is one of the
+     visible burgers, select it.
   */
 
   if (burger) {
@@ -1269,7 +1157,8 @@ function keyboardSelect(
 
 
   /*
-     Letter isn't visible.
+     Letter isn't one of
+     the visible burgers.
   */
 
   dinosaurSpeech(
