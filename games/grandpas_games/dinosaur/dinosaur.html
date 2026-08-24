@@ -12,47 +12,43 @@
 
   <title>🦖 Dino's Letter Lunch</title>
 
-  <link rel="stylesheet" href="dinosaur.css">
+  <link
+    rel="stylesheet"
+    href="dinosaur.css"
+  >
 
 </head>
+
 
 <body>
 
 <main class="game">
-
-  <!-- TITLE -->
 
   <h1>
     🦖 Dino's Letter Lunch 🍔
   </h1>
 
 
-  <!-- FULL SCREEN JUNGLE -->
+  <section id="gameArea">
 
-  <section
-    id="gameArea"
-    aria-label="Dinosaur Letter Game"
-  >
 
     <!-- JUNGLE -->
 
     <div id="jungleDecor">
-      🌴 🌿 🌴 🌿 🌴
+      🌴 🌿 🌴 🌿 🌴 🌿 🌴
     </div>
 
 
-    <!-- TARGET LETTER ABOVE DINO -->
+    <!-- TARGET LETTER -->
 
     <div id="dinoTarget">
 
-      <div class="target-glow">
-
-        <span id="targetLetter">A</span>
-
+      <div id="targetLetter">
+        A
       </div>
 
-      <div class="target-arrow">
-        👇
+      <div class="targetArrow">
+        ▼
       </div>
 
     </div>
@@ -73,12 +69,12 @@
     </div>
 
 
-    <!-- HAMBURGERS -->
+    <!-- BURGERS -->
 
     <div id="foodArea"></div>
 
 
-    <!-- EFFECTS -->
+    <!-- EFFECT -->
 
     <div id="effect"></div>
 
@@ -90,29 +86,25 @@
 
   <!-- SCORE -->
 
-  <section class="game-info">
+  <div class="game-info">
 
-    <div>
-      ⭐ <span id="score">0</span>
-    </div>
+    ⭐ <span id="score">0</span>
 
-    <div>
-      🍔 <span id="fed">0</span>
-    </div>
+    &nbsp;&nbsp;
 
-  </section>
+    🍔 <span id="fed">0</span>
+
+  </div>
 
 
   <!-- KEYBOARD -->
 
-  <section class="keyboard">
+  <div class="keyboard">
 
     <div id="keyboardLetters"></div>
 
-  </section>
+  </div>
 
-
-  <!-- RESTART -->
 
   <button
     id="restartButton"

@@ -2,9 +2,6 @@
    🦖 DINO'S LETTER LUNCH
    ============================================================ */
 
-const gameArea =
-  document.getElementById("gameArea");
-
 const dinosaur =
   document.getElementById("dinosaur");
 
@@ -29,16 +26,19 @@ const scoreDisplay =
 const fedDisplay =
   document.getElementById("fed");
 
-const restartButton =
-  document.getElementById("restartButton");
-
 const dinoSpeech =
   document.getElementById("dinoSpeech");
 
+const restartButton =
+  document.getElementById("restartButton");
+
 
 /* ============================================================
-   GAME VARIABLES
+   GAME
    ============================================================ */
+
+const letters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 let currentLetter = "A";
 
@@ -50,168 +50,189 @@ let busy = false;
 
 
 /* ============================================================
-   LETTERS
+   TARGET
    ============================================================ */
 
-const alphabet =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+function newRound() {
 
-
-/* ============================================================
-   RANDOM LETTER
-   ============================================================ */
-
-function randomLetter() {
-
-  return alphabet[
-    Math.floor(
-      Math.random() * alphabet.length
-    )
-  ];
-
-}
-
-
-/* ============================================================
-   FIND TARGET
-   ============================================================ */
-
-function newTarget() {
-
-  currentLetter = randomLetter();
+  currentLetter =
+    letters[
+      Math.floor(
+        Math.random() *
+        letters.length
+      )
+    ];
 
   targetLetter.textContent =
     currentLetter;
 
-  createFood();
+  /* Put Dino back in middle */
+
+  dinosaur.style.left =
+    "50%";
+
+  dinoTarget.style.left =
+    "50%";
+
+  dinoSpeech.textContent =
+    "🍔?";
+
+  createBurgers();
 
 }
 
 
 /* ============================================================
-   CREATE HAMBURGERS
+   BURGERS
    ============================================================ */
 
-function createFood() {
+function createBurgers() {
 
   foodArea.innerHTML = "";
 
-  const correctPosition =
-    Math.floor(Math.random() * 5);
-
-  for (let i = 0; i < 5; i++) {
-
-    let letter;
-
-    if (i === correctPosition) {
-
-      letter = currentLetter;
-
-    } else {
-
-      letter = randomLetter();
-
-      while (
-        letter === currentLetter
-      ) {
-
-        letter = randomLetter();
-
-      }
-
-    }
-
-    createBurger(
-      letter,
-      i
-    );
-
-  }
-
-}
-
-
-/* ============================================================
-   CREATE ONE BURGER
-   ============================================================ */
-
-function createBurger(
-  letter,
-  index
-) {
-
-  const burger =
-    document.createElement("button");
-
-  burger.className =
-    "letter-food";
-
-  burger.dataset.letter =
-    letter;
-
-  burger.innerHTML = `
-    <span class="burger">🍔</span>
-    <span class="food-letter">
-      ${letter}
-    </span>
-  `;
-
-
-  /* Random position */
-
   const positions = [
 
-    [12, 35],
+    {
+      left: "10%",
+      top: "35%"
+    },
 
-    [32, 25],
+    {
+      left: "30%",
+      top: "25%"
+    },
 
-    [55, 40],
+    {
+      left: "52%",
+      top: "38%"
+    },
 
-    [75, 28],
+    {
+      left: "73%",
+      top: "27%"
+    },
 
-    [85, 55]
+    {
+      left: "82%",
+      top: "50%"
+    }
 
   ];
 
 
-  const position =
-    positions[index];
+  const correctSpot =
+    Math.floor(
+      Math.random() * positions.length
+    );
 
 
-  burger.style.left =
-    position[0] + "%";
+  positions.forEach(
+    function(position, index) {
 
-  burger.style.top =
-    position[1] + "%";
+      let letter;
 
 
-  burger.addEventListener(
-    "click",
-    function () {
+      if (
+        index === correctSpot
+      ) {
 
-      chooseLetter(
-        letter,
+        letter =
+          currentLetter;
+
+      } else {
+
+        letter =
+          randomWrongLetter();
+
+      }
+
+
+      const burger =
+        document.createElement(
+          "button"
+        );
+
+
+      burger.className =
+        "letter-food";
+
+
+      burger.dataset.letter =
+        letter;
+
+
+      burger.style.left =
+        position.left;
+
+
+      burger.style.top =
+        position.top;
+
+
+      burger.innerHTML = `
+        <span class="burger">🍔</span>
+        <span class="food-letter">${letter}</span>
+      `;
+
+
+      burger.addEventListener(
+        "click",
+        function() {
+
+          selectBurger(
+            burger,
+            letter
+          );
+
+        }
+      );
+
+
+      foodArea.appendChild(
         burger
       );
 
     }
   );
 
+}
 
-  foodArea.appendChild(
-    burger
+
+/* ============================================================
+   WRONG LETTER
+   ============================================================ */
+
+function randomWrongLetter() {
+
+  let letter;
+
+  do {
+
+    letter =
+      letters[
+        Math.floor(
+          Math.random() *
+          letters.length
+        )
+      ];
+
+  }
+  while (
+    letter === currentLetter
   );
+
+  return letter;
 
 }
 
 
 /* ============================================================
-   SELECT LETTER
+   CLICK BURGER
    ============================================================ */
 
-function chooseLetter(
-  letter,
-  burger
+function selectBurger(
+  burger,
+  letter
 ) {
 
   if (busy) return;
@@ -219,44 +240,74 @@ function chooseLetter(
   busy = true;
 
 
-  /* Move Dino toward burger */
+  /*
+    Find where burger actually is.
+  */
 
   const burgerRect =
     burger.getBoundingClientRect();
 
-  const areaRect =
-    gameArea.getBoundingClientRect();
+  const gameRect =
+    document
+      .getElementById("gameArea")
+      .getBoundingClientRect();
 
 
-  const burgerX =
+  const burgerCenter =
     burgerRect.left +
     burgerRect.width / 2;
 
 
-  const percent =
+  const percentage =
     (
-      (burgerX - areaRect.left)
+      (burgerCenter -
+        gameRect.left)
       /
-      areaRect.width
+      gameRect.width
     ) * 100;
 
 
+  /*
+    Keep Dino on screen.
+  */
+
+  const safePercentage =
+    Math.max(
+      10,
+      Math.min(
+        90,
+        percentage
+      )
+    );
+
+
+  /*
+    WALK DINO
+  */
+
   dinosaur.style.left =
-    percent + "%";
+    safePercentage + "%";
 
 
-  /* Move target letter too */
+  /*
+    Move glowing letter
+    with Dino.
+  */
 
   dinoTarget.style.left =
-    percent + "%";
+    safePercentage + "%";
 
 
   dinoSpeech.textContent =
     "👀";
 
 
+  /*
+    Wait for Dino to arrive.
+  */
+
   setTimeout(
-    function () {
+    function() {
 
       if (
         letter === currentLetter
@@ -275,7 +326,7 @@ function chooseLetter(
       }
 
     },
-    1000
+    900
   );
 
 }
@@ -293,6 +344,7 @@ function correctAnswer(
 
   fed++;
 
+
   scoreDisplay.textContent =
     score;
 
@@ -300,11 +352,12 @@ function correctAnswer(
     fed;
 
 
-  /* Dino eats burger */
+  /*
+    Burger disappears.
+  */
 
   burger.style.transform =
     "scale(0)";
-
 
   burger.style.opacity =
     "0";
@@ -314,12 +367,8 @@ function correctAnswer(
     "😋";
 
 
-  /* Roar */
-
   playRoar();
 
-
-  /* Message */
 
   showMessage(
     "🦖 GOOD JOB! ⭐"
@@ -327,14 +376,11 @@ function correctAnswer(
 
 
   setTimeout(
-    function () {
-
-      dinoSpeech.textContent =
-        "🦖";
+    function() {
 
       busy = false;
 
-      newTarget();
+      newRound();
 
     },
     1300
@@ -351,18 +397,11 @@ function wrongAnswer(
   burger
 ) {
 
-  dinoSpeech.textContent =
-    "😮";
-
-
-  /* Explosion */
-
-  burger.style.transform =
-    "scale(0)";
+  burger.style.opacity =
+    "0";
 
 
   showExplosion();
-
 
   playBoom();
 
@@ -372,17 +411,19 @@ function wrongAnswer(
   );
 
 
-  setTimeout(
-    function () {
+  dinoSpeech.textContent =
+    "😮";
 
-      dinoSpeech.textContent =
-        "🍔?";
+
+  setTimeout(
+    function() {
 
       busy = false;
 
-      /* Same target */
+      createBurgers();
 
-      createFood();
+      dinoSpeech.textContent =
+        "🍔?";
 
     },
     1300
@@ -402,6 +443,7 @@ function showMessage(
   messageEffect.textContent =
     text;
 
+
   messageEffect.classList.remove(
     "message-show"
   );
@@ -418,7 +460,7 @@ function showMessage(
 
 
 /* ============================================================
-   EXPLOSION
+   💥 EXPLOSION
    ============================================================ */
 
 function showExplosion() {
@@ -446,7 +488,7 @@ function showExplosion() {
    🔊 SOUND
    ============================================================ */
 
-let audioContext;
+let audioContext = null;
 
 
 function getAudio() {
@@ -461,6 +503,7 @@ function getAudio() {
 
   }
 
+
   if (
     audioContext.state ===
     "suspended"
@@ -470,13 +513,14 @@ function getAudio() {
 
   }
 
+
   return audioContext;
 
 }
 
 
 /* ============================================================
-   ROAR SOUND
+   🦖 ROAR
    ============================================================ */
 
 function playRoar() {
@@ -484,8 +528,10 @@ function playRoar() {
   const audio =
     getAudio();
 
+
   const oscillator =
     audio.createOscillator();
+
 
   const gain =
     audio.createGain();
@@ -496,7 +542,7 @@ function playRoar() {
 
 
   oscillator.frequency.setValueAtTime(
-    130,
+    140,
     audio.currentTime
   );
 
@@ -508,7 +554,7 @@ function playRoar() {
 
 
   gain.gain.setValueAtTime(
-    0.001,
+    0.01,
     audio.currentTime
   );
 
@@ -520,7 +566,7 @@ function playRoar() {
 
 
   gain.gain.exponentialRampToValueAtTime(
-    0.001,
+    0.01,
     audio.currentTime + 0.6
   );
 
@@ -542,7 +588,7 @@ function playRoar() {
 
 
 /* ============================================================
-   💥 BOOM SOUND
+   💥 BOOM
    ============================================================ */
 
 function playBoom() {
@@ -554,6 +600,7 @@ function playBoom() {
   const oscillator =
     audio.createOscillator();
 
+
   const gain =
     audio.createGain();
 
@@ -563,7 +610,7 @@ function playBoom() {
 
 
   oscillator.frequency.setValueAtTime(
-    90,
+    100,
     audio.currentTime
   );
 
@@ -575,19 +622,19 @@ function playBoom() {
 
 
   gain.gain.setValueAtTime(
-    0.001,
+    0.01,
     audio.currentTime
   );
 
 
   gain.gain.exponentialRampToValueAtTime(
-    0.5,
-    audio.currentTime + 0.02
+    0.45,
+    audio.currentTime + 0.03
   );
 
 
   gain.gain.exponentialRampToValueAtTime(
-    0.001,
+    0.01,
     audio.currentTime + 0.4
   );
 
@@ -612,70 +659,63 @@ function playBoom() {
    ⌨️ KEYBOARD
    ============================================================ */
 
-function setupKeyboard() {
+const keyboard =
+  document.getElementById(
+    "keyboardLetters"
+  );
 
-  const keyboard =
-    document.getElementById(
-      "keyboardLetters"
+
+letters.forEach(
+  function(letter) {
+
+    const button =
+      document.createElement(
+        "button"
+      );
+
+
+    button.className =
+      "keyboard-letter";
+
+
+    button.textContent =
+      letter;
+
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        const burger =
+          [...document.querySelectorAll(
+            ".letter-food"
+          )]
+          .find(
+            item =>
+              item.dataset.letter ===
+              letter
+          );
+
+
+        if (burger) {
+
+          selectBurger(
+            burger,
+            letter
+          );
+
+        }
+
+      }
     );
 
 
-  keyboard.innerHTML = "";
+    keyboard.appendChild(
+      button
+    );
 
-
-  alphabet.forEach(
-    function (letter) {
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-
-      button.className =
-        "keyboard-letter";
-
-
-      button.textContent =
-        letter;
-
-
-      button.addEventListener(
-        "click",
-        function () {
-
-          const burger =
-            [...document.querySelectorAll(
-              ".letter-food"
-            )]
-            .find(
-              item =>
-                item.dataset.letter ===
-                letter
-            );
-
-
-          if (burger) {
-
-            chooseLetter(
-              letter,
-              burger
-            );
-
-          }
-
-        }
-      );
-
-
-      keyboard.appendChild(
-        button
-      );
-
-    }
-  );
-
-}
+  }
+);
 
 
 /* ============================================================
@@ -684,35 +724,38 @@ function setupKeyboard() {
 
 document.addEventListener(
   "keydown",
-  function (event) {
+  function(event) {
 
     const letter =
       event.key.toUpperCase();
 
 
     if (
-      alphabet.includes(letter)
+      !letters.includes(letter)
     ) {
 
-      const burger =
-        [...document.querySelectorAll(
-          ".letter-food"
-        )]
-        .find(
-          item =>
-            item.dataset.letter ===
-            letter
-        );
+      return;
+
+    }
 
 
-      if (burger) {
+    const burger =
+      [...document.querySelectorAll(
+        ".letter-food"
+      )]
+      .find(
+        item =>
+          item.dataset.letter ===
+          letter
+      );
 
-        chooseLetter(
-          letter,
-          burger
-        );
 
-      }
+    if (burger) {
+
+      selectBurger(
+        burger,
+        letter
+      );
 
     }
 
@@ -721,12 +764,12 @@ document.addEventListener(
 
 
 /* ============================================================
-   RESTART
+   🔄 RESTART
    ============================================================ */
 
 restartButton.addEventListener(
   "click",
-  function () {
+  function() {
 
     score = 0;
 
@@ -738,27 +781,16 @@ restartButton.addEventListener(
     fedDisplay.textContent =
       "0";
 
-    dinosaur.style.left =
-      "50%";
-
-    dinoTarget.style.left =
-      "50%";
-
-    dinoSpeech.textContent =
-      "🍔?";
-
     busy = false;
 
-    newTarget();
+    newRound();
 
   }
 );
 
 
 /* ============================================================
-   START
+   START GAME
    ============================================================ */
 
-setupKeyboard();
-
-newTarget();
+newRound();

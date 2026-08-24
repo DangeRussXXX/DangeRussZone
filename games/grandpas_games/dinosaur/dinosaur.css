@@ -11,9 +11,11 @@ html,
 body {
 
   margin: 0;
+
   padding: 0;
 
   width: 100%;
+
   height: 100%;
 
   overflow: hidden;
@@ -27,15 +29,10 @@ body {
 
   background:
     linear-gradient(
-      rgba(20, 80, 20, 0.2),
-      rgba(0, 40, 10, 0.4)
-    ),
-    linear-gradient(
-      #78c95b,
-      #247438
+      #7bcf5b,
+      #32883b 55%,
+      #174b25
     );
-
-  color: white;
 
 }
 
@@ -49,6 +46,7 @@ body {
   position: relative;
 
   width: 100vw;
+
   height: 100vh;
 
   overflow: hidden;
@@ -64,21 +62,20 @@ h1 {
 
   position: absolute;
 
-  top: 8px;
-  left: 50%;
+  top: 10px;
 
-  transform: translateX(-50%);
+  left: 0;
 
-  z-index: 500;
+  width: 100%;
 
   margin: 0;
 
-  width: 100%;
+  z-index: 1000;
 
   text-align: center;
 
   font-size: clamp(
-    26px,
+    25px,
     5vw,
     48px
   );
@@ -86,8 +83,8 @@ h1 {
   color: white;
 
   text-shadow:
-    0 3px 0 #174d25,
-    0 0 12px #ffe600;
+    0 4px 0 #174b25,
+    0 0 15px #ffe600;
 
 }
 
@@ -100,58 +97,70 @@ h1 {
 
   position: absolute;
 
-  inset: 0;
+  left: 0;
 
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+
+  width: 100%;
+
+  height: 100%;
 
   overflow: hidden;
 
   background:
 
-    linear-gradient(
-      rgba(40, 130, 45, 0.1),
-      rgba(5, 40, 15, 0.3)
+    radial-gradient(
+      circle at 50% 30%,
+      #9be56f,
+      transparent 35%
     ),
 
     linear-gradient(
-      #78c95b 0%,
-      #3e9840 55%,
-      #164e24 100%
+      #65bd50,
+      #31843a 60%,
+      #164b24
     );
 
 }
 
 
 /* ============================================================
-   JUNGLE DECOR
+   DECOR
    ============================================================ */
 
 #jungleDecor {
 
   position: absolute;
 
-  inset: 0;
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  padding: 80px 10px;
 
   font-size: clamp(
     35px,
-    7vw,
-    90px
+    6vw,
+    80px
   );
 
-  letter-spacing: 15px;
+  line-height: 1.5;
 
-  opacity: 0.75;
+  letter-spacing: 10px;
+
+  opacity: 0.65;
 
   pointer-events: none;
-
-  z-index: 2;
 
 }
 
 
 /* ============================================================
-   🔤 TARGET ABOVE DINO
+   🔤 TARGET LETTER
    ============================================================ */
 
 #dinoTarget {
@@ -160,77 +169,66 @@ h1 {
 
   left: 50%;
 
-  bottom: 220px;
+  bottom: 255px;
 
   transform: translateX(-50%);
 
-  z-index: 200;
+  z-index: 500;
 
   text-align: center;
-
-  transition:
-    left 0.5s ease;
-
-}
-
-
-/* glowing circle */
-
-.target-glow {
-
-  width: 95px;
-  height: 95px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: #ffe600;
-
-  border: 6px solid white;
-
-  box-shadow:
-    0 0 10px white,
-    0 0 25px #ffe600,
-    0 0 50px #ff9900;
-
-  animation:
-    letterGlow
-    1s
-    infinite alternate;
 
 }
 
 
 #targetLetter {
 
+  width: 90px;
+
+  height: 90px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #ffe600;
+
+  border: 5px solid white;
+
+  color: #174b25;
+
   font-size: 60px;
 
   font-weight: bold;
 
-  color: #174d25;
-
-}
-
-
-.target-arrow {
-
-  margin-top: -3px;
-
-  font-size: 35px;
+  box-shadow:
+    0 0 10px white,
+    0 0 25px #ffe600,
+    0 0 45px #ff9900;
 
   animation:
-    arrowBounce
-    0.7s
+    glow 0.9s
     infinite alternate;
 
 }
 
 
-@keyframes letterGlow {
+.targetArrow {
+
+  color: #ffe600;
+
+  font-size: 35px;
+
+  text-shadow:
+    0 2px 3px black;
+
+}
+
+
+@keyframes glow {
 
   from {
 
@@ -240,24 +238,7 @@ h1 {
 
   to {
 
-    transform: scale(1.12);
-
-  }
-
-}
-
-
-@keyframes arrowBounce {
-
-  from {
-
-    transform: translateY(0);
-
-  }
-
-  to {
-
-    transform: translateY(8px);
+    transform: scale(1.1);
 
   }
 
@@ -276,27 +257,25 @@ h1 {
 
   bottom: 35px;
 
-  width: 190px;
-
-  text-align: center;
+  width: 180px;
 
   transform: translateX(-50%);
 
-  z-index: 150;
+  text-align: center;
+
+  z-index: 400;
 
   transition:
-    left 1s ease;
+    left 0.8s ease;
 
 }
 
 
 #dinoSpeech {
 
-  min-height: 45px;
+  height: 45px;
 
   font-size: 38px;
-
-  font-weight: bold;
 
 }
 
@@ -305,32 +284,38 @@ h1 {
 
   font-size: clamp(
     90px,
-    15vw,
-    170px
+    14vw,
+    160px
   );
 
   line-height: 1;
 
   filter:
     drop-shadow(
-      0 10px 8px
-      rgba(0,0,0,0.45)
+      0 10px 7px
+      rgba(0,0,0,0.4)
     );
 
 }
 
 
 /* ============================================================
-   🍔 FOOD
+   🍔 BURGERS
    ============================================================ */
 
 #foodArea {
 
   position: absolute;
 
-  inset: 0;
+  left: 0;
 
-  z-index: 100;
+  top: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  z-index: 300;
 
 }
 
@@ -339,39 +324,44 @@ h1 {
 
   position: absolute;
 
-  width: 110px;
-  height: 110px;
+  width: 130px;
 
-  border: 0;
+  height: 130px;
 
   padding: 0;
+
+  margin: 0;
+
+  border: 0;
 
   background: transparent;
 
   cursor: pointer;
 
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  transition:
-    transform 0.2s,
-    opacity 0.3s;
+  z-index: 350;
 
 }
 
 
 .letter-food:hover {
 
-  transform: scale(1.2);
+  transform: scale(1.12);
 
 }
 
 
 .burger {
 
-  font-size: 70px;
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  font-size: 80px;
 
 }
 
@@ -380,13 +370,20 @@ h1 {
 
   position: absolute;
 
-  top: 42px;
+  left: 50%;
 
-  font-size: 35px;
+  top: 50%;
 
-  font-weight: bold;
+  transform:
+    translate(-50%, -50%);
+
+  margin-top: -2px;
 
   color: white;
+
+  font-size: 38px;
+
+  font-weight: bold;
 
   text-shadow:
     2px 2px 5px black;
@@ -395,7 +392,7 @@ h1 {
 
 
 /* ============================================================
-   💥 EFFECT
+   💥 EFFECTS
    ============================================================ */
 
 #effect {
@@ -403,15 +400,16 @@ h1 {
   position: absolute;
 
   left: 50%;
+
   top: 50%;
 
   transform:
     translate(-50%, -50%)
     scale(0);
 
-  z-index: 1000;
+  z-index: 2000;
 
-  font-size: 120px;
+  font-size: 130px;
 
   pointer-events: none;
 
@@ -421,14 +419,12 @@ h1 {
 .effect-show {
 
   animation:
-    explosion
-    0.8s
-    ease;
+    boom 0.8s ease;
 
 }
 
 
-@keyframes explosion {
+@keyframes boom {
 
   0% {
 
@@ -442,7 +438,7 @@ h1 {
 
     transform:
       translate(-50%, -50%)
-      scale(1.6);
+      scale(1.4);
 
   }
 
@@ -458,7 +454,7 @@ h1 {
 
 
 /* ============================================================
-   💬 BIG MESSAGE
+   MESSAGE
    ============================================================ */
 
 #messageEffect {
@@ -466,31 +462,32 @@ h1 {
   position: absolute;
 
   left: 50%;
+
   top: 45%;
+
+  width: 100%;
 
   transform:
     translate(-50%, -50%)
     scale(0);
 
-  z-index: 1100;
-
-  width: 100%;
+  z-index: 2100;
 
   text-align: center;
 
+  color: #ffe600;
+
   font-size: clamp(
-    40px,
-    8vw,
-    90px
+    35px,
+    7vw,
+    80px
   );
 
   font-weight: bold;
 
-  color: #ffe600;
-
   text-shadow:
-    0 5px 0 #174d25,
-    0 0 20px white;
+    0 4px 0 #174b25,
+    0 0 15px white;
 
   pointer-events: none;
 
@@ -500,14 +497,12 @@ h1 {
 .message-show {
 
   animation:
-    messagePop
-    1.2s
-    ease;
+    message 1.2s ease;
 
 }
 
 
-@keyframes messagePop {
+@keyframes message {
 
   0% {
 
@@ -545,7 +540,7 @@ h1 {
 
 
 /* ============================================================
-   ⭐ SCORE
+   SCORE
    ============================================================ */
 
 .game-info {
@@ -553,20 +548,19 @@ h1 {
   position: absolute;
 
   left: 20px;
+
   bottom: 20px;
 
-  z-index: 600;
+  z-index: 1000;
 
-  display: flex;
-
-  gap: 20px;
-
-  padding: 10px 15px;
+  padding: 10px 16px;
 
   border-radius: 15px;
 
   background:
     rgba(0,0,0,0.65);
+
+  color: white;
 
   font-size: 22px;
 
@@ -583,7 +577,7 @@ h1 {
 
 
 /* ============================================================
-   ⌨️ KEYBOARD
+   KEYBOARD
    ============================================================ */
 
 .keyboard {
@@ -594,11 +588,12 @@ h1 {
 
   bottom: 15px;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
-  z-index: 600;
+  width: min(750px, 70%);
 
-  width: min(800px, 70%);
+  z-index: 1000;
 
 }
 
@@ -611,25 +606,24 @@ h1 {
 
   justify-content: center;
 
-  gap: 5px;
+  gap: 4px;
 
 }
 
 
 .keyboard-letter {
 
-  width: 38px;
-  height: 38px;
+  width: 34px;
+
+  height: 34px;
 
   border: 2px solid #ffe600;
 
   border-radius: 8px;
 
-  background: #174d25;
+  background: #174b25;
 
   color: white;
-
-  font-size: 17px;
 
   font-weight: bold;
 
@@ -640,7 +634,7 @@ h1 {
 
 .keyboard-letter:hover {
 
-  background: #287a36;
+  background: #2d853b;
 
   transform: scale(1.1);
 
@@ -656,9 +650,10 @@ h1 {
   position: absolute;
 
   right: 20px;
+
   bottom: 20px;
 
-  z-index: 600;
+  z-index: 1000;
 
   padding: 10px 18px;
 
@@ -666,11 +661,9 @@ h1 {
 
   border-radius: 12px;
 
-  background: #174d25;
+  background: #174b25;
 
   color: white;
-
-  font-size: 17px;
 
   font-weight: bold;
 
@@ -680,50 +673,39 @@ h1 {
 
 
 /* ============================================================
-   📱 MOBILE
+   MOBILE
    ============================================================ */
 
 @media (max-width: 600px) {
 
   h1 {
 
-    font-size: 26px;
+    font-size: 25px;
 
   }
 
 
   #dinoTarget {
 
-    bottom: 185px;
-
-  }
-
-
-  .target-glow {
-
-    width: 75px;
-    height: 75px;
+    bottom: 205px;
 
   }
 
 
   #targetLetter {
 
+    width: 70px;
+
+    height: 70px;
+
     font-size: 48px;
-
-  }
-
-
-  .target-arrow {
-
-    font-size: 28px;
 
   }
 
 
   #dinosaur {
 
-    bottom: 65px;
+    bottom: 60px;
 
   }
 
@@ -737,24 +719,23 @@ h1 {
 
   .letter-food {
 
-    width: 80px;
-    height: 80px;
+    width: 90px;
+
+    height: 90px;
 
   }
 
 
   .burger {
 
-    font-size: 52px;
+    font-size: 58px;
 
   }
 
 
   .food-letter {
 
-    top: 32px;
-
-    font-size: 27px;
+    font-size: 29px;
 
   }
 
@@ -770,10 +751,11 @@ h1 {
 
   .keyboard-letter {
 
-    width: 30px;
-    height: 30px;
+    width: 29px;
 
-    font-size: 14px;
+    height: 29px;
+
+    font-size: 13px;
 
   }
 
