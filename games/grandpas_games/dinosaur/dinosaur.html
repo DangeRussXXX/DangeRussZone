@@ -18,44 +18,34 @@
 
   <main class="game">
 
-    <!-- TITLE ONLY -->
-    <header class="title-area">
-      <h1>🦖 Dino's Letter Lunch 🍔</h1>
-    </header>
+    <!-- TITLE -->
+
+    <h1>
+      🦖 Dino's Letter Lunch 🍔
+    </h1>
 
 
-    <!-- FULL SCREEN GAME -->
+    <!-- FIND LETTER -->
+
+    <section class="find-area">
+
+      <div class="find-label">
+        🔎 FIND
+      </div>
+
+      <div id="targetLetter">
+        A
+      </div>
+
+    </section>
+
+
+    <!-- GAME -->
 
     <section
       id="gameArea"
-      aria-label="Dinosaur letter learning game"
+      aria-label="Dinosaur letter game"
     >
-
-      <!-- JUNGLE BACKGROUND -->
-
-      <div class="jungle-back">
-        🌴
-        <span>🌿</span>
-        🌴
-        <span>🌿</span>
-        🌴
-      </div>
-
-
-      <!-- TARGET LETTER ABOVE DINO -->
-
-      <div id="targetBubble">
-
-        <div class="target-label">
-          FIND
-        </div>
-
-        <div id="targetLetter">
-          A
-        </div>
-
-      </div>
-
 
       <!-- DINOSAUR -->
 
@@ -65,35 +55,21 @@
           🍔?
         </div>
 
-        <div id="dinoEmoji">
+        <div id="dinoBody">
           🦖
         </div>
 
       </div>
 
 
-      <!-- BURGERS WITH LETTERS -->
+      <!-- BURGERS -->
 
       <div id="foodArea"></div>
 
 
-      <!-- GAME EFFECTS -->
+      <!-- EFFECT -->
 
       <div id="effect"></div>
-
-
-      <!-- MESSAGE -->
-
-      <div id="gameMessage">
-        Pick the letter Dino wants!
-      </div>
-
-
-      <!-- GROUND -->
-
-      <div class="jungle-ground">
-        🌿 🌱 🌿 🌱 🌿 🌱 🌿 🌱 🌿
-      </div>
 
     </section>
 
@@ -102,16 +78,14 @@
 
     <section class="game-info">
 
-      <div class="info-box">
-        ⭐
-        <span>Stars</span>
-        <strong id="score">0</strong>
+      <div>
+        🍔 Fed:
+        <span id="fed">0</span>
       </div>
 
-      <div class="info-box">
-        🍔
-        <span>Fed</span>
-        <strong id="fed">0</strong>
+      <div>
+        📝 Word:
+        <span id="wordProgress">_ _ _</span>
       </div>
 
     </section>
@@ -122,7 +96,7 @@
     <section class="keyboard">
 
       <p>
-        🖱️ Click a burger or press a letter!
+        ⌨️ Or tap a letter
       </p>
 
       <div id="keyboardLetters"></div>
@@ -151,8 +125,6 @@
 
   </main>
 
-
-  <!-- GAME JAVASCRIPT -->
 
   <script src="dinosaur.js"></script>
 
