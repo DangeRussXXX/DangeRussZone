@@ -1089,3 +1089,177 @@ h1 {
     font-size: 2.1rem;
   }
 }
+/* ============================================================
+   🔤 WORD TO SPELL — FINAL VERSION
+   ============================================================ */
+
+/*
+   The Find box now displays the entire word.
+   Example:
+
+   D I N O
+
+   Only the letter currently being searched for
+   glows and grows.
+*/
+
+#targetLetter {
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 180px !important;
+
+  font-size: clamp(2.8rem, 6vw, 5rem) !important;
+
+  line-height: 1;
+
+  font-weight: 900;
+
+  color: white;
+
+  text-shadow: none;
+
+  animation: none !important;
+}
+
+
+/* ============================================================
+   🔤 NORMAL LETTERS
+   ============================================================ */
+
+#targetLetter .word-letter {
+
+  display: inline-block;
+
+  min-width: 0.65em;
+
+  color: white;
+
+  opacity: 0.7;
+
+  transform: scale(1);
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.5);
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+
+/* ============================================================
+   ⭐ CURRENT LETTER
+   ============================================================ */
+
+#targetLetter .word-letter.current {
+
+  color: #fff700;
+
+  opacity: 1;
+
+  transform: scale(1.3);
+
+  text-shadow:
+    0 0 8px white,
+    0 0 18px #ffe600,
+    0 0 35px #ff8c00;
+
+  animation:
+    currentLetterGlow 0.8s infinite alternate;
+}
+
+
+/* ============================================================
+   ✅ COMPLETED LETTER
+   ============================================================ */
+
+#targetLetter .word-letter.completed {
+
+  color: #75ff45;
+
+  opacity: 1;
+
+  transform: scale(1);
+
+  text-shadow:
+    0 0 8px #75ff45,
+    0 0 18px #25ff00;
+}
+
+
+/* ============================================================
+   ✨ CURRENT LETTER ANIMATION
+   ============================================================ */
+
+@keyframes currentLetterGlow {
+
+  from {
+
+    transform: scale(1.15);
+
+    text-shadow:
+      0 0 8px white,
+      0 0 18px #ffe600,
+      0 0 30px #ff8c00;
+  }
+
+  to {
+
+    transform: scale(1.3);
+
+    text-shadow:
+      0 0 12px white,
+      0 0 25px #ffe600,
+      0 0 45px #ff8c00;
+  }
+
+}
+
+
+/* ============================================================
+   📱 MOBILE WORD
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+  #targetLetter {
+
+    gap: 6px;
+
+    min-width: 150px !important;
+
+    font-size: 2.8rem !important;
+  }
+
+
+  #targetLetter .word-letter {
+
+    min-width: 0.6em;
+  }
+
+}
+
+
+/* ============================================================
+   📱 VERY SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+  #targetLetter {
+
+    gap: 4px;
+
+    min-width: 130px !important;
+
+    font-size: 2.3rem !important;
+  }
+
+}
