@@ -123,11 +123,16 @@ h1 {
 
 #player {
   position: absolute;
+
   left: 50%;
   top: 80%;
+
   transform: translate(-50%, -50%);
+
   font-size: 60px;
+
   user-select: none;
+
   z-index: 10;
 
   transition:
@@ -141,7 +146,7 @@ h1 {
 
 
 /* ============================================================
-   STARS
+   STAR
    ============================================================ */
 
 #star {
@@ -154,13 +159,13 @@ h1 {
 
   user-select: none;
 
+  z-index: 5;
+
   filter:
     drop-shadow(0 0 8px #fff)
     drop-shadow(0 0 18px #ffe600);
 
   animation: starGlow 1.2s infinite alternate;
-
-  z-index: 5;
 }
 
 
@@ -263,8 +268,10 @@ h1 {
   margin: 20px 0;
 
   font-size: 22px;
+
   font-weight: bold;
 }
+
 
 .game-info span {
   color: #ffe600;
@@ -281,6 +288,7 @@ h1 {
 .restart-area {
   margin-top: 15px;
 }
+
 
 #restartButton {
   border: 2px solid #ff69b4;
@@ -303,6 +311,7 @@ h1 {
     0 0 10px rgba(255, 105, 180, 0.4);
 }
 
+
 #restartButton:hover {
   background: #650055;
 }
@@ -324,11 +333,13 @@ h1 {
   border-radius: 15px;
 }
 
+
 .instructions h2 {
   margin-top: 0;
 
   color: #ffe600;
 }
+
 
 .instructions p {
   margin: 8px 0;
