@@ -990,3 +990,36 @@ h1 {
     font-size: 2rem;
   }
 }
+/* ============================================================
+   FINAL BURGER VISIBILITY FIX
+   ============================================================ */
+
+#foodArea {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+  z-index: 100 !important;
+}
+
+.burger {
+  position: absolute !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 110 !important;
+}
+
+.burger::before {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+}
+
+.burger-letter {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 120 !important;
+}
