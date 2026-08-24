@@ -5,8 +5,13 @@
 const gameArea = document.getElementById("gameArea");
 const dinosaur = document.getElementById("dinosaur");
 const targetLetter = document.getElementById("targetLetter");
-const message = document.getElementById("message");
-const scoreDisplay = document.getElementById("score");
+const message = document.getElementById("message") || {
+  set textContent(value) {}
+};
+
+const scoreDisplay = document.getElementById("score") || {
+  set textContent(value) {}
+};
 const fedDisplay = document.getElementById("fed");
 const effect = document.getElementById("effect");
 const keyboardLetters = document.getElementById("keyboardLetters");
