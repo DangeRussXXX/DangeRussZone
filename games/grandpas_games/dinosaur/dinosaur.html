@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -12,17 +13,24 @@
   <title>🦖 Dino's Letter Lunch</title>
 
   <link rel="stylesheet" href="dinosaur.css">
+
 </head>
+
 
 <body>
 
   <main class="game">
 
-    <h1>🦖 Dino's Letter Lunch 🍔</h1>
+    <h1>
+      🦖 Dino's Letter Lunch 🍔
+    </h1>
+
 
     <section class="mission">
 
-      <h2>🌴 Feed the Dinosaur!</h2>
+      <h2>
+        🌴 Feed the Dinosaur!
+      </h2>
 
       <p id="message">
         Find the letter Dino wants!
@@ -39,15 +47,35 @@
     </section>
 
 
-    <!-- GAME -->
+    <!-- ======================================================
+         GAME
+         ====================================================== -->
 
     <section
       id="gameArea"
-      aria-label="Dinosaur letter game"
+      aria-label="Dinosaur alphabet game"
     >
+
+      <!-- JUNGLE -->
+
+      <div class="cloud cloud1">
+        ☁️
+      </div>
+
+      <div class="cloud cloud2">
+        ☁️
+      </div>
 
       <div id="jungleDecor">
         🌴 🌿 🌴 🌿 🌴
+      </div>
+
+      <div class="butterfly butterfly1">
+        🦋
+      </div>
+
+      <div class="butterfly butterfly2">
+        🦋
       </div>
 
 
@@ -66,7 +94,7 @@
       </div>
 
 
-      <!-- HAMBURGERS APPEAR HERE -->
+      <!-- FOOD -->
 
       <div id="foodArea"></div>
 
@@ -78,7 +106,9 @@
     </section>
 
 
-    <!-- SCORE -->
+    <!-- ======================================================
+         SCORE
+         ====================================================== -->
 
     <section class="game-info">
 
@@ -92,21 +122,49 @@
         <span id="fed">0</span>
       </div>
 
+      <div>
+        🏆 Streak:
+        <span id="streak">0</span>
+      </div>
+
     </section>
 
 
-    <!-- KEYBOARD -->
+    <!-- ======================================================
+         TODDLER INSTRUCTIONS
+         ====================================================== -->
+
+    <section class="instructions">
+
+      <div>
+        👆 Click the burger
+      </div>
+
+      <div>
+        ⌨️ Or press the letter
+      </div>
+
+      <div>
+        🔊 Listen to Dino say the letter!
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         KEYBOARD
+         ====================================================== -->
 
     <section class="keyboard">
-
-      <p>⌨️ You can also press a letter!</p>
 
       <div id="keyboardLetters"></div>
 
     </section>
 
 
-    <!-- RESTART -->
+    <!-- ======================================================
+         RESTART
+         ====================================================== -->
 
     <button
       id="restartButton"
@@ -122,6 +180,7 @@
     >
       ❤️ Back to Grandpa's Adventures
     </a>
+
 
   </main>
 

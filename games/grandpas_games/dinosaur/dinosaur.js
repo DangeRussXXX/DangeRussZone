@@ -1,20 +1,17 @@
-/* ============================================================
-   🦖 DINO'S LETTER LUNCH
-   ============================================================ */
-
-
-/* ============================================================
-   ELEMENTS
-   ============================================================ */
-
 const gameArea =
   document.getElementById("gameArea");
+
+const foodArea =
+  document.getElementById("foodArea");
 
 const dinosaur =
   document.getElementById("dinosaur");
 
-const foodArea =
-  document.getElementById("foodArea");
+const dinoBody =
+  document.getElementById("dinoBody");
+
+const dinoSpeech =
+  document.getElementById("dinoSpeech");
 
 const targetLetter =
   document.getElementById("targetLetter");
@@ -28,11 +25,14 @@ const scoreDisplay =
 const fedDisplay =
   document.getElementById("fed");
 
-const effect =
-  document.getElementById("effect");
+const streakDisplay =
+  document.getElementById("streak");
 
 const keyboardLetters =
   document.getElementById("keyboardLetters");
+
+const effect =
+  document.getElementById("effect");
 
 const restartButton =
   document.getElementById("restartButton");
@@ -42,286 +42,413 @@ const restartButton =
    GAME VARIABLES
    ============================================================ */
 
-const letters =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-let currentLetter = "A";
+let target = "A";
 
 let score = 0;
 
 let fed = 0;
 
+let streak = 0;
+
+let foods = [];
+
 let busy = false;
 
 
+/*
+   Start with a small group.
+
+   This is much easier for a toddler than
+   throwing all 26 letters at them.
+*/
+
+let learningLetters = [
+  "A",
+  "B",
+  "C"
+];
+
+
 /* ============================================================
-   CREATE KEYBOARD
+   SOUND
    ============================================================ */
 
-letters.forEach(letter => {
+let audioContext = null;
 
-  const button =
-    document.createElement("button");
 
-  button.className = "key";
+function getAudio() {
 
-  button.textContent = letter;
+  if (!audioContext) {
 
-  button.type = "button";
+    audioContext =
+      new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
+  }
 
-  button.addEventListener(
-    "click",
-    () => chooseLetter(letter)
-  );
+  return audioContext;
+}
 
-  keyboardLetters.appendChild(button);
 
-});
+function playTone(
+  frequency,
+  duration,
+  type = "sine"
+) {
+
+  try {
+
+    const audio =
+      getAudio();
+
+    const oscillator =
+      audio.createOscillator();
+
+    const gain =
+      audio.createGain();
+
+    oscillator.type =
+      type;
+
+    oscillator.frequency.value =
+      frequency;
+
+    gain.gain.setValueAtTime(
+      0.12,
+      audio.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.001,
+      audio.currentTime + duration
+    );
+
+    oscillator.connect(gain);
+
+    gain.connect(audio.destination);
+
+    oscillator.start();
+
+    oscillator.stop(
+      audio.currentTime + duration
+    );
+
+  } catch (error) {
+
+    console.log(
+      "Sound unavailable."
+    );
+  }
+}
 
 
 /* ============================================================
-   RANDOM LETTER
+   SAY LETTER
+   ============================================================ */
+
+function sayLetter(letter) {
+
+  if (
+    !("speechSynthesis" in window)
+  ) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const speech =
+    new SpeechSynthesisUtterance(
+      letter
+    );
+
+  speech.rate = 0.75;
+
+  speech.pitch = 1.3;
+
+  speech.volume = 1;
+
+  window.speechSynthesis.speak(
+    speech
+  );
+}
+
+
+/* ============================================================
+   CORRECT SOUND
+   ============================================================ */
+
+function correctSound() {
+
+  playTone(
+    523,
+    0.12
+  );
+
+  setTimeout(
+    () => playTone(659, 0.12),
+    100
+  );
+
+  setTimeout(
+    () => playTone(784, 0.18),
+    200
+  );
+}
+
+
+/* ============================================================
+   WRONG SOUND
+   ============================================================ */
+
+function wrongSound() {
+
+  playTone(
+    180,
+    0.18,
+    "sawtooth"
+  );
+
+  setTimeout(
+    () =>
+      playTone(
+        100,
+        0.25,
+        "sawtooth"
+      ),
+    120
+  );
+}
+
+
+/* ============================================================
+   START
+   ============================================================ */
+
+function startGame() {
+
+  score = 0;
+
+  fed = 0;
+
+  streak = 0;
+
+  busy = false;
+
+  scoreDisplay.textContent =
+    score;
+
+  fedDisplay.textContent =
+    fed;
+
+  streakDisplay.textContent =
+    streak;
+
+  createKeyboard();
+
+  newRound();
+}
+
+
+/* ============================================================
+   NEW ROUND
    ============================================================ */
 
 function newRound() {
 
   busy = false;
 
-  currentLetter =
-    letters[
+  target =
+    learningLetters[
       Math.floor(
-        Math.random() * letters.length
+        Math.random() *
+        learningLetters.length
       )
     ];
 
   targetLetter.textContent =
-    currentLetter;
+    target;
 
   message.textContent =
-    "Find the letter " +
-    currentLetter +
+    "Find " +
+    target +
     "!";
 
-  dinosaur.style.left = "50%";
+  dinoSpeech.textContent =
+    "🍔 " + target + "?";
 
-  dinosaur.style.bottom = "10px";
+  sayLetter(target);
 
   createFoods();
 
+  moveDinosaur();
 }
 
 
 /* ============================================================
-   CREATE HAMBURGERS
+   CREATE BURGERS
    ============================================================ */
 
 function createFoods() {
 
   foodArea.innerHTML = "";
 
+  foods = [];
+
+  let letters = [target];
+
+  while (
+    letters.length < 5
+  ) {
+
+    const letter =
+      learningLetters[
+        Math.floor(
+          Math.random() *
+          learningLetters.length
+        )
+      ];
+
+    if (
+      !letters.includes(letter)
+    ) {
+
+      letters.push(letter);
+    }
+  }
+
+
+  /*
+     Shuffle the burgers.
+  */
+
+  letters.sort(
+    () => Math.random() - 0.5
+  );
+
+
   const positions = [
 
-    { x: 15, y: 25 },
+    {
+      left: 10,
+      top: 22
+    },
 
-    { x: 42, y: 18 },
+    {
+      left: 35,
+      top: 17
+    },
 
-    { x: 70, y: 28 },
+    {
+      left: 65,
+      top: 22
+    },
 
-    { x: 25, y: 52 },
+    {
+      left: 20,
+      top: 47
+    },
 
-    { x: 60, y: 55 }
+    {
+      left: 55,
+      top: 48
+    }
 
   ];
 
 
-  /* Make sure the correct letter appears once */
+  letters.forEach(
+    (letter, index) => {
 
-  const correctSpot =
-    Math.floor(
-      Math.random() * positions.length
-    );
+      const food =
+        document.createElement(
+          "button"
+        );
 
+      food.className =
+        "food";
 
-  positions.forEach(
-    (position, index) => {
+      food.type =
+        "button";
 
-      let letter;
+      food.dataset.letter =
+        letter;
 
-
-      if (index === correctSpot) {
-
-        letter =
-          currentLetter;
-
-      } else {
-
-        letter =
-          getWrongLetter();
-
-      }
+      food.innerHTML = `
+        <span class="burger">🍔</span>
+        <span class="food-letter">
+          ${letter}
+        </span>
+      `;
 
 
-      createFood(
-        letter,
-        position.x,
-        position.y
+      food.style.left =
+        positions[index].left +
+        "%";
+
+      food.style.top =
+        positions[index].top +
+        "%";
+
+
+      /*
+         Slightly different animation
+         timing makes the burgers feel alive.
+      */
+
+      food.style.animationDelay =
+        (index * 0.15) +
+        "s";
+
+
+      food.addEventListener(
+        "click",
+        () => {
+
+          chooseLetter(
+            letter,
+            food
+          );
+
+        }
       );
+
+
+      foodArea.appendChild(
+        food
+      );
+
+      foods.push(food);
 
     }
   );
-
 }
 
 
 /* ============================================================
-   WRONG LETTER
+   CHOOSE LETTER
    ============================================================ */
 
-function getWrongLetter() {
-
-  let letter;
-
-  do {
-
-    letter =
-      letters[
-        Math.floor(
-          Math.random() * letters.length
-        )
-      ];
-
-  } while (
-    letter === currentLetter
-  );
-
-  return letter;
-}
-
-
-/* ============================================================
-   CREATE FOOD
-   ============================================================ */
-
-function createFood(
+function chooseLetter(
   letter,
-  x,
-  y
-) {
-
-  const food =
-    document.createElement("button");
-
-  food.className = "food";
-
-  food.type = "button";
-
-  food.dataset.letter =
-    letter;
-
-  food.style.left =
-    x + "%";
-
-  food.style.top =
-    y + "%";
-
-
-  food.innerHTML = `
-
-    <span class="burger">
-      🍔
-      <span class="food-letter">
-        ${letter}
-      </span>
-    </span>
-
-  `;
-
-
-  food.addEventListener(
-    "click",
-    () => {
-
-      chooseFood(
-        food,
-        letter
-      );
-
-    }
-  );
-
-
-  foodArea.appendChild(food);
-
-}
-
-
-/* ============================================================
-   LETTER SELECTION
-   ============================================================ */
-
-function chooseLetter(letter) {
-
-  if (busy) {
-    return;
-  }
-
-
-  const foods =
-    document.querySelectorAll(
-      ".food"
-    );
-
-
-  let selectedFood = null;
-
-
-  foods.forEach(food => {
-
-    if (
-      food.dataset.letter ===
-      letter
-    ) {
-
-      selectedFood = food;
-
-    }
-
-  });
-
-
-  if (selectedFood) {
-
-    chooseFood(
-      selectedFood,
-      letter
-    );
-
-  } else {
-
-    wrongAnswer();
-
-  }
-
-}
-
-
-/* ============================================================
-   FOOD SELECTION
-   ============================================================ */
-
-function chooseFood(
-  food,
-  letter
+  food
 ) {
 
   if (busy) {
     return;
   }
 
+  /*
+     Make sure the browser allows sound
+     after a click.
+  */
+
+  getAudio();
+
+  sayLetter(letter);
 
   if (
-    letter ===
-    currentLetter
+    letter === target
   ) {
 
     correctAnswer(food);
@@ -331,7 +458,6 @@ function chooseFood(
     wrongAnswer(food);
 
   }
-
 }
 
 
@@ -343,10 +469,11 @@ function correctAnswer(food) {
 
   busy = true;
 
-
   score++;
 
   fed++;
+
+  streak++;
 
 
   scoreDisplay.textContent =
@@ -355,57 +482,88 @@ function correctAnswer(food) {
   fedDisplay.textContent =
     fed;
 
+  streakDisplay.textContent =
+    streak;
+
 
   message.textContent =
-    "YUM! Dino found " +
-    currentLetter +
-    "! 🦖🍔";
+    "YUMMY! Dino found " +
+    target +
+    "!";
 
 
-  /* Move dinosaur toward hamburger */
-
-  const foodRect =
-    food.getBoundingClientRect();
-
-  const areaRect =
-    gameArea.getBoundingClientRect();
+  correctSound();
 
 
-  const foodX =
-    (
-      (foodRect.left -
-      areaRect.left) /
-      areaRect.width
-    ) * 100;
+  /*
+     Move dinosaur toward burger.
+  */
+
+  moveDinoToFood(food);
 
 
-  dinosaur.style.left =
-    foodX + "%";
+  /*
+     Chomp after Dino reaches it.
+  */
 
+  setTimeout(
+    () => {
 
-  /* Chomp */
+      dinoSpeech.textContent =
+        "😋 CHOMP!";
 
-  food.classList.add(
-    "correct"
+      food.classList.add(
+        "correct"
+      );
+
+      showEffect(
+        "😋🍔"
+      );
+
+    },
+    550
   );
 
 
-  showEffect("😋");
+  /*
+     Big celebration.
+  */
+
+  if (
+    streak >= 5
+  ) {
+
+    setTimeout(
+      () => {
+
+        showEffect(
+          "🎉🦖🎉"
+        );
+
+        message.textContent =
+          "WOW! 5 letters! Great job!";
+
+        playCelebration();
+
+        streak = 0;
+
+        streakDisplay.textContent =
+          streak;
+
+      },
+      800
+    );
+  }
 
 
-  setTimeout(() => {
+  setTimeout(
+    () => {
 
-    showEffect("💥");
+      newRound();
 
-  }, 300);
-
-
-  setTimeout(() => {
-
-    newRound();
-
-  }, 1100);
-
+    },
+    1300
+  );
 }
 
 
@@ -415,40 +573,78 @@ function correctAnswer(food) {
 
 function wrongAnswer(food) {
 
-  if (busy) {
-    return;
-  }
+  streak = 0;
 
+  streakDisplay.textContent =
+    streak;
 
   message.textContent =
-    "Oops! Try another letter! 🦖";
+    "Oops! Try again!";
+
+  wrongSound();
+
+  food.classList.add(
+    "wrong"
+  );
+
+  showEffect(
+    "💥"
+  );
+
+  dinoSpeech.textContent =
+    "😮 OOPS!";
 
 
-  if (food) {
+  setTimeout(
+    () => {
 
-    food.classList.add(
-      "wrong"
+      dinoSpeech.textContent =
+        "🍔 " + target + "?";
+
+    },
+    800
+  );
+}
+
+
+/* ============================================================
+   MOVE DINOSAUR
+   ============================================================ */
+
+function moveDinosaur() {
+
+  const positions = [
+    25,
+    50,
+    75
+  ];
+
+  const position =
+    positions[
+      Math.floor(
+        Math.random() *
+        positions.length
+      )
+    ];
+
+  dinosaur.style.left =
+    position + "%";
+}
+
+
+/* ============================================================
+   MOVE DINO TO BURGER
+   ============================================================ */
+
+function moveDinoToFood(food) {
+
+  const foodLeft =
+    parseFloat(
+      food.style.left
     );
 
-  }
-
-
-  showEffect("💥");
-
-
-  /* Dino reacts */
-
-  dinosaur.style.transform =
-    "translateX(-50%) rotate(-8deg)";
-
-
-  setTimeout(() => {
-
-    dinosaur.style.transform =
-      "translateX(-50%)";
-
-  }, 350);
-
+  dinosaur.style.left =
+    foodLeft + "%";
 }
 
 
@@ -465,34 +661,146 @@ function showEffect(symbol) {
     "effect-pop"
   );
 
-
   void effect.offsetWidth;
-
 
   effect.classList.add(
     "effect-pop"
   );
-
 }
 
 
 /* ============================================================
-   KEYBOARD CONTROLS
+   CELEBRATION SOUND
+   ============================================================ */
+
+function playCelebration() {
+
+  playTone(
+    523,
+      0.12
+  );
+
+  setTimeout(
+    () =>
+      playTone(
+        659,
+        0.12
+      ),
+    120
+  );
+
+  setTimeout(
+    () =>
+      playTone(
+        784,
+        0.12
+      ),
+    240
+  );
+
+  setTimeout(
+    () =>
+      playTone(
+        1046,
+        0.3
+      ),
+    360
+  );
+}
+
+
+/* ============================================================
+   KEYBOARD
+   ============================================================ */
+
+function createKeyboard() {
+
+  keyboardLetters.innerHTML =
+    "";
+
+  learningLetters.forEach(
+    letter => {
+
+      const key =
+        document.createElement(
+          "button"
+        );
+
+      key.className =
+        "key";
+
+      key.type =
+        "button";
+
+      key.textContent =
+        letter;
+
+
+      key.addEventListener(
+        "click",
+        () => {
+
+          const food =
+            foods.find(
+              item =>
+                item.dataset.letter ===
+                letter
+            );
+
+          if (food) {
+
+            chooseLetter(
+              letter,
+              food
+            );
+
+          }
+
+        }
+      );
+
+
+      keyboardLetters.appendChild(
+        key
+      );
+
+    }
+  );
+}
+
+
+/* ============================================================
+   PHYSICAL KEYBOARD
    ============================================================ */
 
 document.addEventListener(
   "keydown",
   event => {
 
-    const key =
+    const letter =
       event.key.toUpperCase();
 
-
     if (
-      letters.includes(key)
+      !learningLetters.includes(
+        letter
+      )
     ) {
+      return;
+    }
 
-      chooseLetter(key);
+    const food =
+      foods.find(
+        item =>
+          item.dataset.letter ===
+          letter
+      );
+
+    if (food) {
+
+      chooseLetter(
+        letter,
+        food
+      );
 
     }
 
@@ -508,17 +816,9 @@ restartButton.addEventListener(
   "click",
   () => {
 
-    score = 0;
+    getAudio();
 
-    fed = 0;
-
-    scoreDisplay.textContent =
-      "0";
-
-    fedDisplay.textContent =
-      "0";
-
-    newRound();
+    startGame();
 
   }
 );
@@ -528,4 +828,4 @@ restartButton.addEventListener(
    START GAME
    ============================================================ */
 
-newRound();
+startGame();

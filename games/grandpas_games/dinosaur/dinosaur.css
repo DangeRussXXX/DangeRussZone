@@ -6,116 +6,175 @@ html,
 body {
   margin: 0;
   padding: 0;
+
   width: 100%;
   min-height: 100%;
 }
 
 body {
+
   min-height: 100vh;
+
   font-family: Arial, sans-serif;
+
   color: white;
+
   text-align: center;
 
   background:
-    linear-gradient(rgba(0, 40, 15, 0.35), rgba(0, 20, 8, 0.7)),
+    linear-gradient(
+      rgba(0, 60, 20, 0.25),
+      rgba(0, 30, 10, 0.7)
+    ),
     linear-gradient(
       to bottom,
-      #74c957 0%,
-      #3b9b4a 35%,
-      #176b36 70%,
-      #063a21 100%
+      #7bd35b,
+      #3d9b4a 40%,
+      #176536 75%,
+      #073a22
     );
 }
 
+
 .game {
+
   position: relative;
-  width: calc(100% - 20px);
-  min-height: calc(100vh - 20px);
-  margin: 10px auto;
-  padding: 15px;
+
+  width: calc(100% - 16px);
+
+  min-height: calc(100vh - 16px);
+
+  margin: 8px auto;
+
+  padding: 12px;
+
   overflow: hidden;
 
-  background: rgba(3, 45, 20, 0.9);
+  background:
+    rgba(3, 50, 20, 0.9);
 
-  border: 4px solid #8be85d;
+  border:
+    4px solid #8ee85f;
+
   border-radius: 25px;
 
   box-shadow:
-    0 0 30px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(0, 0, 0, 0.6),
     inset 0 0 40px rgba(0, 0, 0, 0.25);
 }
 
-h1 {
-  margin: 5px 0 10px;
 
-  font-size: clamp(30px, 6vw, 58px);
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+h1 {
+
+  margin: 5px 0 8px;
+
+  font-size:
+    clamp(30px, 7vw, 60px);
 
   color: #fff58a;
 
   text-shadow:
-    0 3px 0 #275c28,
+    0 3px 0 #285c27,
     0 0 10px #ffe600,
-    0 0 25px #65ff55;
+    0 0 25px #6aff55;
 }
 
+
+/* ============================================================
+   MISSION
+   ============================================================ */
+
 .mission {
-  width: 100%;
+
   max-width: 1000px;
-  margin: 0 auto 12px;
-  padding: 10px 15px;
 
-  background: rgba(0, 55, 25, 0.85);
+  margin:
+    0 auto 10px;
 
-  border: 3px solid #65d65d;
+  padding:
+    8px 12px;
+
+  background:
+    rgba(0, 60, 25, 0.85);
+
+  border:
+    3px solid #65d65d;
+
   border-radius: 18px;
 }
 
 .mission h2 {
-  margin: 0 0 5px;
+
+  margin:
+    0 0 3px;
 
   color: #fff38a;
 
-  font-size: clamp(20px, 4vw, 30px);
+  font-size:
+    clamp(20px, 4vw, 30px);
 }
 
 .mission p {
-  margin: 5px;
+
+  margin: 4px;
+
   font-size: 18px;
 }
 
+
+/* ============================================================
+   TARGET LETTER
+   ============================================================ */
+
 .target {
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   gap: 12px;
 
-  margin-top: 8px;
+  margin-top: 5px;
 
   font-size: 20px;
+
   font-weight: bold;
 }
 
 #targetLetter {
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
 
-  width: 65px;
-  height: 65px;
+  width: 70px;
+  height: 70px;
 
   background: #ffe447;
+
   color: #173b19;
 
-  border-radius: 15px;
+  border-radius: 16px;
 
-  font-size: 42px;
+  font-size: 46px;
 
-  box-shadow: 0 0 15px #fff000;
+  box-shadow:
+    0 0 15px #fff000;
 
-  animation: targetPulse 0.9s infinite alternate;
+  animation:
+    targetPulse 0.9s infinite alternate;
 }
 
 @keyframes targetPulse {
+
   from {
     transform: scale(1);
   }
@@ -125,45 +184,109 @@ h1 {
   }
 }
 
+
 /* ============================================================
    GAME AREA
    ============================================================ */
 
 #gameArea {
+
   position: relative;
 
   width: 100%;
+
   height: 60vh;
-  min-height: 450px;
+
+  min-height: 430px;
 
   overflow: hidden;
 
-  border: 5px solid #38b95c;
+  border:
+    5px solid #39b95c;
+
   border-radius: 25px;
 
   background:
+
     radial-gradient(
       circle at 20% 15%,
-      rgba(255, 255, 150, 0.25),
+      rgba(255,255,150,0.3),
       transparent 20%
     ),
+
     linear-gradient(
       to bottom,
-      #67c95d,
-      #398f48 45%,
-      #166337 75%,
-      #0a4026
+      #70cf62,
+      #3a9749 45%,
+      #166436 75%,
+      #083f26
     );
 
   box-shadow:
-    inset 0 0 60px rgba(0, 0, 0, 0.45);
+    inset 0 0 60px
+    rgba(0,0,0,0.45);
 }
+
+
+/* ============================================================
+   CLOUDS
+   ============================================================ */
+
+.cloud {
+
+  position: absolute;
+
+  font-size:
+    clamp(35px, 6vw, 65px);
+
+  opacity: 0.8;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.cloud1 {
+
+  top: 20px;
+
+  left: -100px;
+
+  animation:
+    cloudMove 25s linear infinite;
+}
+
+.cloud2 {
+
+  top: 90px;
+
+  left: -150px;
+
+  animation:
+    cloudMove 35s linear infinite;
+
+  animation-delay:
+    -12s;
+}
+
+@keyframes cloudMove {
+
+  from {
+    left: -150px;
+  }
+
+  to {
+    left: 110%;
+  }
+}
+
 
 /* ============================================================
    JUNGLE
    ============================================================ */
 
 #jungleDecor {
+
   position: absolute;
 
   top: 5px;
@@ -171,82 +294,193 @@ h1 {
 
   width: 100%;
 
-  font-size: clamp(35px, 7vw, 70px);
+  font-size:
+    clamp(35px, 7vw, 70px);
 
-  white-space: nowrap;
+  white-space:
+    nowrap;
 
-  z-index: 2;
+  letter-spacing: 5px;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  animation:
+    jungleSway 2s ease-in-out infinite alternate;
+}
+
+@keyframes jungleSway {
+
+  from {
+    transform:
+      translateX(-5px);
+  }
+
+  to {
+    transform:
+      translateX(5px);
+  }
+}
+
+
+/* ============================================================
+   BUTTERFLIES
+   ============================================================ */
+
+.butterfly {
+
+  position: absolute;
+
+  font-size: 35px;
+
+  z-index: 8;
 
   pointer-events: none;
 }
+
+.butterfly1 {
+
+  top: 30%;
+
+  left: -50px;
+
+  animation:
+    butterflyMove 14s linear infinite;
+}
+
+.butterfly2 {
+
+  top: 45%;
+
+  left: -100px;
+
+  animation:
+    butterflyMove 18s linear infinite;
+
+  animation-delay:
+    -7s;
+}
+
+@keyframes butterflyMove {
+
+  0% {
+    left: -60px;
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  50% {
+    transform:
+      translateY(-50px)
+      rotate(5deg);
+  }
+
+  100% {
+    left: 110%;
+    transform:
+      translateY(20px)
+      rotate(-5deg);
+  }
+}
+
 
 /* ============================================================
    DINOSAUR
    ============================================================ */
 
 #dinosaur {
+
   position: absolute;
 
   left: 50%;
+
   bottom: 5px;
 
-  width: 170px;
+  width: 180px;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
-  z-index: 30;
+  z-index: 40;
 
   transition:
-    left 0.5s ease,
-    bottom 0.5s ease;
+    left 0.7s ease,
+    bottom 0.7s ease;
 }
 
 #dinoBody {
-  font-size: clamp(90px, 14vw, 150px);
+
+  font-size:
+    clamp(90px, 15vw, 155px);
 
   line-height: 1;
 
   filter:
-    drop-shadow(0 8px 5px rgba(0, 0, 0, 0.45));
+    drop-shadow(
+      0 8px 5px
+      rgba(0,0,0,0.45)
+    );
 
-  animation: dinoBounce 1.2s infinite ease-in-out;
+  animation:
+    dinoBounce 1.2s
+    infinite
+    ease-in-out;
 }
 
 @keyframes dinoBounce {
+
   0%,
   100% {
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   50% {
-    transform: translateY(-8px);
+    transform:
+      translateY(-8px);
   }
 }
 
+
+/* ============================================================
+   DINO SPEECH
+   ============================================================ */
+
 #dinoSpeech {
+
   position: absolute;
 
-  top: -35px;
+  top: -40px;
+
   right: 0;
 
-  padding: 6px 12px;
+  padding:
+    7px 12px;
 
   background: white;
+
   color: #222;
 
   border-radius: 15px;
 
   font-size: 22px;
+
   font-weight: bold;
 
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 3px 8px
+    rgba(0,0,0,0.4);
 }
+
 
 /* ============================================================
    FOOD
    ============================================================ */
 
 #foodArea {
+
   position: absolute;
 
   inset: 0;
@@ -258,10 +492,11 @@ h1 {
 }
 
 .food {
+
   position: absolute;
 
-  width: 105px;
-  height: 90px;
+  width: 110px;
+  height: 95px;
 
   padding: 0;
 
@@ -273,16 +508,46 @@ h1 {
 
   z-index: 25;
 
+  touch-action: manipulation;
+
+  animation:
+    foodFloat 1.2s
+    infinite
+    ease-in-out;
+
   transition:
-    transform 0.15s ease,
-    opacity 0.2s ease;
+    transform 0.15s ease;
 }
 
 .food:hover {
-  transform: scale(1.15) rotate(-4deg);
+
+  transform:
+    scale(1.18)
+    rotate(-4deg);
+}
+
+.food:active {
+
+  transform:
+    scale(0.85);
+}
+
+@keyframes foodFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-8px);
+  }
 }
 
 .burger {
+
   position: relative;
 
   display: block;
@@ -290,93 +555,119 @@ h1 {
   width: 100%;
   height: 100%;
 
-  font-size: 60px;
+  font-size: 65px;
 
   line-height: 1;
 }
 
 .food-letter {
+
   position: absolute;
 
   left: 50%;
   top: 50%;
 
-  transform: translate(-50%, -42%);
+  transform:
+    translate(-50%, -42%);
 
   color: white;
 
-  font-size: 30px;
+  font-size: 32px;
+
   font-weight: bold;
 
-  text-shadow: 0 2px 3px #000;
+  text-shadow:
+    0 3px 4px #000;
 
   pointer-events: none;
 }
+
 
 /* ============================================================
    CORRECT
    ============================================================ */
 
 .correct {
-  animation: eaten 0.6s forwards;
+
+  animation:
+    eaten 0.7s forwards !important;
 }
 
 @keyframes eaten {
+
   0% {
-    transform: scale(1);
-    opacity: 1;
+    transform:
+      scale(1);
   }
 
-  40% {
-    transform: scale(1.5) rotate(8deg);
+  35% {
+    transform:
+      scale(1.5)
+      rotate(8deg);
   }
 
   100% {
-    transform: scale(0) rotate(30deg);
+    transform:
+      scale(0)
+      rotate(30deg);
+
     opacity: 0;
   }
 }
+
 
 /* ============================================================
    WRONG
    ============================================================ */
 
 .wrong {
-  animation: explode 0.65s forwards;
+
+  animation:
+    explode 0.65s forwards !important;
 }
 
 @keyframes explode {
+
   0% {
-    transform: scale(1);
+    transform:
+      scale(1);
   }
 
   25% {
-    transform: scale(1.5) rotate(15deg);
+    transform:
+      scale(1.4)
+      rotate(15deg);
   }
 
   50% {
-    transform: scale(2);
+    transform:
+      scale(2);
   }
 
   100% {
-    transform: scale(0);
+    transform:
+      scale(0);
+
     opacity: 0;
   }
 }
+
 
 /* ============================================================
    EFFECT
    ============================================================ */
 
 #effect {
+
   position: absolute;
 
   left: 50%;
   top: 45%;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
-  font-size: 80px;
+  font-size: 90px;
 
   z-index: 100;
 
@@ -384,64 +675,93 @@ h1 {
 }
 
 .effect-pop {
-  animation: effectPop 0.8s forwards;
+
+  animation:
+    effectPop 0.8s forwards;
 }
 
 @keyframes effectPop {
+
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform:
+      translate(-50%, -50%)
+      scale(0);
+
     opacity: 1;
   }
 
   40% {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform:
+      translate(-50%, -50%)
+      scale(1.5);
   }
 
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+
     opacity: 0;
   }
 }
+
 
 /* ============================================================
    SCORE
    ============================================================ */
 
 .game-info {
+
   display: flex;
 
   justify-content: center;
-  align-items: center;
 
-  gap: 35px;
+  gap: 30px;
 
-  margin: 12px 0;
+  margin: 10px;
 
   font-size: 22px;
+
   font-weight: bold;
 }
 
 .game-info span {
+
   color: #fff36a;
 
-  text-shadow: 0 0 8px #ffdd00;
+  text-shadow:
+    0 0 8px #ffdd00;
 }
+
+
+/* ============================================================
+   INSTRUCTIONS
+   ============================================================ */
+
+.instructions {
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin: 5px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+}
+
 
 /* ============================================================
    KEYBOARD
    ============================================================ */
 
-.keyboard {
-  margin: 8px auto;
-}
-
-.keyboard p {
-  margin: 5px;
-
-  font-size: 16px;
-}
-
 #keyboardLetters {
+
   display: flex;
 
   justify-content: center;
@@ -452,72 +772,90 @@ h1 {
 
   max-width: 850px;
 
-  margin: 0 auto;
+  margin: 5px auto;
 }
 
 .key {
+
   width: 38px;
   height: 38px;
 
-  border: 2px solid #a8ee74;
+  border:
+    2px solid #b6f47d;
+
   border-radius: 8px;
 
-  background: #215d2d;
+  background:
+    #215d2d;
 
   color: white;
 
   font-size: 16px;
+
   font-weight: bold;
 
   cursor: pointer;
 }
 
 .key:hover {
-  background: #4b9d42;
-  transform: scale(1.1);
+
+  background:
+    #4c9d43;
+
+  transform:
+    scale(1.1);
 }
+
 
 /* ============================================================
    RESTART
    ============================================================ */
 
 #restartButton {
-  margin: 10px;
 
-  padding: 12px 25px;
+  margin: 8px;
 
-  border: 3px solid #ffdb58;
+  padding:
+    12px 25px;
+
+  border:
+    3px solid #ffdc58;
+
   border-radius: 14px;
 
-  background: #705015;
+  background:
+    #705015;
 
   color: white;
 
   font-size: 20px;
+
   font-weight: bold;
 
   cursor: pointer;
 }
 
-#restartButton:hover {
-  background: #976b1c;
-}
 
 /* ============================================================
    BACK
    ============================================================ */
 
 .backButton {
+
   display: inline-block;
 
   margin: 5px;
 
-  padding: 10px 18px;
+  padding:
+    10px 18px;
 
-  border: 2px solid #ff8acb;
+  border:
+    2px solid #ff8acb;
+
   border-radius: 12px;
 
-  background: #54213f;
+  background:
+    #54213f;
 
   color: white;
 
@@ -526,60 +864,66 @@ h1 {
   font-weight: bold;
 }
 
-.backButton:hover {
-  background: #78315b;
-}
 
 /* ============================================================
    MOBILE
    ============================================================ */
 
 @media (max-width: 600px) {
-  body {
-    padding: 3px;
-  }
 
   .game {
+
     width: 100%;
+
     min-height: 100vh;
 
     margin: 0;
 
-    padding: 8px;
+    padding: 7px;
 
     border-radius: 15px;
   }
 
   #gameArea {
+
     height: 55vh;
+
     min-height: 380px;
   }
 
-  .mission p {
-    font-size: 16px;
-  }
-
   .food {
+
     width: 85px;
     height: 75px;
   }
 
   .burger {
+
     font-size: 50px;
   }
 
   .food-letter {
+
     font-size: 25px;
   }
 
   .game-info {
-    gap: 15px;
+
+    gap: 12px;
+
     font-size: 18px;
   }
 
+  .instructions {
+
+    font-size: 14px;
+  }
+
   .key {
+
     width: 30px;
     height: 30px;
+
     font-size: 14px;
   }
 }
