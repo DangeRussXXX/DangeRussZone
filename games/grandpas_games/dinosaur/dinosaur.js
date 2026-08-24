@@ -115,16 +115,10 @@ function showNextLetter() {
 function createBurgers(correctLetter) {
 
   foodArea.innerHTML = "";
-
   burgers = [];
 
-
-  /* Three choices */
-
-  const choices = [
-    correctLetter
-  ];
-
+  // Exactly 3 choices
+  const choices = [correctLetter];
 
   while (choices.length < 3) {
 
@@ -138,103 +132,54 @@ function createBurgers(correctLetter) {
     }
   }
 
+  // Shuffle
+  choices.sort(() => Math.random() - 0.5);
 
-  /* Shuffle */
-
-  choices.sort(
-    () => Math.random() - 0.5
-  );
-
-
-  /*
-     Safe locations.
-
-     These are intentionally away
-     from Dino.
-  */
-
+  // Safe positions around the dinosaur
   const positions = [
-
-    {
-      left: "18%",
-      top: "23%"
-    },
-
-    {
-      left: "82%",
-      top: "23%"
-    },
-
-    {
-      left: "50%",
-      top: "78%"
-    }
-
+    { left: "18%", top: "25%" },
+    { left: "82%", top: "25%" },
+    { left: "50%", top: "82%" }
   ];
 
+  choices.forEach((letter, index) => {
 
-  choices.forEach(
-    (letter, index) => {
+    const burger = document.createElement("button");
 
-      /* Create burger */
+    burger.className = "burger";
 
-      const burger =
-        document.createElement("div");
+    burger.type = "button";
 
-      burger.className = "burger";
+    burger.dataset.letter = letter;
 
-      burger.dataset.letter =
-        letter;
+    burger.style.left = positions[index].left;
+    burger.style.top = positions[index].top;
 
-      burger.style.left =
-        positions[index].left;
+    // IMPORTANT:
+    // Put the burger directly into the game area.
+    // This avoids foodArea stacking/visibility problems.
+    gameArea.appendChild(burger);
 
-      burger.style.top =
-        positions[index].top;
+    const letterBubble =
+      document.createElement("span");
 
+    letterBubble.className = "burger-letter";
 
-      /* Create glowing letter */
+    letterBubble.textContent = letter;
 
-      const letterBubble =
-        document.createElement("div");
+    burger.appendChild(letterBubble);
 
-      letterBubble.className =
-        "burger-letter";
+    burgers.push(burger);
 
-      letterBubble.textContent =
-        letter;
+    burger.addEventListener(
+      "click",
+      function () {
+        selectBurger(burger);
+      }
+    );
 
+  });
 
-      /* Put letter ON burger */
-
-      burger.appendChild(
-        letterBubble
-      );
-
-
-      /* Put burger in game */
-
-      foodArea.appendChild(
-        burger
-      );
-
-
-      burgers.push(
-        burger
-      );
-
-
-      /* Mouse */
-
-      burger.addEventListener(
-        "click",
-        function () {
-          selectBurger(burger);
-        }
-      );
-
-    }
-  );
 }
 
 
