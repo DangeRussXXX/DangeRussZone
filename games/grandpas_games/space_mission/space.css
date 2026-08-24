@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+
 html,
 body {
   margin: 0;
@@ -9,9 +10,12 @@ body {
   min-height: 100%;
 }
 
+
 body {
   font-family: Arial, sans-serif;
+
   color: white;
+
   text-align: center;
 
   background:
@@ -20,34 +24,42 @@ body {
       #24245c 0%,
       transparent 25%
     ),
+
     radial-gradient(
       circle at 80% 30%,
       #35145c 0%,
       transparent 25%
     ),
+
     linear-gradient(
       #02020d,
       #080020
     );
 }
 
+
 .game {
   width: min(95%, 900px);
+
   margin: 0 auto;
+
   padding: 20px;
 }
 
 
-/* TITLE */
+/* ============================================================
+   TITLE
+   ============================================================ */
 
 h1 {
   margin: 10px 0 20px;
 
-  font-size: clamp(
-    28px,
-    6vw,
-    52px
-  );
+  font-size:
+    clamp(
+      28px,
+      6vw,
+      52px
+    );
 
   text-shadow:
     0 0 8px #00ffff,
@@ -56,26 +68,29 @@ h1 {
 }
 
 
-/* MISSION */
+/* ============================================================
+   MISSION
+   ============================================================ */
 
 .mission {
-  background: rgba(
-    0,
-    0,
-    40,
-    0.75
-  );
+  background:
+    rgba(
+      0,
+      0,
+      40,
+      0.8
+    );
 
   border: 2px solid #00ffff;
 
-  border-radius: 15px;
+  border-radius: 18px;
 
-  padding: 15px;
+  padding: 18px;
 
   margin-bottom: 20px;
 
   box-shadow:
-    0 0 15px
+    0 0 20px
     rgba(
       0,
       255,
@@ -83,6 +98,7 @@ h1 {
       0.4
     );
 }
+
 
 .mission h2 {
   margin-top: 0;
@@ -93,13 +109,29 @@ h1 {
     0 0 8px #ff9900;
 }
 
+
 .mission p {
-  font-size: 18px;
+  font-size: 19px;
+
   line-height: 1.5;
 }
 
 
-/* GAME AREA */
+#instruction {
+  font-size: 26px;
+
+  font-weight: bold;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 10px #00ffff;
+}
+
+
+/* ============================================================
+   GAME AREA
+   ============================================================ */
 
 #gameArea {
   position: relative;
@@ -108,13 +140,11 @@ h1 {
 
   height: 500px;
 
-  min-height: 350px;
-
   overflow: hidden;
 
   border: 4px solid #00ffff;
 
-  border-radius: 20px;
+  border-radius: 22px;
 
   background-color: #02020d;
 
@@ -124,6 +154,7 @@ h1 {
       white 1px,
       transparent 1px
     ),
+
     radial-gradient(
       circle,
       white 1px,
@@ -140,7 +171,8 @@ h1 {
 
   box-shadow:
     inset 0 0 40px #000,
-    0 0 25px
+
+    0 0 30px
     rgba(
       0,
       255,
@@ -150,13 +182,16 @@ h1 {
 }
 
 
-/* ROCKET */
+/* ============================================================
+   ROCKET
+   ============================================================ */
 
 #player {
   position: absolute;
 
   left: 50%;
-  top: 80%;
+
+  top: 85%;
 
   transform:
     translate(
@@ -164,29 +199,244 @@ h1 {
       -50%
     );
 
-  font-size: 60px;
+  font-size: 65px;
 
   line-height: 1;
 
   user-select: none;
 
-  z-index: 10;
+  z-index: 20;
 
   transition:
-    left 0.12s ease,
-    top 0.12s ease;
+    left 0.8s ease,
+    top 0.8s ease;
 
   filter:
     drop-shadow(
       0 0 8px #00ffff
     )
+
     drop-shadow(
-      0 0 15px white
+      0 0 18px white
     );
 }
 
 
-/* GAME INFORMATION */
+/* ============================================================
+   LETTER AREA
+   ============================================================ */
+
+#letterArea {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 10;
+}
+
+
+/* ============================================================
+   FLOATING LETTER
+   ============================================================ */
+
+.letter {
+  position: absolute;
+
+  width: 120px;
+
+  height: 120px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border: 5px solid #ffe600;
+
+  border-radius: 25px;
+
+  background:
+    rgba(
+      40,
+      20,
+      100,
+      0.9
+    );
+
+  color: white;
+
+  font-size: 70px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  touch-action: manipulation;
+
+  box-shadow:
+    0 0 15px #ffe600,
+    0 0 30px
+    rgba(
+      255,
+      230,
+      0,
+      0.6
+    );
+
+  animation:
+    letterFloat
+    1.5s
+    ease-in-out
+    infinite
+    alternate;
+
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+
+.letter:hover {
+  transform: scale(1.12);
+
+  background:
+    rgba(
+      80,
+      40,
+      160,
+      0.95
+    );
+}
+
+
+.letter:active {
+  transform: scale(0.9);
+}
+
+
+@keyframes letterFloat {
+
+  from {
+    margin-top: -8px;
+  }
+
+  to {
+    margin-top: 8px;
+  }
+
+}
+
+
+/* ============================================================
+   EXPLOSION
+   ============================================================ */
+
+#explosion {
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  font-size: 120px;
+
+  z-index: 100;
+
+  display: none;
+
+  pointer-events: none;
+}
+
+
+#explosion.show {
+  display: block;
+
+  animation:
+    explode
+    0.8s
+    ease-out;
+}
+
+
+@keyframes explode {
+
+  0% {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(0.2);
+
+    opacity: 0;
+  }
+
+  40% {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.4);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(2);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* ============================================================
+   CELEBRATION
+   ============================================================ */
+
+.celebrate {
+  animation:
+    celebration
+    0.7s
+    ease;
+}
+
+
+@keyframes celebration {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+/* ============================================================
+   GAME INFORMATION
+   ============================================================ */
 
 .game-info {
   display: flex;
@@ -195,7 +445,7 @@ h1 {
 
   align-items: center;
 
-  gap: 30px;
+  gap: 35px;
 
   margin: 20px 0;
 
@@ -206,6 +456,7 @@ h1 {
   flex-wrap: wrap;
 }
 
+
 .game-info span {
   color: #ffe600;
 
@@ -214,7 +465,9 @@ h1 {
 }
 
 
-/* CONTROLS */
+/* ============================================================
+   CONTROLS
+   ============================================================ */
 
 .controls {
   display: flex;
@@ -230,40 +483,41 @@ h1 {
   flex-wrap: wrap;
 }
 
-.controls button {
-  border: 2px solid #00ffff;
 
-  border-radius: 12px;
+.controls button {
+  border: 3px solid #00ffff;
+
+  border-radius: 15px;
 
   background: #10104a;
 
   color: white;
 
-  font-size: 22px;
+  font-size: 24px;
 
   font-weight: bold;
 
-  padding: 12px 22px;
+  padding: 14px 24px;
 
   cursor: pointer;
 
+  touch-action: manipulation;
+
   box-shadow:
-    0 0 10px
+    0 0 12px
     rgba(
       0,
       255,
       255,
-      0.4
+      0.5
     );
-
-  transition:
-    transform 0.1s,
-    background 0.1s;
 }
+
 
 .controls button:hover {
   background: #202080;
 }
+
 
 .controls button:active {
   transform: scale(0.92);
@@ -282,139 +536,78 @@ h1 {
   padding-right: 30px;
 }
 
+
 #startButton:hover {
   background: #9b35ff;
 }
 
 
-/* ANSWER AREA */
-
-#answerArea {
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 20px;
-
-  flex-wrap: wrap;
-
-  margin: 25px auto;
-
-  min-height: 120px;
-}
-
-
-/* BIG LETTER BUTTONS */
-
-#answerArea button {
-  width: 110px;
-
-  height: 110px;
-
-  border: 4px solid #00ffff;
-
-  border-radius: 20px;
-
-  background: #10104a;
-
-  color: white;
-
-  font-size: 48px;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 0 15px
-    rgba(
-      0,
-      255,
-      255,
-      0.5
-    );
-
-  transition:
-    transform 0.1s,
-    background 0.1s;
-}
-
-#answerArea button:hover {
-  background: #202080;
-
-  transform: scale(1.05);
-}
-
-#answerArea button:active {
-  transform: scale(0.92);
-}
-
-#answerArea button:disabled {
-  cursor: default;
-
-  opacity: 0.7;
-}
-
-
-/* RESTART */
+/* ============================================================
+   RESTART
+   ============================================================ */
 
 .restart-area {
   margin-top: 15px;
 }
 
-#restartButton {
-  border: 2px solid #ff69b4;
 
-  border-radius: 12px;
+#restartButton {
+  display: none;
+
+  border: 3px solid #ff69b4;
+
+  border-radius: 15px;
 
   background: #35002d;
 
   color: white;
 
-  font-size: 20px;
+  font-size: 22px;
 
   font-weight: bold;
 
-  padding: 12px 24px;
+  padding: 14px 26px;
 
   cursor: pointer;
 
   box-shadow:
-    0 0 10px
+    0 0 12px
     rgba(
       255,
       105,
       180,
-      0.4
+      0.5
     );
 }
+
 
 #restartButton:hover {
   background: #650055;
 }
 
 
-/* INSTRUCTIONS */
+/* ============================================================
+   INSTRUCTIONS
+   ============================================================ */
 
 .instructions {
   margin-top: 25px;
 
-  padding: 15px;
+  padding: 18px;
 
   background:
     rgba(
       0,
       0,
       40,
-      0.65
+      0.7
     );
 
   border: 2px solid #7b00ff;
 
-  border-radius: 15px;
+  border-radius: 18px;
 }
+
 
 .instructions h2 {
   margin-top: 0;
@@ -422,21 +615,24 @@ h1 {
   color: #ffe600;
 }
 
-.instructions p {
-  margin: 8px 0;
 
-  font-size: 16px;
+.instructions p {
+  margin: 10px 0;
+
+  font-size: 17px;
 }
 
 
-/* BACK BUTTON */
+/* ============================================================
+   BACK BUTTON
+   ============================================================ */
 
 .backButton {
   display: inline-block;
 
   margin-top: 20px;
 
-  padding: 12px 20px;
+  padding: 13px 22px;
 
   border: 2px solid #ff69b4;
 
@@ -458,22 +654,17 @@ h1 {
       180,
       0.4
     );
-
-  transition:
-    transform 0.1s,
-    background 0.1s;
 }
+
 
 .backButton:hover {
   background: #650055;
 }
 
-.backButton:active {
-  transform: scale(0.95);
-}
 
-
-/* MOBILE */
+/* ============================================================
+   MOBILE
+   ============================================================ */
 
 @media (max-width: 600px) {
 
@@ -481,40 +672,52 @@ h1 {
     padding: 10px;
   }
 
+
   .mission p {
     font-size: 16px;
   }
 
-  #gameArea {
-    height: 400px;
-    min-height: 350px;
+
+  #instruction {
+    font-size: 22px;
   }
 
-  #player {
-    font-size: 48px;
+
+  #gameArea {
+    height: 430px;
   }
+
+
+  #player {
+    font-size: 50px;
+  }
+
+
+  .letter {
+    width: 100px;
+
+    height: 100px;
+
+    font-size: 58px;
+  }
+
+
+  .game-info {
+    gap: 15px;
+
+    font-size: 18px;
+  }
+
 
   .controls {
     gap: 8px;
   }
 
+
   .controls button {
-    padding: 12px 16px;
+    padding: 12px 17px;
+
     font-size: 20px;
   }
 
-  .game-info {
-    gap: 12px;
-    font-size: 18px;
-  }
-
-  #answerArea {
-    gap: 12px;
-  }
-
-  #answerArea button {
-    width: 90px;
-    height: 90px;
-    font-size: 40px;
-  }
 }

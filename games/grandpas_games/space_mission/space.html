@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Lil' Russell's Space Mission</title>
+  <title>Lil' Russell's Alphabet Space Mission</title>
 
   <link
     rel="stylesheet"
@@ -19,13 +19,19 @@
 
 </head>
 
+
 <body>
 
   <main class="game">
 
+    <!-- TITLE -->
+
     <h1>
-      🚀 Lil' Russell's Space Mission 🚀
+      🚀 Lil' Russell's Alphabet Mission 🚀
     </h1>
+
+
+    <!-- MISSION MESSAGE -->
 
     <section class="mission">
 
@@ -34,11 +40,11 @@
       </h2>
 
       <p id="message">
-        Russell, get ready for your reading mission!
+        Welcome, Russell! Let's learn our letters!
       </p>
 
-      <p>
-        🔤 Learn letters, find stars, and become a Reading Space Explorer!
+      <p id="instruction">
+        🚀 Get ready for your first letter mission!
       </p>
 
     </section>
@@ -48,14 +54,31 @@
 
     <section
       id="gameArea"
-      aria-label="Lil Russell's Space Mission Game"
+      aria-label="Alphabet Space Mission"
     >
+
+      <!-- ROCKET -->
 
       <div
         id="player"
-        aria-label="Russell's Rocket"
+        aria-label="Russell's rocket"
       >
         🚀
+      </div>
+
+
+      <!-- LETTERS ARE CREATED BY JAVASCRIPT -->
+
+      <div id="letterArea"></div>
+
+
+      <!-- EXPLOSION -->
+
+      <div
+        id="explosion"
+        aria-hidden="true"
+      >
+        💥
       </div>
 
     </section>
@@ -76,23 +99,25 @@
       </div>
 
       <div>
-        ⛽ Fuel:
-        <span id="fuel">100</span>
+        🔤 Mission:
+        <span id="missionNumber">1</span>
       </div>
 
     </section>
 
 
-    <!-- START / MOVEMENT -->
+    <!-- CONTROLS -->
 
     <section class="controls">
 
       <button
         id="leftButton"
         type="button"
+        aria-label="Move left"
       >
         ⬅️
       </button>
+
 
       <button
         id="startButton"
@@ -101,22 +126,15 @@
         🚀 START MISSION
       </button>
 
+
       <button
         id="rightButton"
         type="button"
+        aria-label="Move right"
       >
         ➡️
       </button>
 
-    </section>
-
-
-    <!-- ANSWERS WILL APPEAR HERE -->
-
-    <section
-      id="answerArea"
-      aria-label="Reading answer choices"
-    >
     </section>
 
 
@@ -127,7 +145,6 @@
       <button
         id="restartButton"
         type="button"
-        style="display: none;"
       >
         🔄 PLAY AGAIN
       </button>
@@ -140,27 +157,29 @@
     <section class="instructions">
 
       <h2>
-        🎮 Mission Controls
+        🌟 Space Explorer Controls
       </h2>
 
       <p>
-        🖱️ Click an answer with the mouse
+        🖱️ Click a letter
       </p>
 
       <p>
-        👆 Tap an answer on a tablet or phone
+        👆 Tap a letter
       </p>
 
       <p>
-        ⬅️ ➡️ Move the rocket
+        🚀 Help Russell find the right letter!
       </p>
 
       <p>
-        ⌨️ Keyboard controls are optional
+        💡 Don't worry if you miss — keep trying!
       </p>
 
     </section>
 
+
+    <!-- BACK BUTTON -->
 
     <a
       href="../grandpas_games.html"
