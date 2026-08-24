@@ -540,26 +540,53 @@ function wrongAnswer(burger) {
    BOOM EFFECT
    ============================================================ */
 
-function showBoom() {
+function showBoom(burger) {
 
-  effect.textContent = "💥";
+  const burgerRect =
+    burger.getBoundingClientRect();
 
-  effect.classList.remove(
-    "show"
-  );
+  const areaRect =
+    gameArea.getBoundingClientRect();
 
 
   /*
-     Force browser to restart animation
+     Put the explosion directly
+     over the incorrect burger.
+  */
+
+  const x =
+    burgerRect.left +
+    burgerRect.width / 2 -
+    areaRect.left;
+
+
+  const y =
+    burgerRect.top +
+    burgerRect.height / 2 -
+    areaRect.top;
+
+
+  effect.style.left =
+    x + "px";
+
+  effect.style.top =
+    y + "px";
+
+
+  effect.textContent = "💥";
+
+
+  effect.classList.remove("show");
+
+
+  /*
+     Force the animation to restart.
   */
 
   void effect.offsetWidth;
 
 
-  effect.classList.add(
-    "show"
-  );
-
+  effect.classList.add("show");
 }
 
 
